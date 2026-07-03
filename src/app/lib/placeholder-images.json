@@ -1,0 +1,17 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-glitch",
+      "description": "Cyber security digital glitch background",
+      "imageUrl": "https://picsum.photos/seed/cyber1/1200/800",
+      "imageHint": "cyber glitch"
+    },
+    {
+      "id": "terminal-bg",
+      "description": "Dark terminal screen with code",
+      "imageUrl": "https://picsum.photos/seed/cyber2/800/600",
+      "imageHint": "terminal code"
+    }
+  ]
+}
