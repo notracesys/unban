@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -7,120 +8,159 @@ import { TicketAdvisor } from '@/components/cyber/TicketAdvisor';
 import { DelayTimer } from '@/components/cyber/DelayTimer';
 import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
 import { AttemptLog } from '@/components/cyber/AttemptLog';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, Lock, Info, ChevronRight, Briefcase } from 'lucide-react';
+import { ShieldAlert, Lock, Info, ChevronRight, Briefcase, Terminal, Activity, BrainCircuit, SearchCode, Timer } from 'lucide-react';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 
 export default function Home() {
   const [diagnosis, setDiagnosis] = useState<string | undefined>();
 
   return (
-    <main className="min-h-screen pb-20 pt-10 px-4 md:px-8 max-w-6xl mx-auto flex flex-col gap-12">
+    <main className="min-h-screen pb-20 pt-6 px-4 max-w-md mx-auto flex flex-col gap-8">
       {/* Header Briefing */}
-      <header className="flex flex-col items-center text-center space-y-4 pt-10">
-        <div className="relative mb-4">
-          <div className="w-16 h-16 border-2 border-primary rotate-45 flex items-center justify-center animate-pulse">
-            <ShieldAlert className="w-8 h-8 text-primary -rotate-45" />
+      <header className="flex flex-col items-center text-center space-y-2 py-6">
+        <div className="relative mb-2">
+          <div className="w-12 h-12 border-2 border-primary rotate-45 flex items-center justify-center animate-pulse">
+            <ShieldAlert className="w-6 h-6 text-primary -rotate-45" />
           </div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 border border-primary/20 animate-spin" style={{ animationDuration: '10s' }} />
         </div>
-        <h1 className="text-5xl md:text-7xl font-headline font-black tracking-tighter uppercase">
-          Shadow<span className="text-primary">Protocol</span>
+        <h1 className="text-4xl font-headline font-black tracking-tighter uppercase">
+          Unban<span className="text-primary"> Strategy</span>
         </h1>
-        <p className="text-xs md:text-sm font-code text-muted-foreground tracking-[0.2em] uppercase max-w-2xl">
-          High-Security Engagement Method for Critical Account Restoration
+        <p className="text-[10px] font-code text-muted-foreground tracking-[0.2em] uppercase">
+          Método de Recuperação de Contas de Alto Nível
         </p>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column: Briefing Content */}
-        <section className="lg:col-span-4 space-y-8 order-2 lg:order-1">
-          <div className="p-6 bg-card/50 border border-primary/20 rounded relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
-              <Lock className="w-4 h-4" />
-            </div>
-            <h2 className="font-headline text-lg uppercase mb-4 flex items-center gap-2">
-              <Briefcase className="w-4 h-4 text-primary" />
-              Executive Briefing
-            </h2>
-            <div className="font-body text-xs text-muted-foreground leading-relaxed space-y-4">
-              <p>
-                If you are reading this, your account has been neutralized. Your objective is simple: recovery.
-              </p>
-              <p>
-                This method was forged for those who refuse to accept silence. It is not for the curious, but for the strategic.
-              </p>
-              <p>
-                Most fail by engaging support emotionaly. Using the wrong tone triggers automated filtration systems instantly.
-              </p>
-            </div>
-          </div>
+      <section className="space-y-4">
+        <Accordion type="single" collapsible className="w-full space-y-4 border-none">
+          
+          {/* Tópico 1: Briefing Executivo */}
+          <AccordionItem value="briefing" className="bg-card/50 border border-primary/20 rounded px-4">
+            <AccordionTrigger className="hover:no-underline py-4">
+              <div className="flex items-center gap-3">
+                <Briefcase className="w-5 h-5 text-primary" />
+                <span className="font-headline text-sm uppercase font-bold tracking-wider">Instruções Críticas</span>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent>
+              <div className="font-body text-xs text-muted-foreground leading-relaxed space-y-4 pt-2">
+                <p>
+                  Sua conta foi neutralizada. Seu objetivo é a restauração estratégica.
+                </p>
+                <p>
+                  Este método é focado em evitar filtros automáticos e engajar suporte humano de forma técnica e calma.
+                </p>
+                <ul className="space-y-2 mt-4">
+                  {[
+                    'Evadir gatilhos de filtros automáticos',
+                    'Sintetizar solicitações legíveis por humanos',
+                    'Analisar padrões de resposta da plataforma',
+                    'Manter silêncio operacional pós-envio'
+                  ].map((obj, i) => (
+                    <li key={i} className="flex items-center gap-2 text-[10px] uppercase font-medium">
+                      <ChevronRight className="w-3 h-3 text-primary" />
+                      {obj}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
 
-          <div className="space-y-4">
-            <h3 className="text-[10px] font-bold uppercase tracking-widest text-primary/60 border-b border-primary/20 pb-2">Mission Objectives</h3>
-            <ul className="space-y-3">
-              {[
-                'Evade automated filter triggers',
-                'Synthesize human-readable requests',
-                'Analyze platform response patterns',
-                'Maintain operational silence'
-              ].map((obj, i) => (
-                <li key={i} className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-tight text-muted-foreground">
-                  <ChevronRight className="w-3 h-3 text-primary" />
-                  {obj}
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Tópico 2: Diagnóstico */}
+          <AccordionItem value="diagnostic" className="bg-card/50 border border-primary/20 rounded px-4">
+            <AccordionTrigger className="hover:no-underline py-4">
+              <div className="flex items-center gap-3">
+                <Terminal className="w-5 h-5 text-primary" />
+                <span className="font-headline text-sm uppercase font-bold tracking-wider">Protocolo de Diagnóstico</span>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="pt-2">
+              <DecisionTree onDiagnosed={setDiagnosis} />
+            </AccordionContent>
+          </AccordionItem>
 
-          <AttemptLog />
-        </section>
-
-        {/* Center/Right: Tools Dashboard */}
-        <section className="lg:col-span-8 space-y-8 order-1 lg:order-2">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <DecisionTree onDiagnosed={setDiagnosis} />
-            <DelayTimer />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            <div className="md:col-span-8">
+          {/* Tópico 3: Gerador de Tickets */}
+          <AccordionItem value="advisor" className="bg-card/50 border border-accent/20 rounded px-4">
+            <AccordionTrigger className="hover:no-underline py-4">
+              <div className="flex items-center gap-3">
+                <BrainCircuit className="w-5 h-5 text-accent" />
+                <span className="font-headline text-sm uppercase font-bold tracking-wider text-accent">Gerador de Protocolo</span>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="pt-2">
               <TicketAdvisor prefilledType={diagnosis} />
-            </div>
-            <div className="md:col-span-4">
-              <ResponseDecoder />
-            </div>
-          </div>
+            </AccordionContent>
+          </AccordionItem>
 
-          {/* Strategic Context */}
-          <Card className="bg-card border-muted/10 relative">
-            <CardHeader>
-              <CardTitle className="font-headline text-sm uppercase tracking-widest flex items-center gap-2">
-                <Info className="w-4 h-4 text-muted-foreground" />
-                Structural Guidelines
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6 font-body text-[10px] text-muted-foreground uppercase leading-tight">
-              <div className="space-y-2 p-3 bg-muted/5 rounded">
-                <span className="text-primary font-bold">Protocol A-1: Category Selection</span>
-                <p>Never select "Detected Cheating". Always use "Account Recovery (Generic)". It avoids immediate closed-case scripting.</p>
+          {/* Tópico 4: Cooldown e Silêncio */}
+          <AccordionItem value="cooldown" className="bg-card/50 border border-primary/20 rounded px-4">
+            <AccordionTrigger className="hover:no-underline py-4">
+              <div className="flex items-center gap-3">
+                <Timer className="w-5 h-5 text-primary" />
+                <span className="font-headline text-sm uppercase font-bold tracking-wider">Rastreador de Silêncio</span>
               </div>
-              <div className="space-y-2 p-3 bg-muted/5 rounded">
-                <span className="text-accent font-bold">Protocol B-7: Subject Lines</span>
-                <p>Use functional subjects like "Access Irregularity Diagnosis" instead of "Unban Me". The goal is to appear as a technical anomaly.</p>
+            </AccordionTrigger>
+            <AccordionContent className="pt-2">
+              <DelayTimer />
+            </AccordionContent>
+          </AccordionItem>
+
+          {/* Tópico 5: Decodificador de Respostas */}
+          <AccordionItem value="decoder" className="bg-card/50 border border-accent/20 rounded px-4">
+            <AccordionTrigger className="hover:no-underline py-4">
+              <div className="flex items-center gap-3">
+                <SearchCode className="w-5 h-5 text-accent" />
+                <span className="font-headline text-sm uppercase font-bold tracking-wider text-accent">Decodificar Resposta</span>
               </div>
-            </CardContent>
-          </Card>
-        </section>
+            </AccordionTrigger>
+            <AccordionContent className="pt-2">
+              <ResponseDecoder />
+            </AccordionContent>
+          </AccordionItem>
+
+          {/* Tópico 6: Logs de Missão */}
+          <AccordionItem value="logs" className="bg-card/50 border border-muted/20 rounded px-4">
+            <AccordionTrigger className="hover:no-underline py-4">
+              <div className="flex items-center gap-3">
+                <Activity className="w-5 h-5 text-muted-foreground" />
+                <span className="font-headline text-sm uppercase font-bold tracking-wider text-muted-foreground">Histórico de Operações</span>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="pt-2">
+              <AttemptLog />
+            </AccordionContent>
+          </AccordionItem>
+
+        </Accordion>
+      </section>
+
+      {/* Strategic Context */}
+      <div className="bg-card border border-muted/10 p-4 rounded-lg space-y-4">
+        <h3 className="font-headline text-[10px] uppercase tracking-widest flex items-center gap-2 font-bold">
+          <Info className="w-3 h-3 text-muted-foreground" />
+          Diretrizes Estruturais
+        </h3>
+        <div className="grid gap-4 font-body text-[10px] text-muted-foreground uppercase leading-tight">
+          <div className="space-y-1">
+            <span className="text-primary font-bold block">Protocolo A-1: Categoria</span>
+            <p>Nunca selecione "Uso de Hacks". Use "Recuperação de Conta". Evita fechamento automático.</p>
+          </div>
+          <div className="space-y-1">
+            <span className="text-accent font-bold block">Protocolo B-7: Assuntos</span>
+            <p>Use "Irregularidade Técnica no Acesso" em vez de "Fui Banido". Pareça uma anomalia do sistema.</p>
+          </div>
+        </div>
       </div>
 
       {/* Footer Branding */}
-      <footer className="mt-auto pt-10 flex flex-col items-center justify-center space-y-4 opacity-50">
-        <Separator className="bg-primary/20 w-32" />
-        <div className="flex gap-4 text-[10px] font-code tracking-widest">
-          <span>SHADOWPROTOCOL_V.4.2</span>
+      <footer className="mt-auto pt-6 flex flex-col items-center justify-center space-y-3 opacity-50">
+        <Separator className="bg-primary/20 w-24" />
+        <div className="flex gap-3 text-[8px] font-code tracking-widest">
+          <span>UNBANSTRATEGY_V.5.0</span>
           <span>//</span>
-          <span>NO_GUARANTEES_ONLY_STRATEGY</span>
+          <span>SÓ ESTRATÉGIA</span>
         </div>
       </footer>
     </main>

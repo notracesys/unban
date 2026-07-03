@@ -3,40 +3,39 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { ShieldAlert, Terminal, UserSearch, RotateCcw } from 'lucide-react';
 import { GlitchText } from './GlitchText';
 
 const STEPS = [
   {
     id: 'start',
-    question: 'How does the ban message look?',
+    question: 'Como é a mensagem de banimento?',
     options: [
-      { label: 'Generic, no specific details mentioned', next: 'automatic' },
-      { label: 'Mentions specific rules or human investigation', next: 'manual' },
-      { label: 'I have had previous warnings or bans', next: 'reincident' }
+      { label: 'Genérica, sem detalhes específicos', next: 'automatic' },
+      { label: 'Menciona regras específicas ou investigação', next: 'manual' },
+      { label: 'Já tive avisos ou banimentos anteriores', next: 'reincident' }
     ]
   },
   {
     id: 'automatic',
-    result: 'Automatic Ban',
-    description: 'System-identified suspicious patterns. High chance for strategic recovery.',
+    result: 'Banimento Automático',
+    description: 'Sistema identificou padrões suspeitos. Alta chance de recuperação estratégica.',
     icon: Terminal,
-    type: 'Automatic'
+    type: 'Automático'
   },
   {
     id: 'manual',
-    result: 'Manual Ban',
-    description: 'Human analysis confirmed the violation. Low recovery probability.',
+    result: 'Banimento Manual',
+    description: 'Análise humana confirmou a violação. Probabilidade de recuperação reduzida.',
     icon: UserSearch,
     type: 'Manual'
   },
   {
     id: 'reincident',
-    result: 'Reincident Ban',
-    description: 'Multiple occurrences found. Extremely low chance; strategy is to not worsen the status.',
+    result: 'Banimento Reincidente',
+    description: 'Múltiplas ocorrências encontradas. Estratégia é não piorar o status da conta.',
     icon: ShieldAlert,
-    type: 'Reincident'
+    type: 'Reincidente'
   }
 ];
 
@@ -50,62 +49,53 @@ export function DecisionTree({ onDiagnosed }: { onDiagnosed: (type: string) => v
   if (!currentStep) return null;
 
   return (
-    <Card className="bg-card border-primary/20 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-1 h-full bg-primary" />
-      <CardHeader>
-        <CardTitle className="font-headline text-xl tracking-wider flex items-center gap-2">
-          <Terminal className="w-5 h-5 text-primary" />
-          <GlitchText text="DIAGNOSTIC_PROTOCOL" />
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-6">
-        {currentStep.id === 'start' ? (
-          <div className="space-y-4">
-            <p className="text-muted-foreground font-medium uppercase text-xs tracking-widest">Select relevant indicator:</p>
-            <div className="grid gap-2">
-              {currentStep.options?.map((opt, i) => (
-                <Button 
-                  key={i} 
-                  variant="outline" 
-                  className="justify-start border-primary/10 hover:bg-primary/5 hover:border-primary text-left h-auto py-3 px-4 font-body"
-                  onClick={() => {
-                    setCurrentStepId(opt.next);
-                    if (opt.next !== 'start') {
-                      const res = STEPS.find(s => s.id === opt.next);
-                      if (res?.type) onDiagnosed(res.type);
-                    }
-                  }}
-                >
-                  <span className="text-primary mr-3 opacity-50 font-code">0{i+1}</span>
-                  {opt.label}
-                </Button>
-              ))}
-            </div>
+    <div className="space-y-4 animate-in fade-in duration-500">
+      {currentStep.id === 'start' ? (
+        <div className="space-y-4">
+          <p className="text-muted-foreground font-medium uppercase text-[10px] tracking-widest">Selecione o indicador:</p>
+          <div className="grid gap-2">
+            {currentStep.options?.map((opt, i) => (
+              <Button 
+                key={i} 
+                variant="outline" 
+                className="justify-start border-primary/20 hover:bg-primary/5 hover:border-primary text-left h-auto py-3 px-4 font-body text-xs"
+                onClick={() => {
+                  setCurrentStepId(opt.next);
+                  if (opt.next !== 'start') {
+                    const res = STEPS.find(s => s.id === opt.next);
+                    if (res?.type) onDiagnosed(res.type);
+                  }
+                }}
+              >
+                <span className="text-primary mr-3 opacity-50 font-code">0{i+1}</span>
+                {opt.label}
+              </Button>
+            ))}
           </div>
-        ) : (
-          <div className="space-y-6 text-center animate-in fade-in slide-in-from-bottom-2">
-            <div className="flex justify-center">
-              {currentStep.icon && <currentStep.icon className="w-16 h-16 text-primary animate-pulse" />}
-            </div>
-            <div>
-              <h3 className="text-2xl font-headline font-bold text-primary mb-2 uppercase tracking-tighter">
-                {currentStep.result}
-              </h3>
-              <p className="text-muted-foreground max-w-sm mx-auto">
-                {currentStep.description}
-              </p>
-            </div>
-            <Button 
-              variant="ghost" 
-              className="text-primary hover:text-primary-foreground hover:bg-primary text-xs uppercase tracking-widest"
-              onClick={reset}
-            >
-              <RotateCcw className="w-3 h-3 mr-2" />
-              Restart Diagnostic
-            </Button>
+        </div>
+      ) : (
+        <div className="space-y-4 text-center py-2">
+          <div className="flex justify-center">
+            {currentStep.icon && <currentStep.icon className="w-12 h-12 text-primary animate-pulse" />}
           </div>
-        )}
-      </CardContent>
-    </Card>
+          <div>
+            <h3 className="text-lg font-headline font-bold text-primary mb-1 uppercase tracking-tighter">
+              {currentStep.result}
+            </h3>
+            <p className="text-muted-foreground text-[11px] leading-tight">
+              {currentStep.description}
+            </p>
+          </div>
+          <Button 
+            variant="ghost" 
+            className="text-primary hover:text-primary-foreground hover:bg-primary text-[9px] uppercase tracking-widest h-8"
+            onClick={reset}
+          >
+            <RotateCcw className="w-3 h-3 mr-2" />
+            Reiniciar Diagnóstico
+          </Button>
+        </div>
+      )}
+    </div>
   );
 }
