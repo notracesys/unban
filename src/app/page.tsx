@@ -83,14 +83,13 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         </div>
 
-        <div className="relative z-10 space-y-4 max-w-md w-full mx-auto">
+        <div className="relative z-10 space-y-4 max-w-xl w-full mx-auto">
           <div className="flex items-center gap-2 text-primary">
             <Crown className="w-5 h-5" />
             <span className="font-headline text-xs font-bold tracking-[0.3em] uppercase">MÉTODO EXCLUSIVO</span>
           </div>
-          <h1 className="text-5xl font-headline font-black tracking-tighter uppercase leading-[0.9]">
-            Unban <br />
-            <span className="text-primary">Strategy</span>
+          <h1 className="text-6xl font-headline font-black tracking-tighter uppercase leading-none break-words">
+            UNBAN <span className="text-primary">STRATEGY</span>
           </h1>
           <p className="text-sm text-muted-foreground font-body max-w-[280px] leading-relaxed">
             Engenharia social e técnica para restauração de contas de alto valor.
