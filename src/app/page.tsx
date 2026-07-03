@@ -69,7 +69,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background flex flex-col items-center">
       {/* Hero Section */}
-      <header className="w-full relative h-[60vh] flex flex-col justify-end p-6 overflow-hidden">
+      <header className="w-full relative h-[65vh] flex flex-col justify-end p-6 overflow-hidden">
         <div className="absolute inset-0 z-0">
           {heroImage?.imageUrl && (
             <Image 
@@ -83,18 +83,18 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         </div>
 
-        <div className="relative z-10 space-y-4 max-w-xl w-full mx-auto">
+        <div className="relative z-10 space-y-4 w-full">
           <div className="flex items-center gap-2 text-primary">
             <Crown className="w-5 h-5" />
-            <span className="font-headline text-xs font-bold tracking-[0.3em] uppercase">MÉTODO EXCLUSIVO</span>
+            <span className="font-headline text-[10px] font-bold tracking-[0.4em] uppercase">MÉTODO EXCLUSIVO</span>
           </div>
-          <h1 className="text-6xl font-headline font-black tracking-tighter uppercase leading-none break-words">
+          <h1 className="text-7xl font-headline font-black tracking-tighter uppercase leading-[0.85] break-words max-w-[90%]">
             UNBAN <span className="text-primary">STRATEGY</span>
           </h1>
-          <p className="text-sm text-muted-foreground font-body max-w-[280px] leading-relaxed">
-            Engenharia social e técnica para restauração de contas de alto valor.
+          <p className="text-xs text-muted-foreground font-body max-w-[280px] leading-relaxed uppercase tracking-widest opacity-80">
+            Engenharia social e técnica para restauração de ativos digitais.
           </p>
-          <button className="bg-primary text-white font-headline text-[10px] uppercase font-bold tracking-widest px-8 py-4 rounded-sm hover:brightness-110 transition-all">
+          <button className="bg-primary text-white font-headline text-[10px] uppercase font-bold tracking-widest px-10 py-5 rounded-sm hover:brightness-110 transition-all mt-4 border-b-4 border-black/20 active:translate-y-1 active:border-b-0">
             Iniciar Protocolo
           </button>
         </div>
@@ -107,15 +107,15 @@ export default function Home() {
           <h2 className="text-[10px] font-headline font-bold uppercase tracking-widest">Sistemas de Recuperação</h2>
         </div>
 
-        <Accordion type="single" collapsible className="w-full space-y-6">
+        <Accordion type="single" collapsible className="w-full space-y-8">
           {modules.map((module) => (
             <AccordionItem 
               key={module.id} 
               value={module.id} 
               className="border-none group overflow-hidden"
             >
-              <AccordionTrigger className="hover:no-underline p-0 flex flex-col items-start text-left data-[state=open]:mb-4 transition-all">
-                <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden border border-white/5 transition-transform duration-500 group-hover:scale-[1.02]">
+              <AccordionTrigger className="hover:no-underline p-0 flex flex-col items-start text-left data-[state=open]:mb-6 transition-all">
+                <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden border border-white/5 transition-transform duration-500 group-hover:scale-[1.02] shadow-2xl">
                   {/* Background Image */}
                   <div className="absolute inset-0">
                     {module.image && (
@@ -123,7 +123,7 @@ export default function Home() {
                         src={module.image} 
                         alt={module.title} 
                         fill 
-                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 brightness-75 group-hover:brightness-100"
                         data-ai-hint={module.hint}
                       />
                     )}
@@ -132,24 +132,26 @@ export default function Home() {
                   </div>
 
                   {/* Content Overlay */}
-                  <div className="absolute inset-0 p-6 flex flex-col justify-end gap-1">
-                    <span className="text-[10px] font-headline font-bold text-primary tracking-[0.2em]">
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end gap-1">
+                    <span className="text-[10px] font-headline font-bold text-primary tracking-[0.3em] mb-2">
                       {module.tag}
                     </span>
-                    <h3 className="text-2xl font-headline font-bold text-white uppercase tracking-tight leading-none group-hover:text-primary transition-colors">
+                    <h3 className="text-3xl font-headline font-black text-white uppercase tracking-tighter leading-none group-hover:text-primary transition-colors">
                       {module.title}
                     </h3>
-                    <p className="text-[10px] text-muted-foreground uppercase tracking-widest mt-2 line-clamp-1 opacity-0 group-hover:opacity-100 transition-all">
-                      Acessar Módulo <ChevronRight className="inline-block w-3 h-3 ml-1" />
-                    </p>
+                    <div className="h-0 group-hover:h-8 overflow-hidden transition-all duration-300 opacity-0 group-hover:opacity-100 mt-2">
+                      <p className="text-[10px] text-muted-foreground uppercase tracking-widest flex items-center gap-1">
+                        Acessar Módulo <ChevronRight className="w-3 h-3 text-primary" />
+                      </p>
+                    </div>
                   </div>
                 </div>
               </AccordionTrigger>
 
-              <AccordionContent className="bg-card border border-white/5 rounded-lg p-6 animate-in slide-in-from-top-4 duration-300">
+              <AccordionContent className="bg-card border border-white/10 rounded-lg p-6 animate-in slide-in-from-top-4 duration-300 shadow-inner">
                 <div className="space-y-4">
                   <div className="pb-4 border-b border-white/5">
-                    <h4 className="font-headline text-lg font-bold text-white mb-2">{module.title}</h4>
+                    <h4 className="font-headline text-lg font-bold text-white mb-2 uppercase tracking-tight">{module.title}</h4>
                     <p className="text-xs text-muted-foreground leading-relaxed">{module.description}</p>
                   </div>
                   {module.component}
@@ -162,27 +164,27 @@ export default function Home() {
 
       {/* Strategic Context */}
       <div className="w-full max-w-md px-6 mb-20">
-        <div className="bg-card border border-primary/20 p-6 rounded-lg space-y-4">
-          <h3 className="font-headline text-[10px] uppercase tracking-widest flex items-center gap-2 font-bold text-primary">
+        <div className="bg-card border border-primary/30 p-8 rounded-lg space-y-4 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 blur-2xl" />
+          <h3 className="font-headline text-[10px] uppercase tracking-[0.2em] flex items-center gap-2 font-black text-primary">
             <ShieldAlert className="w-4 h-4" />
             Diretrizes de Segurança
           </h3>
           <div className="grid gap-4 font-body text-[10px] text-muted-foreground uppercase leading-tight">
             <div className="space-y-1">
-              <span className="text-white font-bold block">Importante</span>
-              <p>O sucesso depende do silêncio operacional pós-envio. Evite contatos duplicados.</p>
+              <span className="text-white font-bold block">Atenção Crítica</span>
+              <p>O sucesso depende do silêncio operacional pós-envio. Contatos duplicados resultam em encerramento definitivo do caso.</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Footer Branding */}
-      <footer className="w-full max-w-md px-6 py-10 flex flex-col items-center justify-center space-y-4 opacity-40">
-        <Separator className="bg-white/10 w-24" />
-        <div className="flex gap-3 text-[8px] font-code tracking-widest">
+      <footer className="w-full max-w-md px-6 py-16 flex flex-col items-center justify-center space-y-6 opacity-30">
+        <Separator className="bg-white/10 w-32" />
+        <div className="flex flex-col items-center gap-2 text-[8px] font-code tracking-[0.4em] text-center">
           <span>UNBANSTRATEGY_SYSTEM_V.5.0</span>
-          <span>//</span>
-          <span>SÓ ESTRATÉGIA</span>
+          <span className="text-primary font-bold">// PROTOCOLO ATIVO</span>
         </div>
       </footer>
     </main>
