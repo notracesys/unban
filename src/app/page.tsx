@@ -86,17 +86,17 @@ export default function Home() {
         <div className="relative z-10 space-y-4 max-w-md w-full mx-auto">
           <div className="flex items-center gap-2 text-primary">
             <Crown className="w-5 h-5" />
-            <span className="font-headline text-xs font-bold tracking-[0.3em] uppercase">Unban Strategy</span>
+            <span className="font-headline text-xs font-bold tracking-[0.3em] uppercase">MÉTODO EXCLUSIVO</span>
           </div>
           <h1 className="text-5xl font-headline font-black tracking-tighter uppercase leading-[0.9]">
-            Recupere o seu <br />
-            <span className="text-primary">Patrimônio.</span>
+            Unban <br />
+            <span className="text-primary">Strategy</span>
           </h1>
           <p className="text-sm text-muted-foreground font-body max-w-[280px] leading-relaxed">
-            Método avançado de engenharia social e técnica para restauração de contas de alto valor.
+            Engenharia social e técnica para restauração de contas de alto valor.
           </p>
           <button className="bg-primary text-white font-headline text-[10px] uppercase font-bold tracking-widest px-8 py-4 rounded-sm hover:brightness-110 transition-all">
-            Começar Agora
+            Iniciar Protocolo
           </button>
         </div>
       </header>
@@ -105,7 +105,7 @@ export default function Home() {
       <section className="w-full max-w-md px-6 py-12 space-y-8">
         <div className="flex items-center gap-2 opacity-50">
           <LayoutGrid className="w-4 h-4" />
-          <h2 className="text-[10px] font-headline font-bold uppercase tracking-widest">Protocolos de Operação</h2>
+          <h2 className="text-[10px] font-headline font-bold uppercase tracking-widest">Sistemas de Recuperação</h2>
         </div>
 
         <Accordion type="single" collapsible className="w-full space-y-6">
@@ -166,12 +166,12 @@ export default function Home() {
         <div className="bg-card border border-primary/20 p-6 rounded-lg space-y-4">
           <h3 className="font-headline text-[10px] uppercase tracking-widest flex items-center gap-2 font-bold text-primary">
             <ShieldAlert className="w-4 h-4" />
-            Atenção Crítica
+            Diretrizes de Segurança
           </h3>
           <div className="grid gap-4 font-body text-[10px] text-muted-foreground uppercase leading-tight">
             <div className="space-y-1">
-              <span className="text-white font-bold block">Protocolo A-1: Categoria</span>
-              <p>O sucesso depende do silêncio operacional pós-envio. Não reincida em contatos antes do prazo.</p>
+              <span className="text-white font-bold block">Importante</span>
+              <p>O sucesso depende do silêncio operacional pós-envio. Evite contatos duplicados.</p>
             </div>
           </div>
         </div>
