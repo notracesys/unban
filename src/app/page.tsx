@@ -93,9 +93,6 @@ export default function Home() {
           <p className="text-xs text-muted-foreground font-body max-w-[280px] leading-relaxed uppercase tracking-widest opacity-80">
             Macetes e estratégias exclusivas para auxiliar no seu processo de recuperação de contas.
           </p>
-          <button className="bg-primary text-white font-headline text-[10px] uppercase font-bold tracking-widest px-10 py-5 rounded-sm hover:brightness-110 transition-all mt-4 border-b-4 border-black/20 active:translate-y-1 active:border-b-0">
-            Iniciar Protocolo
-          </button>
         </div>
       </header>
 
