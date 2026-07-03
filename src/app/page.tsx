@@ -2,163 +2,180 @@
 'use client';
 
 import { useState } from 'react';
-import { GlitchText } from '@/components/cyber/GlitchText';
+import Image from 'next/image';
 import { DecisionTree } from '@/components/cyber/DecisionTree';
 import { TicketAdvisor } from '@/components/cyber/TicketAdvisor';
 import { DelayTimer } from '@/components/cyber/DelayTimer';
 import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
 import { AttemptLog } from '@/components/cyber/AttemptLog';
 import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, Lock, Info, ChevronRight, Briefcase, Terminal, Activity, BrainCircuit, SearchCode, Timer } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Info, Crown, LayoutGrid } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Home() {
   const [diagnosis, setDiagnosis] = useState<string | undefined>();
 
+  const modules = [
+    {
+      id: 'diagnostic',
+      tag: 'MÓDULO 1',
+      title: 'Diagnóstico de Restrição',
+      description: 'Identifique o tipo de bloqueio aplicado à sua conta.',
+      image: PlaceHolderImages.find(img => img.id === 'module-diagnostic')?.imageUrl,
+      hint: PlaceHolderImages.find(img => img.id === 'module-diagnostic')?.imageHint,
+      component: <DecisionTree onDiagnosed={setDiagnosis} />
+    },
+    {
+      id: 'advisor',
+      tag: 'MÓDULO 2',
+      title: 'Gerador de Protocolos',
+      description: 'Sintetize tickets estratégicos para suporte humano.',
+      image: PlaceHolderImages.find(img => img.id === 'module-advisor')?.imageUrl,
+      hint: PlaceHolderImages.find(img => img.id === 'module-advisor')?.imageHint,
+      component: <TicketAdvisor prefilledType={diagnosis} />
+    },
+    {
+      id: 'cooldown',
+      tag: 'MÓDULO 3',
+      title: 'Silêncio Operacional',
+      description: 'Cronômetro de cooldown para evitar banimento permanente.',
+      image: PlaceHolderImages.find(img => img.id === 'module-timer')?.imageUrl,
+      hint: PlaceHolderImages.find(img => img.id === 'module-timer')?.imageHint,
+      component: <DelayTimer />
+    },
+    {
+      id: 'decoder',
+      tag: 'MÓDULO 4',
+      title: 'Análise de Resposta',
+      description: 'Decodifique se a resposta foi de um bot ou humano.',
+      image: PlaceHolderImages.find(img => img.id === 'module-decoder')?.imageUrl,
+      hint: PlaceHolderImages.find(img => img.id === 'module-decoder')?.imageHint,
+      component: <ResponseDecoder />
+    },
+    {
+      id: 'logs',
+      tag: 'MÓDULO 5',
+      title: 'Histórico de Missão',
+      description: 'Logs detalhados de todas as operações realizadas.',
+      image: PlaceHolderImages.find(img => img.id === 'module-logs')?.imageUrl,
+      hint: PlaceHolderImages.find(img => img.id === 'module-logs')?.imageHint,
+      component: <AttemptLog />
+    }
+  ];
+
   return (
-    <main className="min-h-screen pb-20 pt-6 px-4 max-w-md mx-auto flex flex-col gap-8">
-      {/* Header Briefing */}
-      <header className="flex flex-col items-center text-center space-y-2 py-6">
-        <div className="relative mb-2">
-          <div className="w-12 h-12 border-2 border-primary rotate-45 flex items-center justify-center animate-pulse">
-            <ShieldAlert className="w-6 h-6 text-primary -rotate-45" />
-          </div>
+    <main className="min-h-screen bg-background flex flex-col items-center">
+      {/* Hero Section - Inspirado no BE.EXPERT */}
+      <header className="w-full relative h-[60vh] flex flex-col justify-end p-6 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src={PlaceHolderImages.find(img => img.id === 'hero-bg')?.imageUrl || ''} 
+            alt="Hero Background" 
+            fill 
+            className="object-cover opacity-40"
+            data-ai-hint={PlaceHolderImages.find(img => img.id === 'hero-bg')?.imageHint}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         </div>
-        <h1 className="text-4xl font-headline font-black tracking-tighter uppercase">
-          Unban<span className="text-primary"> Strategy</span>
-        </h1>
-        <p className="text-[10px] font-code text-muted-foreground tracking-[0.2em] uppercase">
-          Método de Recuperação de Contas de Alto Nível
-        </p>
+
+        <div className="relative z-10 space-y-4 max-w-md w-full mx-auto">
+          <div className="flex items-center gap-2 text-primary">
+            <Crown className="w-5 h-5" />
+            <span className="font-headline text-xs font-bold tracking-[0.3em] uppercase">Unban Strategy</span>
+          </div>
+          <h1 className="text-5xl font-headline font-black tracking-tighter uppercase leading-[0.9]">
+            Recupere o seu <br />
+            <span className="text-primary">Patrimônio.</span>
+          </h1>
+          <p className="text-sm text-muted-foreground font-body max-w-[280px] leading-relaxed">
+            Método avançado de engenharia social e técnica para restauração de contas de alto valor.
+          </p>
+          <button className="bg-primary text-white font-headline text-[10px] uppercase font-bold tracking-widest px-8 py-4 rounded-sm hover:brightness-110 transition-all">
+            Começar Agora
+          </button>
+        </div>
       </header>
 
-      <section className="space-y-4">
-        <Accordion type="single" collapsible className="w-full space-y-4 border-none">
-          
-          {/* Tópico 1: Briefing Executivo */}
-          <AccordionItem value="briefing" className="bg-card/50 border border-primary/20 rounded px-4">
-            <AccordionTrigger className="hover:no-underline py-4">
-              <div className="flex items-center gap-3">
-                <Briefcase className="w-5 h-5 text-primary" />
-                <span className="font-headline text-sm uppercase font-bold tracking-wider">Instruções Críticas</span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className="font-body text-xs text-muted-foreground leading-relaxed space-y-4 pt-2">
-                <p>
-                  Sua conta foi neutralizada. Seu objetivo é a restauração estratégica.
-                </p>
-                <p>
-                  Este método é focado em evitar filtros automáticos e engajar suporte humano de forma técnica e calma.
-                </p>
-                <ul className="space-y-2 mt-4">
-                  {[
-                    'Evadir gatilhos de filtros automáticos',
-                    'Sintetizar solicitações legíveis por humanos',
-                    'Analisar padrões de resposta da plataforma',
-                    'Manter silêncio operacional pós-envio'
-                  ].map((obj, i) => (
-                    <li key={i} className="flex items-center gap-2 text-[10px] uppercase font-medium">
-                      <ChevronRight className="w-3 h-3 text-primary" />
-                      {obj}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AccordionContent>
-          </AccordionItem>
+      {/* Grid de Módulos */}
+      <section className="w-full max-w-md px-6 py-12 space-y-8">
+        <div className="flex items-center gap-2 opacity-50">
+          <LayoutGrid className="w-4 h-4" />
+          <h2 className="text-[10px] font-headline font-bold uppercase tracking-widest">Protocolos de Operação</h2>
+        </div>
 
-          {/* Tópico 2: Diagnóstico */}
-          <AccordionItem value="diagnostic" className="bg-card/50 border border-primary/20 rounded px-4">
-            <AccordionTrigger className="hover:no-underline py-4">
-              <div className="flex items-center gap-3">
-                <Terminal className="w-5 h-5 text-primary" />
-                <span className="font-headline text-sm uppercase font-bold tracking-wider">Protocolo de Diagnóstico</span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent className="pt-2">
-              <DecisionTree onDiagnosed={setDiagnosis} />
-            </AccordionContent>
-          </AccordionItem>
+        <Accordion type="single" collapsible className="w-full space-y-6">
+          {modules.map((module) => (
+            <AccordionItem 
+              key={module.id} 
+              value={module.id} 
+              className="border-none group overflow-hidden"
+            >
+              <AccordionTrigger className="hover:no-underline p-0 flex flex-col items-start text-left data-[state=open]:mb-4 transition-all">
+                <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden border border-white/5 transition-transform duration-500 group-hover:scale-[1.02]">
+                  {/* Background Image */}
+                  <div className="absolute inset-0">
+                    <Image 
+                      src={module.image || ''} 
+                      alt={module.title} 
+                      fill 
+                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                      data-ai-hint={module.hint}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
 
-          {/* Tópico 3: Gerador de Tickets */}
-          <AccordionItem value="advisor" className="bg-card/50 border border-accent/20 rounded px-4">
-            <AccordionTrigger className="hover:no-underline py-4">
-              <div className="flex items-center gap-3">
-                <BrainCircuit className="w-5 h-5 text-accent" />
-                <span className="font-headline text-sm uppercase font-bold tracking-wider text-accent">Gerador de Protocolo</span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent className="pt-2">
-              <TicketAdvisor prefilledType={diagnosis} />
-            </AccordionContent>
-          </AccordionItem>
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 p-6 flex flex-col justify-end gap-1">
+                    <span className="text-[10px] font-headline font-bold text-primary tracking-[0.2em]">
+                      {module.tag}
+                    </span>
+                    <h3 className="text-2xl font-headline font-bold text-white uppercase tracking-tight leading-none group-hover:text-primary transition-colors">
+                      {module.title}
+                    </h3>
+                    <p className="text-[10px] text-muted-foreground uppercase tracking-widest mt-2 line-clamp-1 opacity-0 group-hover:opacity-100 transition-all">
+                      Acessar Módulo <ChevronRight className="inline-block w-3 h-3 ml-1" />
+                    </p>
+                  </div>
+                </div>
+              </AccordionTrigger>
 
-          {/* Tópico 4: Cooldown e Silêncio */}
-          <AccordionItem value="cooldown" className="bg-card/50 border border-primary/20 rounded px-4">
-            <AccordionTrigger className="hover:no-underline py-4">
-              <div className="flex items-center gap-3">
-                <Timer className="w-5 h-5 text-primary" />
-                <span className="font-headline text-sm uppercase font-bold tracking-wider">Rastreador de Silêncio</span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent className="pt-2">
-              <DelayTimer />
-            </AccordionContent>
-          </AccordionItem>
-
-          {/* Tópico 5: Decodificador de Respostas */}
-          <AccordionItem value="decoder" className="bg-card/50 border border-accent/20 rounded px-4">
-            <AccordionTrigger className="hover:no-underline py-4">
-              <div className="flex items-center gap-3">
-                <SearchCode className="w-5 h-5 text-accent" />
-                <span className="font-headline text-sm uppercase font-bold tracking-wider text-accent">Decodificar Resposta</span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent className="pt-2">
-              <ResponseDecoder />
-            </AccordionContent>
-          </AccordionItem>
-
-          {/* Tópico 6: Logs de Missão */}
-          <AccordionItem value="logs" className="bg-card/50 border border-muted/20 rounded px-4">
-            <AccordionTrigger className="hover:no-underline py-4">
-              <div className="flex items-center gap-3">
-                <Activity className="w-5 h-5 text-muted-foreground" />
-                <span className="font-headline text-sm uppercase font-bold tracking-wider text-muted-foreground">Histórico de Operações</span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent className="pt-2">
-              <AttemptLog />
-            </AccordionContent>
-          </AccordionItem>
-
+              <AccordionContent className="bg-card border border-white/5 rounded-lg p-6 animate-in slide-in-from-top-4 duration-300">
+                <div className="space-y-4">
+                  <div className="pb-4 border-b border-white/5">
+                    <h4 className="font-headline text-lg font-bold text-white mb-2">{module.title}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{module.description}</p>
+                  </div>
+                  {module.component}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
         </Accordion>
       </section>
 
       {/* Strategic Context */}
-      <div className="bg-card border border-muted/10 p-4 rounded-lg space-y-4">
-        <h3 className="font-headline text-[10px] uppercase tracking-widest flex items-center gap-2 font-bold">
-          <Info className="w-3 h-3 text-muted-foreground" />
-          Diretrizes Estruturais
-        </h3>
-        <div className="grid gap-4 font-body text-[10px] text-muted-foreground uppercase leading-tight">
-          <div className="space-y-1">
-            <span className="text-primary font-bold block">Protocolo A-1: Categoria</span>
-            <p>Nunca selecione "Uso de Hacks". Use "Recuperação de Conta". Evita fechamento automático.</p>
-          </div>
-          <div className="space-y-1">
-            <span className="text-accent font-bold block">Protocolo B-7: Assuntos</span>
-            <p>Use "Irregularidade Técnica no Acesso" em vez de "Fui Banido". Pareça uma anomalia do sistema.</p>
+      <div className="w-full max-w-md px-6 mb-20">
+        <div className="bg-card border border-primary/20 p-6 rounded-lg space-y-4">
+          <h3 className="font-headline text-[10px] uppercase tracking-widest flex items-center gap-2 font-bold text-primary">
+            <ShieldAlert className="w-4 h-4" />
+            Atenção Crítica
+          </h3>
+          <div className="grid gap-4 font-body text-[10px] text-muted-foreground uppercase leading-tight">
+            <div className="space-y-1">
+              <span className="text-white font-bold block">Protocolo A-1: Categoria</span>
+              <p>O sucesso depende do silêncio operacional pós-envio. Não reincida em contatos antes do prazo.</p>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Footer Branding */}
-      <footer className="mt-auto pt-6 flex flex-col items-center justify-center space-y-3 opacity-50">
-        <Separator className="bg-primary/20 w-24" />
+      <footer className="w-full max-w-md px-6 py-10 flex flex-col items-center justify-center space-y-4 opacity-40">
+        <Separator className="bg-white/10 w-24" />
         <div className="flex gap-3 text-[8px] font-code tracking-widest">
-          <span>UNBANSTRATEGY_V.5.0</span>
+          <span>UNBANSTRATEGY_SYSTEM_V.5.0</span>
           <span>//</span>
           <span>SÓ ESTRATÉGIA</span>
         </div>
