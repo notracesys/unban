@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -86,7 +85,7 @@ export default function Home() {
         <div className="relative z-10 space-y-4 w-full">
           <div className="flex items-center gap-2 text-primary">
             <Crown className="w-5 h-5" />
-            <span className="font-headline text-[10px] font-bold tracking-[0.4em] uppercase">MÉTODO EXCLUSIVO</span>
+            <span className="font-headline text-[10px] font-bold tracking-[0.4em] uppercase">zephyrus</span>
           </div>
           <h1 className="text-7xl font-headline font-black tracking-tighter uppercase leading-[0.85] break-words max-w-[90%]">
             UNBAN <span className="text-primary">STRATEGY</span>
