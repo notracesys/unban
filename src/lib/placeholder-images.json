@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "module-diagnostic",
+      "description": "Digital diagnostic scan background",
+      "imageUrl": "https://picsum.photos/seed/unban1/800/1200",
+      "imageHint": "cyber diagnostic"
+    },
+    {
+      "id": "module-advisor",
+      "description": "AI circuit brain background",
+      "imageUrl": "https://picsum.photos/seed/unban2/800/1200",
+      "imageHint": "artificial intelligence"
+    },
+    {
+      "id": "module-timer",
+      "description": "Digital clock countdown background",
+      "imageUrl": "https://picsum.photos/seed/unban3/800/1200",
+      "imageHint": "digital clock"
+    },
+    {
+      "id": "module-decoder",
+      "description": "Binary code analysis background",
+      "imageUrl": "https://picsum.photos/seed/unban4/800/1200",
+      "imageHint": "code analysis"
+    },
+    {
+      "id": "module-logs",
+      "description": "System activity logs background",
+      "imageUrl": "https://picsum.photos/seed/unban5/800/1200",
+      "imageHint": "system activity"
+    },
+    {
+      "id": "hero-bg",
+      "description": "Dark premium abstract background",
+      "imageUrl": "https://picsum.photos/seed/unbanhero/1200/800",
+      "imageHint": "abstract dark"
+    }
+  ]
 }

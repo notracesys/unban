@@ -9,12 +9,14 @@ import { DelayTimer } from '@/components/cyber/DelayTimer';
 import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
 import { AttemptLog } from '@/components/cyber/AttemptLog';
 import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, ChevronRight, Info, Crown, LayoutGrid } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Crown, LayoutGrid } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Home() {
   const [diagnosis, setDiagnosis] = useState<string | undefined>();
+
+  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
 
   const modules = [
     {
@@ -66,16 +68,18 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background flex flex-col items-center">
-      {/* Hero Section - Inspirado no BE.EXPERT */}
+      {/* Hero Section */}
       <header className="w-full relative h-[60vh] flex flex-col justify-end p-6 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image 
-            src={PlaceHolderImages.find(img => img.id === 'hero-bg')?.imageUrl || ''} 
-            alt="Hero Background" 
-            fill 
-            className="object-cover opacity-40"
-            data-ai-hint={PlaceHolderImages.find(img => img.id === 'hero-bg')?.imageHint}
-          />
+          {heroImage?.imageUrl && (
+            <Image 
+              src={heroImage.imageUrl} 
+              alt="Hero Background" 
+              fill 
+              className="object-cover opacity-40"
+              data-ai-hint={heroImage.imageHint}
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         </div>
 
@@ -115,13 +119,15 @@ export default function Home() {
                 <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden border border-white/5 transition-transform duration-500 group-hover:scale-[1.02]">
                   {/* Background Image */}
                   <div className="absolute inset-0">
-                    <Image 
-                      src={module.image || ''} 
-                      alt={module.title} 
-                      fill 
-                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                      data-ai-hint={module.hint}
-                    />
+                    {module.image && (
+                      <Image 
+                        src={module.image} 
+                        alt={module.title} 
+                        fill 
+                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                        data-ai-hint={module.hint}
+                      />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                     <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
