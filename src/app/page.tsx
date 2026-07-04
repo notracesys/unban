@@ -139,7 +139,7 @@ export default function Home() {
 
               <div className="space-y-3">
                 <p className="text-white font-bold text-[11px]">Por que isso é importante?</p>
-                <p>Porque os banimentos automáticos representam os casos em que ainda existe alguma possibilidade de solicitar uma reavaliação estratégica.</p>
+                <p>Porque os banimentos automáticos representam os caches em que ainda existe alguma possibilidade de solicitar uma reavaliação estratégica.</p>
                 <p>O objetivo deste método não é discutir com o sistema, mas sim tentar fazer com que sua solicitação ultrapasse a primeira camada automática de análise.</p>
               </div>
 
@@ -338,7 +338,60 @@ export default function Home() {
       description: 'Logística e estratégia pré-envio.',
       image: PlaceHolderImages.find(img => img.id === 'module-2')?.imageUrl,
       lessons: [
-        { id: '2.1', title: 'Aula 2.1 - Onde enviar o ticket' },
+        { 
+          id: '2.1', 
+          title: 'Aula 2.1 - Onde enviar o ticket',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                Utilizando apenas canais oficiais
+              </p>
+              
+              <p>Antes de pensar no texto que será enviado, você precisa entender uma regra fundamental:</p>
+              
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black">Um ticket enviado no local errado já nasce sem chance de análise.</p>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">Muitas pessoas tentam contato através de canais ineficazes:</p>
+                <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
+                  <li>Instagram / Facebook;</li>
+                  <li>Discord;</li>
+                  <li>E-mails genéricos;</li>
+                  <li>Comentários em redes sociais;</li>
+                  <li>Formulários não oficiais.</li>
+                </ul>
+              </div>
+
+              <p>Esses canais não realizam análise individual de contas e, na maioria dos casos, não possuem qualquer poder para alterar decisões internas.</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">O procedimento correto:</p>
+                <p>A solicitação deve ser enviada exclusivamente através do suporte oficial disponibilizado pela plataforma.</p>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">O objetivo do método é simples:</p>
+                <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
+                  <li>Entrar no fluxo correto de atendimento;</li>
+                  <li>Evitar encaminhamentos automáticos desnecessários;</li>
+                  <li>Maximizar a possibilidade de análise.</li>
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">O primeiro erro que elimina tentativas:</p>
+                <p>Enviar mensagens para diversos canais simultaneamente não aumenta as chances. Apenas cria registros redundantes e prejudica a consistência do caso.</p>
+              </div>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black">Lembre-se:</p>
+                <p>Uma tentativa organizada vale mais do que dez tentativas desesperadas.</p>
+              </div>
+            </div>
+          )
+        },
         { id: '2.2', title: 'Aula 2.2 - Escolhendo a categoria correta' },
         { id: '2.3', title: 'Aula 2.3 - Como preencher os dados' },
         { id: '2.4', title: 'Aula 2.4 - Revisão antes do envio' },
