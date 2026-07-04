@@ -139,7 +139,7 @@ export default function Home() {
 
               <div className="space-y-3">
                 <p className="text-white font-bold text-[11px]">Por que isso é importante?</p>
-                <p>Porque os banimentos automáticos representam os casos em que ainda existe alguma possibilidade de solicitar uma reavaliação estratégica.</p>
+                <p>Because os banimentos automáticos representam os casos em que ainda existe alguma possibilidade de solicitar uma reavaliação estratégica.</p>
                 <p>O objetivo deste método não é discutir com o sistema, mas sim tentar fazer com que sua solicitação ultrapasse a primeira camada automática de análise.</p>
               </div>
 
@@ -164,7 +164,7 @@ export default function Home() {
               <p>Nesses casos, normalmente existem elementos mais específicos relacionados ao motivo da punição.</p>
 
               <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
-                <p className="text-white font-bold text-[11px]">As principais características de um banimento manual são:</p>
+                <p className="text-white font-bold text-[11px]">Características comuns:</p>
                 <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
                   <li>Mensagens mais detalhadas;</li>
                   <li>Referência direta a regras ou comportamentos;</li>
@@ -362,6 +362,7 @@ export default function Home() {
                   <li>Comentários em redes sociais;</li>
                   <li>Formulários não oficiais.</li>
                 </ul>
+                <p className="text-[10px] text-muted-foreground italic">Esses canais não realizam análise individual de contas e não possuem poder para alterar decisões internas.</p>
               </div>
 
               <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
@@ -396,7 +397,49 @@ export default function Home() {
             </div>
           )
         },
-        { id: '2.2', title: 'Aula 2.2 - Escolhendo a categoria correta' },
+        { 
+          id: '2.2', 
+          title: 'Aula 2.2 - Escolhendo a categoria correta',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                A decisão mais importante antes da mensagem
+              </p>
+              
+              <p>Ao abrir um ticket, você precisará selecionar uma categoria.</p>
+              <p>A maioria das pessoas trata essa etapa como um detalhe. <span className="text-primary font-black">Não é.</span></p>
+              <p>A categoria escolhida influencia diretamente a forma como sua solicitação será processada internamente.</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">O que evitar:</p>
+                <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
+                  <li>Extremamente acusatórias;</li>
+                  <li>Definitivas;</li>
+                  <li>Relacionadas diretamente à confirmação da punição.</li>
+                </ul>
+                <p className="text-[10px] italic">Categorias muito específicas podem fazer sua solicitação ser encaminhada diretamente para respostas padronizadas.</p>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">O que procurar:</p>
+                <p>A estratégia consiste em selecionar categorias que:</p>
+                <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
+                  <li>Permitam análise;</li>
+                  <li>Sejam mais neutras;</li>
+                  <li>Não antecipem conclusões.</li>
+                </ul>
+              </div>
+
+              <p>O objetivo não é esconder informações. O objetivo é evitar que sua tentativa seja encerrada antes mesmo da leitura.</p>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black mb-1">Regra prática:</p>
+                <p>Pergunte a si mesmo: "Esta categoria parece abrir uma análise ou apenas confirmar uma decisão?"</p>
+                <p className="mt-2">Se parecer confirmar uma decisão, escolha outra opção disponível mais neutra.</p>
+              </div>
+            </div>
+          )
+        },
         { id: '2.3', title: 'Aula 2.3 - Como preencher os dados' },
         { id: '2.4', title: 'Aula 2.4 - Revisão antes do envio' },
         { id: '2.5', title: 'Aula 2.5 - O erro de enviar vários tickets' },
