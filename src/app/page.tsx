@@ -6,7 +6,7 @@ import { TicketAdvisor } from '@/components/cyber/TicketAdvisor';
 import { DelayTimer } from '@/components/cyber/DelayTimer';
 import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
 import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2, AlertTriangle, AlertCircle } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -232,7 +232,7 @@ export default function Home() {
               </div>
 
               <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
-                <p className="font-black">Por isso, o método trabalha com controle, organization e estratégia, nunca com insistência impulsiva.</p>
+                <p className="font-black">Por isso, o método trabalha com controle, organização e estratégia, nunca com insistência impulsiva.</p>
               </div>
             </div>
           )
@@ -566,7 +566,7 @@ export default function Home() {
               <div className="space-y-2">
                 <p className="text-white font-bold text-[11px]">Tom geral</p>
                 <p>Pergunte: <span className="italic">"Isto parece ter sido escrito por alguém calmo e racional?"</span></p>
-                <p className="text-muted-foreground">Se a resposta for "não", não envie ainda.</p>
+                <p className="text-muted-foreground">Se a resposta for "no", não envie ainda.</p>
               </div>
 
               <Separator className="bg-white/5" />
@@ -622,14 +622,306 @@ export default function Home() {
       description: 'Protocolo detalhado de preenchimento.',
       image: PlaceHolderImages.find(img => img.id === 'module-3')?.imageUrl,
       lessons: [
-        { id: '3.1', title: 'Aula 3.1 - Qual opção selecionar' },
-        { id: '3.2', title: 'Aula 3.2 - Campo Requester' },
-        { id: '3.3', title: 'Aula 3.3 - Campo Assunto' },
-        { id: '3.4', title: 'Aula 3.4 - Nick do jogo' },
-        { id: '3.5', title: 'Aula 3.5 - ID da conta' },
-        { id: '3.6', title: 'Aula 3.6 - Tempo de suspensão' },
-        { id: '3.7', title: 'Aula 3.7 - Data do ocorrido' },
-        { id: '3.8', title: 'Aula 3.8 - Descrição do ticket' },
+        { 
+          id: '3.1', 
+          title: 'Aula 3.1 - Qual opção selecionar',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                A primeira decisão que pode definir todo o processo
+              </p>
+              
+              <p>Ao abrir o formulário de suporte, você encontrará diversas opções relacionadas ao problema da conta. A maioria das pessoas comete o primeiro erro justamente aqui: escolhe a opção mais óbvia.</p>
+
+              <div className="bg-destructive/10 p-4 border border-destructive/30 rounded-sm space-y-3">
+                <p className="text-destructive font-black text-[11px]">EVITE OPÇÕES COMO:</p>
+                <ul className="space-y-1 text-muted-foreground">
+                  <li>❌ "Detectamos o uso de softwares não autorizados"</li>
+                  <li>❌ "O sistema Anti-Trapaça detectou irregularidades"</li>
+                  <li>❌ "Esta conta foi suspensa permanentemente"</li>
+                </ul>
+                <p className="text-[10px] italic">Essas categorias costumam encaminhar a solicitação diretamente para respostas padronizadas.</p>
+              </div>
+
+              <div className="bg-green-500/10 p-4 border border-green-500/30 rounded-sm space-y-3">
+                <p className="text-green-500 font-black text-[11px]">A ESTRATÉGIA CORRETA:</p>
+                <p>Sempre que possível, escolha opções mais neutras, relacionadas à recuperação ou verificação da conta.</p>
+                <p className="text-white font-bold">✅ "Quero recuperar a conta do Free Fire (não se aplica à Suspensões)"</p>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">Esta abordagem:</p>
+                <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
+                  <li>não antecipa conclusões;</li>
+                  <li>não confirma acusações;</li>
+                  <li>mantém a solicitação em categorias mais amplas de análise.</li>
+                </ul>
+              </div>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black mb-1">O princípio estratégico:</p>
+                <p>Você não está tentando provar nada nesta etapa. Você está apenas tentando evitar que sua solicitação seja descartada antes de ser analisada.</p>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: '3.2', 
+          title: 'Aula 3.2 - Campo Requester',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                O campo mais simples e, ainda assim, frequentemente preenchido errado
+              </p>
+              
+              <p>O campo "Requester" identifica o solicitante do ticket. Sua função é exclusivamente administrativa.</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">O QUE INSERIR:</p>
+                <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
+                  <li>O e-mail utilizado para contato;</li>
+                  <li>Um endereço válido;</li>
+                  <li>Um e-mail que você tenha acesso.</li>
+                </ul>
+              </div>
+
+              <div className="bg-destructive/10 p-4 border border-destructive/30 rounded-sm space-y-3">
+                <p className="text-destructive font-black text-[11px]">O QUE NÃO FAZER:</p>
+                <ul className="space-y-1 text-muted-foreground">
+                  <li>❌ Escrever o ID da conta;</li>
+                  <li>❌ Inserir explicações;</li>
+                  <li>❌ Adicionar observações;</li>
+                  <li>❌ Utilizar múltiplos e-mails.</li>
+                </ul>
+              </div>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black mb-1">Importante:</p>
+                <p>O e-mail do ticket não necessariamente precisa ser o mesmo utilizado na conta do jogo. Ele serve apenas para que o suporte consiga retornar sua solicitação.</p>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: '3.3', 
+          title: 'Aula 3.3 - Campo Assunto',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                O campo que mais ativa respostas automáticas
+              </p>
+              
+              <p>O assunto do ticket é uma das primeiras informações analisadas pelo sistema. Por isso, utilizar termos emocionais ou acusatórios pode prejudicar a tentativa.</p>
+
+              <div className="bg-destructive/10 p-4 border border-destructive/30 rounded-sm space-y-3">
+                <p className="text-destructive font-black text-[11px]">NUNCA UTILIZE:</p>
+                <ul className="space-y-1 text-muted-foreground">
+                  <li>❌ "Fui banido injustamente"</li>
+                  <li>❌ "Desbanimento urgente"</li>
+                  <li>❌ "Minha conta foi roubada"</li>
+                  <li>❌ "Quero meu desbanimento"</li>
+                </ul>
+              </div>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">O OBJETIVO DO ASSUNTO:</p>
+                <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
+                  <li>parecer técnico;</li>
+                  <li>ser curto;</li>
+                  <li>indicar necessidade de análise;</li>
+                  <li>evitar conclusões.</li>
+                </ul>
+              </div>
+
+              <div className="bg-green-500/10 p-4 border border-green-500/30 rounded-sm text-green-500">
+                <p className="font-black mb-1">Exemplo da lógica correta:</p>
+                <p>"Solicitação de verificação referente ao acesso da conta."</p>
+              </div>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black">Lembre-se: O assunto serve para abrir uma porta, não para ganhar uma discussão.</p>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: '3.4', 
+          title: 'Aula 3.4 - Nick do jogo',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                Não existe margem para criatividade
+              </p>
+              
+              <p>O nickname deve ser preenchido exatamente como aparece dentro do jogo.</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">REGRAS:</p>
+                <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
+                  <li>✅ Utilize letras maiúsculas e minúsculas corretamente;</li>
+                  <li>✅ Respeite símbolos especiais;</li>
+                  <li>✅ Copie exatamente o nome registrado.</li>
+                </ul>
+              </div>
+
+              <div className="bg-destructive/10 p-4 border border-destructive/30 rounded-sm space-y-3">
+                <p className="text-destructive font-black text-[11px]">NUNCA FAÇA:</p>
+                <ul className="space-y-1 text-muted-foreground">
+                  <li>❌ Utilizar apelidos alternativos;</li>
+                  <li>❌ Utilizar abreviações;</li>
+                  <li>❌ Inserir nomes antigos da conta.</li>
+                </ul>
+              </div>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black">Aviso: Um nickname incorreto pode fazer com que sua solicitação seja considerada inválida.</p>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: '3.5', 
+          title: 'Aula 3.5 - ID da conta',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                O dado mais importante do formulário
+              </p>
+              
+              <p>O ID da conta é o principal identificador interno. Não pode haver erros aqui.</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">O QUE FAZER:</p>
+                <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
+                  <li>copie diretamente da fonte oficial;</li>
+                  <li>revise mais de uma vez;</li>
+                  <li>confirme todos os números.</li>
+                </ul>
+              </div>
+
+              <div className="bg-destructive/10 p-4 border border-destructive/30 rounded-sm space-y-3">
+                <p className="text-destructive font-black text-[11px]">O QUE NÃO FAZER:</p>
+                <ul className="space-y-1 text-muted-foreground">
+                  <li>❌ Inserir comentários;</li>
+                  <li>❌ Adicionar justificativas;</li>
+                  <li>❌ Escrever textos complementares.</li>
+                </ul>
+              </div>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black">Regra de Ouro: O campo de ID existe apenas para identificar a conta. Nada além disso.</p>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: '3.6', 
+          title: 'Aula 3.6 - Tempo de suspensão',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                Nunca invente informações
+              </p>
+              
+              <p>Se o sistema informar suspensão permanente, informe exatamente isso.</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">REGRAS:</p>
+                <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
+                  <li>✅ Se for permanente, marque permanente;</li>
+                  <li>✅ Se houver prazo definido, utilize o prazo correto;</li>
+                  <li>✅ Se não souber exatamente, utilize a informação mais próxima possível.</li>
+                </ul>
+              </div>
+
+              <div className="bg-destructive/10 p-4 border border-destructive/30 rounded-sm space-y-3">
+                <p className="text-destructive font-black text-[11px]">NUNCA FAÇA:</p>
+                <ul className="space-y-1 text-muted-foreground">
+                  <li>❌ Inventar períodos;</li>
+                  <li>❌ Chutar datas;</li>
+                  <li>❌ Fazer estimativas aleatórias.</li>
+                </ul>
+              </div>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black">Nota: Informações inconsistentes reduzem a credibilidade da solicitação.</p>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: '3.7', 
+          title: 'Aula 3.7 - Data do ocorrido',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                Datas importam mais do que parecem
+              </p>
+              
+              <p>O sistema pode utilizar a data informada para cruzamento interno de informações.</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">O QUE FAZER:</p>
+                <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
+                  <li>informe a data exata, se souber;</li>
+                  <li>utilize uma aproximação razoável, caso não tenha certeza.</li>
+                </ul>
+              </div>
+
+              <div className="bg-destructive/10 p-4 border border-destructive/30 rounded-sm space-y-3">
+                <p className="text-destructive font-black text-[11px]">EVITE:</p>
+                <ul className="space-y-1 text-muted-foreground">
+                  <li>❌ "Não lembro";</li>
+                  <li>❌ Datas impossíveis;</li>
+                  <li>❌ Datas muito distantes do ocorrido.</li>
+                </ul>
+              </div>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black">Fato: A coerência das informações ajuda a demonstrar organização e boa-fé.</p>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: '3.8', 
+          title: 'Aula 3.8 - Descrição do ticket',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                O único campo onde o método realmente acontece
+              </p>
+              
+              <p>A descrição é o único espaço onde existe possibilidade de diferenciação humana.</p>
+
+              <div className="bg-destructive/10 p-4 border border-destructive/30 rounded-sm space-y-3">
+                <p className="text-destructive font-black text-[11px]">O QUE NÃO FAZER:</p>
+                <ul className="space-y-1 text-muted-foreground">
+                  <li>❌ Acusar; ❌ Confessar; ❌ Implorar;</li>
+                  <li>❌ Escrever textos emocionais;</li>
+                  <li>❌ Fazer ameaças.</li>
+                </ul>
+              </div>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">O OBJETIVO DA DESCRIÇÃO:</p>
+                <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
+                  <li>✅ parecer escrita por alguém calmo;</li>
+                  <li>✅ demonstrar organização;</li>
+                  <li>✅ solicitar análise;</li>
+                  <li>✅ evitar palavras que acionem respostas automáticas.</li>
+                </ul>
+              </div>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary space-y-2">
+                <p className="font-black">A recomendação mais importante deste método:</p>
+                <p>Embora seja possível escrever sua própria descrição, isso aumenta significativamente a chance de cometer erros. A recomendação deste método é utilizar um dos modelos prontos disponibilizados no próximo módulo.</p>
+              </div>
+
+              <p>Tentar "melhorar" os modelos adicionando emoção costuma produzir o efeito contrário ao desejado. No próximo módulo, você terá acesso aos modelos prontos e aprenderá qual deles utilizar.</p>
+            </div>
+          )
+        },
       ],
       content: (id: string) => (
         <div className="space-y-6">
