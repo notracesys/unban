@@ -9,7 +9,7 @@ import { DelayTimer } from '@/components/cyber/DelayTimer';
 import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
 import { AttemptLog } from '@/components/cyber/AttemptLog';
 import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Info, Lock } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, FileText } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
@@ -20,67 +20,140 @@ export default function Home() {
 
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
 
+  const LessonItem = ({ title }: { title: string }) => (
+    <div className="flex items-center gap-3 py-2 px-3 hover:bg-white/5 rounded-sm transition-colors group cursor-pointer border-l-2 border-transparent hover:border-primary">
+      <PlayCircle className="w-4 h-4 text-primary opacity-50 group-hover:opacity-100" />
+      <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground group-hover:text-white transition-colors">
+        {title}
+      </span>
+    </div>
+  );
+
   const modules = [
     {
-      id: 'diagnostic',
+      id: 'module-1',
       tag: 'MÓDULO 1',
-      title: 'Diagnóstico de Restrição',
-      description: 'Identifique o tipo de bloqueio aplicado à sua conta.',
+      title: 'ENTENDA SEU BANIMENTO',
+      description: 'Identificação técnica da restrição aplicada.',
       image: PlaceHolderImages.find(img => img.id === 'module-1')?.imageUrl,
-      component: <DecisionTree onDiagnosed={(type) => {
-        setDiagnosis(type);
-        setIsModule1Read(true);
-      }} />
-    },
-    {
-      id: 'advisor',
-      tag: 'MÓDULO 2',
-      title: 'Gerador de Protocolos',
-      description: 'Sintetize tickets estratégicos para suporte humano.',
-      image: PlaceHolderImages.find(img => img.id === 'module-2')?.imageUrl,
-      component: <TicketAdvisor prefilledType={diagnosis} />
-    },
-    {
-      id: 'cooldown',
-      tag: 'MÓDULO 3',
-      title: 'Silêncio Operacional',
-      description: 'Cronômetro de cooldown para evitar banimento permanente.',
-      image: PlaceHolderImages.find(img => img.id === 'module-3')?.imageUrl,
-      component: <DelayTimer />
-    },
-    {
-      id: 'decoder',
-      tag: 'MÓDULO 4',
-      title: 'Análise de Resposta',
-      description: 'Decodifique se a resposta foi de um bot ou humano.',
-      image: PlaceHolderImages.find(img => img.id === 'module-4')?.imageUrl,
-      component: <ResponseDecoder />
-    },
-    {
-      id: 'logs',
-      tag: 'MÓDULO 5',
-      title: 'Histórico de Missão',
-      description: 'Logs detalhados de todas as operações realizadas.',
-      image: PlaceHolderImages.find(img => img.id === 'module-5')?.imageUrl,
-      component: <AttemptLog />
-    },
-    {
-      id: 'intelligence',
-      tag: 'MÓDULO 6',
-      title: 'Central de Inteligência',
-      description: 'Base de conhecimento e táticas avançadas de recuperação.',
-      image: PlaceHolderImages.find(img => img.id === 'module-6')?.imageUrl,
-      component: (
-        <div className="py-4 space-y-4">
-          <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg flex gap-3 items-start">
-            <Info className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-            <div className="space-y-1">
-              <p className="text-[11px] font-bold text-white uppercase">Acesso Restrito</p>
-              <p className="text-[10px] text-muted-foreground leading-relaxed">Documentação técnica e táticas de engenharia social para casos complexos. Mantenha o sigilo operacional.</p>
-            </div>
+      content: (
+        <div className="space-y-6">
+          <div className="grid gap-1">
+            <LessonItem title="Aula 1.1 - O que é banimento automático" />
+            <LessonItem title="Aula 1.2 - O que é banimento manual" />
+            <LessonItem title="Aula 1.3 - O que é banimento reincidente" />
+            <LessonItem title="Aula 1.4 - Como identificar qual é o seu caso" />
           </div>
-          <div className="p-8 border border-dashed border-white/5 rounded-lg text-center opacity-40">
-            <p className="text-[9px] font-code uppercase tracking-widest">Base de dados sendo descriptografada...</p>
+          <Separator className="bg-white/5" />
+          <div className="space-y-4">
+            <p className="text-[10px] font-bold text-primary uppercase tracking-widest">Diagnóstico de Campo</p>
+            <DecisionTree onDiagnosed={(type) => {
+              setDiagnosis(type);
+              setIsModule1Read(true);
+            }} />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'module-2',
+      tag: 'MÓDULO 2',
+      title: 'PREPARAÇÃO DO TICKET',
+      description: 'Logística e estratégia pré-envio.',
+      image: PlaceHolderImages.find(img => img.id === 'module-2')?.imageUrl,
+      content: (
+        <div className="grid gap-1">
+          <LessonItem title="Aula 2.1 - Onde enviar o ticket" />
+          <LessonItem title="Aula 2.2 - Escolhendo a categoria correta" />
+          <LessonItem title="Aula 2.3 - Como preencher os dados" />
+          <LessonItem title="Aula 2.4 - Revisão antes do envio" />
+          <LessonItem title="Aula 2.5 - O erro de enviar vários tickets" />
+        </div>
+      )
+    },
+    {
+      id: 'module-3',
+      tag: 'MÓDULO 3',
+      title: 'PREENCHIMENTO PASSO A PASSO',
+      description: 'Protocolo detalhado de preenchimento.',
+      image: PlaceHolderImages.find(img => img.id === 'module-3')?.imageUrl,
+      content: (
+        <div className="grid gap-1">
+          <LessonItem title="Aula 3.1 - Qual opção selecionar" />
+          <LessonItem title="Aula 3.2 - Campo Requester" />
+          <LessonItem title="Aula 3.3 - Campo Assunto" />
+          <LessonItem title="Aula 3.4 - Nick do jogo" />
+          <LessonItem title="Aula 3.5 - ID da conta" />
+          <LessonItem title="Aula 3.6 - Tempo de suspensão" />
+          <LessonItem title="Aula 3.7 - Data do ocorrido" />
+          <LessonItem title="Aula 3.8 - Descrição do ticket" />
+        </div>
+      )
+    },
+    {
+      id: 'module-4',
+      tag: 'MÓDULO 4',
+      title: 'MODELOS PRONTOS',
+      description: 'Templates estratégicos de alta conversão.',
+      image: PlaceHolderImages.find(img => img.id === 'module-4')?.imageUrl,
+      content: (
+        <div className="space-y-6">
+          <div className="grid gap-2">
+             {[1,2,3,4,5,6].map(n => (
+               <div key={n} className="flex items-center gap-3 py-2 px-3 bg-white/5 rounded-sm">
+                 <FileText className="w-4 h-4 text-accent opacity-70" />
+                 <span className="text-[11px] font-bold text-muted-foreground uppercase">Ticket Modelo {n}</span>
+               </div>
+             ))}
+          </div>
+          <Separator className="bg-white/5" />
+          <div className="space-y-4">
+            <p className="text-[10px] font-bold text-accent uppercase tracking-widest">Sintetizador de Modelos (IA)</p>
+            <TicketAdvisor prefilledType={diagnosis} />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'module-5',
+      tag: 'MÓDULO 5',
+      title: 'APÓS ENVIAR O TICKET',
+      description: 'Gestão de silêncio e janelas de resposta.',
+      image: PlaceHolderImages.find(img => img.id === 'module-5')?.imageUrl,
+      content: (
+        <div className="space-y-6">
+          <div className="grid gap-1">
+            <LessonItem title="Aula 5.1 - Quanto tempo esperar" />
+            <LessonItem title="Aula 5.2 - O que nunca fazer" />
+            <LessonItem title="Aula 5.3 - Quando enviar novo ticket" />
+            <LessonItem title="Aula 5.4 - Quando parar" />
+          </div>
+          <Separator className="bg-white/5" />
+          <div className="space-y-4">
+            <p className="text-[10px] font-bold text-primary uppercase tracking-widest">Controle de Cooldown</p>
+            <DelayTimer />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'module-6',
+      tag: 'MÓDULO 6',
+      title: 'ANALISANDO A RESPOSTA',
+      description: 'Decodificação de feedback do suporte.',
+      image: PlaceHolderImages.find(img => img.id === 'module-6')?.imageUrl,
+      content: (
+        <div className="space-y-6">
+          <div className="grid gap-1">
+            <LessonItem title="Aula 6.1 - Como identificar resposta automática" />
+            <LessonItem title="Aula 6.2 - Como identificar resposta humana" />
+            <LessonItem title="Aula 6.3 - O que fazer em cada caso" />
+            <LessonItem title="Aula 6.4 - Erros que destroem a tentativa" />
+          </div>
+          <Separator className="bg-white/5" />
+          <div className="space-y-4">
+            <p className="text-[10px] font-bold text-accent uppercase tracking-widest">Decodificador de Resposta</p>
+            <ResponseDecoder />
           </div>
         </div>
       )
@@ -171,7 +244,7 @@ export default function Home() {
                         <div className="mt-4 flex items-center gap-2 p-3 bg-black/60 border border-white/10 rounded-sm backdrop-blur-md">
                           <Lock className="w-3 h-3 text-primary" />
                           <p className="text-[9px] text-muted-foreground uppercase font-bold tracking-tighter">
-                            Disponível após ler o Módulo 1
+                            Bloqueado - Conclua o Módulo 1
                           </p>
                         </div>
                       ) : (
@@ -191,7 +264,7 @@ export default function Home() {
                       <h4 className="font-headline text-lg font-bold text-white mb-2 uppercase tracking-tight">{module.title}</h4>
                       <p className="text-xs text-muted-foreground leading-relaxed">{module.description}</p>
                     </div>
-                    {module.component}
+                    {module.content}
                   </div>
                 </AccordionContent>
               </AccordionItem>
