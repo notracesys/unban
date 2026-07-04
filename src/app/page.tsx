@@ -41,7 +41,6 @@ export default function Home() {
     <Dialog>
       <DialogTrigger asChild>
         <div 
-          onClick={() => setActiveLesson(lesson)}
           className="flex items-center gap-3 py-2 px-3 hover:bg-white/5 rounded-sm transition-colors group cursor-pointer border-l-2 border-transparent hover:border-primary"
         >
           <PlayCircle className="w-4 h-4 text-primary opacity-50 group-hover:opacity-100" />
@@ -50,7 +49,7 @@ export default function Home() {
           </span>
         </div>
       </DialogTrigger>
-      {lesson.content && (
+      {lesson.content ? (
         <DialogContent className="bg-card border-primary/30 max-w-2xl max-h-[80vh] overflow-y-auto custom-scrollbar">
           <DialogHeader className="border-b border-white/5 pb-4 mb-4">
             <div className="flex items-center gap-2 text-primary mb-2">
@@ -64,6 +63,13 @@ export default function Home() {
           <div className="font-body text-sm text-muted-foreground leading-relaxed space-y-4">
             {lesson.content}
           </div>
+        </DialogContent>
+      ) : (
+        <DialogContent className="bg-card border-primary/30">
+          <DialogHeader>
+            <DialogTitle className="text-white uppercase tracking-tighter">Conteúdo em Breve</DialogTitle>
+          </DialogHeader>
+          <p className="text-xs text-muted-foreground uppercase tracking-widest">Este arquivo está sendo descriptografado.</p>
         </DialogContent>
       )}
     </Dialog>
