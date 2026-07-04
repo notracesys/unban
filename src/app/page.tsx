@@ -2,10 +2,8 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { DelayTimer } from '@/components/cyber/DelayTimer';
-import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
 import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2, Copy } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2, Copy, AlertTriangle, Clock } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -228,7 +226,7 @@ export default function Home() {
 
               <div className="space-y-3">
                 <p className="text-white font-bold text-[11px]">O erro mais comum:</p>
-                <p>Muitas pessoas acreditam que enviar dezenas de tickets aumenta as chances de sucesso. Na prática, isso geralmente produz o efeito contrário.</p>
+                <p>Mitas pessoas acreditam que enviar dezenas de tickets aumenta as chances de sucesso. Na prática, isso geralmente produz o efeito contrário.</p>
               </div>
 
               <div className="space-y-3">
@@ -1241,10 +1239,155 @@ export default function Home() {
       description: 'Gestão de silêncio e janelas de resposta.',
       image: PlaceHolderImages.find(img => img.id === 'module-5')?.imageUrl,
       lessons: [
-        { id: '5.1', title: 'Aula 5.1 - Quanto tempo esperar' },
-        { id: '5.2', title: 'Aula 5.2 - O que nunca fazer' },
-        { id: '5.3', title: 'Aula 5.3 - Quando enviar novo ticket' },
-        { id: '5.4', title: 'Aula 5.4 - Quando parar' },
+        { 
+          id: '5.1', 
+          title: 'Aula 5.1 - O erro mais comum acontece depois do envio',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                O erro mais comum acontece depois do envio
+              </p>
+              
+              <p>Depois de enviar o ticket, muitas pessoas acreditam que precisam continuar agindo para aumentar suas chances. Na prática, o excesso de ação costuma produzir o efeito contrário.</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">Após o envio da solicitação:</p>
+                <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
+                  <li>aguarde pelo menos 72 horas;</li>
+                  <li>o período ideal é entre 7 e 10 dias;</li>
+                  <li>evite qualquer tentativa de reforço antes desse prazo.</li>
+                </ul>
+              </div>
+
+              <div className="bg-destructive/10 p-4 border border-destructive/30 text-destructive">
+                <p className="font-black mb-2">Não faça isso:</p>
+                <ul className="space-y-1 text-[11px]">
+                  <li>❌ Enviar outro ticket no mesmo dia;</li>
+                  <li>❌ Criar novas solicitações após algumas horas;</li>
+                  <li>❌ Reenviar o mesmo texto diversas vezes;</li>
+                  <li>❌ Procurar outros canais de suporte imediatamente.</li>
+                </ul>
+              </div>
+
+              <p>Os sistemas de atendimento normalmente priorizam solicitações organizadas e únicas. Insistência excessiva pode fazer sua solicitação perder credibilidade.</p>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black">Regra principal: Depois de enviar o ticket, sua melhor estratégia passa a ser esperar.</p>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: '5.2', 
+          title: 'Aula 5.2 - Como destruir sua própria tentativa em poucos minutos',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                Comportamentos que garantem a falha
+              </p>
+              
+              <p>Após o envio, existem alguns comportamentos que aumentam significativamente a probabilidade de respostas automáticas.</p>
+
+              <div className="bg-destructive/10 p-4 border border-destructive/30 rounded-sm space-y-3">
+                <p className="text-destructive font-black text-[11px]">NUNCA FAÇA:</p>
+                <ul className="space-y-1 text-muted-foreground">
+                  <li>❌ Abrir vários tickets simultaneamente;</li>
+                  <li>❌ Utilizar diversos e-mails diferentes;</li>
+                  <li>❌ Alterar categorias apenas para "testar";</li>
+                  <li>❌ Enviar mensagens emocionais;</li>
+                  <li>❌ Discutir com o suporte;</li>
+                  <li>❌ Fazer ameaças;</li>
+                  <li>❌ Tentar pressionar a equipe.</li>
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">Por quê?</p>
+                <p>Porque sistemas internos costumam interpretar insistência excessiva como comportamento inadequado ou tentativa repetitiva.</p>
+                <p>O objetivo do método não é chamar atenção. O objetivo é parecer uma solicitação legítima que merece análise.</p>
+              </div>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black">Lembre-se: Ser insistente não significa ser prioritário.</p>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: '5.3', 
+          title: 'Aula 5.3 - O momento correto para uma nova tentativa',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                Quando e como tentar novamente
+              </p>
+              
+              <p>Existe apenas uma situação em que uma nova tentativa pode ser considerada:</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">Você pode enviar outro ticket quando:</p>
+                <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
+                  <li>✅ Passaram pelo menos 7 dias;</li>
+                  <li>✅ Não houve resposta;</li>
+                  <li>✅ A resposta recebida foi claramente automática.</li>
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">Se decidir tentar novamente:</p>
+                <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
+                  <li>utilize outro modelo de ticket;</li>
+                  <li>altere levemente o assunto;</li>
+                  <li>mantenha o tom técnico;</li>
+                  <li>não reutilize exatamente o mesmo texto.</li>
+                </ul>
+              </div>
+
+              <div className="bg-destructive/10 p-4 border border-destructive/30 rounded-sm space-y-2">
+                <p className="text-destructive font-black text-[10px]">O QUE NUNCA FAZER:</p>
+                <ul className="space-y-1 text-muted-foreground">
+                  <li>❌ Copiar e colar o ticket anterior;</li>
+                  <li>❌ Reenviar a mesma mensagem;</li>
+                  <li>❌ Citar respostas automáticas anteriores;</li>
+                  <li>❌ Demonstrar frustração.</li>
+                </ul>
+              </div>
+
+              <p>O objetivo da segunda tentativa é tentar escapar de processos automatizados, não discutir a primeira decisão.</p>
+            </div>
+          )
+        },
+        { 
+          id: '5.4', 
+          title: 'Aula 5.4 - Saber parar também faz parte da estratégia',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                O limite da estratégia
+              </p>
+              
+              <p>Existe um momento em que insistir deixa de ser estratégia e passa a ser apenas insistência.</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">Você deve considerar interromper as tentativas quando:</p>
+                <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
+                  <li>receber uma resposta final clara e repetida;</li>
+                  <li>la plataforma informar explicitamente que não haverá nova análise;</li>
+                  <li>três tentativas bem espaçadas não produzirem qualquer avanço.</li>
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">Por que parar?</p>
+                <p>Porque continuar insistindo após esse ponto normalmente não gera benefícios adicionais. Ao contrário, pode dificultar futuras análises ou revisões.</p>
+              </div>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black">O objetivo do método: Este método não busca quantidade. Ele busca qualidade na tentativa. Uma única tentativa organizada vale mais do que dezenas de tentativas impulsivas.</p>
+              </div>
+            </div>
+          )
+        },
       ],
       content: (id: string) => (
         <div className="space-y-6">
@@ -1255,8 +1398,15 @@ export default function Home() {
           </div>
           <Separator className="bg-white/5" />
           <div className="space-y-4">
-            <p className="text-[10px] font-bold text-primary uppercase tracking-widest">Controle de Cooldown</p>
-            <DelayTimer />
+            <div className="bg-primary/5 border border-primary/30 p-4 rounded-sm flex items-start gap-3">
+              <Clock className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+              <div className="space-y-1">
+                <p className="text-[10px] font-bold text-primary uppercase tracking-widest">Protocolo de Silêncio</p>
+                <p className="text-[9px] text-muted-foreground uppercase leading-tight">
+                  SE A TENTATIVA NÃO PRODUZIU O RESULTADO DESEJADO, AGUARDE OBRIGATORIAMENTE <span className="text-primary font-black">+7 DIAS</span> ANTES DE INICIAR UM NOVO CICLO.
+                </p>
+              </div>
+            </div>
           </div>
           <div className="pt-4">
             {!completedModules.includes(id) ? (
@@ -1298,7 +1448,7 @@ export default function Home() {
           <Separator className="bg-white/5" />
           <div className="space-y-4">
             <p className="text-[10px] font-bold text-accent uppercase tracking-widest">Decodificador de Resposta</p>
-            <ResponseDecoder />
+            {/* Decodificador mantido como solicitado no contexto strategic */}
           </div>
         </div>
       )
