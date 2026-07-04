@@ -16,7 +16,8 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 export default function Home() {
   const [diagnosis, setDiagnosis] = useState<string | undefined>();
 
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
+  // Busca a imagem do hero ou usa a do modulo1 como fallback
+  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg') || PlaceHolderImages.find(img => img.id === 'module-1');
 
   const modules = [
     {
@@ -99,7 +100,7 @@ export default function Home() {
               alt="Hero Background" 
               fill 
               className="object-cover opacity-40"
-              data-ai-hint={heroImage.imageHint}
+              priority
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
@@ -143,7 +144,6 @@ export default function Home() {
                         alt={module.title} 
                         fill 
                         className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 brightness-75 group-hover:brightness-100"
-                        data-ai-hint={module.hint}
                       />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
