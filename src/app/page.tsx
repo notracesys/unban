@@ -13,10 +13,15 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 
 export default function Home() {
-  const [diagnosis, setDiagnosis] = useState<string | undefined>();
-  const [isModule1Read, setIsModule1Read] = useState(false);
+  const [completedModules, setCompletedModules] = useState<string[]>([]);
 
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
+
+  const markAsCompleted = (id: string) => {
+    if (!completedModules.includes(id)) {
+      setCompletedModules(prev => [...prev, id]);
+    }
+  };
 
   const LessonItem = ({ title }: { title: string }) => (
     <div className="flex items-center gap-3 py-2 px-3 hover:bg-white/5 rounded-sm transition-colors group cursor-pointer border-l-2 border-transparent hover:border-primary">
@@ -42,14 +47,13 @@ export default function Home() {
             <LessonItem title="Aula 1.3 - O que é banimento reincidente" />
             <LessonItem title="Aula 1.4 - Como identificar qual é o seu caso" />
           </div>
-          
           <div className="pt-4">
-            {!isModule1Read ? (
+            {!completedModules.includes('module-1') ? (
               <Button 
-                onClick={() => setIsModule1Read(true)}
+                onClick={() => markAsCompleted('module-1')}
                 className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/50 text-[10px] uppercase font-bold tracking-widest py-6"
               >
-                Concluir Leitura e Liberar Acesso
+                Concluir Módulo e Liberar Próximo
               </Button>
             ) : (
               <div className="flex items-center justify-center gap-2 text-primary font-bold text-[10px] uppercase tracking-widest p-4 bg-primary/5 rounded-sm border border-primary/20">
@@ -68,12 +72,29 @@ export default function Home() {
       description: 'Logística e estratégia pré-envio.',
       image: PlaceHolderImages.find(img => img.id === 'module-2')?.imageUrl,
       content: (
-        <div className="grid gap-1">
-          <LessonItem title="Aula 2.1 - Onde enviar o ticket" />
-          <LessonItem title="Aula 2.2 - Escolhendo a categoria correta" />
-          <LessonItem title="Aula 2.3 - Como preencher os dados" />
-          <LessonItem title="Aula 2.4 - Revisão antes do envio" />
-          <LessonItem title="Aula 2.5 - O erro de enviar vários tickets" />
+        <div className="space-y-6">
+          <div className="grid gap-1">
+            <LessonItem title="Aula 2.1 - Onde enviar o ticket" />
+            <LessonItem title="Aula 2.2 - Escolhendo a categoria correta" />
+            <LessonItem title="Aula 2.3 - Como preencher os dados" />
+            <LessonItem title="Aula 2.4 - Revisão antes do envio" />
+            <LessonItem title="Aula 2.5 - O erro de enviar vários tickets" />
+          </div>
+          <div className="pt-4">
+            {!completedModules.includes('module-2') ? (
+              <Button 
+                onClick={() => markAsCompleted('module-2')}
+                className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/50 text-[10px] uppercase font-bold tracking-widest py-6"
+              >
+                Concluir Módulo e Liberar Próximo
+              </Button>
+            ) : (
+              <div className="flex items-center justify-center gap-2 text-primary font-bold text-[10px] uppercase tracking-widest p-4 bg-primary/5 rounded-sm border border-primary/20">
+                <CheckCircle2 className="w-4 h-4" />
+                Módulo Concluído
+              </div>
+            )}
+          </div>
         </div>
       )
     },
@@ -84,15 +105,32 @@ export default function Home() {
       description: 'Protocolo detalhado de preenchimento.',
       image: PlaceHolderImages.find(img => img.id === 'module-3')?.imageUrl,
       content: (
-        <div className="grid gap-1">
-          <LessonItem title="Aula 3.1 - Qual opção selecionar" />
-          <LessonItem title="Aula 3.2 - Campo Requester" />
-          <LessonItem title="Aula 3.3 - Campo Assunto" />
-          <LessonItem title="Aula 3.4 - Nick do jogo" />
-          <LessonItem title="Aula 3.5 - ID da conta" />
-          <LessonItem title="Aula 3.6 - Tempo de suspensão" />
-          <LessonItem title="Aula 3.7 - Data do ocorrido" />
-          <LessonItem title="Aula 3.8 - Descrição do ticket" />
+        <div className="space-y-6">
+          <div className="grid gap-1">
+            <LessonItem title="Aula 3.1 - Qual opção selecionar" />
+            <LessonItem title="Aula 3.2 - Campo Requester" />
+            <LessonItem title="Aula 3.3 - Campo Assunto" />
+            <LessonItem title="Aula 3.4 - Nick do jogo" />
+            <LessonItem title="Aula 3.5 - ID da conta" />
+            <LessonItem title="Aula 3.6 - Tempo de suspensão" />
+            <LessonItem title="Aula 3.7 - Data do ocorrido" />
+            <LessonItem title="Aula 3.8 - Descrição do ticket" />
+          </div>
+          <div className="pt-4">
+            {!completedModules.includes('module-3') ? (
+              <Button 
+                onClick={() => markAsCompleted('module-3')}
+                className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/50 text-[10px] uppercase font-bold tracking-widest py-6"
+              >
+                Concluir Módulo e Liberar Próximo
+              </Button>
+            ) : (
+              <div className="flex items-center justify-center gap-2 text-primary font-bold text-[10px] uppercase tracking-widest p-4 bg-primary/5 rounded-sm border border-primary/20">
+                <CheckCircle2 className="w-4 h-4" />
+                Módulo Concluído
+              </div>
+            )}
+          </div>
         </div>
       )
     },
@@ -115,7 +153,22 @@ export default function Home() {
           <Separator className="bg-white/5" />
           <div className="space-y-4">
             <p className="text-[10px] font-bold text-accent uppercase tracking-widest">Sintetizador de Modelos (IA)</p>
-            <TicketAdvisor prefilledType={diagnosis} />
+            <TicketAdvisor />
+          </div>
+          <div className="pt-4">
+            {!completedModules.includes('module-4') ? (
+              <Button 
+                onClick={() => markAsCompleted('module-4')}
+                className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/50 text-[10px] uppercase font-bold tracking-widest py-6"
+              >
+                Concluir Módulo e Liberar Próximo
+              </Button>
+            ) : (
+              <div className="flex items-center justify-center gap-2 text-primary font-bold text-[10px] uppercase tracking-widest p-4 bg-primary/5 rounded-sm border border-primary/20">
+                <CheckCircle2 className="w-4 h-4" />
+                Módulo Concluído
+              </div>
+            )}
           </div>
         </div>
       )
@@ -138,6 +191,21 @@ export default function Home() {
           <div className="space-y-4">
             <p className="text-[10px] font-bold text-primary uppercase tracking-widest">Controle de Cooldown</p>
             <DelayTimer />
+          </div>
+          <div className="pt-4">
+            {!completedModules.includes('module-5') ? (
+              <Button 
+                onClick={() => markAsCompleted('module-5')}
+                className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/50 text-[10px] uppercase font-bold tracking-widest py-6"
+              >
+                Concluir Módulo e Liberar Próximo
+              </Button>
+            ) : (
+              <div className="flex items-center justify-center gap-2 text-primary font-bold text-[10px] uppercase tracking-widest p-4 bg-primary/5 rounded-sm border border-primary/20">
+                <CheckCircle2 className="w-4 h-4" />
+                Módulo Concluído
+              </div>
+            )}
           </div>
         </div>
       )
@@ -176,11 +244,11 @@ export default function Home() {
               src={heroImage.imageUrl} 
               alt="Hero Background" 
               fill 
-              className="object-cover opacity-40"
+              className="object-cover opacity-60"
               priority
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         </div>
 
         <div className="relative z-10 space-y-4 w-full">
@@ -188,7 +256,7 @@ export default function Home() {
             <Crown className="w-5 h-5" />
             <span className="font-headline text-[10px] font-bold tracking-[0.4em] uppercase">zephyrus</span>
           </div>
-          <h1 className="text-7xl font-headline font-black tracking-tighter uppercase leading-[0.85] break-words max-w-[90%]">
+          <h1 className="text-7xl md:text-8xl font-headline font-black tracking-tighter uppercase leading-[0.85] break-words">
             UNBAN <span className="text-primary">STRATEGY</span>
           </h1>
           <p className="text-xs text-muted-foreground font-body max-w-[280px] leading-relaxed uppercase tracking-widest opacity-80">
@@ -206,7 +274,8 @@ export default function Home() {
 
         <Accordion type="single" collapsible className="w-full space-y-8">
           {modules.map((module, index) => {
-            const isLocked = index > 0 && !isModule1Read;
+            // Um módulo é bloqueado se não for o primeiro e o módulo anterior não estiver concluído
+            const isLocked = index > 0 && !completedModules.includes(modules[index - 1].id);
 
             return (
               <AccordionItem 
@@ -220,20 +289,17 @@ export default function Home() {
                   isLocked && "cursor-not-allowed"
                 )}>
                   <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden border border-white/5 transition-transform duration-500 group-hover:scale-[1.02] shadow-2xl">
-                    {/* Background Image */}
+                    {/* Background Image - Removido grayscale conforme pedido */}
                     <div className="absolute inset-0">
                       {module.image && (
                         <Image 
                           src={module.image} 
                           alt={module.title} 
                           fill 
-                          className={cn(
-                            "object-cover transition-all duration-700",
-                            isLocked ? "grayscale brightness-50" : "grayscale-0 brightness-100"
-                          )}
+                          className="object-cover transition-all duration-700 brightness-90 group-hover:brightness-110"
                         />
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
                     </div>
 
                     {/* Content Overlay */}
@@ -249,7 +315,7 @@ export default function Home() {
                         <div className="mt-4 flex items-center gap-2 p-3 bg-black/60 border border-white/10 rounded-sm backdrop-blur-md">
                           <Lock className="w-3 h-3 text-primary" />
                           <p className="text-[9px] text-muted-foreground uppercase font-bold tracking-tighter">
-                            Bloqueado - Conclua o Módulo 1
+                            Bloqueado - Conclua o módulo anterior
                           </p>
                         </div>
                       ) : (
