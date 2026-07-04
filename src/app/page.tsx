@@ -134,7 +134,7 @@ export default function Home() {
 
               <div className="space-y-3">
                 <p className="text-white font-bold text-[11px]">Por que isso é importante?</p>
-                <p>Because os banimentos automáticos representam os casos em que ainda existe alguma possibilidade de solicitar uma reavaliação estratégica.</p>
+                <p>Porque os banimentos automáticos representam os casos em que ainda existe alguma possibilidade de solicitar uma reavaliação estratégica.</p>
                 <p>O objetivo deste método não é discutir com o sistema, mas sim tentar fazer com que sua solicitação ultrapasse a primeira camada automática de análise.</p>
               </div>
 
@@ -232,7 +232,7 @@ export default function Home() {
               </div>
 
               <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
-                <p className="font-black">Por isso, o método trabalha com controle, organização e estratégia, nunca com insistência impulsiva.</p>
+                <p className="font-black">Por isso, o método trabalha com controle, organization e estratégia, nunca com insistência impulsiva.</p>
               </div>
             </div>
           )
@@ -523,7 +523,72 @@ export default function Home() {
             </div>
           )
         },
-        { id: '2.5', title: 'Aula 2.5 - O erro de enviar vários tickets' },
+        { 
+          id: '2.5', 
+          title: 'Aula 2.5 - O erro de enviar vários tickets',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                O ticket é único
+              </p>
+              
+              <p>Antes de clicar em enviar, pare por alguns minutos e revise tudo.</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-4">
+                <p className="text-white font-bold text-[11px]">Faça a seguinte checklist:</p>
+                
+                <div className="space-y-1">
+                  <p className="text-accent font-bold text-[10px]">Categoria</p>
+                  <ul className="list-disc pl-4 text-muted-foreground space-y-1">
+                    <li>Está correta?</li>
+                    <li>É a opção mais neutra disponível?</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-1">
+                  <p className="text-accent font-bold text-[10px]">Dados</p>
+                  <ul className="list-disc pl-4 text-muted-foreground space-y-1">
+                    <li>O ID foi digitado corretamente?</li>
+                    <li>O nickname está exato?</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-1">
+                  <p className="text-accent font-bold text-[10px]">Mensagem</p>
+                  <ul className="list-disc pl-4 text-muted-foreground space-y-1">
+                    <li>Está objetiva?</li>
+                    <li>Está técnica?</li>
+                    <li>Está organizada?</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <p className="text-white font-bold text-[11px]">Tom geral</p>
+                <p>Pergunte: <span className="italic">"Isto parece ter sido escrito por alguém calmo e racional?"</span></p>
+                <p className="text-muted-foreground">Se a resposta for "não", não envie ainda.</p>
+              </div>
+
+              <Separator className="bg-white/5" />
+
+              <div className="space-y-3">
+                <p className="text-primary font-bold text-[11px]">Após o envio</p>
+                <p>Depois que o ticket for enviado:</p>
+                <div className="bg-destructive/10 p-4 border border-destructive/30 rounded-sm space-y-2">
+                  <p className="text-destructive font-black text-[10px]">NUNCA FAÇA:</p>
+                  <ul className="space-y-1 text-muted-foreground">
+                    <li>❌ Não envie outro imediatamente;</li>
+                    <li>❌ Não tente complementar informações;</li>
+                    <li>❌ Não abra múltiplas solicitações;</li>
+                    <li>❌ Não tente reforçar o pedido.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <p>A estratégia termina no momento do envio. A partir daí, insistência excessiva normalmente produz o efeito contrário ao desejado.</p>
+            </div>
+          )
+        },
       ],
       content: (id: string) => (
         <div className="space-y-6">
