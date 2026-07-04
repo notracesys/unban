@@ -150,7 +150,55 @@ export default function Home() {
             </div>
           )
         },
-        { id: '1.2', title: 'Aula 1.2 - O que é banimento manual' },
+        { 
+          id: '1.2', 
+          title: 'Aula 1.2 - O que é banimento manual',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                Quando existe participação humana na decisão
+              </p>
+              
+              <p>O banimento manual ocorre quando existe uma análise direta ou validação interna realizada por membros da equipe responsável.</p>
+              
+              <p>Nesses casos, normalmente existem elementos mais específicos relacionados ao motivo da punição.</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">As principais características de um banimento manual são:</p>
+                <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
+                  <li>Mensagens mais detalhadas;</li>
+                  <li>Referência direta a regras ou comportamentos;</li>
+                  <li>Respostas objetivas e firmes;</li>
+                  <li>Menor flexibilidade para reavaliação.</li>
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">Exemplos:</p>
+                <div className="grid gap-2 italic text-accent/80">
+                  <p>"Citação direta dos Termos de Serviço;"</p>
+                  <p>"Informação sobre comportamento específico;"</p>
+                  <p>"Confirmação explícita da violação."</p>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">O que isso significa?</p>
+                <p>Significa que a possibilidade de reversão tende a ser significativamente menor.</p>
+                <p>Isso não quer dizer que você deva agir por impulso ou desistir imediatamente. Significa apenas que a estratégia precisa ser ainda mais cuidadosa.</p>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">Neste cenário, o principal objetivo deixa de ser "convencer" e passa a ser:</p>
+                <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
+                  <li>Não piorar a situação;</li>
+                  <li>Evitar encerramentos adicionais;</li>
+                  <li>Manter uma postura técnica e organizada.</li>
+                </ul>
+              </div>
+            </div>
+          )
+        },
         { id: '1.3', title: 'Aula 1.3 - O que é banimento reincidente' },
         { id: '1.4', title: 'Aula 1.4 - Como identificar qual é o seu caso' },
       ],
