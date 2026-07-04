@@ -6,7 +6,7 @@ import { TicketAdvisor } from '@/components/cyber/TicketAdvisor';
 import { DelayTimer } from '@/components/cyber/DelayTimer';
 import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
 import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, FileText, CheckCircle2, Terminal } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, FileText, CheckCircle2, Terminal, ExternalLink } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -139,7 +139,7 @@ export default function Home() {
 
               <div className="space-y-3">
                 <p className="text-white font-bold text-[11px]">Por que isso é importante?</p>
-                <p>Porque os banimentos automáticos representam os caches em que ainda existe alguma possibilidade de solicitar uma reavaliação estratégica.</p>
+                <p>Porque os banimentos automáticos representam os casos em que ainda existe alguma possibilidade de solicitar uma reavaliação estratégica.</p>
                 <p>O objetivo deste método não é discutir com o sistema, mas sim tentar fazer com que sua solicitação ultrapasse a primeira camada automática de análise.</p>
               </div>
 
@@ -364,11 +364,20 @@ export default function Home() {
                 </ul>
               </div>
 
-              <p>Esses canais não realizam análise individual de contas e, na maioria dos casos, não possuem qualquer poder para alterar decisões internas.</p>
-
               <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
                 <p className="text-white font-bold text-[11px]">O procedimento correto:</p>
                 <p>A solicitação deve ser enviada exclusivamente através do suporte oficial disponibilizado pela plataforma.</p>
+                
+                <div className="pt-2">
+                  <Button 
+                    asChild 
+                    className="w-full bg-primary hover:bg-primary/90 text-white border-none text-[10px] font-bold uppercase tracking-widest py-5"
+                  >
+                    <a href="https://ffsuporte.garena.com/support/tickets/new" target="_blank" rel="noopener noreferrer">
+                      Acessar Canal Oficial <ExternalLink className="ml-2 w-3 h-3" />
+                    </a>
+                  </Button>
+                </div>
               </div>
 
               <div className="space-y-3">
@@ -378,11 +387,6 @@ export default function Home() {
                   <li>Evitar encaminhamentos automáticos desnecessários;</li>
                   <li>Maximizar a possibilidade de análise.</li>
                 </ul>
-              </div>
-
-              <div className="space-y-3">
-                <p className="text-white font-bold text-[11px]">O primeiro erro que elimina tentativas:</p>
-                <p>Enviar mensagens para diversos canais simultaneamente não aumenta as chances. Apenas cria registros redundantes e prejudica a consistência do caso.</p>
               </div>
 
               <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
