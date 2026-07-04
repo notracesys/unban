@@ -27,7 +27,7 @@ interface Lesson {
 
 export default function Home() {
   const [completedModules, setCompletedModules] = useState<string[]>([]);
-  const [activeLesson, setActiveLesson] = useState<Lesson | null>(null);
+  const [viewedLessons, setViewedLessons] = useState<string[]>([]);
 
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
 
@@ -37,43 +37,64 @@ export default function Home() {
     }
   };
 
-  const LessonItem = ({ lesson }: { lesson: Lesson }) => (
-    <Dialog>
-      <DialogTrigger asChild>
-        <div 
-          className="flex items-center gap-3 py-2 px-3 hover:bg-white/5 rounded-sm transition-colors group cursor-pointer border-l-2 border-transparent hover:border-primary"
-        >
-          <PlayCircle className="w-4 h-4 text-primary opacity-50 group-hover:opacity-100" />
-          <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground group-hover:text-white transition-colors">
-            {lesson.title}
-          </span>
-        </div>
-      </DialogTrigger>
-      {lesson.content ? (
-        <DialogContent className="bg-card border-primary/30 max-w-2xl max-h-[80vh] overflow-y-auto custom-scrollbar">
-          <DialogHeader className="border-b border-white/5 pb-4 mb-4">
-            <div className="flex items-center gap-2 text-primary mb-2">
-              <Terminal className="w-4 h-4" />
-              <span className="text-[10px] font-bold tracking-[0.3em] uppercase">Data Stream // Access Granted</span>
-            </div>
-            <DialogTitle className="text-2xl font-headline font-black uppercase tracking-tighter text-white">
+  const markLessonAsViewed = (id: string) => {
+    if (!viewedLessons.includes(id)) {
+      setViewedLessons(prev => [...prev, id]);
+    }
+  };
+
+  const LessonItem = ({ lesson }: { lesson: Lesson }) => {
+    const isViewed = viewedLessons.includes(lesson.id);
+
+    return (
+      <Dialog onOpenChange={(open) => { if (open) markLessonAsViewed(lesson.id); }}>
+        <DialogTrigger asChild>
+          <div 
+            className={cn(
+              "flex items-center gap-3 py-2 px-3 hover:bg-white/5 rounded-sm transition-all group cursor-pointer border-l-2",
+              isViewed 
+                ? "border-green-500 bg-green-500/5" 
+                : "border-transparent hover:border-primary"
+            )}
+          >
+            <PlayCircle className={cn(
+              "w-4 h-4 transition-colors",
+              isViewed ? "text-green-500" : "text-primary opacity-50 group-hover:opacity-100"
+            )} />
+            <span className={cn(
+              "text-[11px] font-medium uppercase tracking-wider transition-colors",
+              isViewed ? "text-green-500" : "text-muted-foreground group-hover:text-white"
+            )}>
               {lesson.title}
-            </DialogTitle>
-          </DialogHeader>
-          <div className="font-body text-sm text-muted-foreground leading-relaxed space-y-4">
-            {lesson.content}
+            </span>
           </div>
-        </DialogContent>
-      ) : (
-        <DialogContent className="bg-card border-primary/30">
-          <DialogHeader>
-            <DialogTitle className="text-white uppercase tracking-tighter">Conteúdo em Breve</DialogTitle>
-          </DialogHeader>
-          <p className="text-xs text-muted-foreground uppercase tracking-widest">Este arquivo está sendo descriptografado.</p>
-        </DialogContent>
-      )}
-    </Dialog>
-  );
+        </DialogTrigger>
+        {lesson.content ? (
+          <DialogContent className="bg-card border-primary/30 max-w-2xl max-h-[80vh] overflow-y-auto custom-scrollbar">
+            <DialogHeader className="border-b border-white/5 pb-4 mb-4">
+              <div className="flex items-center gap-2 text-primary mb-2">
+                <Terminal className="w-4 h-4" />
+                <span className="text-[10px] font-bold tracking-[0.3em] uppercase">Data Stream // Access Granted</span>
+              </div>
+              <DialogTitle className="text-2xl font-headline font-black uppercase tracking-tighter text-white">
+                {lesson.title}
+              </DialogTitle>
+            </DialogHeader>
+            <div className="font-body text-sm text-muted-foreground leading-relaxed space-y-4">
+              {lesson.content}
+            </div>
+          </DialogContent>
+        ) : (
+          <DialogContent className="bg-card border-primary/30">
+            <DialogHeader>
+              <DialogTitle className="text-white uppercase tracking-tighter">Conteúdo em Breve</DialogTitle>
+            </DialogHeader>
+            <p className="text-xs text-muted-foreground uppercase tracking-widest">Este arquivo está sendo descriptografado.</p>
+          </DialogContent>
+        )}
+      </Dialog>
+    );
+  };
 
   const modules = [
     {
@@ -255,10 +276,7 @@ export default function Home() {
         <div className="space-y-6">
           <div className="grid gap-2">
              {modules[3].lessons.map(lesson => (
-               <div key={lesson.id} className="flex items-center gap-3 py-2 px-3 bg-white/5 rounded-sm border-l-2 border-accent">
-                 <FileText className="w-4 h-4 text-accent opacity-70" />
-                 <span className="text-[11px] font-bold text-muted-foreground uppercase">{lesson.title}</span>
-               </div>
+               <LessonItem key={lesson.id} lesson={lesson} />
              ))}
           </div>
           <Separator className="bg-white/5" />
