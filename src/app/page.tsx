@@ -440,7 +440,47 @@ export default function Home() {
             </div>
           )
         },
-        { id: '2.3', title: 'Aula 2.3 - Como preencher os dados' },
+        { 
+          id: '2.3', 
+          title: 'Aula 2.3 - Como preencher os dados',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                Menos informação significa menos problemas
+              </p>
+              
+              <p>Uma das maiores causas de falha ocorre quando o usuário tenta explicar toda a situação em campos que não foram feitos para isso.</p>
+              <p>Os campos técnicos existem apenas para identificação.</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">Preencha somente:</p>
+                <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
+                  <li>ID correto da conta;</li>
+                  <li>nickname exato;</li>
+                  <li>e-mail solicitado;</li>
+                  <li>informações obrigatórias do formulário.</li>
+                </ul>
+              </div>
+
+              <div className="bg-destructive/10 p-4 border border-destructive/30 text-destructive">
+                <p className="font-black mb-2">Nunca faça isto:</p>
+                <ul className="space-y-1 text-[11px]">
+                  <li>❌ Adicionar explicações extras;</li>
+                  <li>❌ Contar sua história nos campos técnicos;</li>
+                  <li>❌ Inserir justificativas;</li>
+                  <li>❌ Repetir informações.</li>
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">Por quê?</p>
+                <p>Porque sistemas automatizados analisam padrões de preenchimento.</p>
+                <p>Campos técnicos devem conter apenas dados técnicos.</p>
+                <p>Quanto mais organizado o formulário, maior a chance de ele ser tratado como uma solicitação legítima.</p>
+              </div>
+            </div>
+          )
+        },
         { id: '2.4', title: 'Aula 2.4 - Revisão antes do envio' },
         { id: '2.5', title: 'Aula 2.5 - O erro de enviar vários tickets' },
       ],
