@@ -9,15 +9,16 @@ import { DelayTimer } from '@/components/cyber/DelayTimer';
 import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
 import { AttemptLog } from '@/components/cyber/AttemptLog';
 import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Info } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Info, Lock } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { cn } from '@/lib/utils';
 
 export default function Home() {
   const [diagnosis, setDiagnosis] = useState<string | undefined>();
+  const [isModule1Read, setIsModule1Read] = useState(false);
 
-  // Busca a imagem do hero ou usa a do modulo1 como fallback
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg') || PlaceHolderImages.find(img => img.id === 'module-1');
+  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
 
   const modules = [
     {
@@ -26,8 +27,10 @@ export default function Home() {
       title: 'Diagnóstico de Restrição',
       description: 'Identifique o tipo de bloqueio aplicado à sua conta.',
       image: PlaceHolderImages.find(img => img.id === 'module-1')?.imageUrl,
-      hint: PlaceHolderImages.find(img => img.id === 'module-1')?.imageHint,
-      component: <DecisionTree onDiagnosed={setDiagnosis} />
+      component: <DecisionTree onDiagnosed={(type) => {
+        setDiagnosis(type);
+        setIsModule1Read(true);
+      }} />
     },
     {
       id: 'advisor',
@@ -35,7 +38,6 @@ export default function Home() {
       title: 'Gerador de Protocolos',
       description: 'Sintetize tickets estratégicos para suporte humano.',
       image: PlaceHolderImages.find(img => img.id === 'module-2')?.imageUrl,
-      hint: PlaceHolderImages.find(img => img.id === 'module-2')?.imageHint,
       component: <TicketAdvisor prefilledType={diagnosis} />
     },
     {
@@ -44,7 +46,6 @@ export default function Home() {
       title: 'Silêncio Operacional',
       description: 'Cronômetro de cooldown para evitar banimento permanente.',
       image: PlaceHolderImages.find(img => img.id === 'module-3')?.imageUrl,
-      hint: PlaceHolderImages.find(img => img.id === 'module-3')?.imageHint,
       component: <DelayTimer />
     },
     {
@@ -53,7 +54,6 @@ export default function Home() {
       title: 'Análise de Resposta',
       description: 'Decodifique se a resposta foi de um bot ou humano.',
       image: PlaceHolderImages.find(img => img.id === 'module-4')?.imageUrl,
-      hint: PlaceHolderImages.find(img => img.id === 'module-4')?.imageHint,
       component: <ResponseDecoder />
     },
     {
@@ -62,7 +62,6 @@ export default function Home() {
       title: 'Histórico de Missão',
       description: 'Logs detalhados de todas as operações realizadas.',
       image: PlaceHolderImages.find(img => img.id === 'module-5')?.imageUrl,
-      hint: PlaceHolderImages.find(img => img.id === 'module-5')?.imageHint,
       component: <AttemptLog />
     },
     {
@@ -71,7 +70,6 @@ export default function Home() {
       title: 'Central de Inteligência',
       description: 'Base de conhecimento e táticas avançadas de recuperação.',
       image: PlaceHolderImages.find(img => img.id === 'module-6')?.imageUrl,
-      hint: PlaceHolderImages.find(img => img.id === 'module-6')?.imageHint,
       component: (
         <div className="py-4 space-y-4">
           <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg flex gap-3 items-start">
@@ -128,56 +126,77 @@ export default function Home() {
         </div>
 
         <Accordion type="single" collapsible className="w-full space-y-8">
-          {modules.map((module) => (
-            <AccordionItem 
-              key={module.id} 
-              value={module.id} 
-              className="border-none group overflow-hidden"
-            >
-              <AccordionTrigger className="hover:no-underline p-0 flex flex-col items-start text-left data-[state=open]:mb-6 transition-all">
-                <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden border border-white/5 transition-transform duration-500 group-hover:scale-[1.02] shadow-2xl">
-                  {/* Background Image */}
-                  <div className="absolute inset-0">
-                    {module.image && (
-                      <Image 
-                        src={module.image} 
-                        alt={module.title} 
-                        fill 
-                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 brightness-75 group-hover:brightness-100"
-                      />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
+          {modules.map((module, index) => {
+            const isLocked = index > 0 && !isModule1Read;
 
-                  {/* Content Overlay */}
-                  <div className="absolute inset-0 p-8 flex flex-col justify-end gap-1">
-                    <span className="text-[10px] font-headline font-bold text-primary tracking-[0.3em] mb-2">
-                      {module.tag}
-                    </span>
-                    <h3 className="text-3xl font-headline font-black text-white uppercase tracking-tighter leading-none group-hover:text-primary transition-colors">
-                      {module.title}
-                    </h3>
-                    <div className="h-0 group-hover:h-8 overflow-hidden transition-all duration-300 opacity-0 group-hover:opacity-100 mt-2">
-                      <p className="text-[10px] text-muted-foreground uppercase tracking-widest flex items-center gap-1">
-                        Acessar Módulo <ChevronRight className="w-3 h-3 text-primary" />
-                      </p>
+            return (
+              <AccordionItem 
+                key={module.id} 
+                value={module.id} 
+                className="border-none group overflow-hidden"
+                disabled={isLocked}
+              >
+                <AccordionTrigger className={cn(
+                  "hover:no-underline p-0 flex flex-col items-start text-left data-[state=open]:mb-6 transition-all relative",
+                  isLocked && "cursor-not-allowed"
+                )}>
+                  <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden border border-white/5 transition-transform duration-500 group-hover:scale-[1.02] shadow-2xl">
+                    {/* Background Image */}
+                    <div className="absolute inset-0">
+                      {module.image && (
+                        <Image 
+                          src={module.image} 
+                          alt={module.title} 
+                          fill 
+                          className={cn(
+                            "object-cover grayscale transition-all duration-700 brightness-75",
+                            !isLocked && "group-hover:grayscale-0 group-hover:brightness-100"
+                          )}
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                      {!isLocked && <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />}
+                    </div>
+
+                    {/* Content Overlay */}
+                    <div className="absolute inset-0 p-8 flex flex-col justify-end gap-1">
+                      <span className="text-[10px] font-headline font-bold text-primary tracking-[0.3em] mb-2">
+                        {module.tag}
+                      </span>
+                      <h3 className="text-3xl font-headline font-black text-white uppercase tracking-tighter leading-none group-hover:text-primary transition-colors">
+                        {module.title}
+                      </h3>
+                      
+                      {isLocked ? (
+                        <div className="mt-4 flex items-center gap-2 p-3 bg-black/60 border border-white/10 rounded-sm backdrop-blur-md">
+                          <Lock className="w-3 h-3 text-primary" />
+                          <p className="text-[9px] text-muted-foreground uppercase font-bold tracking-tighter">
+                            Disponível após ler o Módulo 1
+                          </p>
+                        </div>
+                      ) : (
+                        <div className="h-0 group-hover:h-8 overflow-hidden transition-all duration-300 opacity-0 group-hover:opacity-100 mt-2">
+                          <p className="text-[10px] text-muted-foreground uppercase tracking-widest flex items-center gap-1">
+                            Acessar Módulo <ChevronRight className="w-3 h-3 text-primary" />
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
-                </div>
-              </AccordionTrigger>
+                </AccordionTrigger>
 
-              <AccordionContent className="bg-card border border-white/10 rounded-lg p-6 animate-in slide-in-from-top-4 duration-300 shadow-inner">
-                <div className="space-y-4">
-                  <div className="pb-4 border-b border-white/5">
-                    <h4 className="font-headline text-lg font-bold text-white mb-2 uppercase tracking-tight">{module.title}</h4>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{module.description}</p>
+                <AccordionContent className="bg-card border border-white/10 rounded-lg p-6 animate-in slide-in-from-top-4 duration-300 shadow-inner">
+                  <div className="space-y-4">
+                    <div className="pb-4 border-b border-white/5">
+                      <h4 className="font-headline text-lg font-bold text-white mb-2 uppercase tracking-tight">{module.title}</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{module.description}</p>
+                    </div>
+                    {module.component}
                   </div>
-                  {module.component}
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          ))}
+                </AccordionContent>
+              </AccordionItem>
+            );
+          })}
         </Accordion>
       </section>
 
