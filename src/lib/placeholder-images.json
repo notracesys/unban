@@ -39,7 +39,7 @@
     {
       "id": "hero-bg",
       "description": "Fundo do cabeçalho principal",
-      "imageUrl": "/modulo1.png",
+      "imageUrl": "/capa.png",
       "imageHint": "abstract dark"
     }
   ]

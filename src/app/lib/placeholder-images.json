@@ -40,7 +40,7 @@
     {
       "id": "hero-bg",
       "description": "Fundo do cabeçalho principal",
-      "imageUrl": "https://picsum.photos/seed/unbanhero/1200/800",
+      "imageUrl": "/capa.png",
       "imageHint": "abstract dark"
     }
   ]
