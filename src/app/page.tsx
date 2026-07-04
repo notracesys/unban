@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -8,7 +9,7 @@ import { DelayTimer } from '@/components/cyber/DelayTimer';
 import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
 import { AttemptLog } from '@/components/cyber/AttemptLog';
 import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, ChevronRight, Crown, LayoutGrid } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Info } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -23,8 +24,8 @@ export default function Home() {
       tag: 'MÓDULO 1',
       title: 'Diagnóstico de Restrição',
       description: 'Identifique o tipo de bloqueio aplicado à sua conta.',
-      image: PlaceHolderImages.find(img => img.id === 'module-diagnostic')?.imageUrl,
-      hint: PlaceHolderImages.find(img => img.id === 'module-diagnostic')?.imageHint,
+      image: PlaceHolderImages.find(img => img.id === 'module-1')?.imageUrl,
+      hint: PlaceHolderImages.find(img => img.id === 'module-1')?.imageHint,
       component: <DecisionTree onDiagnosed={setDiagnosis} />
     },
     {
@@ -32,8 +33,8 @@ export default function Home() {
       tag: 'MÓDULO 2',
       title: 'Gerador de Protocolos',
       description: 'Sintetize tickets estratégicos para suporte humano.',
-      image: PlaceHolderImages.find(img => img.id === 'module-advisor')?.imageUrl,
-      hint: PlaceHolderImages.find(img => img.id === 'module-advisor')?.imageHint,
+      image: PlaceHolderImages.find(img => img.id === 'module-2')?.imageUrl,
+      hint: PlaceHolderImages.find(img => img.id === 'module-2')?.imageHint,
       component: <TicketAdvisor prefilledType={diagnosis} />
     },
     {
@@ -41,8 +42,8 @@ export default function Home() {
       tag: 'MÓDULO 3',
       title: 'Silêncio Operacional',
       description: 'Cronômetro de cooldown para evitar banimento permanente.',
-      image: PlaceHolderImages.find(img => img.id === 'module-timer')?.imageUrl,
-      hint: PlaceHolderImages.find(img => img.id === 'module-timer')?.imageHint,
+      image: PlaceHolderImages.find(img => img.id === 'module-3')?.imageUrl,
+      hint: PlaceHolderImages.find(img => img.id === 'module-3')?.imageHint,
       component: <DelayTimer />
     },
     {
@@ -50,8 +51,8 @@ export default function Home() {
       tag: 'MÓDULO 4',
       title: 'Análise de Resposta',
       description: 'Decodifique se a resposta foi de um bot ou humano.',
-      image: PlaceHolderImages.find(img => img.id === 'module-decoder')?.imageUrl,
-      hint: PlaceHolderImages.find(img => img.id === 'module-decoder')?.imageHint,
+      image: PlaceHolderImages.find(img => img.id === 'module-4')?.imageUrl,
+      hint: PlaceHolderImages.find(img => img.id === 'module-4')?.imageHint,
       component: <ResponseDecoder />
     },
     {
@@ -59,9 +60,31 @@ export default function Home() {
       tag: 'MÓDULO 5',
       title: 'Histórico de Missão',
       description: 'Logs detalhados de todas as operações realizadas.',
-      image: PlaceHolderImages.find(img => img.id === 'module-logs')?.imageUrl,
-      hint: PlaceHolderImages.find(img => img.id === 'module-logs')?.imageHint,
+      image: PlaceHolderImages.find(img => img.id === 'module-5')?.imageUrl,
+      hint: PlaceHolderImages.find(img => img.id === 'module-5')?.imageHint,
       component: <AttemptLog />
+    },
+    {
+      id: 'intelligence',
+      tag: 'MÓDULO 6',
+      title: 'Central de Inteligência',
+      description: 'Base de conhecimento e táticas avançadas de recuperação.',
+      image: PlaceHolderImages.find(img => img.id === 'module-6')?.imageUrl,
+      hint: PlaceHolderImages.find(img => img.id === 'module-6')?.imageHint,
+      component: (
+        <div className="py-4 space-y-4">
+          <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg flex gap-3 items-start">
+            <Info className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+            <div className="space-y-1">
+              <p className="text-[11px] font-bold text-white uppercase">Acesso Restrito</p>
+              <p className="text-[10px] text-muted-foreground leading-relaxed">Documentação técnica e táticas de engenharia social para casos complexos. Mantenha o sigilo operacional.</p>
+            </div>
+          </div>
+          <div className="p-8 border border-dashed border-white/5 rounded-lg text-center opacity-40">
+            <p className="text-[9px] font-code uppercase tracking-widest">Base de dados sendo descriptografada...</p>
+          </div>
+        </div>
+      )
     }
   ];
 
@@ -179,7 +202,7 @@ export default function Home() {
       <footer className="w-full max-w-md px-6 py-16 flex flex-col items-center justify-center space-y-6 opacity-30">
         <Separator className="bg-white/10 w-32" />
         <div className="flex flex-col items-center gap-2 text-[8px] font-code tracking-[0.4em] text-center">
-          <span>UNBANSTRATEGY_SYSTEM_V.5.0</span>
+          <span>UNBANSTRATEGY_SYSTEM_V.6.0</span>
           <span className="text-primary font-bold">// PROTOCOLO ATIVO</span>
         </div>
       </footer>
