@@ -243,7 +243,68 @@ export default function Home() {
             </div>
           )
         },
-        { id: '1.4', title: 'Aula 1.4 - Como identificar qual é o seu caso' },
+        { 
+          id: '1.4', 
+          title: 'Aula 1.4 - Como identificar qual é o seu caso',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                A etapa mais importante antes de enviar qualquer ticket
+              </p>
+              
+              <p>Antes de escrever qualquer mensagem para o suporte, faça estas perguntas:</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-4">
+                <div className="space-y-1">
+                  <p className="text-white font-bold text-[11px]">1. A mensagem recebida é genérica?</p>
+                  <p className="text-muted-foreground">Se sim, há grandes chances de ser um banimento automático.</p>
+                </div>
+                
+                <div className="space-y-1">
+                  <p className="text-white font-bold text-[11px]">2. A mensagem apresenta detalhes específicos?</p>
+                  <p className="text-muted-foreground">Se sim, pode indicar uma análise manual.</p>
+                </div>
+
+                <div className="space-y-1">
+                  <p className="text-white font-bold text-[11px]">3. A conta já recebeu punições anteriormente?</p>
+                  <p className="text-muted-foreground">Se a resposta for positiva, você provavelmente está diante de um caso reincidente.</p>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">Resumo rápido</p>
+                <div className="border border-white/10 rounded-sm overflow-hidden">
+                  <table className="w-full text-left text-[10px]">
+                    <thead className="bg-white/5">
+                      <tr>
+                        <th className="p-2 border-b border-white/10">TIPO</th>
+                        <th className="p-2 border-b border-white/10">CARACTERÍSTICAS</th>
+                        <th className="p-2 border-b border-white/10">CHANCE</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="p-2 border-b border-white/10 text-primary">AUTOMÁTICO</td>
+                        <td className="p-2 border-b border-white/10 text-muted-foreground">MENSAGENS GENÉRICAS</td>
+                        <td className="p-2 border-b border-white/10 text-accent">MAIOR</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border-b border-white/10 text-primary">MANUAL</td>
+                        <td className="p-2 border-b border-white/10 text-muted-foreground">MENSAGENS ESPECÍFICAS</td>
+                        <td className="p-2 border-b border-white/10 text-accent">BAIXA</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 text-primary">REINCIDENTE</td>
+                        <td className="p-2 text-muted-foreground">HISTÓRICO ANTERIOR</td>
+                        <td className="p-2 text-accent">MUITO BAIXA</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          )
+        },
       ],
       content: (id: string) => (
         <div className="space-y-6">
