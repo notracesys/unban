@@ -6,7 +6,7 @@ import { TicketAdvisor } from '@/components/cyber/TicketAdvisor';
 import { DelayTimer } from '@/components/cyber/DelayTimer';
 import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
 import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, FileText, CheckCircle2, Terminal, ExternalLink } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2 } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -69,29 +69,24 @@ export default function Home() {
             </span>
           </div>
         </DialogTrigger>
-        {lesson.content ? (
-          <DialogContent className="bg-card border-primary/30 max-w-2xl max-h-[80vh] overflow-y-auto custom-scrollbar">
-            <DialogHeader className="border-b border-white/5 pb-4 mb-4">
-              <div className="flex items-center gap-2 text-primary mb-2">
-                <Terminal className="w-4 h-4" />
-                <span className="text-[10px] font-bold tracking-[0.3em] uppercase">Data Stream // Access Granted</span>
-              </div>
-              <DialogTitle className="text-2xl font-headline font-black uppercase tracking-tighter text-white">
-                {lesson.title}
-              </DialogTitle>
-            </DialogHeader>
-            <div className="font-body text-sm text-muted-foreground leading-relaxed space-y-4">
-              {lesson.content}
+        <DialogContent className="bg-card border-primary/30 max-w-2xl max-h-[80vh] overflow-y-auto custom-scrollbar">
+          <DialogHeader className="border-b border-white/5 pb-4 mb-4">
+            <div className="flex items-center gap-2 text-primary mb-2">
+              <Terminal className="w-4 h-4" />
+              <span className="text-[10px] font-bold tracking-[0.3em] uppercase">Data Stream // Access Granted</span>
             </div>
-          </DialogContent>
-        ) : (
-          <DialogContent className="bg-card border-primary/30">
-            <DialogHeader>
-              <DialogTitle className="text-white uppercase tracking-tighter">Conteúdo em Breve</DialogTitle>
-            </DialogHeader>
-            <p className="text-xs text-muted-foreground uppercase tracking-widest">Este arquivo está sendo descriptografado.</p>
-          </DialogContent>
-        )}
+            <DialogTitle className="text-2xl font-headline font-black uppercase tracking-tighter text-white">
+              {lesson.title}
+            </DialogTitle>
+          </DialogHeader>
+          <div className="font-body text-sm text-muted-foreground leading-relaxed space-y-4">
+            {lesson.content || (
+              <div className="py-8 text-center">
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Arquivo em processo de descriptografia...</p>
+              </div>
+            )}
+          </div>
+        </DialogContent>
       </Dialog>
     );
   };
@@ -176,9 +171,9 @@ export default function Home() {
               <div className="space-y-3">
                 <p className="text-white font-bold text-[11px]">Exemplos:</p>
                 <div className="grid gap-2 italic text-accent/80">
-                  <p>"Citação direta dos Termos de Serviço;"</p>
-                  <p>"Informação sobre comportamento específico;"</p>
-                  <p>"Confirmação explícita da violação."</p>
+                  <p>Citação direta dos Termos de Serviço;</p>
+                  <p>Informação sobre comportamento específico;</p>
+                  <p>Confirmação explícita da violação.</p>
                 </div>
               </div>
 
@@ -237,8 +232,7 @@ export default function Home() {
               </div>
 
               <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
-                <p className="font-black">Lembre-se:</p>
-                <p>O método trabalha com controle, organização e estratégia, nunca com insistência impulsiva.</p>
+                <p className="font-black">Por isso, o método trabalha com controle, organização e estratégia, nunca com insistência impulsiva.</p>
               </div>
             </div>
           )
@@ -256,17 +250,17 @@ export default function Home() {
 
               <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-4">
                 <div className="space-y-1">
-                  <p className="text-white font-bold text-[11px]">1. A mensagem recebida é genérica?</p>
+                  <p className="text-white font-bold text-[11px]">A mensagem recebida é genérica?</p>
                   <p className="text-muted-foreground">Se sim, há grandes chances de ser um banimento automático.</p>
                 </div>
                 
                 <div className="space-y-1">
-                  <p className="text-white font-bold text-[11px]">2. A mensagem apresenta detalhes específicos?</p>
+                  <p className="text-white font-bold text-[11px]">A mensagem apresenta detalhes específicos?</p>
                   <p className="text-muted-foreground">Se sim, pode indicar uma análise manual.</p>
                 </div>
 
                 <div className="space-y-1">
-                  <p className="text-white font-bold text-[11px]">3. A conta já recebeu punições anteriormente?</p>
+                  <p className="text-white font-bold text-[11px]">A conta já recebeu punições anteriormente?</p>
                   <p className="text-muted-foreground">Se a resposta for positiva, você provavelmente está diante de um caso reincidente.</p>
                 </div>
               </div>
@@ -362,7 +356,6 @@ export default function Home() {
                   <li>Comentários em redes sociais;</li>
                   <li>Formulários não oficiais.</li>
                 </ul>
-                <p className="text-[10px] text-muted-foreground italic">Esses canais não realizam análise individual de contas e não possuem poder para alterar decisões internas.</p>
               </div>
 
               <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
@@ -384,10 +377,15 @@ export default function Home() {
               <div className="space-y-3">
                 <p className="text-white font-bold text-[11px]">O objetivo do método é simples:</p>
                 <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
-                  <li>Entrar no fluxo correto de atendimento;</li>
-                  <li>Evitar encaminhamentos automáticos desnecessários;</li>
-                  <li>Maximizar a possibilidade de análise.</li>
+                  <li>entrar no fluxo correto de atendimento;</li>
+                  <li>evitar encaminhamentos automáticos desnecessários;</li>
+                  <li>maximizar a possibilidade de análise.</li>
                 </ul>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">O primeiro erro que elimina tentativas:</p>
+                <p>Muitas pessoas enviam mensagens para diversos canais simultaneamente. Isso não aumenta as chances. Na prática, apenas cria registros redundantes e pode prejudicar a consistência do caso.</p>
               </div>
 
               <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
@@ -413,20 +411,19 @@ export default function Home() {
               <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
                 <p className="text-white font-bold text-[11px]">O que evitar:</p>
                 <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
-                  <li>Extremamente acusatórias;</li>
-                  <li>Definitivas;</li>
-                  <li>Relacionadas diretamente à confirmação da punição.</li>
+                  <li>extremamente acusatórias;</li>
+                  <li>definitivas;</li>
+                  <li>relacionadas diretamente à confirmação da punição.</li>
                 </ul>
                 <p className="text-[10px] italic">Categorias muito específicas podem fazer sua solicitação ser encaminhada diretamente para respostas padronizadas.</p>
               </div>
 
               <div className="space-y-3">
                 <p className="text-white font-bold text-[11px]">O que procurar:</p>
-                <p>A estratégia consiste em selecionar categorias que:</p>
                 <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
-                  <li>Permitam análise;</li>
-                  <li>Sejam mais neutras;</li>
-                  <li>Não antecipem conclusões.</li>
+                  <li>permitam análise;</li>
+                  <li>sejam mais neutras;</li>
+                  <li>não antecipem conclusões.</li>
                 </ul>
               </div>
 
@@ -474,14 +471,58 @@ export default function Home() {
 
               <div className="space-y-3">
                 <p className="text-white font-bold text-[11px]">Por quê?</p>
-                <p>Porque sistemas automatizados analisam padrões de preenchimento.</p>
-                <p>Campos técnicos devem conter apenas dados técnicos.</p>
-                <p>Quanto mais organizado o formulário, maior a chance de ele ser tratado como uma solicitação legítima.</p>
+                <p>Porque sistemas automatizados analisam padrões de preenchimento. Campos técnicos devem conter apenas dados técnicos. Quanto mais organizado o formulário, maior a chance de ele ser tratado como uma solicitação legítima.</p>
               </div>
             </div>
           )
         },
-        { id: '2.4', title: 'Aula 2.4 - Revisão antes do envio' },
+        { 
+          id: '2.4', 
+          title: 'Aula 2.4 - Revisão antes do envio',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                O único lugar onde a estratégia realmente importa
+              </p>
+              
+              <p>Todo o restante do formulário serve apenas para classificação. O campo de mensagem é o único espaço onde existe possibilidade de influência humana.</p>
+              <p>Por isso, existem algumas regras fundamentais.</p>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="bg-destructive/10 p-4 border border-destructive/30 rounded-sm">
+                  <p className="text-destructive font-black text-[11px] mb-3">NUNCA FAÇA:</p>
+                  <ul className="space-y-2 text-muted-foreground text-[11px]">
+                    <li>❌ Escrever em caixa alta;</li>
+                    <li>❌ Utilizar emojis;</li>
+                    <li>❌ Fazer ameaças;</li>
+                    <li>❌ Copiar textos emocionais;</li>
+                    <li>❌ Escrever como se estivesse discutindo em rede social.</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-green-500/10 p-4 border border-green-500/30 rounded-sm">
+                  <p className="text-green-500 font-black text-[11px] mb-3">O QUE FAZER:</p>
+                  <ul className="space-y-2 text-muted-foreground text-[11px]">
+                    <li>✅ Utilizar linguagem formal;</li>
+                    <li>✅ Ser objetivo;</li>
+                    <li>✅ Demonstrar organização;</li>
+                    <li>✅ Solicitar análise, não exigir resultado.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">Foco do Atendimento:</p>
+                <p>O suporte não está procurando quem está mais revoltado. Ele está procurando solicitações que mereçam ser analisadas.</p>
+              </div>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black mb-1">Regra principal:</p>
+                <p>Clareza vale mais do que quantidade. Um texto curto e organizado costuma funcionar melhor do que uma página inteira de desabafo.</p>
+              </div>
+            </div>
+          )
+        },
         { id: '2.5', title: 'Aula 2.5 - O erro de enviar vários tickets' },
       ],
       content: (id: string) => (
@@ -675,7 +716,7 @@ export default function Home() {
               src={heroImage.imageUrl} 
               alt="Hero Background" 
               fill 
-              className="object-cover opacity-60"
+              className="object-cover"
               priority
             />
           )}
