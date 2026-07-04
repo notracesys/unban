@@ -2,11 +2,10 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { TicketAdvisor } from '@/components/cyber/TicketAdvisor';
 import { DelayTimer } from '@/components/cyber/DelayTimer';
 import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
 import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2, AlertTriangle, AlertCircle } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2 } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -232,7 +231,7 @@ export default function Home() {
               </div>
 
               <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
-                <p className="font-black">Por isso, o método trabalha com controle, organização e estratégia, nunca com insistência impulsiva.</p>
+                <p className="font-black">Por isso, o método trabalha com controle, organization e estratégia, nunca com insistência impulsiva.</p>
               </div>
             </div>
           )
@@ -968,11 +967,6 @@ export default function Home() {
              {modules[3].lessons.map(lesson => (
                <LessonItem key={lesson.id} lesson={lesson} />
              ))}
-          </div>
-          <Separator className="bg-white/5" />
-          <div className="space-y-4">
-            <p className="text-[10px] font-bold text-accent uppercase tracking-widest">Sintetizador de Modelos (IA)</p>
-            <TicketAdvisor />
           </div>
           <div className="pt-4">
             {!completedModules.includes(id) ? (
