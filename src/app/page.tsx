@@ -6,14 +6,28 @@ import { TicketAdvisor } from '@/components/cyber/TicketAdvisor';
 import { DelayTimer } from '@/components/cyber/DelayTimer';
 import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
 import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, FileText, CheckCircle2 } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, FileText, CheckCircle2, Terminal } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
+interface Lesson {
+  id: string;
+  title: string;
+  content?: React.ReactNode;
+}
 
 export default function Home() {
   const [completedModules, setCompletedModules] = useState<string[]>([]);
+  const [activeLesson, setActiveLesson] = useState<Lesson | null>(null);
 
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
 
@@ -23,13 +37,36 @@ export default function Home() {
     }
   };
 
-  const LessonItem = ({ title }: { title: string }) => (
-    <div className="flex items-center gap-3 py-2 px-3 hover:bg-white/5 rounded-sm transition-colors group cursor-pointer border-l-2 border-transparent hover:border-primary">
-      <PlayCircle className="w-4 h-4 text-primary opacity-50 group-hover:opacity-100" />
-      <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground group-hover:text-white transition-colors">
-        {title}
-      </span>
-    </div>
+  const LessonItem = ({ lesson }: { lesson: Lesson }) => (
+    <Dialog>
+      <DialogTrigger asChild>
+        <div 
+          onClick={() => setActiveLesson(lesson)}
+          className="flex items-center gap-3 py-2 px-3 hover:bg-white/5 rounded-sm transition-colors group cursor-pointer border-l-2 border-transparent hover:border-primary"
+        >
+          <PlayCircle className="w-4 h-4 text-primary opacity-50 group-hover:opacity-100" />
+          <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground group-hover:text-white transition-colors">
+            {lesson.title}
+          </span>
+        </div>
+      </DialogTrigger>
+      {lesson.content && (
+        <DialogContent className="bg-card border-primary/30 max-w-2xl max-h-[80vh] overflow-y-auto custom-scrollbar">
+          <DialogHeader className="border-b border-white/5 pb-4 mb-4">
+            <div className="flex items-center gap-2 text-primary mb-2">
+              <Terminal className="w-4 h-4" />
+              <span className="text-[10px] font-bold tracking-[0.3em] uppercase">Data Stream // Access Granted</span>
+            </div>
+            <DialogTitle className="text-2xl font-headline font-black uppercase tracking-tighter text-white">
+              {lesson.title}
+            </DialogTitle>
+          </DialogHeader>
+          <div className="font-body text-sm text-muted-foreground leading-relaxed space-y-4">
+            {lesson.content}
+          </div>
+        </DialogContent>
+      )}
+    </Dialog>
   );
 
   const modules = [
@@ -39,18 +76,68 @@ export default function Home() {
       title: 'ENTENDA SEU BANIMENTO',
       description: 'Identificação técnica da restrição aplicada.',
       image: PlaceHolderImages.find(img => img.id === 'module-1')?.imageUrl,
-      content: (
+      lessons: [
+        { 
+          id: '1.1', 
+          title: 'Aula 1.1 - O que é banimento automático',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                Entendendo o funcionamento dos banimentos automáticos
+              </p>
+              
+              <p>Antes de tentar recuperar sua conta, você precisa entender um fato importante: nem todos os banimentos são aplicados da mesma forma.</p>
+              
+              <p>O banimento automático ocorre quando sistemas internos identificam comportamentos considerados suspeitos sem que necessariamente exista uma análise humana inicial. Esses sistemas funcionam por padrões, detecções automatizadas e verificações internas.</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">As principais características de um banimento automático são:</p>
+                <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
+                  <li>Mensagem genérica;</li>
+                  <li>Ausência de detalhes específicos;</li>
+                  <li>Respostas rápidas e padronizadas;</li>
+                  <li>Falta de referência direta ao comportamento do usuário;</li>
+                  <li>Encerramento automático do atendimento.</li>
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">Exemplos comuns:</p>
+                <div className="grid gap-2 italic text-accent/80">
+                  <p>"Detectamos atividades irregulares."</p>
+                  <p>"Sua conta violou nossos termos de serviço."</p>
+                  <p>"A suspensão foi aplicada corretamente."</p>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">Por que isso é importante?</p>
+                <p>Porque os banimentos automáticos representam os casos em que ainda existe alguma possibilidade de solicitar uma reavaliação estratégica.</p>
+                <p>O objetivo deste método não é discutir com o sistema, mas sim tentar fazer com que sua solicitação ultrapasse a primeira camada automática de análise.</p>
+              </div>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black mb-1">Lembre-se:</p>
+                <p>Quanto mais emocional for sua mensagem, maior a chance de permanecer preso no processo automático.</p>
+              </div>
+            </div>
+          )
+        },
+        { id: '1.2', title: 'Aula 1.2 - O que é banimento manual' },
+        { id: '1.3', title: 'Aula 1.3 - O que é banimento reincidente' },
+        { id: '1.4', title: 'Aula 1.4 - Como identificar qual é o seu caso' },
+      ],
+      content: (id: string) => (
         <div className="space-y-6">
           <div className="grid gap-1">
-            <LessonItem title="Aula 1.1 - O que é banimento automático" />
-            <LessonItem title="Aula 1.2 - O que é banimento manual" />
-            <LessonItem title="Aula 1.3 - O que é banimento reincidente" />
-            <LessonItem title="Aula 1.4 - Como identificar qual é o seu caso" />
+            {modules[0].lessons.map(lesson => (
+              <LessonItem key={lesson.id} lesson={lesson} />
+            ))}
           </div>
           <div className="pt-4">
-            {!completedModules.includes('module-1') ? (
+            {!completedModules.includes(id) ? (
               <Button 
-                onClick={() => markAsCompleted('module-1')}
+                onClick={() => markAsCompleted(id)}
                 className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/50 text-[10px] uppercase font-bold tracking-widest py-6"
               >
                 Concluir Módulo e Liberar Próximo
@@ -71,19 +158,24 @@ export default function Home() {
       title: 'PREPARAÇÃO DO TICKET',
       description: 'Logística e estratégia pré-envio.',
       image: PlaceHolderImages.find(img => img.id === 'module-2')?.imageUrl,
-      content: (
+      lessons: [
+        { id: '2.1', title: 'Aula 2.1 - Onde enviar o ticket' },
+        { id: '2.2', title: 'Aula 2.2 - Escolhendo a categoria correta' },
+        { id: '2.3', title: 'Aula 2.3 - Como preencher os dados' },
+        { id: '2.4', title: 'Aula 2.4 - Revisão antes do envio' },
+        { id: '2.5', title: 'Aula 2.5 - O erro de enviar vários tickets' },
+      ],
+      content: (id: string) => (
         <div className="space-y-6">
           <div className="grid gap-1">
-            <LessonItem title="Aula 2.1 - Onde enviar o ticket" />
-            <LessonItem title="Aula 2.2 - Escolhendo a categoria correta" />
-            <LessonItem title="Aula 2.3 - Como preencher os dados" />
-            <LessonItem title="Aula 2.4 - Revisão antes do envio" />
-            <LessonItem title="Aula 2.5 - O erro de enviar vários tickets" />
+            {modules[1].lessons.map(lesson => (
+              <LessonItem key={lesson.id} lesson={lesson} />
+            ))}
           </div>
           <div className="pt-4">
-            {!completedModules.includes('module-2') ? (
+            {!completedModules.includes(id) ? (
               <Button 
-                onClick={() => markAsCompleted('module-2')}
+                onClick={() => markAsCompleted(id)}
                 className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/50 text-[10px] uppercase font-bold tracking-widest py-6"
               >
                 Concluir Módulo e Liberar Próximo
@@ -104,22 +196,27 @@ export default function Home() {
       title: 'PREENCHIMENTO PASSO A PASSO',
       description: 'Protocolo detalhado de preenchimento.',
       image: PlaceHolderImages.find(img => img.id === 'module-3')?.imageUrl,
-      content: (
+      lessons: [
+        { id: '3.1', title: 'Aula 3.1 - Qual opção selecionar' },
+        { id: '3.2', title: 'Aula 3.2 - Campo Requester' },
+        { id: '3.3', title: 'Aula 3.3 - Campo Assunto' },
+        { id: '3.4', title: 'Aula 3.4 - Nick do jogo' },
+        { id: '3.5', title: 'Aula 3.5 - ID da conta' },
+        { id: '3.6', title: 'Aula 3.6 - Tempo de suspensão' },
+        { id: '3.7', title: 'Aula 3.7 - Data do ocorrido' },
+        { id: '3.8', title: 'Aula 3.8 - Descrição do ticket' },
+      ],
+      content: (id: string) => (
         <div className="space-y-6">
           <div className="grid gap-1">
-            <LessonItem title="Aula 3.1 - Qual opção selecionar" />
-            <LessonItem title="Aula 3.2 - Campo Requester" />
-            <LessonItem title="Aula 3.3 - Campo Assunto" />
-            <LessonItem title="Aula 3.4 - Nick do jogo" />
-            <LessonItem title="Aula 3.5 - ID da conta" />
-            <LessonItem title="Aula 3.6 - Tempo de suspensão" />
-            <LessonItem title="Aula 3.7 - Data do ocorrido" />
-            <LessonItem title="Aula 3.8 - Descrição do ticket" />
+            {modules[2].lessons.map(lesson => (
+              <LessonItem key={lesson.id} lesson={lesson} />
+            ))}
           </div>
           <div className="pt-4">
-            {!completedModules.includes('module-3') ? (
+            {!completedModules.includes(id) ? (
               <Button 
-                onClick={() => markAsCompleted('module-3')}
+                onClick={() => markAsCompleted(id)}
                 className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/50 text-[10px] uppercase font-bold tracking-widest py-6"
               >
                 Concluir Módulo e Liberar Próximo
@@ -140,13 +237,21 @@ export default function Home() {
       title: 'MODELOS PRONTOS',
       description: 'Templates estratégicos de alta conversão.',
       image: PlaceHolderImages.find(img => img.id === 'module-4')?.imageUrl,
-      content: (
+      lessons: [
+        { id: 'm4-1', title: 'Ticket Modelo 1' },
+        { id: 'm4-2', title: 'Ticket Modelo 2' },
+        { id: 'm4-3', title: 'Ticket Modelo 3' },
+        { id: 'm4-4', title: 'Ticket Modelo 4' },
+        { id: 'm4-5', title: 'Ticket Modelo 5' },
+        { id: 'm4-6', title: 'Ticket Modelo 6' },
+      ],
+      content: (id: string) => (
         <div className="space-y-6">
           <div className="grid gap-2">
-             {[1,2,3,4,5,6].map(n => (
-               <div key={n} className="flex items-center gap-3 py-2 px-3 bg-white/5 rounded-sm">
+             {modules[3].lessons.map(lesson => (
+               <div key={lesson.id} className="flex items-center gap-3 py-2 px-3 bg-white/5 rounded-sm border-l-2 border-accent">
                  <FileText className="w-4 h-4 text-accent opacity-70" />
-                 <span className="text-[11px] font-bold text-muted-foreground uppercase">Ticket Modelo {n}</span>
+                 <span className="text-[11px] font-bold text-muted-foreground uppercase">{lesson.title}</span>
                </div>
              ))}
           </div>
@@ -156,9 +261,9 @@ export default function Home() {
             <TicketAdvisor />
           </div>
           <div className="pt-4">
-            {!completedModules.includes('module-4') ? (
+            {!completedModules.includes(id) ? (
               <Button 
-                onClick={() => markAsCompleted('module-4')}
+                onClick={() => markAsCompleted(id)}
                 className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/50 text-[10px] uppercase font-bold tracking-widest py-6"
               >
                 Concluir Módulo e Liberar Próximo
@@ -179,13 +284,18 @@ export default function Home() {
       title: 'APÓS ENVIAR O TICKET',
       description: 'Gestão de silêncio e janelas de resposta.',
       image: PlaceHolderImages.find(img => img.id === 'module-5')?.imageUrl,
-      content: (
+      lessons: [
+        { id: '5.1', title: 'Aula 5.1 - Quanto tempo esperar' },
+        { id: '5.2', title: 'Aula 5.2 - O que nunca fazer' },
+        { id: '5.3', title: 'Aula 5.3 - Quando enviar novo ticket' },
+        { id: '5.4', title: 'Aula 5.4 - Quando parar' },
+      ],
+      content: (id: string) => (
         <div className="space-y-6">
           <div className="grid gap-1">
-            <LessonItem title="Aula 5.1 - Quanto tempo esperar" />
-            <LessonItem title="Aula 5.2 - O que nunca fazer" />
-            <LessonItem title="Aula 5.3 - Quando enviar novo ticket" />
-            <LessonItem title="Aula 5.4 - Quando parar" />
+            {modules[4].lessons.map(lesson => (
+              <LessonItem key={lesson.id} lesson={lesson} />
+            ))}
           </div>
           <Separator className="bg-white/5" />
           <div className="space-y-4">
@@ -193,9 +303,9 @@ export default function Home() {
             <DelayTimer />
           </div>
           <div className="pt-4">
-            {!completedModules.includes('module-5') ? (
+            {!completedModules.includes(id) ? (
               <Button 
-                onClick={() => markAsCompleted('module-5')}
+                onClick={() => markAsCompleted(id)}
                 className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/50 text-[10px] uppercase font-bold tracking-widest py-6"
               >
                 Concluir Módulo e Liberar Próximo
@@ -216,13 +326,18 @@ export default function Home() {
       title: 'ANALISANDO A RESPOSTA',
       description: 'Decodificação de feedback do suporte.',
       image: PlaceHolderImages.find(img => img.id === 'module-6')?.imageUrl,
-      content: (
+      lessons: [
+        { id: '6.1', title: 'Aula 6.1 - Como identificar resposta automática' },
+        { id: '6.2', title: 'Aula 6.2 - Como identificar resposta humana' },
+        { id: '6.3', title: 'Aula 6.3 - O que fazer em cada caso' },
+        { id: '6.4', title: 'Aula 6.4 - Erros que destroem a tentativa' },
+      ],
+      content: (id: string) => (
         <div className="space-y-6">
           <div className="grid gap-1">
-            <LessonItem title="Aula 6.1 - Como identificar resposta automática" />
-            <LessonItem title="Aula 6.2 - Como identificar resposta humana" />
-            <LessonItem title="Aula 6.3 - O que fazer em cada caso" />
-            <LessonItem title="Aula 6.4 - Erros que destroem a tentativa" />
+            {modules[5].lessons.map(lesson => (
+              <LessonItem key={lesson.id} lesson={lesson} />
+            ))}
           </div>
           <Separator className="bg-white/5" />
           <div className="space-y-4">
@@ -274,7 +389,6 @@ export default function Home() {
 
         <Accordion type="single" collapsible className="w-full space-y-8">
           {modules.map((module, index) => {
-            // Um módulo é bloqueado se não for o primeiro e o módulo anterior não estiver concluído
             const isLocked = index > 0 && !completedModules.includes(modules[index - 1].id);
 
             return (
@@ -289,7 +403,6 @@ export default function Home() {
                   isLocked && "cursor-not-allowed"
                 )}>
                   <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden border border-white/5 transition-transform duration-500 group-hover:scale-[1.02] shadow-2xl">
-                    {/* Background Image - Removido grayscale conforme pedido */}
                     <div className="absolute inset-0">
                       {module.image && (
                         <Image 
@@ -302,7 +415,6 @@ export default function Home() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
                     </div>
 
-                    {/* Content Overlay */}
                     <div className="absolute inset-0 p-8 flex flex-col justify-end gap-1">
                       <span className="text-[10px] font-headline font-bold text-primary tracking-[0.3em] mb-2">
                         {module.tag}
@@ -335,7 +447,7 @@ export default function Home() {
                       <h4 className="font-headline text-lg font-bold text-white mb-2 uppercase tracking-tight">{module.title}</h4>
                       <p className="text-xs text-muted-foreground leading-relaxed">{module.description}</p>
                     </div>
-                    {module.content}
+                    {module.content(module.id)}
                   </div>
                 </AccordionContent>
               </AccordionItem>
