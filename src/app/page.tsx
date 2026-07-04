@@ -1,16 +1,14 @@
-
 'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { DecisionTree } from '@/components/cyber/DecisionTree';
 import { TicketAdvisor } from '@/components/cyber/TicketAdvisor';
 import { DelayTimer } from '@/components/cyber/DelayTimer';
 import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
-import { AttemptLog } from '@/components/cyber/AttemptLog';
 import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, FileText } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, FileText, CheckCircle2 } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 
@@ -44,13 +42,21 @@ export default function Home() {
             <LessonItem title="Aula 1.3 - O que é banimento reincidente" />
             <LessonItem title="Aula 1.4 - Como identificar qual é o seu caso" />
           </div>
-          <Separator className="bg-white/5" />
-          <div className="space-y-4">
-            <p className="text-[10px] font-bold text-primary uppercase tracking-widest">Diagnóstico de Campo</p>
-            <DecisionTree onDiagnosed={(type) => {
-              setDiagnosis(type);
-              setIsModule1Read(true);
-            }} />
+          
+          <div className="pt-4">
+            {!isModule1Read ? (
+              <Button 
+                onClick={() => setIsModule1Read(true)}
+                className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/50 text-[10px] uppercase font-bold tracking-widest py-6"
+              >
+                Concluir Leitura e Liberar Acesso
+              </Button>
+            ) : (
+              <div className="flex items-center justify-center gap-2 text-primary font-bold text-[10px] uppercase tracking-widest p-4 bg-primary/5 rounded-sm border border-primary/20">
+                <CheckCircle2 className="w-4 h-4" />
+                Módulo Concluído
+              </div>
+            )}
           </div>
         </div>
       )
