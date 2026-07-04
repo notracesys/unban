@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { DelayTimer } from '@/components/cyber/DelayTimer';
 import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
 import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2, Copy } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -17,6 +17,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useToast } from '@/hooks/use-toast';
 
 interface Lesson {
   id: string;
@@ -27,6 +28,7 @@ interface Lesson {
 export default function Home() {
   const [completedModules, setCompletedModules] = useState<string[]>([]);
   const [viewedLessons, setViewedLessons] = useState<string[]>([]);
+  const { toast } = useToast();
 
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
 
@@ -40,6 +42,14 @@ export default function Home() {
     if (!viewedLessons.includes(id)) {
       setViewedLessons(prev => [...prev, id]);
     }
+  };
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    toast({
+      title: "Copiado para a área de transferência",
+      description: "O template está pronto para ser colado no suporte.",
+    });
   };
 
   const LessonItem = ({ lesson }: { lesson: Lesson }) => {
@@ -231,7 +241,7 @@ export default function Home() {
               </div>
 
               <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
-                <p className="font-black">Por isso, o método trabalha com controle, organization e estratégia, nunca com insistência impulsiva.</p>
+                <p className="font-black">Por isso, o método trabalha com controle, organização e estratégia, nunca com insistência impulsiva.</p>
               </div>
             </div>
           )
@@ -565,7 +575,7 @@ export default function Home() {
               <div className="space-y-2">
                 <p className="text-white font-bold text-[11px]">Tom geral</p>
                 <p>Pergunte: <span className="italic">"Isto parece ter sido escrito por alguém calmo e racional?"</span></p>
-                <p className="text-muted-foreground">Se a resposta for "no", não envie ainda.</p>
+                <p className="text-muted-foreground">Se a resposta for "não", não envie ainda.</p>
               </div>
 
               <Separator className="bg-white/5" />
@@ -954,12 +964,250 @@ export default function Home() {
       description: 'Templates estratégicos de alta conversão.',
       image: PlaceHolderImages.find(img => img.id === 'module-4')?.imageUrl,
       lessons: [
-        { id: 'm4-1', title: 'Ticket Modelo 1' },
-        { id: 'm4-2', title: 'Ticket Modelo 2' },
-        { id: 'm4-3', title: 'Ticket Modelo 3' },
-        { id: 'm4-4', title: 'Ticket Modelo 4' },
-        { id: 'm4-5', title: 'Ticket Modelo 5' },
-        { id: 'm4-6', title: 'Ticket Modelo 6' },
+        {
+          id: 'm4-intro',
+          title: 'Regras de Ouro - Leia antes de copiar',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                Antes de utilizar qualquer modelo, você precisa entender algumas regras fundamentais:
+              </p>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="bg-green-500/10 p-4 border border-green-500/30 rounded-sm">
+                  <p className="text-green-500 font-black text-[11px] mb-3">FAÇA:</p>
+                  <ul className="space-y-2 text-muted-foreground text-[11px]">
+                    <li>✅ Utilize apenas um modelo por tentativa;</li>
+                    <li>✅ Mantenha exatamente o tom do texto;</li>
+                    <li>✅ Escolha o modelo mais compatível com sua situação;</li>
+                    <li>✅ Aguarde o prazo correto após o envio.</li>
+                  </ul>
+                </div>
+                <div className="bg-destructive/10 p-4 border border-destructive/30 rounded-sm">
+                  <p className="text-destructive font-black text-[11px] mb-3">NUNCA FAÇA:</p>
+                  <ul className="space-y-2 text-muted-foreground text-[11px]">
+                    <li>❌ Misturar dois modelos;</li>
+                    <li>❌ Adicionar emoção;</li>
+                    <li>❌ Fazer ameaças;</li>
+                    <li>❌ Alterar completamente a estrutura;</li>
+                    <li>❌ Inserir acusações;</li>
+                    <li>❌ Copiar o mesmo texto diversas vezes.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: 'm4-1', 
+          title: 'Ticket Modelo 1 - Diagnóstico Técnico',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">Quando utilizar este modelo:</p>
+                <p className="text-muted-foreground">Este modelo é indicado para situações em que a conta se tornou inacessível de forma inesperada e não existem informações claras sobre o motivo da restrição.</p>
+                <p className="text-muted-foreground">O objetivo deste texto é apresentar a situação como uma possível inconsistência técnica, evitando qualquer linguagem emocional ou acusatória.</p>
+              </div>
+
+              <div className="relative group">
+                <div className="bg-primary/5 p-4 border border-primary/20 rounded-sm font-code text-xs leading-relaxed text-white whitespace-pre-wrap">
+                  Prezados, escrevo para solicitar um diagnóstico técnico referente a uma súbita impossibilidade de acessar minha conta. Ao tentar conectar, encontro uma restrição inesperada que não consigo resolver. Acredito que possa se tratar de uma anomalia sistêmica, pois tenho ciência de que minhas atividades sempre estiveram em conformidade com os Termos de Serviço. Solicito, por gentileza, uma verificação manual do estado da minha conta e um esclarecimento sobre a natureza desta restrição. Fico à disposição para auxiliar na investigação.
+                </div>
+                <Button 
+                  size="icon" 
+                  variant="ghost" 
+                  className="absolute top-2 right-2 h-8 w-8 text-primary hover:bg-primary/20"
+                  onClick={() => copyToClipboard("Prezados, escrevo para solicitar um diagnóstico técnico referente a uma súbita impossibilidade de acessar minha conta. Ao tentar conectar, encontro uma restrição inesperada que não consigo resolver. Acredito que possa se tratar de uma anomalia sistêmica, pois tenho ciência de que minhas atividades sempre estiveram em conformidade com os Termos de Serviço. Solicito, por gentileza, uma verificação manual do estado da minha conta e um esclarecimento sobre a natureza desta restrição. Fico à disposição para auxiliar na investigação.")}
+                >
+                  <Copy className="w-4 h-4" />
+                </Button>
+              </div>
+
+              <div className="bg-green-500/5 p-4 border border-green-500/20 rounded-sm space-y-2">
+                <p className="text-green-500 font-bold text-[11px]">QUANDO USAR:</p>
+                <ul className="text-muted-foreground space-y-1">
+                  <li>✅ Banimentos automáticos;</li>
+                  <li>✅ Mensagens genéricas;</li>
+                  <li>✅ Falta de explicação clara.</li>
+                </ul>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: 'm4-2', 
+          title: 'Ticket Modelo 2 - Suspeita de Falha',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">Quando utilizar este modelo:</p>
+                <p className="text-muted-foreground">Este modelo enfatiza a possibilidade de falha em sistemas automáticos de monitoramento, mantendo uma postura técnica e colaborativa.</p>
+              </div>
+
+              <div className="relative group">
+                <div className="bg-primary/5 p-4 border border-primary/20 rounded-sm font-code text-xs leading-relaxed text-white whitespace-pre-wrap">
+                  À equipe técnica, venho reportar uma irregularidade que impede meu acesso à plataforma. Minha conta tornou-se inacessível sem aviso prévio, e suspeito de uma falha ou um erro em algum processo de monitoramento automático. Gostaria de reiterar que sigo rigorosamente as diretrizes da comunidade. Sendo assim, peço formalmente que um analista investigue o ocorrido e me forneça um parecer sobre a causa do problema de acesso. Permaneço disponível para fornecer logs ou outras informações.
+                </div>
+                <Button 
+                  size="icon" 
+                  variant="ghost" 
+                  className="absolute top-2 right-2 h-8 w-8 text-primary hover:bg-primary/20"
+                  onClick={() => copyToClipboard("À equipe técnica, venho reportar uma irregularidade que impede meu acesso à plataforma. Minha conta tornou-se inacessível sem aviso prévio, e suspeito de uma falha ou um erro em algum processo de monitoramento automático. Gostaria de reiterar que sigo rigorosamente as diretrizes da comunidade. Sendo assim, peço formalmente que um analista investigue o ocorrido e me forneça um parecer sobre a causa do problema de acesso. Permaneço disponível para fornecer logs ou outras informações.")}
+                >
+                  <Copy className="w-4 h-4" />
+                </Button>
+              </div>
+
+              <div className="bg-green-500/5 p-4 border border-green-500/20 rounded-sm space-y-2">
+                <p className="text-green-500 font-bold text-[11px]">QUANDO USAR:</p>
+                <ul className="text-muted-foreground space-y-1">
+                  <li>✅ Suspensões inesperadas;</li>
+                  <li>✅ Casos sem histórico anterior;</li>
+                  <li>✅ Primeira tentativa de recuperação.</li>
+                </ul>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: 'm4-3', 
+          title: 'Ticket Modelo 3 - Falso Positivo',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">Quando utilizar este modelo:</p>
+                <p className="text-muted-foreground">Este modelo trabalha com a hipótese de falso positivo e solicita uma análise de integridade da conta.</p>
+              </div>
+
+              <div className="relative group">
+                <div className="bg-primary/5 p-4 border border-primary/20 rounded-sm font-code text-xs leading-relaxed text-white whitespace-pre-wrap">
+                  Dirijo-me a vocês para requisitar suporte a respeito de um problema de acesso à minha conta. Desde recentemente, não consigo mais utilizar os serviços. Considerando que meu histórico de uso é pautado pelo cumprimento das regras, a situação me leva a crer em um erro técnico ou um falso positivo de algum sistema. Peço que uma análise de integridade da conta seja conduzida por um membro da equipe para identificar a origem desta anomalia. Aguardo um retorno e agradeço a atenção.
+                </div>
+                <Button 
+                  size="icon" 
+                  variant="ghost" 
+                  className="absolute top-2 right-2 h-8 w-8 text-primary hover:bg-primary/20"
+                  onClick={() => copyToClipboard("Dirijo-me a vocês para requisitar suporte a respeito de um problema de acesso à minha conta. Desde recentemente, não consigo mais utilizar os serviços. Considerando que meu histórico de uso é pautado pelo cumprimento das regras, a situação me leva a crer em um erro técnico ou um falso positivo de algum sistema. Peço que uma análise de integridade da conta seja conduzida por um membro da equipe para identificar a origem desta anomalia. Aguardo um retorno e agradeço a atenção.")}
+                >
+                  <Copy className="w-4 h-4" />
+                </Button>
+              </div>
+
+              <div className="bg-green-500/5 p-4 border border-green-500/20 rounded-sm space-y-2">
+                <p className="text-green-500 font-bold text-[11px]">QUANDO USAR:</p>
+                <ul className="text-muted-foreground space-y-1">
+                  <li>✅ Quando você souber aproximadamente a data do ocorrido;</li>
+                  <li>✅ Possíveis falsos positivos;</li>
+                  <li>✅ Contas sem histórico de punições.</li>
+                </ul>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: 'm4-4', 
+          title: 'Ticket Modelo 4 - Auditoria Humana',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">Quando utilizar este modelo:</p>
+                <p className="text-muted-foreground">Este modelo enfatiza a ausência de justificativa apresentada pela plataforma e solicita uma auditoria humana.</p>
+              </div>
+
+              <div className="relative group">
+                <div className="bg-primary/5 p-4 border border-primary/20 rounded-sm font-code text-xs leading-relaxed text-white whitespace-pre-wrap">
+                  Saudações. Contato a equipe de suporte para obter assistência com uma falha que está bloqueando o acesso à minha conta. Não recebi nenhuma notificação que justificasse tal impedimento, o que sugere uma possível inconsistência nos sistemas de validação. Tenho plena convicção de minha conformidade com as políticas do jogo. Solicito uma auditoria humana no registro de atividades da minha conta para esclarecer este incidente. Coloco-me à disposição para o que for preciso.
+                </div>
+                <Button 
+                  size="icon" 
+                  variant="ghost" 
+                  className="absolute top-2 right-2 h-8 w-8 text-primary hover:bg-primary/20"
+                  onClick={() => copyToClipboard("Saudações. Contato a equipe de suporte para obter assistência com uma falha que está bloqueando o acesso à minha conta. Não recebi nenhuma notificação que justificasse tal impedimento, o que sugere uma possível inconsistência nos sistemas de validação. Tenho plena convicção de minha conformidade com as políticas do jogo. Solicito uma auditoria humana no registro de atividades da minha conta para esclarecer este incidente. Coloco-me à disposição para o que for preciso.")}
+                >
+                  <Copy className="w-4 h-4" />
+                </Button>
+              </div>
+
+              <div className="bg-green-500/5 p-4 border border-green-500/20 rounded-sm space-y-2">
+                <p className="text-green-500 font-bold text-[11px]">QUANDO USAR:</p>
+                <ul className="text-muted-foreground space-y-1">
+                  <li>✅ Quando não houver explicação clara;</li>
+                  <li>✅ Casos de bloqueio súbito;</li>
+                  <li>✅ Situações sem aviso prévio.</li>
+                </ul>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: 'm4-5', 
+          title: 'Ticket Modelo 5 - Avaliação Incorreta',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">Quando utilizar este modelo:</p>
+                <p className="text-muted-foreground">Este modelo procura apresentar o problema como resultado de uma avaliação automatizada incorreta.</p>
+              </div>
+
+              <div className="relative group">
+                <div className="bg-primary/5 p-4 border border-primary/20 rounded-sm font-code text-xs leading-relaxed text-white whitespace-pre-wrap">
+                  Prezados, minha conta encontra-se inacessível e busco entender o motivo. Acredito que esta situação possa ter sido causada por uma avaliação incorreta de um processo automatizado, visto que sempre zelei por seguir as regras da plataforma. Para resolvermos esta questão, solicito que um especialista de suporte revise o caso manualmente e me comunique os detalhes técnicos que levaram à atual restrição. Agradeço e aguardo um posicionamento.
+                </div>
+                <Button 
+                  size="icon" 
+                  variant="ghost" 
+                  className="absolute top-2 right-2 h-8 w-8 text-primary hover:bg-primary/20"
+                  onClick={() => copyToClipboard("Prezados, minha conta encontra-se inacessível e busco entender o motivo. Acredito que esta situação possa ter sido causada por uma avaliação incorreta de um processo automatizado, visto que sempre zelei por seguir as regras da plataforma. Para resolvermos esta questão, solicito que um especialista de suporte revise o caso manualmente e me comunique os detalhes técnicos que levaram à atual restrição. Agradeço e aguardo um posicionamento.")}
+                >
+                  <Copy className="w-4 h-4" />
+                </Button>
+              </div>
+
+              <div className="bg-green-500/5 p-4 border border-green-500/20 rounded-sm space-y-2">
+                <p className="text-green-500 font-bold text-[11px]">QUANDO USAR:</p>
+                <ul className="text-muted-foreground space-y-1">
+                  <li>✅ Casos aparentemente automáticos;</li>
+                  <li>✅ Quando houver suspeita de falso positivo;</li>
+                  <li>✅ Situações de suspensão permanente.</li>
+                </ul>
+              </div>
+            </div>
+          )
+        },
+        { 
+          id: 'm4-6', 
+          title: 'Ticket Modelo 6 - Verificação Anômala',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">Quando utilizar este modelo:</p>
+                <p className="text-muted-foreground">Este modelo utiliza uma abordagem mais técnica e formal, sendo indicado para tentativas posteriores ou situações mais complexas.</p>
+              </div>
+
+              <div className="relative group">
+                <div className="bg-primary/5 p-4 border border-primary/20 rounded-sm font-code text-xs leading-relaxed text-white whitespace-pre-wrap">
+                  À equipe de Suporte, submeto este pedido para verificação de uma alteração anômala de privilégios em minha conta, resultando na impossibilidade de login. O ocorrido não condiz com meu padrão de uso, que é totalmente aderente aos Termos de Serviço. Peço, formalmente, a intervenção de um analista para um diagnóstico preciso e o restabelecimento do meu acesso. Estou à disposição para cooperar com o processo de análise.
+                </div>
+                <Button 
+                  size="icon" 
+                  variant="ghost" 
+                  className="absolute top-2 right-2 h-8 w-8 text-primary hover:bg-primary/20"
+                  onClick={() => copyToClipboard("À equipe de Suporte, submeto este pedido para verificação de uma alteração anômala de privilégios em minha conta, resultando na impossibilidade de login. O ocorrido não condiz com meu padrão de uso, que é totalmente aderente aos Termos de Serviço. Peço, formalmente, a intervenção de um analista para um diagnóstico preciso e o restabelecimento do meu acesso. Estou à disposição para cooperar com o processo de análise.")}
+                >
+                  <Copy className="w-4 h-4" />
+                </Button>
+              </div>
+
+              <div className="bg-green-500/5 p-4 border border-green-500/20 rounded-sm space-y-2">
+                <p className="text-green-500 font-bold text-[11px]">QUANDO USAR:</p>
+                <ul className="text-muted-foreground space-y-1">
+                  <li>✅ Segunda tentativa;</li>
+                  <li>✅ Casos mais complexos;</li>
+                  <li>✅ Situações em que o primeiro ticket não obteve análise satisfatória.</li>
+                </ul>
+              </div>
+            </div>
+          )
+        },
       ],
       content: (id: string) => (
         <div className="space-y-6">
