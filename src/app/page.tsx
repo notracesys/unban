@@ -199,7 +199,50 @@ export default function Home() {
             </div>
           )
         },
-        { id: '1.3', title: 'Aula 1.3 - O que é banimento reincidente' },
+        { 
+          id: '1.3', 
+          title: 'Aula 1.3 - O que é banimento reincidente',
+          content: (
+            <div className="space-y-6 text-[13px] uppercase tracking-tight">
+              <p className="text-primary font-bold border-l-2 border-primary pl-4">
+                Quando existe histórico anterior de punições
+              </p>
+              
+              <p>O banimento reincidente acontece quando a conta já possui registros anteriores de punições, advertências ou suspensões.</p>
+              
+              <p>Plataformas normalmente aplicam níveis de tolerância progressivamente menores para contas reincidentes.</p>
+
+              <div className="bg-white/5 p-4 rounded-sm border border-white/10 space-y-3">
+                <p className="text-white font-bold text-[11px]">Características:</p>
+                <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
+                  <li>Respostas mais rápidas;</li>
+                  <li>Menor abertura para revisão;</li>
+                  <li>Análises mais rígidas;</li>
+                  <li>Baixíssima tolerância a novos recursos.</li>
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">O erro mais comum:</p>
+                <p>Muitas pessoas acreditam que enviar dezenas de tickets aumenta as chances de sucesso. Na prática, isso geralmente produz o efeito contrário.</p>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-white font-bold text-[11px]">Quando existe reincidência, insistência excessiva pode:</p>
+                <ul className="list-disc pl-4 space-y-2 text-muted-foreground">
+                  <li>Confirmar decisões anteriores;</li>
+                  <li>Encerrar possibilidades de análise futura;</li>
+                  <li>Classificar o caso como tentativa repetitiva.</li>
+                </ul>
+              </div>
+
+              <div className="bg-primary/10 p-4 border border-primary/30 text-primary">
+                <p className="font-black">Lembre-se:</p>
+                <p>O método trabalha com controle, organização e estratégia, nunca com insistência impulsiva.</p>
+              </div>
+            </div>
+          )
+        },
         { id: '1.4', title: 'Aula 1.4 - Como identificar qual é o seu caso' },
       ],
       content: (id: string) => (
