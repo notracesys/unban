@@ -228,13 +228,12 @@ export default function Home() {
                           alt={module.title} 
                           fill 
                           className={cn(
-                            "object-cover grayscale transition-all duration-700 brightness-75",
-                            !isLocked && "group-hover:grayscale-0 group-hover:brightness-100"
+                            "object-cover transition-all duration-700",
+                            isLocked ? "grayscale brightness-50" : "grayscale-0 brightness-100"
                           )}
                         />
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                      {!isLocked && <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />}
                     </div>
 
                     {/* Content Overlay */}
