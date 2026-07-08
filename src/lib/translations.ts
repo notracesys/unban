@@ -42,17 +42,17 @@ export const translations = {
           { 
             id: '1.2', 
             title: 'AULA 1.2 - O QUE É BANIMENTO MANUAL', 
-            content: 'Quando existe participação humana na decisão\n\nO banimento manual ocorre quando existe uma análise direta ou validação interna realizada por membros da equipe responsável.\n\nNesses casos, normalmente existem elementos mais específicos relacionados ao motivo da punição.\n\nCaracterísticas comuns:\n\nMensagens mais detalhadas;\nReferência direta a regras ou comportamentos;\nRespostas objetivas e firmes;\nMenor flexibilidade para reavaliação.\n\nExemplos:\n\nCitação direta dos Termos de Serviço;\nInformação sobre comportamento específico;\nConfirmação explícita da violação. \n\nO que isso significa?\n\nSignifica que a possibilidade de reversão tende a ser significativamente menor.\n\nIsso não quer dizer que você deva agir por impulso ou desistir imediatamente. Significa apenas que a estratégia precisa ser ainda mais cuidadosa.\n\nNeste cenário, o principal objetivo deixa de ser "convencer" e passa a ser:\n\nNão piorar a situação;\nEvitar encerramentos adicionais;\nManter uma postura técnica e organizada.' 
+            content: 'Quando existe participação humana na decisão\n\nO banimento manual ocorre quando existe uma análise direta ou validação interna realizada por membros da equipe responsável.\n\nNesses casos, normalmente existem elementos mais específicos relacionados ao motivo da punição.\n\nCaracterísticas comuns:\n\nMensagens mais detalhadas;\nReferência direta a regras ou comportamentos;\nRespostas objetivas e firmes;\nMenor flexibilidade para reavaliação.\n\nExemplos:\n\nCitação direta dos Termos de Serviço;\nInformação sobre comportamento específico;\nConfirmação explícita da violação. \n\nO que isso significa?\n\nSignifica que a possibilidade de reversão tende a ser significativamente menor.\n\nSucesso não quer dizer que você deva agir por impulso ou desistir imediatamente. Significa apenas que a estratégia precisa ser ainda mais cuidadosa.\n\nNeste cenário, o principal objetivo deixa de ser "convencer" e passa a ser:\n\nNão piorar a situação;\nEvitar encerramentos adicionais;\nManter uma postura técnica e organizada.' 
           },
           { 
             id: '1.3', 
             title: 'AULA 1.3 - O QUE É BANIMENTO REINCIDENTE', 
-            content: 'Quando existe histórico anterior de punições\n\nO banimento reincidente acontece quando a conta já possui registros anteriores de punições, advertências ou suspensões.\n\nPlataformas normalmente aplicam níveis de tolerância progressivamente menores para contas reincidentes.\n\nCaracterísticas:\n\nRespostas mais rápidas;\nMenor abertura para revisão;\nAnálises mais rígidas;\nBaixíssima tolerância a novos recursos.\n\nO erro mais comum\n\nMuitas pessoas acreditam que enviar dezenas de tickets aumenta as chances de sucesso.\n\nNa prática, isso geralmente produz o efeito contrário.\n\nQuando existe reincidência, insistência excessiva pode:\n\nConfirmar decisões anteriores;\nEncerrar possibilidades de análise futura;\nClassificar o caso como tentativa repetitiva.\n\nPor isso, o método trabalha com controle, organização e estratégia, nunca com insistência impulsiva.' 
+            content: 'Quando existe histórico anterior de punições\n\nO banimento reincidente acontece quando a conta já possui registros anteriores de punições, advertências ou suspensões.\n\nPlataformas normalmente aplicam níveis de tolerância progressivamente menores para contas reincidentes.\n\nCaracterísticas:\n\nRespostas mais rápidas;\nMenor abertura para revisão;\nAnálises mais rígidas;\nBaixíssima tolerância a novos recursos.\n\nO erro mais comum\n\nMuitas pessoas acreditam que enviar dezenas de tickets aumenta as chances de sucesso.\n\nNa prática, isso geralmente produz o efeito contrário.\n\nQuando existe reincidência, insistência excessiva pode:\n\nConfirmar decisões anteriores;\nEncerrar possibilidades de análise futuro;\nClassificar o caso como tentativa repetitiva.\n\nPor isso, o método trabalha com controle, organização e estratégia, nunca com insistência impulsiva.' 
           },
           { 
             id: '1.4', 
             title: 'AULA 1.4 - COMO IDENTIFICAR QUAL É O SEU CASO', 
-            content: 'A etapa mais importante antes de enviar qualquer ticket\n\nAntes de escrever qualquer mensagem para o suporte, faça estas perguntas:\n\nA mensagem recebida é genérica?\n\nSe sim, há grandes chances de ser um banimento automático.\n\nA mensagem apresenta detalhes específicos?\n\nSe sim, pode indicar uma análise manual.\n\nA conta já recebeu punições anteriormente?\n\nSe a resposta for positiva, você provavelmente está diante de um caso reincidente.\n\nResumo rápido\nTipo\tCaracterísticas\tChance de tentativa\nBanimento automático\tMensagens genéricas e rápidas\tMaior\nBanimento manual\tMensagens específicas\tBaixa\nBanimento reincidente\tHistórico anterior\tMuito baixa\n\nO que você precisa entender antes de continuar\n\nNa Garena, normalmente não existe espaço para debate prolongado.\n\nVocê envia uma solicitação e recebe uma decisão.\n\nIsso significa que sua primeira tentativa precisa ser:\n\n✅ Organizada\n✅ Técnica\n✅ Objetiva\n✅ Estratégica' 
+            content: 'A etapa mais importante antes de enviar qualquer ticket\n\nAntes de escrever qualquer mensagem para o suporte, faça estas perguntas:\n\nA mensagem recebida é genérica?\n\nSe sim, há grandes chances de ser um banimento automático.\n\nA mensagem apresenta detalhes específicos?\n\nSe sim, pode indicar uma análise manual.\n\nA conta já recebeu punições anteriormente?\n\nSe a resposta for positiva, você provavelmente está diante de um caso reincidente.\n\nResumo rápido\nTipo\tCaracterísticas\tChance de tentativa\nBanimento automático\tMensagens genéricas e rápidas\tMaior\nBanimento manual\tMensagens específicas\tBaixa\nBanimento reincidente\tHistórico anterior\tMuito baixa\n\nO que você precisa entender antes de continuar\n\nNa Garena, normalmente não existe espaço para debate prolongado.\n\nVocê envia uma solicitação e recebe uma decisão.\n\nIsso significa que sua primeira tentativa precisa ser:\n\n✅ Organizada\n✅ Técnico\n✅ Objetiva\n✅ Estratégica' 
           }
         ]
       },
@@ -75,7 +75,7 @@ export const translations = {
           { 
             id: '2.3', 
             title: 'AULA 2.3 - PREENCHENDO OS DADOS DA CONTA', 
-            content: 'Menos informação significa menos problemas\n\nUma das maiores causas de falha ocorre quando o usuário tenta explicar toda a situação em campos que não foram feitos para isso.\n\nOs campos técnicos existem apenas para identificação.\n\nPreencha somente:\n\nID correto da conta;\nnickname exato;\ne-mail solicitado;\ninformações obrigatórias do formulário.\n\nNunca faça isto:\n\n❌ Adicionar explicações extras;\n\n❌ Contar sua história nos campos técnicos;\n\n❌ Inserir justificativas;\n\n❌ Repetir informações.\n\nPor quê?\n\nPorque sistemas automatizados analisam padrões de preenchimento.\n\nCampos técnicos devem conter apenas dados técnicos.\n\nQuanto mais organizado o formulário, maior a chance de ele ser tratado como uma solicitação legítima.' 
+            content: 'Menos informação significa menos problemas\n\nUma das maiores causas de falha ocorre quando o usuário tenta explicar toda a situação em campos que não foram feitos para isso.\n\nOs campos técnicos existem apenas para identificação.\n\nPreencha somente:\n\nID correto da conta;\nnickname exato;\ e-mail solicitado;\ninformações obrigatórias do formulário.\n\nNunca faça isto:\n\n❌ Adicionar explicações extras;\n\n❌ Contar sua história nos campos técnicos;\n\n❌ Inserir justificativas;\n\n❌ Repetir informações.\n\nPor quê?\n\nPorque sistemas automatizados analisam padrões de preenchimento.\n\nCampos técnicos devem conter apenas dados técnicos.\n\nQuanto mais organizado o formulário, maior a chance de ele ser tratado como uma solicitação legítima.' 
           },
           { 
             id: '2.4', 
@@ -238,7 +238,7 @@ export const translations = {
           { 
             id: '6.3', 
             title: 'AULA 6.3 - O QUE FAZER SE A RESPOSTA FOR AUTOMÁTICA', 
-            content: 'A pior reação possível é responder imediatamente\n\nAo identificar uma resposta automática, muitas pessoas entrar em pânico e começam a enviar novos tickets.\n\nEssa costuma ser a decisão mais prejudicial.\n\nSe a resposta foi automática:\n\n✅ Não responda imediatamente;\n\n✅ Não tente discutir;\n\n✅ Não envie justificativas adicionais;\n\n✅ Não faça ameaças;\n\n✅ Aguarde pelo menos 7 dias.\n\nApós esse período:\n\nVocê pode considerar:\n\nutilizar outro modelo de ticket;\naltere levemente o assunto;\nreformular a abordagem;\niniciar uma nova tentativa organizada.\nO objetivo aqui não é vencer a resposta automática.\n\nO objetivo é tentar fazer com que sua próxima tentativa ultrapasse essa barreira.\n\nLembre-se:\n\nVocê está tentando sair do ciclo automático, não discutir com ele.' 
+            content: 'A pior reação possível é responder imediatamente\n\nAo identificar uma resposta automática, muitas pessoas entrar em pânico e começam a enviar novos tickets.\n\nEssa costuma ser a decisão mais prejudicial.\n\nSe a resposta foi automática:\n\n✅ Não responda imediatamente;\n\n✅ Não tente discutir;\n\n✅ Não envie justificativas adicionais;\n\n✅ Não faça ameaças;\n\n✅ Aguarde pelo menos 7 dias.\n\nApós esse período:\n\nVocê pode considerar:\n\nutilizar outro modelo de ticket;\naltere levemente o assunto;\nreformular a abordagem;\niniciar uma nova tentativa organizada.\n\nO objetivo aqui não é vencer a resposta automática.\n\nO objetivo é tentar fazer com que sua próxima tentativa ultrapasse essa barreira.\n\nLembre-se:\n\nVocê está tentando sair do ciclo automático, não discutir com ele.' 
           },
           { 
             id: '6.4', 
@@ -248,7 +248,7 @@ export const translations = {
           { 
             id: '6.5', 
             title: 'AULA 6.5 - O PIOR ERRO DE TODOS', 
-            content: 'O impulso destrói mais tentativas do que o próprio sistema\n\nExiste um comportamento que aparece repetidamente em tentativas malsucedidas:\n\nResponder emocionalmente.\n\nFrases como:\n\n❌ "Mas eu não fiz nada."\n\n❌ "Isso é injusto."\n\n❌ "Outras pessoas conseguiram desbanimento."\n\n❌ "Vou denunciar a empresa."\n\n❌ "Vocês precisam resolver isso."\n\nNormalmente não produzem qualquer benefício.\n\nPelo contrário.\n\nElas podem:\n\nencerrar definitivamente a análise;\nreduzir a chance de reavaliação;\ntransformar uma possibilidade em uma negativa final.\nO princípio final deste método\n\nEste método nunca teve como objetivo discutir com o suporte.\n\nO objetivo sempre foi:\n\nevitando filtros automáticos;\naumentar a chance de leitura humana;\napresentar o caso de forma organizada;\nimpedir que o próprio usuário prejudique a tentativa.' 
+            content: 'O impulso destrói mais tentativas do que o próprio sistema\n\nExiste um comportamento que aparece repetidamente em tentativas malsucedidas:\n\nResponder emocionalmente.\n\nFrases como:\n\n❌ "Mas eu não fiz nada."\n\n❌ "Isso é injusto."\n\n❌ "Outras pessoas conseguiram desbanimento."\n\n❌ "Vou denunciar a empresa."\n\n❌ "Vocês precisam resolver isso."\n\nNormalmente não produzem qualquer benefício.\n\nPelo contrário.\n\nElas podem:\n\nencerrar definitivamente a análise;\nreduzir a chance de reavaliação;\ntransformar uma possibilidade em uma negativa final.\n\nO princípio final deste método\n\nEste método nunca teve como objetivo discutir com o suporte.\n\nO objetivo sempre foi:\n\nevitando filtros automáticos;\naumentar a chance de leitura humana;\napresentar o caso de forma organizada;\nimpedir que o próprio usuário prejudique a tentativa.' 
           }
         ]
       }
@@ -444,11 +444,31 @@ export const translations = {
         title: 'AFTER SENDING THE TICKET',
         description: 'Management of silence and response windows.',
         lessons: [
-          { id: '5.1', title: 'LESSON 5.1 - THE CORRECT WAITING TIME', content: 'Wait at least 72 hours; ideal is 7-10 days. Do not send multiple tickets immediately.' },
-          { id: '5.2', title: 'LESSON 5.2 - WHAT NOT TO DO AT ALL', content: 'Never open several tickets simultaneously or use different emails. Do not argue or pressure the team.' },
-          { id: '5.3', title: 'LESSON 5.3 - WHEN TO SEND A NEW TICKET', content: 'Only after 7 days if no response or if response was clearly automatic. Use a different template and slightly alter the subject.' },
-          { id: '5.4', title: 'LESSON 5.4 - WHEN TO STOP', content: 'Consider stopping after a clear final response or three well-spaced unsuccessful attempts.' },
-          { id: '5.5', title: 'LESSON 5.5 - THE CORRECT MENTALITY', content: 'Organization, control, strategy, and patience. Avoid spam and brute force.' }
+          { 
+            id: '5.1', 
+            title: 'LESSON 5.1 - THE CORRECT WAITING TIME', 
+            content: 'The most common error happens after sending\n\nAfter sending the ticket, many people believe they need to keep acting to increase their chances. In practice, excess action usually produces the opposite effect. After sending the request: wait at least 72 hours; the ideal period is between 7 and 10 days; avoid any reinforcement attempt before this deadline. Do not: ❌ Send another ticket on the same day; ❌ Create new requests after a few hours; ❌ Resend the same text multiple times; ❌ Look for other support channels immediately. Service systems normally prioritize organized and unique requests. Excessive persistence can make your request lose credibility. Main rule: After sending the ticket, your best strategy becomes waiting.' 
+          },
+          { 
+            id: '5.2', 
+            title: 'LESSON 5.2 - WHAT NOT TO DO AT ALL', 
+            content: 'How to destroy your own attempt in a few minutes\n\nAfter sending, there are some behaviors that significantly increase the probability of automatic responses. Never: ❌ Open multiple tickets simultaneously; ❌ Use several different emails; ❌ Change categories just to "test"; ❌ Send emotional messages; ❌ Argue with support; ❌ Make threats; ❌ Try to pressure the team. Why? Because internal systems usually interpret excessive persistence as inappropriate behavior or repetitive attempt. The objective of the method is not to draw attention. The objective is to appear as a legitimate request that deserves analysis. Remember: Being persistent does not mean being a priority.' 
+          },
+          { 
+            id: '5.3', 
+            title: 'LESSON 5.3 - WHEN TO SEND A NEW TICKET', 
+            content: 'The correct moment for a new attempt\n\nThere is only one situation in which a new attempt can be considered. You can send another ticket when: ✅ At least 7 days have passed; ✅ There was no response; or ✅ The response received was clearly automatic. If you decide to try again: use another ticket template; slightly alter the subject; maintain the technical tone; do not reuse exactly the same text. Never: ❌ Copy and paste the previous ticket; ❌ Resend the same message; ❌ Quote previous automatic responses; ❌ Show frustration. The objective of the second attempt is to try to escape automated processes, not discuss the first decision.' 
+          },
+          { 
+            id: '5.4', 
+            title: 'LESSON 5.4 - WHEN TO STOP', 
+            content: 'Knowing when to stop is also part of the strategy\n\nThere is a moment when insisting stops being strategy and becomes just insistence. You should consider stopping attempts when: you receive a clear and repeated final response; the platform explicitly informs that there will be no new analysis; three well-spaced unsuccessful attempts produce no progress. Why stop? Because continuing to insist after this point normally generates no additional benefits. On the contrary, it can hinder future analyses or reviews. The objective of the method: This method does not seek quantity. It seeks quality in the attempt. A single organized attempt is worth more than dozens of impulsive attempts.' 
+          },
+          { 
+            id: '5.5', 
+            title: 'LESSON 5.5 - THE CORRECT MENTALITY', 
+            content: 'The method is not brute force\n\nA very common mistake is believing that recovering an account depends on persistence. In fact, this method works by trying to: avoid automatic responses; not trigger internal filters; not raise negative signals; increase the possibility of human analysis. What this method is NOT: ❌ Spam; ❌ Pressure; ❌ Manipulation; ❌ Discussion with support. What this method IS: ✅ Organization; ✅ Control; ✅ Strategy; ✅ Patience. The most important principle of this module: After the ticket is sent, the biggest threat to the process is usually acting on impulse. Many attempts fail not because the first ticket was bad, but because the user decided to send fifteen others to "ensure". An admirably optimistic approach, though statistically disastrous.' 
+          }
         ]
       },
       {
@@ -496,7 +516,7 @@ export const translations = {
         id: 'module-1',
         tag: 'MÓDULO 1',
         title: 'ENTIENDA SU BANEO',
-        description: 'Identificação técnica da restrição aplicada.',
+        description: 'Identificación técnica de la restricción aplicada.',
         lessons: [
           { 
             id: '1.1', 
@@ -511,7 +531,7 @@ export const translations = {
           { 
             id: '1.3', 
             title: 'AULA 1.3 - QUÉ ES EL BANEO REINCIDENTE', 
-            content: 'Cuando existe historial previo de sanciones\n\nEl baneo reincidente ocurre cuando la cuenta ya possui registros anteriores de sanciones, advertencias o suspensiones.\n\nLas plataformas normalmente aplican niveles de tolerancia progresivamente menores para cuentas reincidentes.\n\nCaracterísticas:\n\nRespuestas más rápidas;\nMenor apertura para la revisión;\nAnálisis más rígidos;\nBajíssima tolerancia a nuevas apelaciones.\n\nEl error más común\n\nMuchas personas creen que enviar docenas de tickets aumenta las posibilidades de éxito.\n\nEn la práctica, esto suele producir el efecto contrario.\n\nCuando existe reincidencia, la insistencia excesiva puede:\n\nConfirmar decisiones anteriores;\nCerrar posibilidades de análisis futuro;\nClasificar el caso como intento repetitivo.\n\nPor eso, el método trabaja com control, organización y estrategia, nunca com insistencia impulsiva.' 
+            content: 'Cuando existe historial previo de sanciones\n\nEl baneo reincidente ocurre cuando la cuenta ya possui registros anteriores de sanciones, advertencias o suspensiones.\n\nLas plataformas normalmente aplican niveles de tolerancia progresivamente menores para cuentas reincidentes.\n\nCaracterísticas:\n\nRespuestas más rápidas;\nMenor apertura para la revisión;\nAnálisis más rígidos;\nBajíssima tolerancia a nuevas apelaciones.\n\nEl error más común\n\nMuchas personas creen que enviar docenas de tickets aumenta las posibilidades de éxito.\n\nEn la práctica, esto suele producir el efecto contrario.\n\nCuando existe reincidencia, la insistencia excesiva puede:\n\nConfirmar decisiones anteriores;\nCerrar posibilidades de análisis futuro;\nClasificar el caso como intento repetitivo.\n\nPor eso, el método trabalha com control, organización y estratégia, nunca com insistência impulsiva.' 
           },
           { 
             id: '1.4', 
@@ -572,7 +592,7 @@ export const translations = {
           { 
             id: '3.3', 
             title: 'AULA 3.3 - EL CAMPO ASUNTO', 
-            content: 'El campo que más activa respuestas automáticas\n\nEl asunto del ticket es una de las primeras informaciones analizadas por el sistema.\n\nPor lo tanto, el uso de términos emocionales ou acusatorios puede perjudicar el intento.\n\nNunca use:\n\n❌ "Fui baneado injustamente"\n\n❌ "Desbaneo urgente"\n\n❌ "Mi cuenta fue robada"\n\n❌ "Quiero mi desbaneo"\n\nEl objetivo del asunto\n\nEl asunto debe:\n\nparecer técnico;\nser corto;\nindicar necesidad de análisis;\nevitar conclusiones.\n\nEjemplo de lógica correcta:\n\nEn lugar de acusar o exigir, trate de transmitir la idea de:\n\n"Solicitud de verificación referente al acceso de la cuenta."\n\nRecuerde:\n\nEl asunto sirve para abrir una puerta, no para ganar una discusión.' 
+            content: 'El campo que más activa respuestas automáticas\n\nEl asunto del ticket es una de las primeras informaciones analizadas por el sistema.\n\nPor lo tanto, el uso de términos emocionales ou acusatórios puede perjudicar el intento.\n\nNunca use:\n\n❌ "Fui baneado injustamente"\n\n❌ "Desbaneo urgente"\n\n❌ "Mi cuenta fue robada"\n\n❌ "Quero meu desbaneo"\n\nEl objetivo del asunto\n\nEl asunto debe:\n\nparecer técnico;\nser corto;\nindicar necesidad de análisis;\nevitar conclusiones.\n\nEjemplo de lógica correcta:\n\nEn lugar de acusar o exigir, trate de transmitir la idea de:\n\n"Solicitud de verificación referente al acceso de la cuenta."\n\nRecuerde:\n\nEl asunto sirve para abrir una puerta, no para ganar una discusión.' 
           },
           { 
             id: '3.4', 
@@ -582,7 +602,7 @@ export const translations = {
           { 
             id: '3.5', 
             title: 'AULA 3.5 - EL NÚMERO DE ID', 
-            content: 'El dato más importante del formulario\n\nEl ID de la cuenta es el principal identificador interno.\n\nPor lo tanto:\n\ncopie directamente de la fuente oficial;\nrevise más de una vez;\nconfirme todos los números.\n\nNo haga:\n\n❌ Insertar comentarios;\n\n❌ Añadir justificaciones;\n\n❌ Escribir textos complementarios.\n\nEl campo de ID existe solo para identificar la cuenta.\n\nNada más.' 
+            content: 'El dato más importante del formulario\n\nEl ID de la cuenta es el principal identificador interno.\n\nPor lo tanto:\n\ncopie directamente de la fuente oficial;\nreview más de una vez;\nconfirme todos los números.\n\nNo haga:\n\n❌ Insertar comentarios;\n\n❌ Añadir justificaciones;\n\n❌ Escribir textos complementarios.\n\nEl campo de ID existe solo para identificar la cuenta.\n\nNada más.' 
           },
           { 
             id: '3.6', 
@@ -597,7 +617,7 @@ export const translations = {
           { 
             id: '3.8', 
             title: 'AULA 3.8 - EL CAMPO DE DESCRIPCIÓN', 
-            content: 'El único campo donde el método realmente ocurre\n\nTodos los campos anteriores sirven para la clasificación.\n\nLa descripción es el único espacio donde existe la posibilidad de diferenciación.\n\nQué NO hacer:\n\n❌ Acusar;\n\n❌ Confesar;\n\n❌ Implorar;\n\n❌ Escribir textos emocionales;\n\n❌ Hacer amenazas.\n\nEl objetivo de la descripción\n\nLa descripción debe:\n\n✅ parecer escrita por alguien calmado;\n\n✅ demostrar organización;\n\n✅ solicitar análisis;\n\n✅ evitar palabras que activen respuestas automáticas.\n\nLa pregunta que el sistema trata de responder\n\nEn la práctica, su descripción será analizada desde una única perspectiva:\n\n"¿Vale la pena enviar esta solicitud para análisis?"\n\nTodo lo demás depende de esta decisión inicial.\n\nPor lo tanto, la descripción no sirve para convencer a alguien gritando.\n\nSirve para parecer lo suficientemente organizada como para merecer un análisis.\n\n\nLa recomendación más importante de este método\n\nAunque es posible escribir su propia descripción, esto aumenta significativamente la posibilidad de cometer errores de tono, estructura o lenguaje.\n\nPor este motivo, la recomendación de este método es usar una de las plantillas ya preparadas que se proporcionan en el próximo módulo.\n\nLas plantillas se estructuraron para:\n\nmantener un tono técnico;\nevitar el lenguaje emocional;\nreducir la posibilidad de activar respuestas automáticas;\npresentar la solicitud de forma organizada y objetiva.\n\nTratar de "mejorar" las plantillas añadiendo emoción, acusaciones o explicaciones excesivas suele producir el efecto contrario al deseado.\n\nEn el próximo módulo, tendrá acceso a las plantillas de tickets ya preparadas y aprenderá cuál usar en cada situación.' 
+            content: 'El único campo donde el método realmente ocurre\n\nTodos los campos anteriores sirven para la clasificación.\n\nLa descripción es el único espacio donde existe la posibilidad de diferenciación.\n\nQué NO hacer:\n\n❌ Acusar;\n\n❌ Confesar;\n\n❌ Implorar;\n\n❌ Escribir textos emocionales;\n\n❌ Hacer amenazas.\n\nEl objetivo de la descripción\n\nLa descripción debe:\n\n✅ parecer escrita por alguien calmado;\n\n✅ demostrar organización;\n\n✅ solicitar análisis;\n\n✅ evitar palabras que activen respuestas automáticas.\n\nLa pregunta que el sistema trata de responder\n\nEn la práctica, su descripción será analisada desde una única perspectiva:\n\n"¿Vale la pena enviar esta solicitud para análisis?"\n\nTodo lo demás depende de esta decisión inicial.\n\nPor lo tanto, la descripción no sirve para convencer a alguien gritando.\n\nSirve para parecer lo suficientemente organizada como para merecer un análisis.\n\n\nLa recomendación más importante de este método\n\nAunque es posible escribir su propia descripción, esto aumenta significativamente la posibilidad de cometer errores de tono, estructura o lenguaje.\n\nPor este motivo, la recomendación de este método es usar una de las plantillas ya preparadas que se proporcionan en el próximo módulo.\n\nLas plantillas se estructuraron para:\n\nmantener un tono técnico;\nevitar el lenguaje emocional;\nreducir la posibilidad de activar respuestas automáticas;\npresentar la solicitud de forma organizada y objetiva.\n\nTratar de "mejorar" las plantillas añadiendo emoción, acusaciones o explicaciones excesivas suele producir el efecto contrario al deseado.\n\nEn el próximo módulo, tendrá acceso a las plantillas de tickets ya preparadas y aprenderá cuál usar en cada situación.' 
           }
         ]
       },
@@ -607,7 +627,7 @@ export const translations = {
         title: 'PLANTILLAS LISTAS',
         description: 'Plantillas estratégicas de alta conversión.',
         lessons: [
-          { id: '4.1', title: 'PLANTILLA DE TICKET Nº 1', content: 'Diagnóstico técnico por imposibilidad súbita de acceso. Úsela para baneos automáticos y falta de explicación clara.', template: 'Estimado equipo, le escribo para solicitar un diagnóstico técnico referente a una súbita imposibilidad de acceder a mi cuenta. Al intentar conectar, encuentro una restricción inesperada que no puedo resolver. Creo que podría tratarse de una anomalía sistémica, ya que soy consciente de que mis actividades siempre han estado en conformidad con los Términos de Servicio. Solicito, por favor, una verificación manual del estado de mi cuenta y una aclaración sobre la naturaleza de esta restricción. Quedo a su disposición para ayudar en la investigación.' },
+          { id: '4.1', title: 'PLANTILLA DE TICKET Nº 1', content: 'Diagnóstico técnico por imposibilidad súbita de acceso. Úsela para baneos automáticos e falta de explicação clara.', template: 'Estimado equipo, le escribo para solicitar un diagnóstico técnico referente a una súbita imposibilidad de acceder a mi cuenta. Al intentar conectar, encuentro una restricción inesperada que no puedo resolver. Creo que podría tratarse de una anomalía sistêmica, ya que soy consciente de que mis actividades siempre han estado en conformidad con los Términos de Servicio. Solicito, por favor, una verificación manual del estado de mi cuenta y una aclaración sobre la naturaleza de esta restricción. Quedo a su disposición para ayudar en la investigación.' },
           { id: '4.2', title: 'PLANTILLA DE TICKET Nº 2', content: 'Sospecha de falla en monitoreo automático. Úsela para suspensiones inesperadas sin historial previo.', template: 'Al equipo técnico, vengo a reportar una irregularidade que impide mi acceso a la plataforma. Mi cuenta se volvió inaccesible sin previo aviso, y sospecho de una falla o un error en algún processo de monitoreo automático. Me gustaría reiterar que sigo estrictamente las directrices de la comunidad. Por lo tanto, pido formalmente que un analista investigue lo ocurrido y me proporcione un dictamen sobre la causa del problema de acceso. Sigo disponible para proporcionar logs u otra información.' },
           { id: '4.3', title: 'PLANTILLA DE TICKET Nº 3', content: 'Hipótesis de falso positivo y análisis de integridad. Recomendada si conoce la fecha.', template: 'Me dirijo a ustedes para solicitar soporte con respecto a un problema con el acceso a mi cuenta. Desde el [fecha], ya no puedo usar los servicios. Considerando que mi patrón de uso se guía por el cumplimiento de las reglas, la situación me lleva a creer en un error técnico o un falso positivo de algún sistema. Pido que se realice un análisis de integridad de la cuenta por parte de un miembro del equipo para identificar el origen de esta anomalía. Espero una respuesta y agradezco su atención.' },
           { id: '4.4', title: 'PLANTILLA DE TICKET Nº 4', content: 'Solicitud de auditoría humana por falta de justificación. Mejor para bloqueos repentinos.', template: 'Saludos. Me pongo en contacto con el equipo de soporte para obtener asistencia con una falla que está bloqueando el acceso a mi cuenta. No recibí ninguna notificación que justificara tal impedimento, lo que sugiere una posible inconsistencia en los sistemas de validación. Tengo plena convicción de mi cumplimiento con las políticas del juego. Solicito una auditoría humana en el registro de actividades de mi cuenta para aclarar este incidente. Me pongo a su disposición para lo que sea necesario.' },
@@ -622,11 +642,31 @@ export const translations = {
         title: 'DESPUÉS DE ENVIAR EL TICKET',
         description: 'Gestión de silencio y ventanas de respuesta.',
         lessons: [
-          { id: '5.1', title: 'AULA 5.1 - EL TIEMPO DE ESPERA CORRECTO', content: 'Espere al menos 72 horas; lo ideal es de 7 a 10 días. No envíe múltiples tickets de inmediato.' },
-          { id: '5.2', title: 'AULA 5.2 - QUÉ NO HACER BAJO NINGUNA CIRCUNSTANCIA', content: 'Nunca abra varios tickets o use diferentes correos. No discuta ni presione al equipo de soporte.' },
-          { id: '5.3', title: 'AULA 5.3 - CUÁNDO ENVIAR UN NUEVO TICKET', content: 'Solo tras 7 días sin respuesta o si la respuesta fue claramente automática. Use otra plantilla y altere el asunto.' },
-          { id: '5.4', title: 'AULA 5.4 - CUÁNDO PARAR', content: 'Considere detenerse tras una respuesta final clara o tres intentos bien espaciados fallidos.' },
-          { id: '5.5', title: 'AULA 5.5 - LA MENTALIDAD CORRECTA', content: 'Organización, control, estrategia y paciencia. Evite el spam y la fuerza bruta.' }
+          { 
+            id: '5.1', 
+            title: 'LECCIÓN 5.1 - EL TIEMPO DE ESPERA CORRECTO', 
+            content: 'El error más común ocurre después del envío\n\nDespués de enviar el ticket, muchas personas creen que necesitan seguir actuando para aumentar sus posibilidades. En la práctica, el exceso de acción suele producir el efecto contrario. Después del envío de la solicitud: espere al menos 72 horas; el periodo ideal es entre 7 e 10 días; evite cualquier intento de refuerzo antes de ese plazo. No haga esto: ❌ Enviar otro ticket el mismo día; ❌ Crear nuevas solicitudes después de unas horas; ❌ Reenviar el mismo texto varias veces; ❌ Buscar otros canales de soporte inmediatamente. Los sistemas de atención normalmente priorizan solicitudes organizadas y únicas. La insistencia excesiva puede hacer que su solicitud pierda credibilidad. Regla principal: Después de enviar el ticket, su mejor estrategia pasa a ser esperar.' 
+          },
+          { 
+            id: '5.2', 
+            title: 'LECCIÓN 5.2 - QUÉ NO HACER BAJO NINGUNA CIRCUNSTANCIA', 
+            content: 'Cómo destruir su propio intento en pocos minutos\n\nTras el envío, existen comportamientos que aumentan significativamente la probabilidad de respuestas automáticas. Nunca: ❌ Abrir varios tickets simultáneamente; ❌ Usar diversos correos electrónicos; ❌ Cambiar categorías solo para "probar"; ❌ Enviar mensajes emocionales; ❌ Discutir con el soporte; ❌ Hacer amenazas; ❌ Intentar presionar al equipo. ¿Por qué? Porque los sistemas internos suelen interpretar la insistencia excesiva como comportamiento inadecuado o intento repetitivo. El objetivo del método no es llamar la atención. El objetivo es parecer una solicitud legítima que merece análisis. Recuerde: Ser insistente no significa ser prioritario.' 
+          },
+          { 
+            id: '5.3', 
+            title: 'LECCIÓN 5.3 - CUÁNDO ENVIAR UN NUEVO TICKET', 
+            content: 'El momento correcto para un nuevo intento\n\nExiste solo una situación en la que se puede considerar un nuevo intento. Puede enviar otro ticket cuando: ✅ Han pasado al menos 7 días; ✅ No hubo respuesta; o ✅ La respuesta recibida fue claramente automática. Si decide intentarlo de nuevo: use otra plantilla de ticket; altere levemente el asunto; mantenga el tono técnico; no reutilice exactamente el mismo texto. Nunca: ❌ Copiar y pegar el ticket anterior; ❌ Reenviar el mismo mensaje; ❌ Citar respuestas automáticas anteriores; ❌ Mostrar frustración. El objetivo del segundo intento es intentar escapar de procesos automatizados, no discutir la primera decisión.' 
+          },
+          { 
+            id: '5.4', 
+            title: 'LECCIÓN 5.4 - CUÁNDO PARAR', 
+            content: 'Saber cuándo parar también es parte de la estrategia\n\nHay un momento en el que insistir deja de ser estrategia y se convierte solo en insistencia. Debe considerar detener los intentos cuando: reciba una respuesta final clara y repetida; la plataforma informe explícitamente que no habrá nuevo análisis; tres intentos bien espaciados fallidos no produzcan ningún avance. ¿Por qué parar? Porque continuar insistiendo tras este punto normalmente no genera beneficios adicionales. Al contrario, puede dificultar futuros análisis o revisiones. El objetivo del método: Este método no busca cantidad. Busca calidad en el intento. Un solo intento organizado vale más que docenas de intentos impulsivos.' 
+          },
+          { 
+            id: '5.5', 
+            title: 'LECCIÓN 5.5 - LA MENTALIDAD CORRECTA', 
+            content: 'El método no es fuerza bruta\n\nUn error muy común es creer que recuperar una cuenta depende de la persistencia. De hecho, este método funciona intentando: evitar respuestas automáticas; no activar filtros internos; no levantar señales negativas; aumentar la posibilidad de análisis humano. Lo que este método NO es: ❌ Spam; ❌ Presión; ❌ Manipulación; ❌ Discusión con el soporte. Lo que este método SÍ es: ✅ Organización; ✅ Control; ✅ Estrategia; ✅ Paciencia. El principio más importante de este módulo: Tras el envío del ticket, la mayor amenaza al proceso suele ser actuar por impulso. Muchos intentos fallan no porque el primer ticket fuera malo, sino porque el usuario decidió enviar otros quince para "asegurar". Un enfoque admirablemente optimista, aunque estadísticamente desastroso.' 
+          }
         ]
       },
       {
@@ -636,7 +676,7 @@ export const translations = {
         description: 'Decodificación de feedback del soporte.',
         lessons: [
           { id: '6.1', title: 'AULA 6.1 - CÓMO IDENTIFICAR UNA RESPUESTA AUTOMÁTICA', content: 'Texto genérico, lenguaje estandarizado y sin mención de datos específicos. Indica que no superó el primer cribado.' },
-          { id: '6.2', title: 'AULA 6.2 - CÓMO IDENTIFICAR UNA RESPUESTA HUMANA', content: 'Mención del historial o referencia a datos del ticket. Indica que la análisis real ha comenzado.' },
+          { id: '6.2', title: 'AULA 6.2 - CÓMO IDENTIFICAR UNA RESPUESTA HUMANA', content: 'Mención del historial o referência a dados do ticket. Indica que la análisis real ha comenzado.' },
           { id: '6.3', title: 'AULA 6.3 - QUÉ HACER SI LA RESPUESTA ES AUTOMÁTICA', content: 'No responda de inmediato. Espere 7 días e inicie un nuevo intento organizado con otro enfoque.' },
           { id: '6.4', title: 'AULA 6.4 - QUÉ HACER SI LA RESPUESTA ES HUMANA', content: 'Espere el período informado y responda SOLO a lo solicitado. Menos es más.' },
           { id: '6.5', title: 'AULA 6.5 - EL PEOR ERROR DE TODOS', content: 'Responder emocionalmente (ej. "Es injusto"). Destruye las posibilidades de reevaluación.' }
