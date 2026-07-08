@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -212,11 +213,12 @@ export default function Home() {
           {heroImage?.imageUrl && (
             <>
               <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background z-10" />
                 <Image 
                   src={heroImage.imageUrl} 
                   alt="Hero Background" 
                   fill 
-                  className="object-cover opacity-30"
+                  className="object-cover opacity-50"
                   priority
                 />
               </div>
@@ -317,7 +319,7 @@ export default function Home() {
                           {!completedModules.includes(module.id) ? (
                             <Button 
                               onClick={() => markAsCompleted(module.id)}
-                              className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/30 text-[9px] sm:text-[10px] uppercase font-black tracking-[0.1em] sm:tracking-[0.3em] py-6 sm:py-8 rounded-none transition-all duration-500 whitespace-normal text-center"
+                              className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/30 text-[9px] sm:text-[10px] uppercase font-black tracking-[0.05em] sm:tracking-[0.3em] py-5 sm:py-8 rounded-none transition-all duration-500 whitespace-normal text-center leading-tight"
                             >
                               {t.ui.completeModule}
                             </Button>
