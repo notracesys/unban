@@ -62,7 +62,6 @@ export default function Home() {
 
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
 
-  // Loading state to prevent flash of selector
   if (!hasChecked) {
     return <div className="min-h-screen bg-background cyber-grid" />;
   }
@@ -86,7 +85,7 @@ export default function Home() {
               <Fingerprint className="w-4 h-4" />
               <span className="text-[10px] font-bold tracking-[0.5em] uppercase">Identity Check</span>
             </div>
-            <h2 className="text-5xl font-headline font-black uppercase tracking-tighter text-white">
+            <h2 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter text-white">
               {translations.pt.selectLanguage}
             </h2>
             <p className="text-[10px] text-muted-foreground uppercase tracking-[0.3em] font-medium opacity-60">
@@ -149,13 +148,13 @@ export default function Home() {
             </span>
           </div>
         </DialogTrigger>
-        <DialogContent className="bg-card border-primary/30 max-w-2xl max-h-[85vh] overflow-y-auto custom-scrollbar shadow-[0_0_100px_-20px_rgba(255,46,46,0.3)]">
+        <DialogContent className="bg-card border-primary/30 w-[95vw] md:max-w-2xl max-h-[85vh] overflow-y-auto custom-scrollbar shadow-[0_0_100px_-20px_rgba(255,46,46,0.3)] p-6 md:p-8">
           <DialogHeader className="border-b border-white/5 pb-6 mb-6">
             <div className="flex items-center gap-2 text-primary mb-3">
               <Terminal className="w-5 h-5" />
               <span className="text-[10px] font-bold tracking-[0.4em] uppercase">{t.ui.dataStream}</span>
             </div>
-            <DialogTitle className="text-3xl font-headline font-black uppercase tracking-tighter text-white">
+            <DialogTitle className="text-2xl md:text-3xl font-headline font-black uppercase tracking-tighter text-white">
               {lesson.title}
             </DialogTitle>
           </DialogHeader>
@@ -168,7 +167,7 @@ export default function Home() {
               </div>
             ) : lesson.template ? (
               <div className="space-y-4">
-                <div className="p-5 bg-black/40 border border-primary/20 rounded-lg font-code text-xs leading-relaxed text-primary/80 relative group">
+                <div className="p-4 md:p-5 bg-black/40 border border-primary/20 rounded-lg font-code text-[10px] md:text-xs leading-relaxed text-primary/80 relative group">
                   <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     <Button 
                       size="sm" 
@@ -208,34 +207,33 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background flex flex-col items-center">
-      <header className="w-full relative h-[70vh] flex flex-col justify-end p-8 overflow-hidden">
+      <header className="w-full relative h-[60vh] md:h-[70vh] flex flex-col justify-end p-6 md:p-8 overflow-hidden">
         <div className="absolute inset-0 z-0">
           {heroImage?.imageUrl && (
             <Image 
               src={heroImage.imageUrl} 
               alt="Hero Background" 
               fill 
-              className="object-cover opacity-30 blur-[4px]"
+              className="object-cover opacity-20 blur-[6px]"
               priority
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
-          <div className="absolute inset-0 bg-primary/5 mix-blend-overlay" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         </div>
-        <div className="relative z-10 space-y-6 w-full max-w-6xl mx-auto">
+        <div className="relative z-10 space-y-4 md:space-y-6 w-full max-w-6xl mx-auto">
           <div className="flex items-center gap-3 text-primary">
             <div className="p-1 bg-primary/10 border border-primary/20 rounded">
               <Crown className="w-5 h-5" />
             </div>
             <span className="font-headline text-[10px] font-bold tracking-[0.5em] uppercase">unban strategy 1.0</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-headline font-black tracking-tighter uppercase leading-[0.8] break-words drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">
+          <h1 className="text-4xl md:text-6xl font-headline font-black tracking-tighter uppercase leading-[0.9] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">
             {t.hero.title} <span className="text-primary">{t.hero.titleAccent}</span>
           </h1>
-          <p className="text-sm text-muted-foreground font-body max-w-md leading-relaxed uppercase tracking-[0.2em] opacity-90 border-l-2 border-primary/30 pl-4">
+          <p className="text-[11px] md:text-sm text-muted-foreground font-body max-w-md leading-relaxed uppercase tracking-[0.1em] md:tracking-[0.2em] opacity-90 border-l-2 border-primary/30 pl-4">
             {t.hero.description}
           </p>
-          <div className="pt-8 flex items-center gap-6">
+          <div className="pt-6 md:pt-8 flex flex-wrap items-center gap-4 md:gap-6">
             <Button 
               variant="outline" 
               size="sm" 
@@ -245,26 +243,26 @@ export default function Home() {
               }}
               className="bg-black/40 border-white/10 hover:border-primary text-[10px] uppercase tracking-widest transition-all h-10 px-6 rounded-none"
             >
-              <Globe className="w-4 h-4 mr-2" /> Language Settings
+              <Globe className="w-4 h-4 mr-2" /> Language
             </Button>
             <div className="flex items-center gap-2 text-[10px] font-code text-primary/40 tracking-widest uppercase">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              Connection: Stable
+              Stable
             </div>
           </div>
         </div>
       </header>
 
-      <section className="w-full max-w-2xl px-8 py-20 space-y-12">
+      <section className="w-full max-w-6xl px-6 md:px-8 py-12 md:py-20 space-y-12">
         <div className="flex items-center justify-between border-b border-white/5 pb-4">
           <div className="flex items-center gap-3">
             <LayoutGrid className="w-5 h-5 text-primary" />
             <h2 className="text-[12px] font-headline font-black uppercase tracking-[0.3em]">Protocol Systems</h2>
           </div>
-          <span className="text-[10px] font-code text-muted-foreground/30">V.6.0_STABLE</span>
+          <span className="text-[10px] font-code text-muted-foreground/30 hidden md:inline">V.6.0_STABLE</span>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {t.modules.map((module: any, index: number) => {
             const isLocked = index > 0 && !completedModules.includes(t.modules[index - 1].id);
             const moduleImage = PlaceHolderImages.find(img => img.id === module.id)?.imageUrl;
@@ -276,13 +274,13 @@ export default function Home() {
                     <div className="relative w-full aspect-[4/5] rounded-sm overflow-hidden border border-white/5 transition-all duration-700 group-hover:border-primary/50 group-hover:shadow-[0_0_50px_-20px_rgba(255,46,46,0.4)]">
                       <div className="absolute inset-0">
                         {moduleImage && (
-                          <Image src={moduleImage} alt={module.title} fill className="object-cover transition-all duration-1000 brightness-[0.6] group-hover:brightness-[0.8] group-hover:scale-105" />
+                          <Image src={moduleImage} alt={module.title} fill className="object-cover transition-all duration-1000 brightness-[0.5] group-hover:brightness-[0.7] group-hover:scale-105" />
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                       </div>
-                      <div className="absolute inset-0 p-8 flex flex-col justify-end gap-2">
+                      <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end gap-2">
                         <span className="text-[10px] font-headline font-bold text-primary tracking-[0.4em] mb-2">{module.tag}</span>
-                        <h3 className="text-3xl font-headline font-black text-white uppercase tracking-tighter leading-none group-hover:text-primary transition-colors">{module.title}</h3>
+                        <h3 className="text-2xl md:text-3xl font-headline font-black text-white uppercase tracking-tighter leading-none group-hover:text-primary transition-colors">{module.title}</h3>
                         {isLocked ? (
                           <div className="mt-4 flex items-center gap-3 p-3 bg-black/80 border border-white/10 rounded-none backdrop-blur-xl w-fit">
                             <Lock className="w-3 h-3 text-primary" />
@@ -296,12 +294,12 @@ export default function Home() {
                       </div>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="bg-card border border-white/10 rounded-sm p-8 animate-in slide-in-from-top-4 duration-500 shadow-2xl relative overflow-hidden">
+                  <AccordionContent className="bg-card border border-white/10 rounded-sm p-6 md:p-8 animate-in slide-in-from-top-4 duration-500 shadow-2xl relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-1 h-full bg-primary" />
                     <div className="space-y-8">
                       <div className="pb-6 border-b border-white/5">
-                        <h4 className="font-headline text-xl font-black text-white mb-3 uppercase tracking-tight">{module.title}</h4>
-                        <p className="text-xs text-muted-foreground leading-relaxed uppercase tracking-widest opacity-70">{module.description}</p>
+                        <h4 className="font-headline text-lg md:text-xl font-black text-white mb-3 uppercase tracking-tight">{module.title}</h4>
+                        <p className="text-[10px] text-muted-foreground leading-relaxed uppercase tracking-widest opacity-70">{module.description}</p>
                       </div>
                       <div className="space-y-4">
                         <div className="grid gap-1">
@@ -313,7 +311,7 @@ export default function Home() {
                           {!completedModules.includes(module.id) ? (
                             <Button 
                               onClick={() => markAsCompleted(module.id)}
-                              className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/30 text-[10px] uppercase font-black tracking-[0.3em] py-8 rounded-none transition-all duration-500"
+                              className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/30 text-[9px] sm:text-[10px] uppercase font-black tracking-[0.1em] sm:tracking-[0.3em] py-6 sm:py-8 rounded-none transition-all duration-500 whitespace-normal text-center"
                             >
                               {t.ui.completeModule}
                             </Button>
@@ -334,8 +332,8 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="w-full max-w-2xl px-8 mb-32">
-        <div className="bg-card border border-primary/30 p-12 rounded-sm space-y-6 relative overflow-hidden shadow-[0_0_80px_-20px_rgba(255,46,46,0.1)]">
+      <div className="w-full max-w-2xl px-6 md:px-8 mb-20 md:mb-32">
+        <div className="bg-card border border-primary/30 p-8 md:p-12 rounded-sm space-y-6 relative overflow-hidden shadow-[0_0_80px_-20px_rgba(255,46,46,0.1)]">
           <div className="absolute top-0 right-0 w-48 h-48 bg-primary/5 rounded-full -mr-24 -mt-24 blur-[100px]" />
           <h3 className="font-headline text-[12px] uppercase tracking-[0.4em] flex items-center gap-3 font-black text-primary">
             <ShieldAlert className="w-5 h-5" />
@@ -345,7 +343,7 @@ export default function Home() {
             <div className="space-y-3">
               <span className="text-white font-black block border-l-2 border-primary pl-4">{t.ui.criticalAttention}</span>
               <p className="opacity-80">{t.ui.safetyText}</p>
-              <div className="p-4 bg-primary/10 border border-primary/20 text-primary font-black text-[10px] tracking-widest">
+              <div className="p-4 bg-primary/10 border border-primary/20 text-primary font-black text-[10px] tracking-widest leading-relaxed">
                 {t.ui.waitDays}
               </div>
             </div>
@@ -353,13 +351,13 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className="w-full max-w-2xl px-8 py-24 flex flex-col items-center justify-center space-y-10 opacity-20 border-t border-white/5">
-        <div className="flex items-center gap-12">
-          <Crown className="w-8 h-8" />
-          <Globe className="w-8 h-8" />
-          <ShieldAlert className="w-8 h-8" />
+      <footer className="w-full max-w-6xl px-6 md:px-8 py-16 md:py-24 flex flex-col items-center justify-center space-y-10 opacity-20 border-t border-white/5">
+        <div className="flex items-center gap-8 md:gap-12">
+          <Crown className="w-6 md:w-8 h-6 md:h-8" />
+          <Globe className="w-6 md:w-8 h-6 md:h-8" />
+          <ShieldAlert className="w-6 md:w-8 h-6 md:h-8" />
         </div>
-        <div className="flex flex-col items-center gap-3 text-[9px] font-code tracking-[0.6em] text-center">
+        <div className="flex flex-col items-center gap-3 text-[8px] md:text-[9px] font-code tracking-[0.4em] md:tracking-[0.6em] text-center">
           <span className="font-black text-white">UNBANSTRATEGY_PROTOCOL_ENCRYPTED</span>
           <span className="text-primary font-black">// {t.ui.systemActive}</span>
           <span className="mt-4 opacity-50">© 2024 ZEPHYRUS_GLOBAL_SYSTEMS</span>
