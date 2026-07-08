@@ -19,6 +19,7 @@ import { translations, type Language } from '@/lib/translations';
 
 export default function Home() {
   const [language, setLanguage] = useState<Language | null>(null);
+  const [hasChecked, setHasChecked] = useState(false);
   const [completedModules, setCompletedModules] = useState<string[]>([]);
   const [viewedLessons, setViewedLessons] = useState<string[]>([]);
   const { toast } = useToast();
@@ -30,6 +31,7 @@ export default function Home() {
     if (savedLang && translations[savedLang]) {
       setLanguage(savedLang);
     }
+    setHasChecked(true);
   }, []);
 
   const selectLanguage = (lang: Language) => {
@@ -59,6 +61,11 @@ export default function Home() {
   };
 
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
+
+  // Loading state to prevent flash of selector
+  if (!hasChecked) {
+    return <div className="min-h-screen bg-background cyber-grid" />;
+  }
 
   if (!language || !t) {
     return (
