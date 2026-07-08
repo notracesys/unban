@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -258,72 +257,74 @@ export default function Home() {
           <span className="text-[10px] font-code text-muted-foreground/30">V.6.0_STABLE</span>
         </div>
         
-        <Accordion type="single" collapsible className="w-full space-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {t.modules.map((module: any, index: number) => {
             const isLocked = index > 0 && !completedModules.includes(t.modules[index - 1].id);
             const moduleImage = PlaceHolderImages.find(img => img.id === module.id)?.imageUrl;
 
             return (
-              <AccordionItem key={module.id} value={module.id} className="border-none group overflow-visible" disabled={isLocked}>
-                <AccordionTrigger className={cn("hover:no-underline p-0 flex flex-col items-start text-left data-[state=open]:mb-8 transition-all relative", isLocked && "opacity-60 cursor-not-allowed")}>
-                  <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-sm overflow-hidden border border-white/5 transition-all duration-700 group-hover:border-primary/50 group-hover:shadow-[0_0_50px_-20px_rgba(255,46,46,0.4)]">
-                    <div className="absolute inset-0">
-                      {moduleImage && (
-                        <Image src={moduleImage} alt={module.title} fill className="object-cover transition-all duration-1000 brightness-[0.6] group-hover:brightness-[0.8] group-hover:scale-105" />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                    </div>
-                    <div className="absolute inset-0 p-10 flex flex-col justify-end gap-2">
-                      <span className="text-[10px] font-headline font-bold text-primary tracking-[0.4em] mb-3">{module.tag}</span>
-                      <h3 className="text-4xl font-headline font-black text-white uppercase tracking-tighter leading-none group-hover:text-primary transition-colors">{module.title}</h3>
-                      {isLocked ? (
-                        <div className="mt-6 flex items-center gap-3 p-4 bg-black/80 border border-white/10 rounded-none backdrop-blur-xl w-fit">
-                          <Lock className="w-4 h-4 text-primary" />
-                          <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">{t.ui.locked}</p>
-                        </div>
-                      ) : (
-                        <div className="mt-4 flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-[0.3em] font-bold">
-                          {t.ui.accessModule} <ChevronRight className="w-4 h-4 text-primary group-hover:translate-x-2 transition-transform" />
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="bg-card border border-white/10 rounded-sm p-8 animate-in slide-in-from-top-4 duration-500 shadow-2xl relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-1 h-full bg-primary" />
-                  <div className="space-y-8">
-                    <div className="pb-6 border-b border-white/5">
-                      <h4 className="font-headline text-xl font-black text-white mb-3 uppercase tracking-tight">{module.title}</h4>
-                      <p className="text-xs text-muted-foreground leading-relaxed uppercase tracking-widest opacity-70">{module.description}</p>
-                    </div>
-                    <div className="space-y-6">
-                      <div className="grid gap-2">
-                        {module.lessons.map((lesson: any) => (
-                          <LessonItem key={lesson.id} lesson={lesson} />
-                        ))}
+              <Accordion key={module.id} type="single" collapsible className="w-full">
+                <AccordionItem value={module.id} className="border-none group overflow-visible" disabled={isLocked}>
+                  <AccordionTrigger className={cn("hover:no-underline p-0 flex flex-col items-start text-left data-[state=open]:mb-8 transition-all relative", isLocked && "opacity-60 cursor-not-allowed")}>
+                    <div className="relative w-full aspect-[4/5] rounded-sm overflow-hidden border border-white/5 transition-all duration-700 group-hover:border-primary/50 group-hover:shadow-[0_0_50px_-20px_rgba(255,46,46,0.4)]">
+                      <div className="absolute inset-0">
+                        {moduleImage && (
+                          <Image src={moduleImage} alt={module.title} fill className="object-cover transition-all duration-1000 brightness-[0.6] group-hover:brightness-[0.8] group-hover:scale-105" />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                       </div>
-                      <div className="pt-8">
-                        {!completedModules.includes(module.id) ? (
-                          <Button 
-                            onClick={() => markAsCompleted(module.id)}
-                            className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/30 text-[10px] uppercase font-black tracking-[0.3em] py-8 rounded-none transition-all duration-500"
-                          >
-                            {t.ui.completeModule}
-                          </Button>
+                      <div className="absolute inset-0 p-8 flex flex-col justify-end gap-2">
+                        <span className="text-[10px] font-headline font-bold text-primary tracking-[0.4em] mb-2">{module.tag}</span>
+                        <h3 className="text-3xl font-headline font-black text-white uppercase tracking-tighter leading-none group-hover:text-primary transition-colors">{module.title}</h3>
+                        {isLocked ? (
+                          <div className="mt-4 flex items-center gap-3 p-3 bg-black/80 border border-white/10 rounded-none backdrop-blur-xl w-fit">
+                            <Lock className="w-3 h-3 text-primary" />
+                            <p className="text-[9px] text-muted-foreground uppercase font-black tracking-widest">{t.ui.locked}</p>
+                          </div>
                         ) : (
-                          <div className="flex items-center justify-center gap-3 text-primary font-black text-[11px] uppercase tracking-[0.4em] p-6 bg-primary/5 rounded-none border border-primary/20">
-                            <CheckCircle2 className="w-5 h-5" />
-                            {t.ui.moduleCompleted}
+                          <div className="mt-4 flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-[0.3em] font-bold">
+                            {t.ui.accessModule} <ChevronRight className="w-4 h-4 text-primary group-hover:translate-x-2 transition-transform" />
                           </div>
                         )}
                       </div>
                     </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
+                  </AccordionTrigger>
+                  <AccordionContent className="bg-card border border-white/10 rounded-sm p-8 animate-in slide-in-from-top-4 duration-500 shadow-2xl relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-1 h-full bg-primary" />
+                    <div className="space-y-8">
+                      <div className="pb-6 border-b border-white/5">
+                        <h4 className="font-headline text-xl font-black text-white mb-3 uppercase tracking-tight">{module.title}</h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed uppercase tracking-widest opacity-70">{module.description}</p>
+                      </div>
+                      <div className="space-y-4">
+                        <div className="grid gap-1">
+                          {module.lessons.map((lesson: any) => (
+                            <LessonItem key={lesson.id} lesson={lesson} />
+                          ))}
+                        </div>
+                        <div className="pt-6">
+                          {!completedModules.includes(module.id) ? (
+                            <Button 
+                              onClick={() => markAsCompleted(module.id)}
+                              className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/30 text-[10px] uppercase font-black tracking-[0.3em] py-8 rounded-none transition-all duration-500"
+                            >
+                              {t.ui.completeModule}
+                            </Button>
+                          ) : (
+                            <div className="flex items-center justify-center gap-3 text-primary font-black text-[11px] uppercase tracking-[0.4em] p-6 bg-primary/5 rounded-none border border-primary/20">
+                              <CheckCircle2 className="w-5 h-5" />
+                              {t.ui.moduleCompleted}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             );
           })}
-        </Accordion>
+        </div>
       </section>
 
       <div className="w-full max-w-2xl px-8 mb-32">
