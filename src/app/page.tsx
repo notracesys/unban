@@ -3,8 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Separator } from '@/components/ui/separator';
-import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2, Copy, Clock, Globe, Fingerprint, Zap } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2, Copy, Globe, Fingerprint, Zap } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
