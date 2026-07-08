@@ -220,7 +220,7 @@ export default function Home() {
             <div className="p-1 bg-primary/10 border border-primary/20 rounded">
               <Crown className="w-5 h-5" />
             </div>
-            <span className="font-headline text-[10px] font-bold tracking-[0.5em] uppercase">zephyrus_protocol</span>
+            <span className="font-headline text-[10px] font-bold tracking-[0.5em] uppercase">unban strategy 1.0</span>
           </div>
           <h1 className="text-8xl md:text-[10rem] font-headline font-black tracking-tighter uppercase leading-[0.8] break-words drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">
             {t.hero.title} <span className="text-primary">{t.hero.titleAccent}</span>
