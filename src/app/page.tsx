@@ -208,17 +208,23 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background flex flex-col items-center">
       <header className="w-full relative h-[60vh] md:h-[70vh] flex flex-col justify-end p-6 md:p-8 overflow-hidden">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 pointer-events-none">
           {heroImage?.imageUrl && (
-            <Image 
-              src={heroImage.imageUrl} 
-              alt="Hero Background" 
-              fill 
-              className="object-cover opacity-20 blur-[6px]"
-              priority
-            />
+            <>
+              <div className="absolute inset-0 overflow-hidden">
+                <Image 
+                  src={heroImage.imageUrl} 
+                  alt="Hero Background" 
+                  fill 
+                  className="object-cover opacity-30"
+                  priority
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent" />
+              <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent_20%,black_60%)] backdrop-blur-[6px]" />
+              <div className="absolute inset-0 [mask-image:linear-gradient(to_top,black_10%,transparent_50%)] opacity-20 cyber-grid" />
+            </>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         </div>
         <div className="relative z-10 space-y-4 md:space-y-6 w-full max-w-6xl mx-auto">
           <div className="flex items-center gap-3 text-primary">
@@ -227,7 +233,7 @@ export default function Home() {
             </div>
             <span className="font-headline text-[10px] font-bold tracking-[0.5em] uppercase">unban strategy 1.0</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-headline font-black tracking-tighter uppercase leading-[0.9] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">
+          <h1 className="text-4xl md:text-5xl font-headline font-black tracking-tighter uppercase leading-[0.9] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">
             {t.hero.title} <span className="text-primary">{t.hero.titleAccent}</span>
           </h1>
           <p className="text-[11px] md:text-sm text-muted-foreground font-body max-w-md leading-relaxed uppercase tracking-[0.1em] md:tracking-[0.2em] opacity-90 border-l-2 border-primary/30 pl-4">
