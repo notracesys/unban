@@ -208,11 +208,11 @@ export default function Home() {
               src={heroImage.imageUrl} 
               alt="Hero Background" 
               fill 
-              className="object-cover opacity-80"
+              className="object-cover opacity-30 blur-[4px]"
               priority
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
           <div className="absolute inset-0 bg-primary/5 mix-blend-overlay" />
         </div>
         <div className="relative z-10 space-y-6 w-full max-w-6xl mx-auto">
@@ -222,7 +222,7 @@ export default function Home() {
             </div>
             <span className="font-headline text-[10px] font-bold tracking-[0.5em] uppercase">unban strategy 1.0</span>
           </div>
-          <h1 className="text-6xl md:text-8xl font-headline font-black tracking-tighter uppercase leading-[0.8] break-words drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">
+          <h1 className="text-5xl md:text-7xl font-headline font-black tracking-tighter uppercase leading-[0.8] break-words drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">
             {t.hero.title} <span className="text-primary">{t.hero.titleAccent}</span>
           </h1>
           <p className="text-sm text-muted-foreground font-body max-w-md leading-relaxed uppercase tracking-[0.2em] opacity-90 border-l-2 border-primary/30 pl-4">
