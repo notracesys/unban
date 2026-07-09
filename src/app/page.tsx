@@ -76,8 +76,15 @@ export default function Home() {
         <div className="max-w-md w-full space-y-12 text-center animate-in fade-in zoom-in duration-1000">
           <div className="flex justify-center mb-8 relative">
             <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
-            <div className="w-24 h-24 bg-black border-2 border-primary/50 rounded-full flex items-center justify-center relative z-10 shadow-[0_0_50px_-12px_rgba(255,46,46,0.5)]">
-              <Globe className="text-primary w-12 h-12 animate-pulse" />
+            <div className="w-24 h-24 bg-black border-2 border-primary/50 rounded-full flex items-center justify-center relative z-10 shadow-[0_0_50px_-12px_rgba(255,46,46,0.5)] overflow-hidden">
+              <Image 
+                src="/logo.png" 
+                alt="Product Logo" 
+                width={96} 
+                height={96} 
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
 
@@ -208,19 +215,19 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background flex flex-col items-center">
-      <header className="w-full relative h-[60vh] md:h-[70vh] flex flex-col justify-end p-6 md:p-8 overflow-hidden">
+      <header className="w-full relative h-[60vh] md:h-[70vh] flex flex-col justify-end p-6 md:p-8 overflow-hidden bg-background">
         <div className="absolute inset-0 z-0 pointer-events-none">
           {heroImage?.imageUrl && (
             <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background z-10" />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background z-10" />
               <Image 
                 src={heroImage.imageUrl} 
                 alt="Hero Background" 
                 fill 
-                className="object-cover opacity-30 brightness-[0.6] blur-[2px]"
+                className="object-cover transition-all duration-1000 brightness-100 opacity-60 md:opacity-80"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent top-1/2" />
             </div>
           )}
         </div>
