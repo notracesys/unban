@@ -211,21 +211,17 @@ export default function Home() {
       <header className="w-full relative h-[60vh] md:h-[70vh] flex flex-col justify-end p-6 md:p-8 overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
           {heroImage?.imageUrl && (
-            <>
-              <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background z-10" />
-                <Image 
-                  src={heroImage.imageUrl} 
-                  alt="Hero Background" 
-                  fill 
-                  className="object-cover opacity-50"
-                  priority
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent" />
-              <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent_20%,black_60%)] backdrop-blur-[6px]" />
-              <div className="absolute inset-0 [mask-image:linear-gradient(to_top,black_10%,transparent_50%)] opacity-20 cyber-grid" />
-            </>
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background z-10" />
+              <Image 
+                src={heroImage.imageUrl} 
+                alt="Hero Background" 
+                fill 
+                className="object-cover opacity-30 brightness-[0.6] blur-[2px]"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-80" />
+            </div>
           )}
         </div>
         <div className="relative z-10 space-y-4 md:space-y-6 w-full max-w-6xl mx-auto">
@@ -235,7 +231,7 @@ export default function Home() {
             </div>
             <span className="font-headline text-[10px] font-bold tracking-[0.5em] uppercase">unban strategy 1.0</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-headline font-black tracking-tighter uppercase leading-[0.9] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">
+          <h1 className="text-3xl md:text-5xl font-headline font-black tracking-tighter uppercase leading-[0.9] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">
             {t.hero.title} <span className="text-primary">{t.hero.titleAccent}</span>
           </h1>
           <p className="text-[11px] md:text-sm text-muted-foreground font-body max-w-md leading-relaxed uppercase tracking-[0.1em] md:tracking-[0.2em] opacity-90 border-l-2 border-primary/30 pl-4">
@@ -251,7 +247,7 @@ export default function Home() {
               }}
               className="bg-black/40 border-white/10 hover:border-primary text-[10px] uppercase tracking-widest transition-all h-10 px-6 rounded-none"
             >
-              <Globe className="w-4 h-4 mr-2" /> Language
+              <Globe className="w-4 h-4 mr-2" /> Language Settings
             </Button>
             <div className="flex items-center gap-2 text-[10px] font-code text-primary/40 tracking-widest uppercase">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
