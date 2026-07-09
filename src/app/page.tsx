@@ -167,13 +167,15 @@ export default function Home() {
             </DialogTitle>
           </DialogHeader>
           <div className="font-body text-sm text-muted-foreground leading-relaxed space-y-6">
-            {lesson.content ? (
+            {lesson.content && (
               <div className="prose prose-invert prose-sm max-w-none">
                 <div className="whitespace-pre-wrap font-body">
                   {lesson.content}
                 </div>
               </div>
-            ) : lesson.template ? (
+            )}
+            
+            {lesson.template && (
               <div className="space-y-4">
                 <div className="p-4 md:p-5 bg-black/40 border border-primary/20 rounded-lg font-code text-[10px] md:text-xs leading-relaxed text-primary/80 relative group">
                   <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -188,10 +190,6 @@ export default function Home() {
                   </div>
                   {lesson.template}
                 </div>
-              </div>
-            ) : (
-              <div className="py-12 text-center opacity-40 italic">
-                <p className="text-xs uppercase tracking-[0.2em]">{t.ui.decrypting}</p>
               </div>
             )}
 
@@ -215,7 +213,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background flex flex-col items-center">
-      {/* VIP Order Bump Section */}
+      {/* VIP Support Section */}
       <div className="w-full bg-accent/10 border-b border-accent/20 py-4 px-6 md:px-8">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4 text-center md:text-left">
@@ -235,7 +233,7 @@ export default function Home() {
             asChild
             className="bg-accent hover:bg-accent/90 text-white font-black uppercase tracking-[0.2em] text-[10px] px-8 py-5 h-auto rounded-none shadow-[0_0_30px_-10px_rgba(234,88,12,0.5)]"
           >
-            <a href="https://wa.me/seu-numero" target="_blank" rel="noopener noreferrer">
+            <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">
               {t.orderBump.button}
             </a>
           </Button>
@@ -246,7 +244,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0 pointer-events-none">
           {heroImage?.imageUrl && (
             <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background z-10" />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background z-10" />
               <Image 
                 src={heroImage.imageUrl} 
                 alt="Hero Background" 
@@ -254,7 +252,7 @@ export default function Home() {
                 className="object-cover transition-all duration-1000 brightness-100 opacity-60 md:opacity-80"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent top-1/2" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent top-0" />
             </div>
           )}
         </div>
@@ -349,7 +347,7 @@ export default function Home() {
                           {!completedModules.includes(module.id) ? (
                             <Button 
                               onClick={() => markAsCompleted(module.id)}
-                              className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/30 text-[9px] sm:text-[10px] uppercase font-black tracking-[0.05em] sm:tracking-[0.3em] py-5 sm:py-8 rounded-none transition-all duration-500 whitespace-normal text-center leading-tight"
+                              className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/30 text-[9px] sm:text-[10px] uppercase font-black tracking-[0.05em] sm:tracking-[0.1em] py-5 sm:py-8 rounded-none transition-all duration-500 whitespace-normal text-center leading-tight"
                             >
                               {t.ui.completeModule}
                             </Button>
