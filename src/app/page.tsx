@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2, Copy, Globe, Fingerprint, Zap } from 'lucide-react';
+import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2, Copy, Globe, Fingerprint, Zap, Star } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -215,6 +215,33 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background flex flex-col items-center">
+      {/* VIP Order Bump Section */}
+      <div className="w-full bg-accent/10 border-b border-accent/20 py-4 px-6 md:px-8">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-4 text-center md:text-left">
+            <div className="p-2 bg-accent/20 rounded-full animate-pulse">
+              <Star className="w-5 h-5 text-accent" />
+            </div>
+            <div className="space-y-1">
+              <h4 className="text-[10px] md:text-[12px] font-headline font-black uppercase tracking-[0.2em] text-accent">
+                {t.orderBump.title}
+              </h4>
+              <p className="text-[9px] md:text-[10px] text-muted-foreground uppercase tracking-widest leading-relaxed">
+                {t.orderBump.description}
+              </p>
+            </div>
+          </div>
+          <Button 
+            asChild
+            className="bg-accent hover:bg-accent/90 text-white font-black uppercase tracking-[0.2em] text-[10px] px-8 py-5 h-auto rounded-none shadow-[0_0_30px_-10px_rgba(234,88,12,0.5)]"
+          >
+            <a href="https://wa.me/seu-numero" target="_blank" rel="noopener noreferrer">
+              {t.orderBump.button}
+            </a>
+          </Button>
+        </div>
+      </div>
+
       <header className="w-full relative h-[60vh] md:h-[70vh] flex flex-col justify-end p-6 md:p-8 overflow-hidden bg-background">
         <div className="absolute inset-0 z-0 pointer-events-none">
           {heroImage?.imageUrl && (
