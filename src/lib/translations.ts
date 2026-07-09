@@ -11,8 +11,8 @@ export const translations = {
       description: 'Macetes e estratégias exclusivas para auxiliar no seu processo de recuperação de contas.',
     },
     orderBump: {
-      title: 'SUPORTE VIP 100%',
-      description: 'Caso tenha comprado junto com o orderbump de suporte 100% com minha ajuda, clique no botão abaixo.',
+      title: 'PACK VIP 100%',
+      description: 'Caso tenha comprado junto com o PACK de suporte 100% com minha ajuda, clique no botão abaixo.',
       button: 'ACESSAR SUPORTE VIP'
     },
     ui: {
@@ -47,7 +47,7 @@ export const translations = {
           { 
             id: '1.2', 
             title: 'AULA 1.2 - O QUE É BANIMENTO MANUAL', 
-            content: 'Quando existe participação humana na decisão\n\nO banimento manual ocorre quando existe uma análise direta ou validação interna realizada por membros da equipe responsável.\n\nNesses casos, normalmente existem elementos mais específicos relacionados ao motivo da punição.\n\nCaracterísticas comuns:\n\nMensagens mais detalhadas;\nReferência direta a regras ou comportamentos;\nRespostas objetivas e firmes;\nMenor flexibilidade para reavaliação.\n\nExemplos:\n\nCitação direta dos Termos de Serviço;\nInformação sobre comportamento específico;\nConfirmação explícita da violação. \n\nO que isso significa?\n\nSignifica que a possibilidade de reversão tende a ser significativamente menor.\n\nIsso não quer dizer que você deva agir por impulso ou desistir imediatamente. Significa apenas que a estratégia precisa ser ainda mais cuidadosa.\n\nNeste cenário, o principal objetivo deixa de ser "convencer" e passa a ser:\n\nNão piorar a situação;\nEvitar encerramentos adicionais;\nMantener uma postura técnica e organizada.' 
+            content: 'Quando existe participação humana na decisão\n\nO banimento manual ocorre quando existe uma análise direta ou validação interna realizada por membros da equipe responsável.\n\nNesses casos, normalmente existem elementos mais específicos relacionados ao motivo da punição.\n\nCaracterísticas comuns:\n\nMensagens mais detalhadas;\nReferência direta a regras ou comportamentos;\nRespostas objetivas e firmes;\nMenor flexibilidade para reavaliação.\n\nExemplos:\n\nCitação direta dos Termos de Serviço;\nInformação sobre comportamento específico;\nConfirmação explícita da violação. \n\nO que isso significa?\n\nSignifica que a possibilidade de reversão tende a ser significativamente menor.\n\nIsso não quer dizer que você deva agir por impulso ou desistir imediatamente. Significa apenas que a estratégia precisa ser ainda mais cuidadosa.\n\nNeste cenário, o principal objetivo deixa de ser "convencer" e passa a ser:\n\nNão piorar a situação;\nEvitar encerramentos adicionais;\nManter uma postura técnica e organizada.' 
           },
           { 
             id: '1.3', 
@@ -90,7 +90,7 @@ export const translations = {
           { 
             id: '2.5', 
             title: 'AULA 2.5 - REVISÃO FINAL ANTES DE ENVIAR', 
-            content: 'O ticket é único\n\nAntes de clicar em enviar, pare por alguns minutos e revise tudo.\n\nFaça a seguinte checklist:\n\nCategoria\nEstá correta?\nÉ a opção mais neutra disponível?\nDados\nO ID foi digitado corretamente?\nO nickname está exato?\nMensagem\nEstá objetiva?\nEstá técnica?\nEstá organizada?\nTom geral\n\nPergunte:\n\nIsto parece ter sido escrito por alguém calmo e racional?\n\nSe a resposta for "no", não envie ainda.\n\nApós o envio\n\nDepois que o ticket for enviado:\n\n❌ Não envie outro imediatamente;\n\n❌ Não tente complementar informações;\n\n❌ Não abra múltiplas solicitações;\n\n❌ Não tente reforçar o pedido.\n\nA estratégia termina no momento do envio.\n\nA partir daí, insistência excessiva normalmente produz o efeito contrário ao desejado.' 
+            content: 'O ticket é único\n\nAntes de clicar em enviar, pare por alguns minutos e revise tudo.\n\nFaça a seguinte checklist:\n\nCategoria\nEstá correta?\nÉ a opção mais neutra disponível?\nDados\nO ID foi digitado corretamente?\nO nickname está exato?\nMensagem\nEstá objetiva?\nEstá técnica?\nEstá organizada?\nTom geral\n\nPergunte:\n\nIsto parece ter sido escrito por alguém calmo e racional?\n\nSe a resposta for "não", não envie ainda.\n\nApós o envio\n\nDepois que o ticket for enviado:\n\n❌ Não envie outro imediatamente;\n\n❌ Não tente complementar informações;\n\n❌ Não abra múltiplas solicitações;\n\n❌ Não tente reforçar o pedido.\n\nA estratégia termina no momento do envio.\n\nA partir daí, insistência excessiva normalmente produz o efeito contrário ao desejado.' 
           }
         ]
       },
@@ -113,7 +113,7 @@ export const translations = {
           { 
             id: '3.3', 
             title: 'AULA 3.3 - O CAMPO ASSUNTO', 
-            content: 'O campo que mais ativa respostas automáticas\n\nO assunto do ticket é uma das primeiras informações analisadas pelo sistema.\n\nPor isso, utilizar termos emocionais ou acusatórios pode prejudicar a tentativa.\n\nNunca utilize:\n\n❌ "Fui banido injustamente"\n\n❌ "Desbanimento urgente"\n\n❌ "Minha conta foi roubada"\n\n❌ "Quero meu desbanimento" \n\nO objetivo do assunto\n\nO assunto deve:\n\nparecer técnico;\nser curto;\nindicar necessidade de análise;\nevitar conclusões.\n\nExemplo da lógica correta:\n\nEm vez de acusar ou exigir, procure transmitir a ideia de:\n\n"Solicitação de verificação referente ao acesso da conta."\n\nLembre-se:\n\nO assunto serve para abrir uma porta, não para ganhar uma discussão.' 
+            content: 'O campo que mais ativa respostas automáticas\n\nO assunto do ticket é uma das primeiras informações analisadas pelo sistema.\n\nPor isso, utilizar termos emocionais ou acusatórios pode prejudicar a tentativa.\n\nNunca utilize:\n\n❌ "Fui banido injustamente"\n\n❌ "Desbanimento urgente"\n\n❌ "Minha conta foi roubada"\n\n❌ "Quero meu desbanimento"\n\nO objetivo do assunto\n\nO assunto deve:\n\nparecer técnico;\nser curto;\nindicar necessidade de análise;\nevitar conclusões.\n\nExemplo da lógica correta:\n\nEm vez de acusar ou exigir, procure transmitir a ideia de:\n\n"Solicitação de verificação referente ao acesso da conta."\n\nLembre-se:\n\nO assunto serve para abrir uma porta, não para ganhar uma discussão.' 
           },
           { 
             id: '3.4', 
@@ -163,7 +163,7 @@ export const translations = {
           { 
             id: '4.3', 
             title: 'AULA 4.3 - MODELO DE TICKET Nº 3', 
-            content: 'Quando utilizar este modelo\n\nEste modelo trabalha com a hipótese de falso positivo e solicita uma análise de integridade da conta.\n\nModelo:\n\nDirijo-me a vocês para requisitar suporte a respeito de um problema de acesso à minha conta. Desde [data], não consigo mais utilizar os serviços. Considerando que meu histórico de uso é pautado pelo cumprimento das regras, a situação me leva a crer em um erro técnico ou um falso positivo de algum sistema. Peço que uma análise de integridade da conta seja conduzida por um membro da equipe para identificar a origem desta anomalia. Aguardo um retorno e agradeço a atenção.\n\nQuando usar:\n\n✅ Quando você souber aproximadamente a data do ocorrido;\n✅ Possíveis falsos positivos;\n✅ Contas sem histórico de punições.',
+            content: 'Quando utilizar este modelo\n\nEste modelo trabalha com a hipótese de falso positivo e solicita uma análise de integridade da conta.\n\nModelo:\n\nDirijo-me a vocês para requisitar suporte a respeito de um problema de acesso à minha conta. Desde [data], não consigo mais utilizar os serviços. Considerando que meu histórico de uso é pautado pelo cumprimento das regras, a situação me leva a krer em um erro técnico ou um falso positivo de algum sistema. Peço que uma análise de integridade da conta seja conduzida por um membro da equipe para identificar a origem desta anomalia. Aguardo um retorno e agradeço a atenção.\n\nQuando usar:\n\n✅ Quando você souber aproximadamente a data do ocorrido;\n✅ Possíveis falsos positivos;\n✅ Contas sem histórico de punições.',
             template: 'Dirijo-me a vocês para requisitar suporte a respeito de um problema de acesso à minha conta. Desde [data], não consigo mais utilizar os serviços. Considerando que meu histórico de uso é pautado pelo cumprimento das regras, a situação me leva a crer em um erro técnico ou um falso positivo de algum sistema. Peço que uma análise de integridade da conta seja conduzida por um membro da equipe para identificar a origem desta anomalia. Aguardo um retorno e agradeço a atenção.'
           },
           { 
@@ -215,7 +215,7 @@ export const translations = {
           { 
             id: '5.4', 
             title: 'AULA 5.4 - QUANDO PARAR', 
-            content: 'Saber parar também faz parte da estratégia\n\nExiste um momento em que insistir deixa de ser estratégia e passa a ser apenas insistência.\n\nVocê deve considerar interromper as tentativas quando:\n\nreceber uma resposta final clara e repetida;\na plataforma informar explicitamente que não haverá nova análise;\ntrês tentativas bem espaçadas não produzirem qualquer avanço.\nPor que parar?\n\nPorque continuar insistindo após esse ponto normalmente não gera benefícios adicionais.\n\nAo contrário, pode dificultar futuras análises ou revisões.\n\nO objetivo do método\n\nEste método não busca quantidade.\n\nEle busca qualidade na tentativa.\n\nUma única tentativa organizada vale mais do que dezenas de tentativas impulsivas.' 
+            content: 'Saber parar também faz parte da estratégia\n\nExiste um momento em que insistir deixa de ser estratégia e passa a ser apenas insistência.\n\nVocê deve considerar interromper as tentativas quando:\n\nreceber uma resposta final clara e repetida;\a plataforma informar explicitamente que não haverá nova análise;\ntrês tentativas bem espaçadas não produzirem qualquer avanço.\nPor que parar?\n\nPorque continuar insistindo após esse ponto normalmente não gera benefícios adicionais.\n\nAo contrário, pode dificultar futuras análises ou revisões.\n\nO objetivo do método\n\nEste método não busca quantidade.\n\nEle busca qualidade na tentativa.\n\nUma única tentativa organizada vale mais do que dezenas de tentativas impulsivas.' 
           },
           { 
             id: '5.5', 
@@ -233,7 +233,7 @@ export const translations = {
           { 
             id: '6.1', 
             title: 'AULA 6.1 - COMO IDENTIFICAR UMA RESPOSTA AUTOMÁTICA', 
-            content: 'Nem toda resposta significa que alguém realmente leu seu caso\n\nAntes de tomar qualquer decisão, você precisa descobrir quem respondeu sua solicitação.\n\nMuitas respostas são produzidas automaticamente pelos sistemas de atendimento e não representam uma análise individual da sua conta.\n\nCaracterísticas de uma resposta automática:\n\n✅ Texto extremamente genérico;\n\n✅ Linguagem padronizada;\n\n✅ Ausência de detalhes específicos;\n\n✅ Repetição das mesmas informações exibidas no banimento;\n\n✅ Encerramento imediato do caso.\n\nExemplos comuns:\n"Após análise, confirmamos que a penalidade foi aplicada corretamente."\n"Não é possível reverter esta decisão."\n"O sistema detectou violação dos Termos de Serviço."\nUm sinal importante\n\nSe a resposta:\n\nnão menciona seu ID;\nnão menciona datas;\nnão menciona eventos específicos;\nnão faz referência ao conteúdo enviado;\n\nexiste grande probabilidade de que você tenha recebido apenas uma resposta automatizada.\n\nO que isso significa?\n\nNão significa necessariamente que seu caso foi analisado e negado.\n\nMuitas vezes significa apenas que ele não ultrapassou a primeira camada de triagem.' 
+            content: 'Nem toda resposta significa que alguém realmente leu seu caso\n\nAntes de tomar qualquer decisão, você precisa descobrir quem respondeu sua solicitação.\n\nMuitas respostas são produzidas automaticamente pelos sistemas de atendimento e não representam uma análise individual da sua conta.\n\nCaracterísticas de uma resposta automática:\n\n✅ Texto extremamente genérico;\n\n✅ Linguagem padronizada;\n\n✅ Ausência de detalhes específicos;\n\n✅ Repetição das mesmas informações exibidas no banimento;\n\n✅ Encerramento imediato do caso.\n\nExemplos comuns:\n"Após análise, confirmamos que a penalidade foi aplicada corretamente."\n"Não é possível reverter esta decisão."\n"O sistema detectou violação dos Termos de Serviço."\nUm sinal importante\n\nSe a resposta:\n\nnão menciona seu ID;\ndoes not mention dates;\ndoes not mention specific events;\ndoes not refer to the content sent;\n\nexiste grande probabilidade de que você tenha recebido apenas uma resposta automatizada.\n\nO que isso significa?\n\nNão significa necessariamente que seu caso foi analisado e negado.\n\nMuitas vezes significa apenas que ele não ultrapassou a primeira camada de triagem.' 
           },
           { 
             id: '6.2', 
@@ -243,7 +243,7 @@ export const translations = {
           { 
             id: '6.3', 
             title: 'AULA 6.3 - O QUE FAZER SE A RESPOSTA FOR AUTOMÁTICA', 
-            content: 'A pior reação possível é responder imediatamente\n\nAo identificar uma resposta automática, muitas pessoas entram em pânico e começam a enviar novos tickets.\n\nEssa costuma ser a decisão mais prejudicial.\n\nSe a resposta foi automática:\n\n✅ Não responda imediatamente;\n\n✅ Não tente discutir;\n\n✅ Não envie justificativas adicionais;\n\n✅ Não faça ameaças;\n\n✅ Aguarde pelo menos 7 dias.\n\nApós esse período:\n\nVocê pode considerar:\n\nutilizar outro modelo de ticket;\nalterar levemente o assunto;\nreformular a abordagem;\niniciar uma nova tentativa organizada.\n\nO objetivo aqui não é vencer a resposta automática.\n\nO objetivo é tentar fazer com que sua próxima tentativa ultrapasse essa barreira.\n\nLembre-se:\n\nVocê está tentando sair do ciclo automático, não discutir com ele.' 
+            content: 'A pior reação possível é responder imediatamente\n\nAo identificar uma resposta automática, muitas pessoas entram em pânico e começam a enviar novos tickets.\n\nEssa costuma ser a decisão mais prejudicial.\n\nSe a resposta foi automática:\n\n✅ Não responda imediatamente;\n\n✅ Não tente discutir;\n\n✅ Não envie justificativas adicionais;\n\n✅ Não faça ameaças;\n\n✅ Aguarde pelo menos 7 dias.\n\nApós esse período:\n\nYou can consider:\n\nutilizar outro modelo de ticket;\naltere levemente o assunto;\nreformular a abordagem;\niniciar uma nova tentativa organizada.\n\nO objetivo aqui não é vencer a resposta automática.\n\nO objetivo é tentar fazer com que sua próxima tentativa ultrapasse essa barreira.\n\nLembre-se:\n\nVocê está tentando sair do ciclo automático, não discutir com ele.' 
           },
           { 
             id: '6.4', 
@@ -253,7 +253,7 @@ export const translations = {
           { 
             id: '6.5', 
             title: 'AULA 6.5 - O PIOR ERRO DE TODOS', 
-            content: 'O impulso destrói mais tentativas do que o próprio sistema\n\nExiste um comportamento que aparece repetidamente em tentativas malsucedidas:\n\nResponder emocionalmente.\n\nFrases como:\n\n❌ "Mas eu não fiz nada."\n\n❌ "Isso é injusto."\n\n❌ "Outras pessoas conseguiram desbanimento."\n\n❌ "Vou denunciar a empresa."\n\n❌ "Vocês precisam resolver isso."\n\nNormalmente não produzem qualquer benefício.\n\nPelo contrário.\n\nElas podem:\n\nencerrar definitivamente a análise;\nreduzir a chance de reavaliação;\ntransformar uma possibilidade em uma negativa final.\n\nO princípio final deste método\n\nEste método nunca teve como objetivo discutir com o suporte.\n\nO objetivo sempre foi:\n\nevitar filtros automáticos;\naumentar a chance de leitura humana;\napresentar o caso de forma organizada;\nimpedir que o próprio usuário prejudique a tentativa.' 
+            content: 'O impulso destrói mais tentativas do que o próprio sistema\n\nExiste um comportamento que aparece repetidamente em tentativas malsucedidas:\n\nResponder emocionalmente.\n\nPhrases like:\n\n❌ "Mas eu não fiz nada."\n\n❌ "Isso é injusto."\n\n❌ "Outras pessoas conseguiram desbanimento."\n\n❌ "Vou denunciar a empresa."\n\n❌ "Vocês precisam resolver isso."\n\nFinalmente não produzem qualquer benefício.\n\nAo contrário.\n\nElas podem:\n\nencerrar definitivamente a análise;\nreduzir a chance de reavaliação;\ntransformar uma possibilidade em uma negativa final.\n\nO princípio final deste método\n\nEste método nunca teve como objetivo discutir com o suporte.\n\nO objetivo sempre foi:\n\nevitar filtros automáticos;\naumentar a chance de leitura humana;\napresentar o caso de forma organizada;\nimpedir que o próprio usuário prejudique a tentativa.' 
           }
         ]
       }
@@ -268,8 +268,8 @@ export const translations = {
       description: 'Exclusive tricks and strategies to assist in your account recovery process.',
     },
     orderBump: {
-      title: '100% VIP SUPPORT',
-      description: 'If you purchased along with the 100% support orderbump with my help, click the button below.',
+      title: '100% VIP PACK',
+      description: 'If you purchased along with the 100% support PACK with my help, click the button below.',
       button: 'ACCESS VIP SUPPORT'
     },
     ui: {
@@ -525,8 +525,8 @@ export const translations = {
       description: 'Trucos y estrategias exclusivas para ayudar en su proceso de recuperación de cuentas.',
     },
     orderBump: {
-      title: 'SOPORTE VIP 100%',
-      description: 'Si compraste junto con el orderbump de soporte 100% con mi ayuda, haz clic en el botón de abajo.',
+      title: 'PACK VIP 100%',
+      description: 'Si compraste junto con el PACK de soporte 100% con mi ayuda, haz clic en el botón de abajo.',
       button: 'ACCEDER AL SOPORTE VIP'
     },
     ui: {
@@ -551,7 +551,7 @@ export const translations = {
         id: 'module-1',
         tag: 'MÓDULO 1',
         title: 'ENTIENDA SU BANEO',
-        description: 'Identificação técnica da restrição aplicada.',
+        description: 'Identificación técnica de la restricción aplicada.',
         lessons: [
           { 
             id: '1.1', 
@@ -584,7 +584,7 @@ export const translations = {
           { 
             id: '2.1', 
             title: 'AULA 2.1 - DÓNDE ENVIAR EL TICKET', 
-            content: 'Utilizando solo canales oficiales\n\nAntes de pensar en el texto que se enviará, debe comprender una regla fundamental:\n\nUn ticket enviado en el lugar equivocado nace sin posibilidad de análisis.\n\nMuchas personas, después de perder el acceso a la cuenta, intentan contactar a través de:\n\nInstagram;\n\nFacebook;\n\nDiscord;\n\nCorreos genéricos;\n\nComentarios en redes sociales;\n\nFormularios no oficiales.\n\nEstos canales no realizan análisis individual de cuentas y, en la mayoría de los casos, no tienen ningún poder para cambiar las decisiones internas.\n\nEl procedimiento correcto:\n\nLa solicitud debe enviarse exclusivamente a través del soporte oficial proporcionado por la plataforma.\n\nEl objetivo del método es sencillo:\n\nentrar en el flujo correcto de servicio;\n\nevitar derivaciones automáticas innecesarias;\n\nmaximizar a possibilidade de análise.\n\nEl primer error que elimina intentos:\n\nMuchas personas envían mensajes a varios canales simultáneamente.\n\nEsto no aumenta las posibilidades.\n\nEn la práctica, solo crea registros redundantes y puede perjudicar la coherencia del caso.\n\nRecuerde:\n\nUn intento organizado vale más que diez intentos desesperados.' 
+            content: 'Utilizando solo canales oficiales\n\nAntes de pensar en el texto que se enviará, debe comprender una regla fundamental:\n\nUn ticket enviado en el lugar equivocado nace sin posibilidad de análisis.\n\nMuchas personas, después de perder el acceso a la cuenta, intentan contactar a través de:\n\nInstagram;\n\nFacebook;\n\nDiscord;\n\nCorreos genéricos;\n\nComentarios en redes sociais;\n\nFormulários não oficiais.\n\nEstos canales no realizan análisis individual de cuentas y, en la mayoría de los casos, no tienen ningún poder para cambiar las decisiones internas.\n\nEl procedimiento correcto:\n\nLa solicitud debe enviarse exclusivamente a través del soporte oficial proporcionado por la plataforma.\n\nEl objetivo del método es sencillo:\n\nentrar en el flujo correcto de servicio;\n\nevitar derivaciones automáticas innecesarias;\n\nmaximizar la posibilidad de análisis.\n\nEl primer error que elimina intentos:\n\nMuchas personas envían mensajes a varios canales simultáneamente.\n\nEsto no aumenta las posibilidades.\n\nEn la práctica, solo crea registros redundantes y puede perjudicar la coherencia del caso.\n\nRecuerde:\n\nUn intento organizado vale más que diez intentos desesperados.' 
           },
           { 
             id: '2.2', 
@@ -599,12 +599,12 @@ export const translations = {
           { 
             id: '2.4', 
             title: 'AULA 2.4 - EL CAMPO DE MENSAJE', 
-            content: 'El único lugar donde la estrategia realmente importa\n\nTodo el resto del formulario sirve solo para clasificación.\n\nEl campo de mensaje es el único espacio donde existe la posibilidad de influencia humana.\n\nPor lo tanto, existen algunas reglas fundamentales.\n\nNunca haga:\n\n❌ Escribir en mayúsculas;\n\n❌ Usar emojis;\n\n❌ Hacer amenazas;\n\n❌ Copiar textos emocionales;\n\n❌ Escribir como si estuviera discutiendo en una red social.\n\nQué hacer:\n\n✅ Usar lenguaje formal;\n\n✅ Ser objetivo;\n\n✅ Demostrar organización;\n\n✅ Solicitar análisis, no exigir resultados.\n\nEl soporte no está buscando a quién está más indignado.\n\nEstá buscando solicitudes que merezcan ser analizadas.\n\nRegra principal:\n\nLa claridad vale más que la cantidad.\n\nUn texto corto y organizado suele funcionar mejor que una página entera de desahogo.' 
+            content: 'El único lugar onde a estratégia realmente importa\n\nTodo o restante do formulário serve apenas para classificação.\n\nO campo de mensagem é o único espaço onde existe possibilidade de influência humana.\n\nPor isso, existem algumas regras fundamentais.\n\nNunca faça:\n\n❌ Escrever em caixa alta;\n\n❌ Utilizar emojis;\n\n❌ Fazer ameaças;\n\n❌ Copiar textos emocionais;\n\n❌ Escrever como se estivesse discutindo em rede social.\n\nO que fazer:\n\n✅ Utilizar linguagem formal;\n\n✅ Ser objetivo;\n\n✅ Demonstrar organização;\n\n✅ Solicitar análise, não exigir resultado.\n\nO suporte não está procurando quem está mais revoltado.\n\nEle está procurando solicitações que mereçam ser analisadas.\n\nRegra principal\n\nClareza vale mais do que quantidade.\n\nUm texto curto e organizado costuma funcionar melhor do que uma página inteira de desabafo.' 
           },
           { 
             id: '2.5', 
-            title: 'AULA 2.5 - REVISIÓN FINAL ANTES DE ENVIAR', 
-            content: 'El ticket es único\n\nAntes de hacer clic en enviar, deténgase unos minutos y revise todo.\n\nRealice la siguiente lista de verificación:\n\nCategoría: ¿Es correcta? ¿Es la opción más neutral disponible?\n\nDatos: ¿Se escribió el ID correctamente? ¿El nickname es exacto?\n\nMensaje: ¿Es objetivo? ¿Es técnico? ¿Está organizado?\n\nTono general: Pregunte, ¿esto parece haber sido escrito por alguien tranquilo y racional?\n\nSi la respuesta es "no", no lo envíe todavía.\n\nDespués del envío:\n\n❌ No envíe otro de inmediato;\n\n❌ No intente complementar información;\n\n❌ No abra múltiples solicitudes;\n\n❌ No intente reforzar el pedido.\n\nLa estrategia termina en el momento del envío.\n\nA partir de ahí, la insistencia excesiva suele producir el efecto contrario al deseado.' 
+            title: 'AULA 2.5 - REVISÃO FINAL ANTES DE ENVIAR', 
+            content: 'O ticket é único\n\nAntes de clicar em enviar, pare por alguns minutos e revise tudo.\n\nFaça a seguinte checklist:\n\nCategoria: Está correta? É a opção mais neutra disponível?\n\nDados: O ID foi digitado corretamente? O nickname está exato?\n\nMensagem: Está objetiva? Está técnica? Está organizada?\n\nTom geral: Pergunte, isto parece ter sido escrito por alguém calmo e racional?\n\nSe a resposta for "no", não envie ainda.\n\nApós o envio:\n\n❌ Não envie outro imediatamente;\n\n❌ Não tente complementar informações;\n\n❌ Não abra múltiplas solicitações;\n\n❌ Não tente reforçar o pedido.\n\nA estratégia termina no momento do envio.\n\nA partir daí, insistência excessiva normalmente produz o efeito contrário ao desejado.' 
           }
         ]
       },
@@ -616,43 +616,43 @@ export const translations = {
         lessons: [
           { 
             id: '3.1', 
-            title: 'AULA 3.1 - QUÉ OPCIÓN SELECCIONAR', 
-            content: 'La primera decisión que puede definir todo el proceso\n\nAl abrir el formulario de soporte, encontrará diversas opciones relacionadas con el problema de la cuenta.\n\nLa mayoría de las personas cometen el primer error justamente aquí: eligen la opción mais óbvia.\n\nEl problema es que algunas categorías funcionan prácticamente como clasificaciones automáticas de cierre.\n\nEvite opciones como:\n\n❌ "Detectamos el uso de software no autorizado"\n\n❌ "El sistema Anti-Cheat detectó irregularidades"\n\n❌ "Esta cuenta ha sido suspendida permanentemente"\n\nEstas categorías suelen enviar la solicitud directamente a respuestas estandarizadas.\n\nLa estrategia correcta\n\nSiempre que sea posible, elija opciones mais neutras, relacionadas com a recuperação ou verificação da conta.\n\nPor exemplo:\n\n✅ "Quero recuperar minha conta"\n\nEste enfoque:\n\nnão antecipa conclusões;\nnão confirma acusações;\nmantém a solicitação em categorias mais amplas de análise.\n\nO princípio estratégico\n\nVocê não está tentando provar nada nesta etapa.\n\nSolo está intentando evitar que su solicitud sea descartada antes de ser analizada.' 
+            title: 'AULA 3.1 - QUÉ OPCIÓN SELECIONAR', 
+            content: 'A primeira decisão que pode definir todo o processo\n\nAo abrir o formulário de suporte, você encontrará diversas opções relacionadas ao problema da conta.\n\nA maioria das pessoas comete o primeiro erro justamente aqui: escolhe a opção mais óbvia.\n\nO problema é que algumas categorias funcionam praticamente como classificações automáticas de encerramento.\n\nEvite opções como:\n\n❌ "Detectamos o uso de software no autorizado"\n\n❌ "El sistema Anti-Cheat detectó irregularidades"\n\n❌ "Esta cuenta ha sido suspendida permanentemente"\n\nEstas categorías suelen enviar la solicitud directamente a respuestas estandarizadas.\n\nLa estrategia correcta\n\nSempre que possível, elija opções mais neutras, relacionadas com a recuperação ou verificação da conta.\n\nPor exemplo:\n\n✅ "Quero recuperar minha conta"\n\nEste enfoque:\n\nno anticipa conclusiones;\nno confirma acusações;\nmantém a solicitação em categorias mais amplas de análise.\n\nO princípio estratégico\n\nVocê não está tentando provar nada nesta etapa.\n\nSolo está intentando evitar que su solicitud sea descartada antes de ser analizada.' 
           },
           { 
             id: '3.2', 
             title: 'AULA 3.2 - EL CAMPO REQUESTER', 
-            content: 'El campo más simple y, aún así, frecuentemente completado mal\n\nEl campo "Requester" identifica al solicitante del ticket.\n\nSu función es exclusivamente administrativa.\n\nQué insertar:\n\nEl correo electrónico utilizado para el contacto;\n\nUna dirección válida;\n\nUn correo electrónico al que tenga acceso.\n\nQué NOT to do:\n\n❌ Escribir el ID de la cuenta;\n\n❌ Insertar explicaciones;\n\n❌ Añadir observaciones;\n\n❌ Utilizar múltiples correos electrónicos.\n\nImportante:\n\nEl correo electrónico del ticket no necesariamente tiene que ser el mismo que se usa en la cuenta del juego.\n\nSolo sirve para que el soporte pueda devolver su solicitud.\n\nCuanto más limpio y objetivo sea el llenado, mejor.' 
+            content: 'El campo más simple y, aún así, frecuentemente completado mal\n\nEl campo "Requester" identifica al solicitante del ticket.\n\nSu función é exclusivamente administrativa.\n\nQué insertar:\n\nEl correo electrónico utilizado para el contacto;\n\nUna dirección válida;\n\nUn correo electrónico al que tenga acceso.\n\nQué NOT to do:\n\n❌ Escribir el ID de la cuenta;\n\n❌ Insertar explicaciones;\n\n❌ Añadir observaciones;\n\n❌ Utilizar múltiples correos electrónicos.\n\nImportante:\n\nEl correo electrónico del ticket no necesariamente tiene que ser el mismo que se usa en la cuenta del juego.\n\nSolo sirve para que el soporte pueda devolver su solicitud.\n\nCuanto más limpio y objetivo sea el llenado, mejor.' 
           },
           { 
             id: '3.3', 
             title: 'AULA 3.3 - EL CAMPO ASUNTO', 
-            content: 'El campo que más activa respuestas automáticas\n\nEl asunto del ticket es una de las primeras informaciones analizadas por el sistema.\n\nPor lo tanto, el uso de términos emocionales ou acusatórios puede perjudicar el intento.\n\nNunca use:\n\n❌ "Fui baneado injustamente"\n\n❌ "Desbaneo urgente"\n\n❌ "Mi cuenta fue robada"\n\n❌ "Quero meu desbaneo"\n\nEl objetivo del asunto:\n\nEl asunto debe:\n\nparecer técnico;\n\nser corto;\n\nindicar necesidad de análisis;\n\nevitar conclusiones.\n\nEjemplo de lógica correcta:\n\nEn lugar de acusar o exigir, trate de transmitir la idea de:\n\n"Solicitud de verificación referente al acceso de la cuenta."\n\nRecuerde:\n\nEl asunto sirve para abrir una puerta, no para ganar una discusión.' 
+            content: 'El campo que más activa respostas automáticas\n\nO assunto do ticket é uma das primeiras informações analisadas pelo sistema.\n\nPor lo tanto, el uso de términos emocionales ou acusatórios pode prejudicar o intento.\n\nNunca use:\n\n❌ "Fui baneado injustamente"\n\n❌ "Desbaneo urgente"\n\n❌ "Mi cuenta fue robada"\n\n❌ "Quero meu desbaneo"\n\nEl objetivo del asunto:\n\nO assunto deve:\n\nparecer técnico;\n\nser corto;\n\nindicar necessidade de análise;\n\nevitar conclusões.\n\nEjemplo de lógica correcta:\n\nEm vez de acusar ou exigir, trate de transmitir a ideia de:\n\n"Solicitação de verificação referente ao acesso da conta."\n\nLembre-se:\n\nO assunto serve para abrir uma porta, não para ganhar uma discussão.' 
           },
           { 
             id: '3.4', 
-            title: 'AULA 3.4 - NICKNAME DE LA CUENTA', 
-            content: 'No existe margen para la creatividad\n\nEl nickname debe completarse exactamente como aparece dentro del juego.\n\nReglas:\n\n✅ Use letras mayúsculas y minúsculas correctamente;\n\n✅ Respetar símbolos especiales;\n\n✅ Copie exactamente el nombre registrado.\n\nNunca haga:\n\n❌ Usar nicknames alternativos;\n\n❌ Usar abreviaturas;\n\n❌ Insertar nombres antiguos de la cuenta.\n\nUn nickname incorrecto puede hacer que su solicitud sea considerada inválida.' 
+            title: 'AULA 3.4 - NICKNAME DA CONTA', 
+            content: 'Não existe margem para criatividade\n\nO nickname deve ser preenchido exatamente como aparece dentro do jogo.\n\nRegras:\n\n✅ Use letras maiúsculas e minúsculas corretamente;\n\n✅ Respeitar símbolos especiais;\n\n✅ Copie exatamente o nome registrado.\n\nNunca faça:\n\n❌ Usar nicknames alternativos;\n\n❌ Usar abreviações;\n\n❌ Inserir nomes antigos da conta.\n\nUn nickname incorrecto pode fazer com que sua solicitação seja considerada inválida.' 
           },
           { 
             id: '3.5', 
             title: 'AULA 3.5 - EL NÚMERO DE ID', 
-            content: 'El dato más importante del formulario\n\nEl ID de la cuenta es el principal identificador interno.\n\nPor lo tanto:\n\ncopie directamente de la fuente oficial;\n\nrevise más de una vez;\n\nconfirme todos os números.\n\nNo haga:\n\n❌ Insertar comentarios;\n\n❌ Añadir justificaciones;\n\n❌ Escribir textos complementarios.\n\nEl campo de ID existe solo para identificar la cuenta.\n\nNada más.' 
+            content: 'O dado mais importante do formulário\n\nO ID da conta é o principal identificador interno.\n\nPor lo tanto:\n\ncopie diretamente da fonte oficial;\n\nrevise mais de uma vez;\n\nconfirme todos os números.\n\nNo haga:\n\n❌ Insertar comentários;\n\n❌ Añadir justificaciones;\n\n❌ Escribir textos complementares.\n\nO campo de ID existe solo para identificar a conta.\n\nNada mais.' 
           },
           { 
             id: '3.6', 
             title: 'AULA 3.6 - TIEMPO DE SUSPENSIÓN', 
-            content: 'Nunca invente información\n\nSi el sistema informa suspensión permanente, informe exactamente eso.\n\nReglas:\n\n✅ Si es permanente, marque permanente;\n\n✅ Si hay un plazo definido, use el plazo correcto;\n\n✅ Si no lo sabe exactamente, use la información más cercana posible.\n\nNunca haga:\n\n❌ Inventar períodos;\n\n❌ Adivinar fechas;\n\n❌ Hacer estimaciones aleatorias.\n\nLa información inconsistente reduce la credibilidade da solicitação.' 
+            content: 'Nunca invente informação\n\nSi el sistema informa suspensão permanente, informe exatamente eso.\n\nRegras:\n\n✅ Si es permanente, marque permanente;\n\n✅ Si hay un plazo definido, use el prazo correcto;\n\n✅ Si no lo sabe exactamente, use a informação mais próxima possível.\n\nNunca faça:\n\n❌ Inventar períodos;\n\n❌ Adivinar datas;\n\n❌ Hacer estimaciones aleatorias.\n\nLa información inconsistente reduce a credibilidade da solicitação.' 
           },
           { 
             id: '3.7', 
-            title: 'AULA 3.7 - FECHA DEL SUCESO', 
-            content: 'Las fechas importan más de lo que parecen\n\nEl sistema puede usar la fecha informada para el cruce interno de información.\n\nPor lo tanto:\n\ninforme la fecha exacta, si la conoce;\n\nuse una aproximación razonable, si no está seguro.\n\nEvite:\n\n❌ "No me acuerdo";\n\n❌ Fechas imposibles;\n\n❌ Fechas muy lejanas al suceso.\n\nLa coherencia de la información ajuda a demonstrar organização e boa-fé.' 
+            title: 'AULA 3.7 - DATA DO OCORRIDO', 
+            content: 'Datas importam mais do que parecem\n\nO sistema pode usar a data informada para o cruce interno de informação.\n\nPor lo tanto:\n\ninforme a data exata, se a conhece;\n\nuse uma aproximação razoável, si não está seguro.\n\nEvite:\n\n❌ "No me acuerdo";\n\n❌ Fechas impossíveis;\n\n❌ Datas muito distantes do ocorrido.\n\nLa coherencia de la información ajuda a demonstrar organização e boa-fé.' 
           },
           { 
             id: '3.8', 
             title: 'AULA 3.8 - EL CAMPO DE DESCRIPCIÓN', 
-            content: 'El único campo donde el método realmente ocurre\n\nTodos los campos anteriores servem para la classificação.\n\nLa descripción es el único espacio donde existe la posibilidad de diferenciación.\n\nQué NO hacer:\n\n❌ Accusar;\n\n❌ Confesar;\n\n❌ Implorar;\n\n❌ Escribir textos emocionales;\n\n❌ Hacer amenazas.\n\nEl objetivo de la descripción:\n\nLa descripción debe:\n\n✅ parecer escrita por alguien calmado;\n\n✅ demostrar organización;\n\n✅ solicitar análisis;\n\n✅ evitar palabras que activen respuestas automáticas.\n\nLa pregunta que el sistema trata de responder:\n\nEn la práctica, su descripción será analisada desde una única perspectiva:\n\n"¿Vale la pena enviar esta solicitud para análisis?"\n\nTodo lo demás depende de esta decisión inicial.\n\nPor lo tanto, la descripción no sirve para convencer a alguien gritando. Sirve para parecer lo suficientemente organizada como para merecer un análisis.\n\nLa recomendación más importante de este método:\n\nAunque es posible escribir su propia descripción, esto aumenta significativamente la posibilidad de cometer errores de tono, estructura o lenguaje.\n\nPor este motivo, la recomendación de este método es usar una de las plantillas ya preparadas que se proporcionan en el próximo módulo.\n\nLas plantillas se estructuraron para:\n\nmantener un tono técnico;\n\nevitar el lenguaje emocional;\n\nreducir la posibilidad de activar respuestas automáticas;\n\npresentar la solicitud de forma organizada y objetiva.\n\nTratar de "mejorar" las plantillas añadiendo emoción, acusaciones o explicaciones excesivas suele producir el efecto contrario al deseado.\n\nEn el próximo módulo, tendrá acceso a las plantillas de tickets ya preparadas y aprenderá cuál usar en cada situación.' 
+            content: 'O único campo onde o método realmente ocorre\n\nTodos os campos anteriores servem para a classificação.\n\nLa descrição é o único espaço onde existe a possibilidade de diferenciação.\n\nQué NO hacer:\n\n❌ Accusar;\n\n❌ Confesar;\n\n❌ Implorar;\n\n❌ Escribir textos emocionais;\n\n❌ Hacer ameaças.\n\nEl objetivo de la descripción:\n\nLa descrição deve:\n\n✅ parecer escrita por alguém calmo;\n\n✅ demonstrar organização;\n\n✅ solicitar análise;\n\n✅ evitar palavras que activen respostas automáticas.\n\nA pergunta que o sistema trata de responder:\n\nEn la práctica, su descrição será analisada desde uma única perspectiva:\n\n"¿Vale a pena enviar esta solicitação para análise?"\n\nTudo o mais depende desta decisão inicial.\n\nPor lo tanto, la descrição não serve para convencer a alguém gritando. Serve para parecer o suficientemente organizada como para merecer um análisis.\n\nLa recomendação mais importante deste método:\n\nAunque é possível escrever su própria descrição, isto aumenta significativamente a possibilidade de cometer erros de tono, estrutura ou linguagem.\n\nPor este motivo, a recomendação deste método é usar uma de las plantillas já preparadas que se proporcionam no próximo módulo.\n\nAs plantillas se estruturaram para:\n\nmantener um tono técnico;\n\nevitar o lenguaje emocional;\n\nreducir a possibilidade de activar respostas automáticas;\n\npresentar a solicitação de forma organizada e objetiva.\n\nTratar de "mejorar" las plantillas añadiendo emoção, acusações ou explicações excessivas suele produzir o efeito contrário ao desejado.\n\nNo próximo módulo, terá acesso a las plantillas de tickets já preparadas e aprenderá qual usar em cada situação.' 
           }
         ]
       },
@@ -662,47 +662,13 @@ export const translations = {
         title: 'PLANTILLAS LISTAS',
         description: 'Plantillas estratégicas de alta conversión.',
         lessons: [
-          { 
-            id: '4.1', 
-            title: 'PLANTILLA DE TICKET Nº 1', 
-            content: 'Cuándo usar este modelo\n\nEste modelo está indicado para situaciones en las que la cuenta quedó inaccesible de forma inesperada y no existe información clara sobre el motivo de la restricción.\n\nEl objetivo de este texto é presentar a situação como uma possível inconsistência técnica, evitando qualquer linguagem emocional ou acusatória.\n\nModelo:\n\nEstimado equipo, le escribo para solicitar un diagnóstico técnico referente a una súbita imposibilidad de acceder a mi cuenta. Al intentar conectar, encuentro una restricción inesperada que no puedo resolver. Creo que podría tratarse de una anomalía sistêmica, ya que soy consciente de que mis actividades siempre han estado en conformidad con los Términos de Servicio. Solicito, por favor, una verificación manual del estado de mi cuenta y una aclaración sobre la naturaleza de esta restricción. Quedo a su disposición para ayudar en la investigación.\n\nCuándo usar:\n\n✅ Baneos automáticos;\n\n✅ Mensajes genéricos;\n\n✅ Falta de explicación clara.',
-            template: 'Estimado equipo, le escribo para solicitar um diagnóstico técnico referente a uma súbita impossibilidade de acceder a mi cuenta. Al intentar conectar, encuentro uma restricción inesperada que no puedo resolver. Creo que podría tratarse de uma anomalía sistêmica, ya que soy consciente de que mis actividades sempre han estado en conformidad com los Términos de Servicio. Solicito, por favor, uma verificación manual del estado de mi cuenta y uma aclaración sobre la naturaleza de esta restricción. Quedo a su disposición para ayudar en la investigación.' 
-          },
-          { 
-            id: '4.2', 
-            title: 'PLANTILLA DE TICKET Nº 2', 
-            content: 'Cuándo usar este modelo\n\nEste modelo enfatiza la posibilidad de falla en sistemas automáticos de monitoreo, manteniendo una postura técnica e colaborativa.\n\nModelo:\n\nAl equipo técnico, vengo a reportar una irregularidade que impide mi acceso a la plataforma. Mi cuenta se volvió inaccesible sin previo aviso, y sospecho de una falla o un error en algum processo de monitoreo automático. Me gustaría reiterar que sigo estrictamente las directrices de la comunidad. Por lo tanto, pido formalmente que un analista investigue lo ocurrido y me proporcione un dictamen sobre la causa del problema de acceso. Sigo disponible para proporcionar logs u otra información.\n\nCuándo usar:\n\n✅ Suspensiones inesperadas;\n\n✅ Casos sin historial previo;\n\n✅ Primer intento de recuperación.',
-            template: 'Al equipo técnico, vengo a reportar uma irregularidade que impide mi acceso a la plataforma. Mi cuenta se volvió inaccesible sin previo aviso, y sospecho de uma falla o um error en algum processo de monitoreo automático. Me gustaría reiterar que sigo estrictamente las directrices de la comunidad. Por lo tanto, pido formalmente que um analista investigue lo ocurrido y me proporcione um dictamen sobre la causa del problema de acceso. Sigo disponible para proporcionar logs u otra información.' 
-          },
-          { 
-            id: '4.3', 
-            title: 'PLANTILLA DE TICKET Nº 3', 
-            content: 'Cuándo usar este modelo\n\nEste modelo trabaja con la hipótesis de falso positivo y solicita un análisis de integridad de la cuenta.\n\nModelo:\n\nMe dirijo a ustedes para solicitar soporte con respecto a un problema con el acceso a mi cuenta. Desde el [fecha], ya no puedo usar los servicios. Considerando que mi patrón de uso se guía por el cumplimiento de las reglas, la situación me lleva a creer en un error técnico o un falso positivo de algún sistema. Pido que se realice un análisis de integridad de la cuenta por parte de un miembro del equipo para identificar el origen de esta anomalía. Espero una respuesta y agradezco su atención.\n\nCuándo usar:\n\n✅ Cuando conozca aproximadamente la fecha del suceso;\n\n✅ Posibles falsos positivos;\n\n✅ Cuentas sin historial de sanciones.',
-            template: 'Me dirijo a ustedes para solicitar suporte com respecto a um problema com el acceso a mi cuenta. Desde el [fecha], ya no puedo usar los servicios. Considerando que mi patrón de uso se guía por el cumplimiento de las reglas, la situación me leva a crer em um erro técnico ou um falso positivo de algum sistema. Peço que uma análise de integridade da conta seja conduzida por um membro da equipe para identificar a origem desta anomalia. Aguardo um retorno e agradeço a atenção.' 
-          },
-          { 
-            id: '4.4', 
-            title: 'PLANTILLA DE TICKET Nº 4', 
-            content: 'Cuándo usar este modelo\n\nEste modelo enfatiza a ausência de justificativa apresentada pela plataforma e solicita uma auditoria humana.\n\nModelo:\n\nSaludos. Me pongo en contacto con el equipo de soporte para obter assistência com uma falha que está bloqueando o acesso à minha conta. Não recebi nenhuma notificação que justificasse tal impedimento, o que sugere uma possível inconsistência nos sistemas de validação. Tenho plena convicção de minha conformidade com as políticas do jogo. Solicito uma auditoria humana no registro de atividades da minha conta para esclarecer este incidente. Coloco-me à disposição para o que for preciso.\n\nCuándo usar:\n\n✅ Quando não houver explicação clara;\n\n✅ Casos de bloqueio súbito;\n\n✅ Situações sem aviso prévio.',
-            template: 'Saudações. Contato a equipe de suporte para obter assistência com uma falha que está bloqueando o acesso à minha conta. Não recebi nenhuma notificação que justificasse tal impedimento, o que sugere uma possível inconsistência nos sistemas de validação. Tenho plena convicção de minha conformidade com as políticas do jogo. Solicito uma auditoria humana no registro de atividades da minha conta para esclarecer este incidente. Coloco-me à disposição para o que for preciso.' 
-          },
-          { 
-            id: '4.5', 
-            title: 'PLANTILLA DE TICKET Nº 5', 
-            content: 'Quando utilizar este modelo\n\nEste modelo procura apresentar o problema como resultado de uma avaliação automatizada incorreta.\n\nModelo:\n\nPrezados, minha conta encontra-se inacessível e busco entender o motivo. Acredito que esta situação possa ter sido causada por uma avaliação incorreta de um processo automatizado, visto que sempre zelei por seguir as regras da plataforma. Para resolvermos esta questão, solicito que um especialista de suporte revise o caso manualmente e me comunique os detalhes técnicos que levaram à atual restrição. Agradeço e aguardo um posicionamento.\n\nQuando usar:\n\n✅ Casos aparentemente automáticos;\n✅ Quando houver suspeita de falso positivo;\n✅ Situações de suspensão permanente.',
-            template: 'Prezados, minha conta encontra-se inacessível e busco entender o motivo. Acredito que esta situação possa ter sido causada por uma avaliação incorreta de um processo automatizado, visto que sempre zelei por seguir as regras da plataforma. Para resolvermos esta questão, solicito que um especialista de suporte revise o caso manualmente e me comunique os detalhes técnicos que levaram à atual restrição. Agradeço e aguardo um posicionamento.' 
-          },
-          { 
-            id: '4.6', 
-            title: 'PLANTILLA DE TICKET Nº 6', 
-            content: 'Quando utilizar este modelo\n\nEste modelo utiliza uma abordagem mais técnica e formal, sendo indicado para tentativas posteriores ou situações mais complexas.\n\nModelo:\n\nÀ equipe de Suporte, submeto este pedido para verificação de uma alteração anômala de privilégios em minha conta, resultando na impossibilidade de login. O ocorrido não condiz com meu padrão de uso, que é totalmente aderente aos Termos de Serviço. Peço, formalmente, a intervenção de um analista para um diagnóstico preciso e o restabelecimento do meu acesso. Estou à disposição para cooperar com o processo de análise.\n\nQuando usar:\n\n✅ Segunda tentativa;\n✅ Casos mais complexos;\n✅ Situações em que o primeiro ticket não obteve análise satisfatória.',
-            template: 'À equipe de Suporte, submeto este pedido para verificação de uma alteração anômala de privilégios em minha conta, resultando na impossibilidade de login. O ocorrido não condiz com meu padrão de uso, que é totalmente aderente aos Termos de Serviço. Peço, formalmente, a intervenção de um analista para um diagnóstico preciso e o restabelecimento do meu acesso. Estou à disposição para cooperar com o processo de análise.' 
-          },
-          { 
-            id: 'm4-rules', 
-            title: '⚠️ AULA EXTRA - REGRAS OBLIGATORIAS', 
-            content: 'Use solo una plantilla por intento. Mantenga el tono exacto. Espere el período correcto. No mezcle plantillas, añada emoción o haga amenazas.' 
-          }
+          { id: '4.1', title: 'PLANTILLA DE TICKET Nº 1', content: 'Diagnóstico técnico por imposibilidad súbita de acceso. Úsela para baneos automáticos e falta de explicação clara.', template: 'Estimado equipo, le escribo para solicitar um diagnóstico técnico referente a uma súbita impossibilidade de acceder a mi cuenta. Al intentar conectar, encuentro uma restricción inesperada que no puedo resolver. Creo que podría tratarse de uma anomalía sistêmica, ya que soy consciente de que mis actividades sempre han estado en conformidad com los Términos de Servicio. Solicito, por favor, uma verificación manual del estado de mi cuenta y uma aclaración sobre la natureza de esta restricción. Quedo a su disposición para ayudar en la investigación.' },
+          { id: '4.2', title: 'PLANTILLA DE TICKET Nº 2', content: 'Sospecha de falla en monitoreo automático. Úsela para suspensiones inesperadas sin historial previo.', template: 'Al equipo técnico, vengo a reportar uma irregularidade que impide mi acceso a la plataforma. Mi cuenta se volvió inaccesible sin previo aviso, y sospecho de uma falla o um error en algum processo de monitoreo automático. Me gustaría reiterar que sigo estrictamente las directrices de la comunidad. Por lo tanto, pido formalmente que um analista investigue lo ocurrido y me proporcione um dictamen sobre la causa del problema de acceso. Sigo disponible para proporcionar logs u otra información.' },
+          { id: '4.3', title: 'PLANTILLA DE TICKET Nº 3', content: 'Hipótesis de falso positivo y análisis de integridad. Recomendada si conoce la fecha.', template: 'Me dirijo a ustedes para solicitar suporte com respecto a um problema com el acceso a mi cuenta. Desde el [fecha], ya no puedo usar los servicios. Considerando que mi patrón de uso se guía por el cumplimiento de las reglas, la situação me leva a crer em um erro técnico ou um falso positivo de algum sistema. Peço que uma análise de integridade da conta seja conduzida por um membro da equipe para identificar a origem desta anomalia. Aguardo um retorno e agradeço a atenção.' },
+          { id: '4.4', title: 'PLANTILLA DE TICKET Nº 4', content: 'Solicitud de auditoría humana por falta de justificación. Mejor para bloqueos repentinos.', template: 'Saudações. Contato a equipe de suporte para obter assistência com uma falha que está bloqueando o acesso à minha conta. Não recebi nenhuma notificação que justificasse tal impedimento, o que sugere uma possível inconsistência nos sistemas de validação. Tenho plena convicção de minha conformidade com as políticas do jogo. Solicito uma auditoria humana no registro de atividades da minha conta para esclarecer este incidente. Coloco-me à disposição para o que for preciso.' },
+          { id: '4.5', title: 'PLANTILLA DE TICKET Nº 5', content: 'Evaluación automatizada incorrecta. Útil para suspensiones permanentes.', template: 'Prezados, minha conta encontra-se inacessível e busco entender o motivo. Acredito que esta situação possa ter sido causada por uma avaliação incorreta de um processo automatizado, visto que sempre zelei por seguir as regras da plataforma. Para resolvermos esta questão, solicito que um especialista de suporte revise o caso manualmente e me comunique os detalhes técnicos que levaram à atual restrição. Agradeço e aguardo um posicionamento.' },
+          { id: '4.6', title: 'PLANTILLA DE TICKET Nº 6', content: 'Solicitud formal para diagnóstico de privilegios. Para segundos intentos o casos complejos.', template: 'À equipe de Suporte, submeto este pedido para verificação de uma alteração anômala de privilégios em minha conta, resultando na impossibilidade de login. O ocorrido não condiz com meu padrão de uso, que é totalmente aderente aos Termos de Serviço. Peço, formalmente, a intervenção de um analista para um diagnóstico preciso e o restabelecimento do meu acesso. Estou à disposição para cooperar com o processo de análise.' },
+          { id: 'm4-rules', title: '⚠️ AULA EXTRA - REGRAS OBLIGATORIAS', content: 'Use solo una plantilla por intento. Mantenga el tono exacto. Espere el período correcto. No mezcle plantillas, añada emoción o haga amenazas.' }
         ]
       },
       {
@@ -711,64 +677,24 @@ export const translations = {
         title: 'DESPUÉS DE ENVIAR EL TICKET',
         description: 'Gestión de silencio e ventanas de respuesta.',
         lessons: [
-          { 
-            id: '5.1', 
-            title: 'LECCIÓN 5.1 - EL TIEMPO DE ESPERA CORRECTO', 
-            content: 'Espere al menos 72 horas; lo ideal es de 7 a 10 días. No envíe múltiples tickets de inmediato.' 
-          },
-          { 
-            id: '5.2', 
-            title: 'LECCIÓN 5.2 - QUÉ NO HACER BAJO NINGUNA CIRCUNSTANCIA', 
-            content: 'Nunca abra varios tickets o use diferentes correos. No discuta ni presione al equipo de soporte.' 
-          },
-          { 
-            id: '5.3', 
-            title: 'LECCIÓN 5.3 - CUÁNDO ENVIAR UN NUEVO TICKET', 
-            content: 'Solo tras 7 días sin respuesta o si la respuesta fue claramente automática. Use otra plantilla y altere el asunto.' 
-          },
-          { 
-            id: '5.4', 
-            title: 'LECCIÓN 5.4 - CUÁNDO PARAR', 
-            content: 'Considere detenerse tras una respuesta final clara o tres intentos bien espaciados fallidos.' 
-          },
-          { 
-            id: '5.5', 
-            title: 'LECCIÓN 5.5 - LA MENTALIDAD CORRECTA', 
-            content: 'Organización, control, estrategia y paciencia. Evite el spam y la fuerza bruta.' 
-          }
+          { id: '5.1', title: 'AULA 5.1 - O TEMPO DE ESPERA CORRETO', content: 'Espere al menos 72 horas; o ideal é de 7 a 10 dias. Não envie múltiplos tickets de imediato.' },
+          { id: '5.2', title: 'AULA 5.2 - O QUE NÃO FAZER EM NENHUMA CIRCUNSTÂNCIA', content: 'Nunca abra vários tickets ou use diferentes e-mails. Não discuta nem pressione a equipe de suporte.' },
+          { id: '5.3', title: 'AULA 5.3 - QUANDO ENVIAR UM NOVO TICKET', content: 'Solo tras 7 dias sem resposta ou se a resposta foi claramente automática. Use outra plantilla e altere o assunto.' },
+          { id: '5.4', title: 'AULA 5.4 - QUANDO PARAR', content: 'Considere detenerse tras uma resposta final clara ou três intentos bem espaçados fallidos.' },
+          { id: '5.5', title: 'AULA 5.5 - A MENTALIDADE CORRETA', content: 'Organização, controle, estratégia e paciência. Evite o spam e a força bruta.' }
         ]
       },
       {
         id: 'module-6',
         tag: 'MÓDULO 6',
-        title: 'ANALIZANDO LA RESPUESTA',
-        description: 'Decodificação de feedback del soporte.',
+        title: 'ANALIZANDO A RESPOSTA',
+        description: 'Decodificação de feedback do suporte.',
         lessons: [
-          { 
-            id: '6.1', 
-            title: 'AULA 6.1 - CÓMO IDENTIFICAR UNA RESPUESTA AUTOMÁTICA', 
-            content: 'Texto genérico, lenguaje estandarizado y sin mención de datos específicos. Indica que no superó el primer cribado.' 
-          },
-          { 
-            id: '6.2', 
-            title: 'AULA 6.2 - CÓMO IDENTIFICAR UNA RESPUESTA HUMANA', 
-            content: 'Mención del historial o referência a dados do ticket. Indica que la análisis real ha comenzado.' 
-          },
-          { 
-            id: '6.3', 
-            title: 'AULA 6.3 - QUÉ HACER SI LA RESPUESTA ES AUTOMÁTICA', 
-            content: 'No responda de inmediato. Espere 7 días e inicie un nuevo intento organizado con otro enfoque.' 
-          },
-          { 
-            id: '6.4', 
-            title: 'AULA 6.4 - QUÉ HACER SI LA RESPUESTA ES HUMANA', 
-            content: 'Espere el período informado y responda SOLO a lo solicitado. Menos es más.' 
-          },
-          { 
-            id: '6.5', 
-            title: 'AULA 6.5 - EL PEOR ERROR DE TODOS', 
-            content: 'Responder emocionalmente (ej. "Es injusto"). Destruye las posibilidades de reevaluación.' 
-          }
+          { id: '6.1', title: 'AULA 6.1 - CÓMO IDENTIFICAR UNA RESPUESTA AUTOMÁTICA', content: 'Texto genérico, lenguaje estandarizado e sem menção de dados específicos. Indica que não superou o primeiro cribado.' },
+          { id: '6.2', title: 'AULA 6.2 - CÓMO IDENTIFICAR UNA RESPUESTA HUMANA', content: 'Menção do histórico ou referência a dados do ticket. Indica que a análise real começou.' },
+          { id: '6.3', title: 'AULA 6.3 - QUÉ HACER SI LA RESPUESTA ES AUTOMÁTICA', content: 'Não responda de imediato. Espere 7 dias e inicie um novo intento organizado com outro enfoque.' },
+          { id: '6.4', title: 'AULA 6.4 - QUÉ HACER SI LA RESPUESTA ES HUMANA', content: 'Espere o período informado e responda SÓ o solicitado. Menos é mais.' },
+          { id: '6.5', title: 'AULA 6.5 - O PIOR ERRO DE TODOS', content: 'Responder emocionalmente (ex: "É injusto"). Destrói as possibilidades de reavaliação.' }
         ]
       }
     ]
