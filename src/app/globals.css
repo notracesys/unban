@@ -33,7 +33,11 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground selection:bg-primary selection:text-primary-foreground;
+    @apply bg-background text-foreground selection:bg-primary selection:text-primary-foreground font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline tracking-tight;
   }
 }
 
@@ -67,4 +71,30 @@
     linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
   background-size: 100% 2px, 3px 100%;
   z-index: 99;
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh); }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+}
+
+/* Typography Enhancements */
+.lesson-text-block {
+  @apply relative pl-4 border-l border-white/5 py-1 transition-all duration-300;
+}
+
+.lesson-text-block:hover {
+  @apply border-primary/30 bg-primary/[0.02];
 }
