@@ -44,7 +44,7 @@ const FormattedLessonContent = ({ content }: { content: string }) => {
 
         if (isTitle) {
           return (
-            <h4 key={index} className="text-white font-black text-[12px] md:text-[13px] uppercase tracking-[0.2em] mt-8 mb-4 border-l-2 border-primary pl-4 flex items-center gap-2 group">
+            <h4 key={index} className="text-white font-black text-[14px] md:text-[15px] uppercase tracking-[0.2em] mt-8 mb-4 border-l-2 border-primary pl-4 flex items-center gap-2 group">
               <span className="w-1.5 h-1.5 bg-primary group-hover:scale-125 transition-transform" />
               {trimmedLine}
             </h4>
@@ -55,7 +55,7 @@ const FormattedLessonContent = ({ content }: { content: string }) => {
           return (
             <div key={index} className="flex items-start gap-3 py-1.5 pl-6 group">
               <div className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover:bg-primary mt-1.5 transition-all shadow-[0_0_8px_rgba(255,46,46,0.2)]" />
-              <p className="text-[11px] md:text-xs text-muted-foreground group-hover:text-white/90 transition-colors leading-relaxed">
+              <p className="text-xs md:text-sm text-muted-foreground group-hover:text-white/90 transition-colors leading-relaxed">
                 {trimmedLine}
               </p>
             </div>
@@ -64,7 +64,7 @@ const FormattedLessonContent = ({ content }: { content: string }) => {
 
         // Parágrafos normais
         return (
-          <p key={index} className="text-[11px] md:text-xs text-muted-foreground/80 leading-relaxed mb-4 pl-4 border-l border-white/5 hover:border-primary/20 transition-colors">
+          <p key={index} className="text-xs md:text-sm text-muted-foreground/80 leading-relaxed mb-4 pl-4 border-l border-white/5 hover:border-primary/20 transition-colors">
             {trimmedLine}
           </p>
         );
@@ -459,4 +459,3 @@ export default function Home() {
     </main>
   );
 }
-
