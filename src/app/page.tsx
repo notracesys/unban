@@ -73,6 +73,97 @@ const FormattedLessonContent = ({ content }: { content: string }) => {
   );
 };
 
+interface LessonItemProps {
+  lesson: any;
+  viewedLessons: string[];
+  markLessonAsViewed: (id: string) => void;
+  copyToClipboard: (text: string) => void;
+  t: any;
+}
+
+const LessonItem = ({ lesson, viewedLessons, markLessonAsViewed, copyToClipboard, t }: LessonItemProps) => {
+  const isViewed = viewedLessons.includes(lesson.id);
+
+  return (
+    <Dialog onOpenChange={(open) => { if (open) markLessonAsViewed(lesson.id); }}>
+      <DialogTrigger asChild>
+        <div 
+          className={cn(
+            "flex items-center gap-3 py-3 px-4 hover:bg-white/5 rounded-sm transition-all group cursor-pointer border-l-2 mb-1",
+            isViewed 
+              ? "border-green-500 bg-green-500/5" 
+              : "border-transparent hover:border-primary"
+          )}
+        >
+          <PlayCircle className={cn(
+            "w-4 h-4 transition-colors",
+            isViewed ? "text-green-500" : "text-primary opacity-50 group-hover:opacity-100"
+          )} />
+          <span className={cn(
+            "text-[11px] font-medium uppercase tracking-wider transition-colors",
+            isViewed ? "text-green-500" : "text-muted-foreground group-hover:text-white"
+          )}>
+            {lesson.title}
+          </span>
+        </div>
+      </DialogTrigger>
+      <DialogContent className="bg-card border-primary/30 w-[95vw] md:max-w-2xl max-h-[85vh] overflow-y-auto custom-scrollbar shadow-[0_0_100px_-20px_rgba(255,46,46,0.3)] p-6 md:p-8">
+        <DialogHeader className="border-b border-white/5 pb-6 mb-6">
+          <div className="flex items-center gap-2 text-primary mb-3">
+            <Terminal className="w-5 h-5" />
+            <span className="text-[10px] font-bold tracking-[0.4em] uppercase">{t.ui.dataStream}</span>
+          </div>
+          <DialogTitle className="text-2xl md:text-3xl font-headline font-black uppercase tracking-tighter text-white">
+            {lesson.title}
+          </DialogTitle>
+        </DialogHeader>
+        <div className="font-body space-y-8">
+          {lesson.content && (
+            <div className="max-w-none">
+              <FormattedLessonContent content={lesson.content} />
+            </div>
+          )}
+          
+          {lesson.template && (
+            <div className="space-y-4 pt-4 border-t border-white/5">
+              <div className="flex items-center gap-2 text-primary/60 mb-2">
+                <Terminal className="w-3 h-3" />
+                <span className="text-[9px] font-bold tracking-widest uppercase">{t.ui.copyTemplate}</span>
+              </div>
+              <div className="p-4 md:p-5 bg-black/40 border border-primary/20 rounded-lg font-code text-[10px] md:text-xs leading-relaxed text-primary/80 relative group">
+                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Button 
+                    size="sm" 
+                    variant="ghost" 
+                    onClick={() => copyToClipboard(lesson.template)}
+                    className="h-8 text-[10px] uppercase font-bold hover:bg-primary hover:text-white"
+                  >
+                    <Copy className="w-3 h-3 mr-2" /> {t.ui.copyTemplate}
+                  </Button>
+                </div>
+                {lesson.template}
+              </div>
+            </div>
+          )}
+
+          {lesson.id === '2.1' && (
+            <div className="pt-6">
+              <Button 
+                asChild 
+                className="w-full bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-[10px] py-6 shadow-xl"
+              >
+                <a href="https://ffsuporte.garena.com/support/tickets/new" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-4 h-4 mr-2" /> {t.ui.officialChannel}
+                </a>
+              </Button>
+            </div>
+          )}
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+};
+
 export default function Home() {
   const [language, setLanguage] = useState<Language | null>(null);
   const [hasChecked, setHasChecked] = useState(false);
@@ -183,100 +274,17 @@ export default function Home() {
     );
   }
 
-  const LessonItem = ({ lesson }: { lesson: any }) => {
-    const isViewed = viewedLessons.includes(lesson.id);
-
-    return (
-      <Dialog onOpenChange={(open) => { if (open) markLessonAsViewed(lesson.id); }}>
-        <DialogTrigger asChild>
-          <div 
-            className={cn(
-              "flex items-center gap-3 py-3 px-4 hover:bg-white/5 rounded-sm transition-all group cursor-pointer border-l-2 mb-1",
-              isViewed 
-                ? "border-green-500 bg-green-500/5" 
-                : "border-transparent hover:border-primary"
-            )}
-          >
-            <PlayCircle className={cn(
-              "w-4 h-4 transition-colors",
-              isViewed ? "text-green-500" : "text-primary opacity-50 group-hover:opacity-100"
-            )} />
-            <span className={cn(
-              "text-[11px] font-medium uppercase tracking-wider transition-colors",
-              isViewed ? "text-green-500" : "text-muted-foreground group-hover:text-white"
-            )}>
-              {lesson.title}
-            </span>
-          </div>
-        </DialogTrigger>
-        <DialogContent className="bg-card border-primary/30 w-[95vw] md:max-w-2xl max-h-[85vh] overflow-y-auto custom-scrollbar shadow-[0_0_100px_-20px_rgba(255,46,46,0.3)] p-6 md:p-8">
-          <DialogHeader className="border-b border-white/5 pb-6 mb-6">
-            <div className="flex items-center gap-2 text-primary mb-3">
-              <Terminal className="w-5 h-5" />
-              <span className="text-[10px] font-bold tracking-[0.4em] uppercase">{t.ui.dataStream}</span>
-            </div>
-            <DialogTitle className="text-2xl md:text-3xl font-headline font-black uppercase tracking-tighter text-white">
-              {lesson.title}
-            </DialogTitle>
-          </DialogHeader>
-          <div className="font-body space-y-8">
-            {lesson.content && (
-              <div className="max-w-none">
-                <FormattedLessonContent content={lesson.content} />
-              </div>
-            )}
-            
-            {lesson.template && (
-              <div className="space-y-4 pt-4 border-t border-white/5">
-                <div className="flex items-center gap-2 text-primary/60 mb-2">
-                  <Terminal className="w-3 h-3" />
-                  <span className="text-[9px] font-bold tracking-widest uppercase">{t.ui.copyTemplate}</span>
-                </div>
-                <div className="p-4 md:p-5 bg-black/40 border border-primary/20 rounded-lg font-code text-[10px] md:text-xs leading-relaxed text-primary/80 relative group">
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Button 
-                      size="sm" 
-                      variant="ghost" 
-                      onClick={() => copyToClipboard(lesson.template)}
-                      className="h-8 text-[10px] uppercase font-bold hover:bg-primary hover:text-white"
-                    >
-                      <Copy className="w-3 h-3 mr-2" /> {t.ui.copyTemplate}
-                    </Button>
-                  </div>
-                  {lesson.template}
-                </div>
-              </div>
-            )}
-
-            {lesson.id === '2.1' && (
-              <div className="pt-6">
-                <Button 
-                  asChild 
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-[10px] py-6 shadow-xl"
-                >
-                  <a href="https://ffsuporte.garena.com/support/tickets/new" target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-4 h-4 mr-2" /> {t.ui.officialChannel}
-                  </a>
-                </Button>
-              </div>
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
-    );
-  };
-
   return (
     <main className="min-h-screen bg-background flex flex-col items-center">
-      {/* VIP Support Section */}
-      <div className="w-full bg-accent/10 border-b border-accent/20 py-4 px-6 md:px-8">
+      {/* VIP Support Section - Dourado Premium */}
+      <div className="w-full bg-amber-500/5 border-b border-amber-500/20 py-4 px-6 md:px-8">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4 text-center md:text-left">
-            <div className="p-2 bg-accent/20 rounded-full animate-pulse">
-              <Star className="w-5 h-5 text-accent" />
+            <div className="p-2 bg-amber-500/10 rounded-full animate-pulse border border-amber-500/30">
+              <Star className="w-5 h-5 text-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
             </div>
             <div className="space-y-1">
-              <h4 className="text-[10px] md:text-[12px] font-headline font-black uppercase tracking-[0.2em] text-accent">
+              <h4 className="text-[10px] md:text-[12px] font-headline font-black uppercase tracking-[0.2em] text-amber-500">
                 {t.orderBump.title}
               </h4>
               <p className="text-[9px] md:text-[10px] text-muted-foreground uppercase tracking-widest leading-relaxed">
@@ -286,7 +294,7 @@ export default function Home() {
           </div>
           <Button 
             asChild
-            className="bg-accent hover:bg-accent/90 text-white font-black uppercase tracking-[0.2em] text-[10px] px-8 py-5 h-auto rounded-none shadow-[0_0_30px_-10px_rgba(234,88,12,0.5)]"
+            className="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-black font-black uppercase tracking-[0.2em] text-[10px] px-8 py-5 h-auto rounded-none shadow-[0_0_30px_-10px_rgba(245,158,11,0.6)] border border-amber-400/50"
           >
             <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">
               {t.orderBump.button}
@@ -385,7 +393,14 @@ export default function Home() {
                       <div className="space-y-4">
                         <div className="grid gap-1">
                           {module.lessons.map((lesson: any) => (
-                            <LessonItem key={lesson.id} lesson={lesson} />
+                            <LessonItem 
+                              key={lesson.id} 
+                              lesson={lesson} 
+                              viewedLessons={viewedLessons}
+                              markLessonAsViewed={markLessonAsViewed}
+                              copyToClipboard={copyToClipboard}
+                              t={t}
+                            />
                           ))}
                         </div>
                         <div className="pt-6">
