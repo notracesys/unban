@@ -116,8 +116,6 @@ export default function Home() {
     });
   };
 
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
-
   if (!hasChecked) {
     return <div className="min-h-screen bg-background cyber-grid" />;
   }
@@ -297,21 +295,11 @@ export default function Home() {
         </div>
       </div>
 
-      <header className="w-full relative h-[60vh] md:h-[70vh] flex flex-col justify-end p-6 md:p-8 overflow-hidden bg-background">
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          {heroImage?.imageUrl && (
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background z-10" />
-              <Image 
-                src={heroImage.imageUrl} 
-                alt="Hero Background" 
-                fill 
-                className="object-cover transition-all duration-1000 brightness-100 opacity-60 md:opacity-80"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent top-0" />
-            </div>
-          )}
+      <header className="w-full relative h-[40vh] md:h-[50vh] flex flex-col justify-end p-6 md:p-8 overflow-hidden bg-background border-b border-white/5">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-primary/5 blur-[120px] rounded-full opacity-50" />
+          <div className="absolute -top-24 -left-24 w-64 h-64 bg-primary/10 blur-[80px] rounded-full" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background" />
         </div>
         <div className="relative z-10 space-y-4 md:space-y-6 w-full max-w-6xl mx-auto">
           <div className="flex items-center gap-3 text-primary">
