@@ -312,7 +312,7 @@ export default function Home() {
         <div className="relative z-10 space-y-4 md:space-y-6 w-full max-w-6xl mx-auto">
           <div className="flex items-center gap-3 text-primary">
             <div className="p-1 bg-primary/10 border border-primary/20 rounded">
-              <Crown className="w-5 h-5" />
+              <Image src="/logo.png" alt="Logo" width={24} height={24} className="object-contain" />
             </div>
             <span className="font-headline text-[10px] font-bold tracking-[0.5em] uppercase">unban strategy 1.0</span>
           </div>
@@ -449,7 +449,7 @@ export default function Home() {
 
       <footer className="w-full max-w-6xl px-6 md:px-8 py-16 md:py-24 flex flex-col items-center justify-center space-y-10 opacity-20 border-t border-white/5">
         <div className="flex items-center gap-8 md:gap-12">
-          <Crown className="w-6 md:w-8 h-6 md:h-8" />
+          <Image src="/logo.png" alt="Logo" width={32} height={32} className="opacity-50" />
           <Globe className="w-6 md:w-8 h-6 md:h-8" />
           <ShieldAlert className="w-6 md:w-8 h-6 md:h-8" />
         </div>
@@ -462,3 +462,4 @@ export default function Home() {
     </main>
   );
 }
+
