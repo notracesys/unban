@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { ShieldAlert, ChevronRight, Crown, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2, Copy, Globe, Fingerprint, Zap, Star } from 'lucide-react';
+import { ShieldAlert, ChevronRight, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2, Copy, Globe, Fingerprint, Zap, Star } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -462,4 +462,3 @@ export default function Home() {
     </main>
   );
 }
-
