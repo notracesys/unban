@@ -234,7 +234,7 @@ export default function Home() {
 
           <div className="space-y-4">
             <div className="flex items-center justify-center gap-2 text-primary/60 mb-2">
-              <Fingerprint className="w-4 h-4" />
+              <Image src="/logo.png" alt="Logo" width={16} height={16} className="opacity-80" />
               <span className="text-[10px] font-bold tracking-[0.5em] uppercase">Identity Check</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter text-white">
