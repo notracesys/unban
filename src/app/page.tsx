@@ -224,8 +224,7 @@ export default function Home() {
               <Image 
                 src="/logo.png" 
                 alt="Product Logo" 
-                width={96} 
-                height={96} 
+                fill
                 className="object-cover"
                 priority
               />
