@@ -4,37 +4,37 @@
     {
       "id": "module-1",
       "description": "Capa do Módulo 1",
-      "imageUrl": "/modulo1.png",
+      "imageUrl": "/modulo01.png",
       "imageHint": "cyber diagnostic"
     },
     {
       "id": "module-2",
       "description": "Capa do Módulo 2",
-      "imageUrl": "/modulo2.png",
+      "imageUrl": "/modulo02.png",
       "imageHint": "artificial intelligence"
     },
     {
       "id": "module-3",
       "description": "Capa do Módulo 3",
-      "imageUrl": "/modulo3.png",
+      "imageUrl": "/modulo03.png",
       "imageHint": "digital clock"
     },
     {
       "id": "module-4",
       "description": "Capa do Módulo 4",
-      "imageUrl": "/modulo4.png",
+      "imageUrl": "/modulo04.png",
       "imageHint": "code analysis"
     },
     {
       "id": "module-5",
       "description": "Capa do Módulo 5",
-      "imageUrl": "/modulo5.png",
+      "imageUrl": "/modulo05.png",
       "imageHint": "system activity"
     },
     {
       "id": "module-6",
       "description": "Capa do Módulo 6",
-      "imageUrl": "/modulo6.png",
+      "imageUrl": "/modulo06.png",
       "imageHint": "network intelligence"
     },
     {
