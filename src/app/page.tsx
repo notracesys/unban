@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { ShieldAlert, ChevronRight, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2, Copy, Globe, Fingerprint, Zap, Star } from 'lucide-react';
+import { ShieldAlert, ChevronRight, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2, Copy, Globe, Zap, Star } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -18,7 +18,6 @@ import {
 import { useToast } from '@/hooks/use-toast';
 import { translations, type Language } from '@/lib/translations';
 
-// Componente para formatar o texto das aulas dinamicamente sem alterar os dados
 const FormattedLessonContent = ({ content }: { content: string }) => {
   const lines = content.split('\n');
   
@@ -28,13 +27,11 @@ const FormattedLessonContent = ({ content }: { content: string }) => {
         const trimmedLine = line.trim();
         if (!trimmedLine) return <div key={index} className="h-4" />;
 
-        // Identifica títulos: Terminam com ":" ou são curtas em CAIXA ALTA (mais de 3 chars)
         const isTitle = trimmedLine.endsWith(':') || 
                        (trimmedLine.length < 60 && trimmedLine === trimmedLine.toUpperCase() && trimmedLine.length > 3) ||
                        trimmedLine.startsWith('AULA') ||
                        trimmedLine.includes('?');
         
-        // Identifica listas/tópicos: Começam com símbolos, números ou terminam com ";"
         const isListItem = trimmedLine.startsWith('✅') || 
                           trimmedLine.startsWith('❌') || 
                           trimmedLine.startsWith('-') || 
@@ -62,7 +59,6 @@ const FormattedLessonContent = ({ content }: { content: string }) => {
           );
         }
 
-        // Parágrafos normais
         return (
           <p key={index} className="text-xs md:text-sm text-muted-foreground/80 leading-relaxed mb-4 pl-4 border-l border-white/5 hover:border-primary/20 transition-colors">
             {trimmedLine}
@@ -73,15 +69,7 @@ const FormattedLessonContent = ({ content }: { content: string }) => {
   );
 };
 
-interface LessonItemProps {
-  lesson: any;
-  viewedLessons: string[];
-  markLessonAsViewed: (id: string) => void;
-  copyToClipboard: (text: string) => void;
-  t: any;
-}
-
-const LessonItem = ({ lesson, viewedLessons, markLessonAsViewed, copyToClipboard, t }: LessonItemProps) => {
+const LessonItem = ({ lesson, viewedLessons, markLessonAsViewed, copyToClipboard, t }: { lesson: any; viewedLessons: string[]; markLessonAsViewed: (id: string) => void; copyToClipboard: (text: string) => void; t: any }) => {
   const isViewed = viewedLessons.includes(lesson.id);
 
   return (
@@ -302,10 +290,36 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Bypass Support Section - Dourado Premium */}
+      <div className="w-full bg-amber-500/5 border-b border-amber-500/20 py-4 px-6 md:px-8">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-4 text-center md:text-left">
+            <div className="p-2 bg-amber-500/10 rounded-full animate-pulse border border-amber-500/30">
+              <Zap className="w-5 h-5 text-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
+            </div>
+            <div className="space-y-1">
+              <h4 className="text-[10px] md:text-[12px] font-headline font-black uppercase tracking-[0.2em] text-amber-500">
+                {t.bypass.title}
+              </h4>
+              <p className="text-[9px] md:text-[10px] text-muted-foreground uppercase tracking-widest leading-relaxed">
+                {t.bypass.description}
+              </p>
+            </div>
+          </div>
+          <Button 
+            asChild
+            className="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-black font-black uppercase tracking-[0.2em] text-[10px] px-8 py-5 h-auto rounded-none shadow-[0_0_30px_-10px_rgba(245,158,11,0.6)] border border-amber-400/50"
+          >
+            <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">
+              {t.bypass.button}
+            </a>
+          </Button>
+        </div>
+      </div>
+
       <header className="w-full relative h-[40vh] md:h-[50vh] flex flex-col justify-end p-6 md:p-8 overflow-hidden bg-background border-b border-white/5">
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-primary/5 blur-[120px] rounded-full opacity-50" />
-          <div className="absolute -top-24 -left-24 w-64 h-64 bg-primary/10 blur-[80px] rounded-full" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background" />
         </div>
         <div className="relative z-10 space-y-4 md:space-y-6 w-full max-w-6xl mx-auto">
