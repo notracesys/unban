@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/dialog";
 import { useToast } from '@/hooks/use-toast';
 import { translations, type Language } from '@/lib/translations';
+import { SupportWidget } from '@/components/cyber/SupportWidget';
 
 const FormattedLessonContent = ({ content }: { content: string }) => {
   const lines = content.split('\n');
@@ -472,6 +473,8 @@ export default function Home() {
           <span className="mt-4 opacity-50">© 2024 ZEPHYRUS_GLOBAL_SYSTEMS</span>
         </div>
       </footer>
+      
+      <SupportWidget lang={language} />
     </main>
   );
 }
