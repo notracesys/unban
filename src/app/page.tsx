@@ -264,58 +264,77 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background flex flex-col items-center">
-      {/* VIP Support Section - Dourado Premium */}
-      <div className="w-full bg-amber-500/5 border-b border-amber-500/20 py-4 px-6 md:px-8">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-4 text-center md:text-left">
-            <div className="p-2 bg-amber-500/10 rounded-full animate-pulse border border-amber-500/30">
-              <Star className="w-5 h-5 text-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
-            </div>
-            <div className="space-y-1">
-              <h4 className="text-[10px] md:text-[12px] font-headline font-black uppercase tracking-[0.2em] text-amber-500">
-                {t.orderBump.title}
-              </h4>
-              <p className="text-[9px] md:text-[10px] text-muted-foreground uppercase tracking-widest leading-relaxed">
-                {t.orderBump.description}
-              </p>
-            </div>
-          </div>
-          <Button 
-            asChild
-            className="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-black font-black uppercase tracking-[0.2em] text-[10px] px-8 py-5 h-auto rounded-none shadow-[0_0_30px_-10px_rgba(245,158,11,0.6)] border border-amber-400/50"
-          >
-            <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">
-              {t.orderBump.button}
-            </a>
-          </Button>
-        </div>
-      </div>
+      {/* Premium Support Center - Collapsible */}
+      <div className="w-full bg-amber-500/5 border-b border-amber-500/20">
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="premium-support" className="border-none">
+            <AccordionTrigger className="px-6 md:px-8 py-4 hover:no-underline hover:bg-amber-500/10 transition-colors group">
+              <div className="max-w-6xl mx-auto w-full flex items-center gap-3">
+                <Star className="w-4 h-4 md:w-5 md:h-5 text-amber-500 animate-pulse" />
+                <span className="text-[10px] md:text-[12px] font-headline font-black uppercase tracking-[0.2em] text-amber-500 text-left">
+                  {t.ui.premiumSupportTrigger}
+                </span>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="pb-0 animate-in slide-in-from-top-2 duration-300">
+              <div className="flex flex-col">
+                {/* VIP Support Section */}
+                <div className="w-full border-t border-amber-500/20 py-8 px-6 md:px-8 bg-amber-500/[0.02]">
+                  <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div className="flex items-center gap-4 text-center md:text-left">
+                      <div className="p-3 bg-amber-500/10 rounded-full border border-amber-500/30">
+                        <Star className="w-6 h-6 text-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
+                      </div>
+                      <div className="space-y-1">
+                        <h4 className="text-[12px] md:text-[14px] font-headline font-black uppercase tracking-[0.2em] text-amber-500">
+                          {t.orderBump.title}
+                        </h4>
+                        <p className="text-[10px] md:text-[11px] text-muted-foreground uppercase tracking-widest leading-relaxed max-w-xl">
+                          {t.orderBump.description}
+                        </p>
+                      </div>
+                    </div>
+                    <Button 
+                      asChild
+                      className="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-black font-black uppercase tracking-[0.2em] text-[10px] px-8 py-5 h-auto rounded-none shadow-[0_0_30px_-10px_rgba(245,158,11,0.6)] border border-amber-400/50 w-full md:w-auto"
+                    >
+                      <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">
+                        {t.orderBump.button}
+                      </a>
+                    </Button>
+                  </div>
+                </div>
 
-      {/* Bypass Support Section - Dourado Premium */}
-      <div className="w-full bg-amber-500/5 border-b border-amber-500/20 py-4 px-6 md:px-8">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-4 text-center md:text-left">
-            <div className="p-2 bg-amber-500/10 rounded-full animate-pulse border border-amber-500/30">
-              <Zap className="w-5 h-5 text-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
-            </div>
-            <div className="space-y-1">
-              <h4 className="text-[10px] md:text-[12px] font-headline font-black uppercase tracking-[0.2em] text-amber-500">
-                {t.bypass.title}
-              </h4>
-              <p className="text-[9px] md:text-[10px] text-muted-foreground uppercase tracking-widest leading-relaxed">
-                {t.bypass.description}
-              </p>
-            </div>
-          </div>
-          <Button 
-            asChild
-            className="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-black font-black uppercase tracking-[0.2em] text-[10px] px-8 py-5 h-auto rounded-none shadow-[0_0_30px_-10px_rgba(245,158,11,0.6)] border border-amber-400/50"
-          >
-            <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">
-              {t.bypass.button}
-            </a>
-          </Button>
-        </div>
+                {/* Bypass Support Section */}
+                <div className="w-full border-t border-amber-500/20 py-8 px-6 md:px-8 bg-amber-500/[0.01]">
+                  <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div className="flex items-center gap-4 text-center md:text-left">
+                      <div className="p-3 bg-amber-500/10 rounded-full border border-amber-500/30">
+                        <Zap className="w-6 h-6 text-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
+                      </div>
+                      <div className="space-y-1">
+                        <h4 className="text-[12px] md:text-[14px] font-headline font-black uppercase tracking-[0.2em] text-amber-500">
+                          {t.bypass.title}
+                        </h4>
+                        <p className="text-[10px] md:text-[11px] text-muted-foreground uppercase tracking-widest leading-relaxed max-w-xl">
+                          {t.bypass.description}
+                        </p>
+                      </div>
+                    </div>
+                    <Button 
+                      asChild
+                      className="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-black font-black uppercase tracking-[0.2em] text-[10px] px-8 py-5 h-auto rounded-none shadow-[0_0_30px_-10px_rgba(245,158,11,0.6)] border border-amber-400/50 w-full md:w-auto"
+                    >
+                      <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">
+                        {t.bypass.button}
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
 
       <header className="w-full relative h-[40vh] md:h-[50vh] flex flex-col justify-end p-6 md:p-8 overflow-hidden bg-background border-b border-white/5">
