@@ -1,7 +1,7 @@
 
 'use client';
 
-import { MessageCircle, ExternalLink, ShieldCheck } from 'lucide-react';
+import { MessageCircle, ExternalLink, ShieldCheck, Banknote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Popover,
@@ -39,13 +39,23 @@ export function SupportWidget({ lang }: { lang: Language }) {
               {t.widgetDesc}
             </p>
           </div>
-          <div className="p-4">
+          <div className="p-4 space-y-2">
             <Button 
               asChild
               className="w-full bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-[10px] py-6 shadow-xl"
             >
               <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-4 h-4 mr-2" /> {t.widgetButton}
+              </a>
+            </Button>
+            
+            <Button 
+              asChild
+              variant="outline"
+              className="w-full border-primary/30 hover:bg-primary/5 text-primary font-black uppercase tracking-widest text-[10px] py-6"
+            >
+              <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">
+                <Banknote className="w-4 h-4 mr-2" /> {t.refundButton}
               </a>
             </Button>
           </div>
