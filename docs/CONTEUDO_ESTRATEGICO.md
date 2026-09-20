@@ -65,6 +65,10 @@ Utilize apenas canais oficiais. Um ticket enviado no local errado já nasce sem 
 **Conteúdo:**
 Evite categorias acusatórias. Escolha opções neutras que permitam abertura de análise, como "Quero recuperar minha conta".
 
+### AULA 2.3 - PREENCHENDO OS DADOS DA CONTA
+**Conteúdo:**
+Menos informação significa menos problemas. Preencha apenas ID, Nickname e e-mail. Nunca adicione explicações extras nos campos técnicos.
+
 ### AULA 2.4 - O CAMPO DE MENSAGEM
 **Conteúdo:**
 Regras de ouro:
@@ -93,7 +97,8 @@ Regras de ouro:
 ### MODELO 3: Falso Positivo
 "Dirijo-me a vocês para requisitar suporte a respeito de um problema de acesso à minha conta. Desde recentemente, não consigo mais utilizar os serviços. Considerando que meu histórico de uso é pautado pelo cumprimento das regras, a situação me leva a crer em um erro técnico ou um falso positivo de algum sistema. Peço que uma análise de integridade da conta seja conduzida por um membro da equipe para identificar a origem desta anomalia. Aguardo um retorno e agradeço a atenção."
 
-(Total de 6 modelos disponíveis no sistema).
+### MODELO 4: Ausência de Justificativa
+"Saudações. Contato a equipe de suporte para obter assistência com uma falha que está bloqueando o acesso à minha conta. Não recebi nenhuma notificação que justificasse tal impedimento, o que sugere uma possível inconsistência nos sistemas de validação. Tenho plena convicção de minha conformidade com as políticas do jogo. Solicito uma auditoria humana no registro de atividades da minha conta para esclarecer este incidente. Coloco-me à disposição para o que for preciso."
 
 ---
 
