@@ -42,6 +42,12 @@
       "description": "Fundo do cabeçalho principal",
       "imageUrl": "/capa.png",
       "imageHint": "abstract dark"
+    },
+    {
+      "id": "main-banner",
+      "description": "Banner principal do header",
+      "imageUrl": "/banner.png",
+      "imageHint": "tech banner"
     }
   ]
 }

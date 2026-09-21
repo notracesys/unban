@@ -318,31 +318,46 @@ export default function Home() {
       </div>
 
       {/* Hero Section - Strategic Modern */}
-      <header className="w-full max-w-6xl px-6 md:px-8 pt-20 pb-16 flex flex-col items-center text-center space-y-6">
-        <div className="flex items-center gap-3 mb-4 p-2 px-4 bg-primary/10 border border-primary/20 rounded-full">
-          <Image src="/logo.png" alt="Logo" width={20} height={20} className="object-contain" />
-          <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary">Unban Strategy V2.0</span>
+      <header className="w-full max-w-6xl px-6 md:px-8 pt-10 pb-16 flex flex-col items-center text-center space-y-8">
+        {/* Main Banner */}
+        <div className="w-full relative aspect-[21/9] md:aspect-[3/1] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 group">
+          <Image 
+            src="/banner.png" 
+            alt="Strategic Banner" 
+            fill 
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            priority
+            data-ai-hint="tech banner"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
         </div>
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
-          {t.hero.title} <span className="text-primary">{t.hero.titleAccent}</span>
-        </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed font-medium">
-          {t.hero.description}
-        </p>
-        <div className="pt-8 flex flex-wrap justify-center items-center gap-4">
-          <Button 
-            variant="outline" 
-            onClick={() => {
-              localStorage.removeItem('unban_strategy_lang');
-              window.location.reload();
-            }}
-            className="h-12 px-8 rounded-full border-white/10 hover:bg-white/5 font-semibold text-sm"
-          >
-            <Globe className="w-4 h-4 mr-2" /> Language
-          </Button>
-          <div className="flex items-center gap-2 px-6 h-12 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-muted-foreground">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            System Secure
+
+        <div className="flex flex-col items-center space-y-6 pt-4">
+          <div className="flex items-center gap-3 p-2 px-4 bg-primary/10 border border-primary/20 rounded-full">
+            <Image src="/logo.png" alt="Logo" width={20} height={20} className="object-contain" />
+            <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary">Unban Strategy V2.0</span>
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
+            {t.hero.title} <span className="text-primary">{t.hero.titleAccent}</span>
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed font-medium">
+            {t.hero.description}
+          </p>
+          <div className="pt-4 flex flex-wrap justify-center items-center gap-4">
+            <Button 
+              variant="outline" 
+              onClick={() => {
+                localStorage.removeItem('unban_strategy_lang');
+                window.location.reload();
+              }}
+              className="h-12 px-8 rounded-full border-white/10 hover:bg-white/5 font-semibold text-sm"
+            >
+              <Globe className="w-4 h-4 mr-2" /> Language
+            </Button>
+            <div className="flex items-center gap-2 px-6 h-12 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-muted-foreground">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              System Secure
+            </div>
           </div>
         </div>
       </header>
