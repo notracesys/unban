@@ -386,7 +386,8 @@ export default function Home() {
                     ? "bg-white/[0.01] border-white/[0.05] opacity-50" 
                     : "bg-white/[0.03] border-white/[0.05] hover:border-primary/30 hover:bg-white/[0.05] hover:-translate-y-2 shadow-2xl shadow-black/40"
                 )}>
-                  <div className="relative aspect-video w-full overflow-hidden">
+                  {/* Aspect Ratio updated to 4:5 as requested */}
+                  <div className="relative aspect-[4/5] w-full overflow-hidden">
                     {moduleImage && (
                       <Image 
                         src={moduleImage} 
