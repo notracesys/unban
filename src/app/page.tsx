@@ -3,7 +3,23 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { ShieldAlert, ChevronRight, LayoutGrid, Lock, PlayCircle, Terminal, ExternalLink, CheckCircle2, Copy, Globe, Zap, Star } from 'lucide-react';
+import { 
+  ShieldAlert, 
+  ChevronRight, 
+  LayoutGrid, 
+  Lock, 
+  PlayCircle, 
+  Terminal, 
+  ExternalLink, 
+  CheckCircle2, 
+  Copy, 
+  Globe, 
+  Zap, 
+  Star,
+  BookOpen,
+  ArrowRight,
+  Info
+} from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -23,10 +39,10 @@ const FormattedLessonContent = ({ content }: { content: string }) => {
   const lines = content.split('\n');
   
   return (
-    <div className="space-y-1">
+    <div className="space-y-4">
       {lines.map((line, index) => {
         const trimmedLine = line.trim();
-        if (!trimmedLine) return <div key={index} className="h-4" />;
+        if (!trimmedLine) return <div key={index} className="h-2" />;
 
         const isTitle = trimmedLine.endsWith(':') || 
                        (trimmedLine.length < 60 && trimmedLine === trimmedLine.toUpperCase() && trimmedLine.length > 3) ||
@@ -42,8 +58,8 @@ const FormattedLessonContent = ({ content }: { content: string }) => {
 
         if (isTitle) {
           return (
-            <h4 key={index} className="text-white font-black text-[14px] md:text-[15px] uppercase tracking-[0.2em] mt-8 mb-4 border-l-2 border-primary pl-4 flex items-center gap-2 group">
-              <span className="w-1.5 h-1.5 bg-primary group-hover:scale-125 transition-transform" />
+            <h4 key={index} className="text-white font-bold text-lg mt-8 mb-4 flex items-center gap-2">
+              <div className="w-1 h-6 bg-primary rounded-full" />
               {trimmedLine}
             </h4>
           );
@@ -51,9 +67,9 @@ const FormattedLessonContent = ({ content }: { content: string }) => {
 
         if (isListItem) {
           return (
-            <div key={index} className="flex items-start gap-3 py-1.5 pl-6 group">
-              <div className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover:bg-primary mt-1.5 transition-all shadow-[0_0_8px_rgba(255,46,46,0.2)]" />
-              <p className="text-xs md:text-sm text-muted-foreground group-hover:text-white/90 transition-colors leading-relaxed">
+            <div key={index} className="flex items-start gap-3 py-1 group bg-white/5 p-4 rounded-lg border border-white/5">
+              <div className="w-2 h-2 rounded-full bg-primary mt-1.5 shrink-0" />
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 {trimmedLine}
               </p>
             </div>
@@ -61,7 +77,7 @@ const FormattedLessonContent = ({ content }: { content: string }) => {
         }
 
         return (
-          <p key={index} className="text-xs md:text-sm text-muted-foreground/80 leading-relaxed mb-4 pl-4 border-l border-white/5 hover:border-primary/20 transition-colors">
+          <p key={index} className="text-sm text-muted-foreground/80 leading-relaxed pl-3">
             {trimmedLine}
           </p>
         );
@@ -78,35 +94,41 @@ const LessonItem = ({ lesson, viewedLessons, markLessonAsViewed, copyToClipboard
       <DialogTrigger asChild>
         <div 
           className={cn(
-            "flex items-center gap-3 py-3 px-4 hover:bg-white/5 rounded-sm transition-all group cursor-pointer border-l-2 mb-1",
+            "flex items-center justify-between p-4 rounded-xl transition-all cursor-pointer border mb-2 group",
             isViewed 
-              ? "border-green-500 bg-green-500/5" 
-              : "border-transparent hover:border-primary"
+              ? "bg-green-500/5 border-green-500/20" 
+              : "bg-white/[0.02] border-white/5 hover:border-primary/50 hover:bg-white/[0.04]"
           )}
         >
-          <PlayCircle className={cn(
-            "w-4 h-4 transition-colors",
-            isViewed ? "text-green-500" : "text-primary opacity-50 group-hover:opacity-100"
-          )} />
-          <span className={cn(
-            "text-[11px] font-medium uppercase tracking-wider transition-colors",
-            isViewed ? "text-green-500" : "text-muted-foreground group-hover:text-white"
-          )}>
-            {lesson.title}
-          </span>
+          <div className="flex items-center gap-4">
+            <div className={cn(
+              "w-8 h-8 rounded-lg flex items-center justify-center transition-all",
+              isViewed ? "bg-green-500 text-white" : "bg-white/10 text-muted-foreground group-hover:bg-primary group-hover:text-white"
+            )}>
+              <PlayCircle className="w-4 h-4" />
+            </div>
+            <span className={cn(
+              "text-sm font-medium transition-colors",
+              isViewed ? "text-green-500" : "text-muted-foreground group-hover:text-white"
+            )}>
+              {lesson.title}
+            </span>
+          </div>
+          <ChevronRight className={cn("w-4 h-4 transition-all opacity-0 group-hover:opacity-100", isViewed ? "text-green-500 opacity-100" : "text-primary")} />
         </div>
       </DialogTrigger>
-      <DialogContent className="bg-card border-primary/30 w-[95vw] md:max-w-2xl max-h-[85vh] overflow-y-auto custom-scrollbar shadow-[0_0_100px_-20px_rgba(255,46,46,0.3)] p-6 md:p-8">
-        <DialogHeader className="border-b border-white/5 pb-6 mb-6">
-          <div className="flex items-center gap-2 text-primary mb-3">
-            <Terminal className="w-5 h-5" />
-            <span className="text-[10px] font-bold tracking-[0.4em] uppercase">{t.ui.dataStream}</span>
+      <DialogContent className="bg-card border-white/10 w-[95vw] md:max-w-3xl max-h-[90vh] overflow-y-auto custom-scrollbar p-6 md:p-10 rounded-2xl shadow-2xl">
+        <DialogHeader className="pb-6 mb-6 border-b border-white/5">
+          <div className="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mb-2">
+            <BookOpen className="w-4 h-4" />
+            {t.ui.dataStream}
           </div>
-          <DialogTitle className="text-2xl md:text-3xl font-headline font-black uppercase tracking-tighter text-white">
+          <DialogTitle className="text-2xl md:text-4xl font-bold text-white tracking-tight">
             {lesson.title}
           </DialogTitle>
         </DialogHeader>
-        <div className="font-body space-y-8">
+        
+        <div className="space-y-8">
           {lesson.content && (
             <div className="max-w-none">
               <FormattedLessonContent content={lesson.content} />
@@ -114,23 +136,23 @@ const LessonItem = ({ lesson, viewedLessons, markLessonAsViewed, copyToClipboard
           )}
           
           {lesson.template && (
-            <div className="space-y-4 pt-4 border-t border-white/5">
-              <div className="flex items-center gap-2 text-primary/60 mb-2">
-                <Terminal className="w-3 h-3" />
-                <span className="text-[9px] font-bold tracking-widest uppercase">{t.ui.copyTemplate}</span>
-              </div>
-              <div className="p-4 md:p-5 bg-black/40 border border-primary/20 rounded-lg font-code text-[10px] md:text-xs leading-relaxed text-primary/80 relative group">
-                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Button 
-                    size="sm" 
-                    variant="ghost" 
-                    onClick={() => copyToClipboard(lesson.template)}
-                    className="h-8 text-[10px] uppercase font-bold hover:bg-primary hover:text-white"
-                  >
-                    <Copy className="w-3 h-3 mr-2" /> {t.ui.copyTemplate}
-                  </Button>
+            <div className="space-y-4 p-6 bg-white/[0.02] border border-white/5 rounded-2xl">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest">
+                  <Terminal className="w-4 h-4" />
+                  {t.ui.copyTemplate}
                 </div>
-                {lesson.template}
+                <Button 
+                  size="sm" 
+                  variant="ghost" 
+                  onClick={() => copyToClipboard(lesson.template)}
+                  className="h-8 text-xs font-bold hover:bg-primary hover:text-white rounded-full px-4"
+                >
+                  <Copy className="w-3 h-3 mr-2" /> {t.ui.copyTemplate}
+                </Button>
+              </div>
+              <div className="p-5 bg-black/50 border border-white/5 rounded-xl font-mono text-sm leading-relaxed text-muted-foreground italic">
+                "{lesson.template}"
               </div>
             </div>
           )}
@@ -139,7 +161,7 @@ const LessonItem = ({ lesson, viewedLessons, markLessonAsViewed, copyToClipboard
             <div className="pt-6">
               <Button 
                 asChild 
-                className="w-full bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-[10px] py-6 shadow-xl"
+                className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-14 rounded-xl shadow-lg shadow-primary/20"
               >
                 <a href="https://ffsuporte.garena.com/support/tickets/new" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4 mr-2" /> {t.ui.officialChannel}
@@ -197,43 +219,40 @@ export default function Home() {
   };
 
   if (!hasChecked) {
-    return <div className="min-h-screen bg-background cyber-grid" />;
+    return <div className="min-h-screen bg-background" />;
   }
 
   if (!language || !t) {
     return (
-      <div className="fixed inset-0 z-[200] bg-background flex flex-col items-center justify-center p-6 cyber-grid overflow-hidden">
-        <div className="scan-line" />
-        <div className="absolute inset-0 bg-primary/5 opacity-20 pointer-events-none" />
+      <div className="fixed inset-0 z-[200] bg-background flex flex-col items-center justify-center p-6 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/10 blur-[150px] rounded-full" />
+          <div className="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-primary/10 blur-[150px] rounded-full" />
+        </div>
         
-        <div className="max-w-md w-full space-y-12 text-center animate-in fade-in zoom-in duration-1000">
-          <div className="flex justify-center mb-8 relative">
-            <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
-            <div className="w-24 h-24 bg-black border-2 border-primary/50 rounded-full flex items-center justify-center relative z-10 shadow-[0_0_50px_-12px_rgba(255,46,46,0.5)] overflow-hidden">
+        <div className="max-w-md w-full space-y-10 text-center relative z-10">
+          <div className="flex justify-center mb-8">
+            <div className="w-24 h-24 bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center relative shadow-2xl overflow-hidden backdrop-blur-xl animate-float">
               <Image 
                 src="/logo.png" 
                 alt="Product Logo" 
                 fill
-                className="object-cover"
+                className="object-cover p-2"
                 priority
               />
             </div>
           </div>
 
           <div className="space-y-4">
-            <div className="flex items-center justify-center gap-2 text-primary/60 mb-2">
-              <Image src="/logo.png" alt="Logo" width={16} height={16} className="opacity-80" />
-              <span className="text-[10px] font-bold tracking-[0.5em] uppercase">Identity Check</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter text-white">
+            <h2 className="text-4xl font-bold tracking-tight text-white">
               {translations.pt.selectLanguage}
             </h2>
-            <p className="text-[10px] text-muted-foreground uppercase tracking-[0.3em] font-medium opacity-60">
+            <p className="text-sm text-muted-foreground font-medium opacity-60">
               {translations.pt.protocolInitialization}
             </p>
           </div>
 
-          <div className="grid gap-4 pt-8">
+          <div className="grid gap-3 pt-4">
             {[
               { id: 'pt', label: 'Português (BR)', flag: '🇧🇷' },
               { id: 'en', label: 'English (US)', flag: '🇺🇸' },
@@ -242,20 +261,15 @@ export default function Home() {
               <Button 
                 key={lang.id}
                 onClick={() => selectLanguage(lang.id as Language)} 
-                className="group relative w-full bg-white/5 hover:bg-primary hover:text-white border border-white/10 text-xs font-bold py-8 uppercase tracking-[0.2em] transition-all duration-500 overflow-hidden"
+                className="h-16 w-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold rounded-2xl transition-all flex items-center justify-between px-6 group"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span className="relative z-10 flex items-center justify-between w-full px-4">
-                  <span className="text-2xl mr-4">{lang.flag}</span>
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl">{lang.flag}</span>
                   <span>{lang.label}</span>
-                  <Zap className="w-4 h-4 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all" />
-                </span>
+                </div>
+                <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-primary" />
               </Button>
             ))}
-          </div>
-          
-          <div className="pt-12 opacity-20">
-            <p className="text-[8px] font-code tracking-[0.5em] text-muted-foreground">SYSTEM_INITIALIZATION_V6.0 // ACCESS_KEY: RESTRICTED</p>
           </div>
         </div>
       </div>
@@ -263,73 +277,39 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-background flex flex-col items-center">
-      {/* Premium Support Center - Collapsible */}
-      <div className="w-full bg-amber-500/5 border-b border-amber-500/20">
+    <main className="min-h-screen bg-background text-foreground flex flex-col items-center">
+      {/* Premium Support - Clean Design */}
+      <div className="w-full bg-amber-500/5 border-b border-white/5 backdrop-blur-md sticky top-0 z-50">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="premium-support" className="border-none">
-            <AccordionTrigger className="px-6 md:px-8 py-4 hover:no-underline hover:bg-amber-500/10 transition-colors group">
-              <div className="max-w-6xl mx-auto w-full flex items-center gap-3">
-                <Star className="w-4 h-4 md:w-5 md:h-5 text-amber-500 animate-pulse" />
-                <span className="text-[10px] md:text-[12px] font-headline font-black uppercase tracking-[0.2em] text-amber-500 text-left">
+            <AccordionTrigger className="px-6 md:px-8 py-3 hover:no-underline hover:bg-white/5 transition-colors">
+              <div className="max-w-6xl mx-auto w-full flex items-center justify-center gap-3">
+                <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-500">
                   {t.ui.premiumSupportTrigger}
                 </span>
+                <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
               </div>
             </AccordionTrigger>
-            <AccordionContent className="pb-0 animate-in slide-in-from-top-2 duration-300">
-              <div className="flex flex-col">
-                {/* VIP Support Section */}
-                <div className="w-full border-t border-amber-500/20 py-8 px-6 md:px-8 bg-amber-500/[0.02]">
-                  <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div className="flex items-center gap-4 text-center md:text-left">
-                      <div className="p-3 bg-amber-500/10 rounded-full border border-amber-500/30">
-                        <Star className="w-6 h-6 text-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
-                      </div>
-                      <div className="space-y-1">
-                        <h4 className="text-[12px] md:text-[14px] font-headline font-black uppercase tracking-[0.2em] text-amber-500">
-                          {t.orderBump.title}
-                        </h4>
-                        <p className="text-[10px] md:text-[11px] text-muted-foreground uppercase tracking-widest leading-relaxed max-w-xl">
-                          {t.orderBump.description}
-                        </p>
-                      </div>
-                    </div>
-                    <Button 
-                      asChild
-                      className="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-black font-black uppercase tracking-[0.2em] text-[10px] px-8 py-5 h-auto rounded-none shadow-[0_0_30px_-10px_rgba(245,158,11,0.6)] border border-amber-400/50 w-full md:w-auto"
-                    >
-                      <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">
-                        {t.orderBump.button}
-                      </a>
-                    </Button>
+            <AccordionContent className="pb-4">
+              <div className="max-w-6xl mx-auto px-6 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-6 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex flex-col gap-4">
+                  <div>
+                    <h4 className="text-amber-500 font-bold text-sm uppercase tracking-widest mb-1">{t.orderBump.title}</h4>
+                    <p className="text-xs text-amber-500/70 leading-relaxed">{t.orderBump.description}</p>
                   </div>
+                  <Button asChild className="bg-amber-500 hover:bg-amber-600 text-black font-bold rounded-xl h-11">
+                    <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">{t.orderBump.button}</a>
+                  </Button>
                 </div>
-
-                {/* Bypass Support Section */}
-                <div className="w-full border-t border-amber-500/20 py-8 px-6 md:px-8 bg-amber-500/[0.01]">
-                  <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div className="flex items-center gap-4 text-center md:text-left">
-                      <div className="p-3 bg-amber-500/10 rounded-full border border-amber-500/30">
-                        <Zap className="w-6 h-6 text-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
-                      </div>
-                      <div className="space-y-1">
-                        <h4 className="text-[12px] md:text-[14px] font-headline font-black uppercase tracking-[0.2em] text-amber-500">
-                          {t.bypass.title}
-                        </h4>
-                        <p className="text-[10px] md:text-[11px] text-muted-foreground uppercase tracking-widest leading-relaxed max-w-xl">
-                          {t.bypass.description}
-                        </p>
-                      </div>
-                    </div>
-                    <Button 
-                      asChild
-                      className="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-black font-black uppercase tracking-[0.2em] text-[10px] px-8 py-5 h-auto rounded-none shadow-[0_0_30px_-10px_rgba(245,158,11,0.6)] border border-amber-400/50 w-full md:w-auto"
-                    >
-                      <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">
-                        {t.bypass.button}
-                      </a>
-                    </Button>
+                <div className="p-6 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex flex-col gap-4">
+                  <div>
+                    <h4 className="text-amber-500 font-bold text-sm uppercase tracking-widest mb-1">{t.bypass.title}</h4>
+                    <p className="text-xs text-amber-500/70 leading-relaxed">{t.bypass.description}</p>
                   </div>
+                  <Button asChild className="bg-amber-500 hover:bg-amber-600 text-black font-bold rounded-xl h-11">
+                    <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">{t.bypass.button}</a>
+                  </Button>
                 </div>
               </div>
             </AccordionContent>
@@ -337,142 +317,167 @@ export default function Home() {
         </Accordion>
       </div>
 
-      <header className="w-full relative h-[40vh] md:h-[50vh] flex flex-col justify-end p-6 md:p-8 overflow-hidden bg-background border-b border-white/5">
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-primary/5 blur-[120px] rounded-full opacity-50" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background" />
+      {/* Hero Section - Strategic Modern */}
+      <header className="w-full max-w-6xl px-6 md:px-8 pt-20 pb-16 flex flex-col items-center text-center space-y-6">
+        <div className="flex items-center gap-3 mb-4 p-2 px-4 bg-primary/10 border border-primary/20 rounded-full">
+          <Image src="/logo.png" alt="Logo" width={20} height={20} className="object-contain" />
+          <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary">Unban Strategy V2.0</span>
         </div>
-        <div className="relative z-10 space-y-4 md:space-y-6 w-full max-w-6xl mx-auto">
-          <div className="flex items-center gap-3 text-primary">
-            <div className="p-1 bg-primary/10 border border-primary/20 rounded">
-              <Image src="/logo.png" alt="Logo" width={24} height={24} className="object-contain" />
-            </div>
-            <span className="font-headline text-[10px] font-bold tracking-[0.5em] uppercase">unban strategy 1.0</span>
-          </div>
-          <h1 className="text-3xl md:text-5xl font-headline font-black tracking-tighter uppercase leading-[0.9] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">
-            {t.hero.title} <span className="text-primary">{t.hero.titleAccent}</span>
-          </h1>
-          <p className="text-[11px] md:text-sm text-muted-foreground font-body max-w-md leading-relaxed uppercase tracking-[0.1em] md:tracking-[0.2em] opacity-90 border-l-2 border-primary/30 pl-4">
-            {t.hero.description}
-          </p>
-          <div className="pt-6 md:pt-8 flex flex-wrap items-center gap-4 md:gap-6">
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={() => {
-                localStorage.removeItem('unban_strategy_lang');
-                window.location.reload();
-              }}
-              className="bg-black/40 border-white/10 hover:border-primary text-[10px] uppercase tracking-widest transition-all h-10 px-6 rounded-none"
-            >
-              <Globe className="w-4 h-4 mr-2" /> Language Settings
-            </Button>
-            <div className="flex items-center gap-2 text-[10px] font-code text-primary/40 tracking-widest uppercase">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              Stable
-            </div>
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
+          {t.hero.title} <span className="text-primary">{t.hero.titleAccent}</span>
+        </h1>
+        <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed font-medium">
+          {t.hero.description}
+        </p>
+        <div className="pt-8 flex flex-wrap justify-center items-center gap-4">
+          <Button 
+            variant="outline" 
+            onClick={() => {
+              localStorage.removeItem('unban_strategy_lang');
+              window.location.reload();
+            }}
+            className="h-12 px-8 rounded-full border-white/10 hover:bg-white/5 font-semibold text-sm"
+          >
+            <Globe className="w-4 h-4 mr-2" /> Language
+          </Button>
+          <div className="flex items-center gap-2 px-6 h-12 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-muted-foreground">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+            System Secure
           </div>
         </div>
       </header>
 
-      <section className="w-full max-w-6xl px-6 md:px-8 py-12 md:py-20 space-y-12">
-        <div className="flex items-center justify-between border-b border-white/5 pb-4">
-          <div className="flex items-center gap-3">
-            <LayoutGrid className="w-5 h-5 text-primary" />
-            <h2 className="text-[12px] font-headline font-black uppercase tracking-[0.3em]">Protocol Systems</h2>
+      {/* Modules Grid - Dashboard Style */}
+      <section className="w-full max-w-6xl px-6 md:px-8 py-20 border-t border-white/5">
+        <div className="flex items-center justify-between mb-12">
+          <div className="space-y-1">
+            <h2 className="text-3xl font-bold text-white tracking-tight">Recuperação Estratégica</h2>
+            <p className="text-sm text-muted-foreground font-medium">Siga a trilha de conhecimento para o sucesso.</p>
           </div>
-          <span className="text-[10px] font-code text-muted-foreground/30 hidden md:inline">V.6.0_STABLE</span>
+          <LayoutGrid className="w-6 h-6 text-primary opacity-50" />
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {t.modules.map((module: any, index: number) => {
             const isLocked = index > 0 && !completedModules.includes(t.modules[index - 1].id);
             const moduleImage = PlaceHolderImages.find(img => img.id === module.id)?.imageUrl;
 
             return (
-              <Accordion key={module.id} type="single" collapsible className="w-full">
-                <AccordionItem value={module.id} className="border-none group overflow-visible" disabled={isLocked}>
-                  <AccordionTrigger className={cn("hover:no-underline p-0 flex flex-col items-start text-left data-[state=open]:mb-8 transition-all relative", isLocked && "opacity-60 cursor-not-allowed")}>
-                    <div className="relative w-full aspect-[4/5] rounded-sm overflow-hidden border border-white/5 transition-all duration-700 group-hover:border-primary/50 group-hover:shadow-[0_0_50px_-20px_rgba(255,46,46,0.4)]">
-                      <div className="absolute inset-0">
-                        {moduleImage && (
-                          <Image src={moduleImage} alt={module.title} fill className="object-cover transition-all duration-1000 brightness-[0.5] group-hover:brightness-[0.7] group-hover:scale-105" />
-                        )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                      </div>
-                      <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end gap-2">
-                        <span className="text-[10px] font-headline font-bold text-primary tracking-[0.4em] mb-2">{module.tag}</span>
-                        <h3 className="text-2xl md:text-3xl font-headline font-black text-white uppercase tracking-tighter leading-none group-hover:text-primary transition-colors">{module.title}</h3>
-                        {isLocked ? (
-                          <div className="mt-4 flex items-center gap-3 p-3 bg-black/80 border border-white/10 rounded-none backdrop-blur-xl w-fit">
-                            <Lock className="w-3 h-3 text-primary" />
-                            <p className="text-[9px] text-muted-foreground uppercase font-black tracking-widest">{t.ui.locked}</p>
-                          </div>
-                        ) : (
-                          <div className="mt-4 flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-[0.3em] font-bold">
-                            {t.ui.accessModule} <ChevronRight className="w-4 h-4 text-primary group-hover:translate-x-2 transition-transform" />
-                          </div>
-                        )}
-                      </div>
+              <div key={module.id} className="relative group">
+                <div className={cn(
+                  "flex flex-col h-full rounded-3xl overflow-hidden border transition-all duration-500",
+                  isLocked 
+                    ? "bg-white/[0.01] border-white/[0.05] opacity-50" 
+                    : "bg-white/[0.03] border-white/[0.05] hover:border-primary/30 hover:bg-white/[0.05] hover:-translate-y-2 shadow-2xl shadow-black/40"
+                )}>
+                  <div className="relative aspect-video w-full overflow-hidden">
+                    {moduleImage && (
+                      <Image 
+                        src={moduleImage} 
+                        alt={module.title} 
+                        fill 
+                        className={cn(
+                          "object-cover transition-all duration-700",
+                          !isLocked && "group-hover:scale-110 brightness-75 group-hover:brightness-90"
+                        )} 
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 bg-primary/20 backdrop-blur-md border border-primary/30 rounded-full text-[10px] font-bold text-primary tracking-widest uppercase">
+                        {module.tag}
+                      </span>
                     </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="bg-card border border-white/10 rounded-sm p-6 md:p-8 animate-in slide-in-from-top-4 duration-500 shadow-2xl relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-1 h-full bg-primary" />
-                    <div className="space-y-8">
-                      <div className="pb-6 border-b border-white/5">
-                        <h4 className="font-headline text-lg md:text-xl font-black text-white mb-3 uppercase tracking-tight">{module.title}</h4>
-                        <p className="text-[10px] text-muted-foreground leading-relaxed uppercase tracking-widest opacity-70">{module.description}</p>
-                      </div>
-                      <div className="space-y-4">
-                        <div className="grid gap-1">
-                          {module.lessons.map((lesson: any) => (
-                            <LessonItem 
-                              key={lesson.id} 
-                              lesson={lesson} 
-                              viewedLessons={viewedLessons}
-                              markLessonAsViewed={markLessonAsViewed}
-                              copyToClipboard={copyToClipboard}
-                              t={t}
-                            />
-                          ))}
+                  </div>
+                  
+                  <div className="p-8 flex flex-col flex-1 gap-4">
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-primary transition-colors">{module.title}</h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{module.description}</p>
+                    </div>
+
+                    <div className="mt-auto pt-4 flex flex-col gap-4">
+                      {isLocked ? (
+                        <div className="flex items-center gap-3 p-4 bg-white/5 rounded-2xl">
+                          <Lock className="w-4 h-4 text-muted-foreground" />
+                          <span className="text-xs font-bold text-muted-foreground tracking-wide">{t.ui.locked}</span>
                         </div>
-                        <div className="pt-6">
-                          {!completedModules.includes(module.id) ? (
-                            <Button 
-                              onClick={() => markAsCompleted(module.id)}
-                              className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/30 text-[9px] sm:text-[10px] uppercase font-black tracking-[0.05em] sm:tracking-[0.1em] py-5 sm:py-8 rounded-none transition-all duration-500 whitespace-normal text-center leading-tight"
-                            >
-                              {t.ui.completeModule}
+                      ) : (
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-bold rounded-2xl group/btn">
+                              {t.ui.accessModule} 
+                              <ChevronRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-all" />
                             </Button>
-                          ) : (
-                            <div className="flex items-center justify-center gap-3 text-primary font-black text-[11px] uppercase tracking-[0.4em] p-6 bg-primary/5 rounded-none border border-primary/20">
-                              <CheckCircle2 className="w-5 h-5" />
-                              {t.ui.moduleCompleted}
+                          </DialogTrigger>
+                          <DialogContent className="bg-card border-white/10 w-[95vw] md:max-w-3xl max-h-[90vh] overflow-y-auto custom-scrollbar p-0 rounded-3xl overflow-hidden">
+                            <div className="h-48 relative w-full">
+                              {moduleImage && <Image src={moduleImage} alt={module.title} fill className="object-cover brightness-50" />}
+                              <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                              <div className="absolute bottom-6 left-8">
+                                <span className="text-primary text-xs font-black tracking-widest uppercase mb-2 block">{module.tag}</span>
+                                <h3 className="text-3xl font-bold text-white tracking-tight">{module.title}</h3>
+                              </div>
                             </div>
-                          )}
-                        </div>
-                      </div>
+                            <div className="p-8 space-y-8">
+                              <div className="space-y-3">
+                                {module.lessons.map((lesson: any) => (
+                                  <LessonItem 
+                                    key={lesson.id} 
+                                    lesson={lesson} 
+                                    viewedLessons={viewedLessons}
+                                    markLessonAsViewed={markLessonAsViewed}
+                                    copyToClipboard={copyToClipboard}
+                                    t={t}
+                                  />
+                                ))}
+                              </div>
+                              <div className="pt-4 border-t border-white/5">
+                                {!completedModules.includes(module.id) ? (
+                                  <Button 
+                                    onClick={() => markAsCompleted(module.id)}
+                                    className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/20 h-16 rounded-2xl font-bold text-sm transition-all"
+                                  >
+                                    {t.ui.completeModule}
+                                  </Button>
+                                ) : (
+                                  <div className="flex items-center justify-center gap-3 text-green-500 font-bold text-sm p-5 bg-green-500/5 rounded-2xl border border-green-500/20">
+                                    <CheckCircle2 className="w-5 h-5" />
+                                    {t.ui.moduleCompleted}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          </DialogContent>
+                        </Dialog>
+                      )}
                     </div>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+                  </div>
+                </div>
+              </div>
             );
           })}
         </div>
       </section>
 
-      <div className="w-full max-w-2xl px-6 md:px-8 mb-20 md:mb-32">
-        <div className="bg-card border border-primary/30 p-8 md:p-12 rounded-sm space-y-6 relative overflow-hidden shadow-[0_0_80px_-20px_rgba(255,46,46,0.1)]">
-          <div className="absolute top-0 right-0 w-48 h-48 bg-primary/5 rounded-full -mr-24 -mt-24 blur-[100px]" />
-          <h3 className="font-headline text-[12px] uppercase tracking-[0.4em] flex items-center gap-3 font-black text-primary">
-            <ShieldAlert className="w-5 h-5" />
-            {t.ui.securityGuidelines}
-          </h3>
-          <div className="grid gap-6 font-body text-[11px] text-muted-foreground uppercase leading-relaxed tracking-wider">
-            <div className="space-y-3">
-              <span className="text-white font-black block border-l-2 border-primary pl-4">{t.ui.criticalAttention}</span>
-              <p className="opacity-80">{t.ui.safetyText}</p>
-              <div className="p-4 bg-primary/10 border border-primary/20 text-primary font-black text-[10px] tracking-widest leading-relaxed">
+      {/* Security Info Card - Modernized */}
+      <div className="w-full max-w-4xl px-6 md:px-8 pb-32">
+        <div className="p-8 md:p-12 rounded-[2.5rem] bg-gradient-to-br from-white/[0.04] to-transparent border border-white/10 space-y-8 relative overflow-hidden shadow-2xl">
+          <div className="absolute -top-12 -right-12 w-48 h-48 bg-primary/10 blur-[80px] rounded-full" />
+          <div className="flex items-center gap-4 text-primary">
+            <div className="p-3 bg-primary/10 rounded-2xl">
+              <ShieldAlert className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold uppercase tracking-widest">{t.ui.securityGuidelines}</h3>
+          </div>
+          <div className="grid gap-8 font-medium">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 text-white">
+                <Info className="w-5 h-5 text-primary" />
+                <span className="text-lg font-bold">{t.ui.criticalAttention}</span>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">{t.ui.safetyText}</p>
+              <div className="p-6 bg-primary/10 border border-primary/20 rounded-2xl text-primary font-bold text-sm leading-relaxed text-center">
                 {t.ui.waitDays}
               </div>
             </div>
@@ -480,16 +485,27 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className="w-full max-w-6xl px-6 md:px-8 py-16 md:py-24 flex flex-col items-center justify-center space-y-10 opacity-20 border-t border-white/5">
-        <div className="flex items-center gap-8 md:gap-12">
-          <Image src="/logo.png" alt="Logo" width={32} height={32} className="opacity-50" />
-          <Globe className="w-6 md:w-8 h-6 md:h-8" />
-          <ShieldAlert className="w-6 md:w-8 h-6 md:h-8" />
-        </div>
-        <div className="flex flex-col items-center gap-3 text-[8px] md:text-[9px] font-code tracking-[0.4em] md:tracking-[0.6em] text-center">
-          <span className="font-black text-white">UNBANSTRATEGY_PROTOCOL_ENCRYPTED</span>
-          <span className="text-primary font-black">// {t.ui.systemActive}</span>
-          <span className="mt-4 opacity-50">© 2024 ZEPHYRUS_GLOBAL_SYSTEMS</span>
+      {/* Modern Footer */}
+      <footer className="w-full bg-white/[0.02] border-t border-white/5 py-20 flex flex-col items-center">
+        <div className="max-w-6xl w-full px-6 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-12 items-center text-center md:text-left">
+          <div className="space-y-4">
+            <div className="flex items-center justify-center md:justify-start gap-3">
+              <Image src="/logo.png" alt="Logo" width={32} height={32} />
+              <span className="font-bold text-xl tracking-tight">Unban Strategy</span>
+            </div>
+            <p className="text-xs text-muted-foreground leading-relaxed max-w-xs mx-auto md:mx-0">
+              Método estratégico para análise e recuperação de contas baseado em protocolos oficiais.
+            </p>
+          </div>
+          <div className="flex justify-center gap-8 text-muted-foreground">
+            <ShieldAlert className="w-6 h-6 hover:text-primary transition-colors cursor-pointer" />
+            <Globe className="w-6 h-6 hover:text-primary transition-colors cursor-pointer" />
+            <Zap className="w-6 h-6 hover:text-primary transition-colors cursor-pointer" />
+          </div>
+          <div className="text-center md:text-right space-y-2">
+            <span className="text-[10px] font-bold text-primary tracking-widest uppercase block">{t.ui.systemActive}</span>
+            <span className="text-[10px] text-muted-foreground/50 tracking-widest uppercase block">© 2024 ZEPHYRUS GLOBAL SYSTEMS</span>
+          </div>
         </div>
       </footer>
       
