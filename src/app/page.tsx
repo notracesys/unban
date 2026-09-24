@@ -19,10 +19,10 @@ import {
   Sparkles,
   Command,
   Activity,
-  BrainCircuit,
   Clock,
   ArrowLeft,
-  X
+  X,
+  BrainCircuit
 } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
@@ -39,11 +39,8 @@ import {
 import { useToast } from '@/hooks/use-toast';
 import { translations, type Language } from '@/lib/translations';
 import { SupportWidget } from '@/components/cyber/SupportWidget';
-import { TicketAdvisor } from '@/components/cyber/TicketAdvisor';
-import { DecisionTree } from '@/components/cyber/DecisionTree';
 import { DelayTimer } from '@/components/cyber/DelayTimer';
 import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
-import { AttemptLog } from '@/components/cyber/AttemptLog';
 
 const onboardingSteps = {
   pt: [
@@ -54,13 +51,7 @@ const onboardingSteps = {
       tag: "PASSO OBRIGATÓRIO"
     },
     {
-      title: "2. Triagem e Diagnóstico de IA",
-      description: "Após entender a teoria, o passo a passo te leva para o centro da interface. Aqui você colará a notificação do jogo no nosso Scanner de IA e usará a Árvore de Decisão para descobrir o tipo exato do seu banimento e obter o template cirúrgico.",
-      icon: BrainCircuit,
-      tag: "ANÁLISE DO CASO"
-    },
-    {
-      title: "3. Suporte Premium e Silêncio",
+      title: "2. Suporte Premium e Silêncio",
       description: "Por fim, o guia apresenta os canais de apoio: a Central de Suporte Premium no topo para planos VIP/Bypass e o Widget do Telegram no canto inferior. Lembre-se, este passo a passo serve apenas para mapear sua jornada. O sucesso real está na execução correta!",
       icon: Zap,
       tag: "ALTA CONVERSÃO"
@@ -74,13 +65,7 @@ const onboardingSteps = {
       tag: "MANDATORY STEP"
     },
     {
-      title: "2. AI Screening and Diagnosis",
-      description: "After understanding the theory, the step-by-step takes you to the center of the interface. Here you will paste the game notification into our AI Scanner and use the Decision Tree to discover your exact ban type and get the surgical template.",
-      icon: BrainCircuit,
-      tag: "CASE ANALYSIS"
-    },
-    {
-      title: "3. Premium Support & Silence",
+      title: "2. Premium Support & Silence",
       description: "Finally, the guide presents the active help channels: the Premium Support Center at the top for VIP/Bypass plans and the Telegram Widget in the bottom corner. Remember, this step-by-step is just to map your journey. Real success lies in proper execution!",
       icon: Zap,
       tag: "HIGH CONVERSION"
@@ -89,15 +74,9 @@ const onboardingSteps = {
   es: [
     {
       title: "1. Conocimiento Base (Módulos)",
-      description: "El primer paso de su guía es desplazarse hasta la sección de Recuperación Estratégica. Está obligado a leer y comprender cómo funciona un ticket de respeto antes de enviar cualquier mensaje. Sin esta base, su cuenta seguirá bloqueada.",
+      description: "El primer paso de su guía é desplazarse hasta la sección de Recuperación Estratégica. Está obligado a leer y comprender cómo funciona un ticket de respeto antes de enviar cualquier mensaje. Sin esta base, su cuenta seguirá bloqueada.",
       icon: LayoutGrid,
       tag: "PASO OBRIGATORIO"
-    },
-    {
-      title: "2. Triaje y Diagnóstico de IA",
-      description: "Después de entender la teoría, el paso a paso lo lleva al centro de la interfaz. Aquí pegará la notificación del juego en nuestro Escáner de IA y usará el Árbol de Decisión para descubrir el tipo exacto de su baneo y obtener la plantilla quirúrgica.",
-      icon: BrainCircuit,
-      tag: "ANÁLISIS DEL CASO"
     },
     {
       title: "3. Soporte Premium y Silencio",
@@ -150,7 +129,7 @@ const FormattedLessonContent = ({ content }: { content: string }) => {
         }
 
         return (
-          <p key={index} className="text-xs sm:text-sm text-muted-foreground/80 leading-relaxed pl-3 border-l border-white/10 ml-1">
+          <p key={index} className="text-xs sm:text-sm text-muted-foreground/80 leading-relaxed pl-3 border-l border-l-primary/30 ml-1">
             {trimmedLine}
           </p>
         );
@@ -265,7 +244,6 @@ export default function Home() {
   const [viewedLessons, setViewedLessons] = useState<string[]>([]);
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [onboardingIndex, setOnboardingIndex] = useState(0);
-  const [diagnosedType, setDiagnosedType] = useState<string | null>(null);
   const { toast } = useToast();
 
   const t = language ? translations[language] : null;
@@ -553,39 +531,6 @@ export default function Home() {
           </div>
         </div>
       </header>
-
-      {/* FERRAMENTAS INTEGRADAS */}
-      <section className="w-full max-w-6xl px-4 sm:px-8 py-4 grid grid-cols-1 lg:grid-cols-3 gap-6 relative">
-        <div className="lg:col-span-2 p-6 sm:p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 space-y-6">
-          <div className="space-y-1">
-            <div className="text-[10px] text-primary font-black uppercase tracking-widest flex items-center gap-1.5">
-              <BrainCircuit className="w-3.5 h-3.5" />
-              IA Core Scanner
-            </div>
-            <h3 className="text-xl sm:text-2xl font-black uppercase italic text-white">Análise e Diagnóstico de Banimento</h3>
-            <p className="text-xs text-muted-foreground">Cole abaixo a resposta da desenvolvedora para determinar o protocolo ideal.</p>
-          </div>
-          <TicketAdvisor prefilledType={diagnosedType || 'Automático'} />
-        </div>
-
-        <div className="p-6 sm:p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 flex flex-col justify-between gap-6">
-          <div className="space-y-4">
-            <div className="space-y-1">
-              <div className="text-[10px] text-primary font-black uppercase tracking-widest flex items-center gap-1.5">
-                <Command className="w-3.5 h-3.5" />
-                Triagem Rápida
-              </div>
-              <h3 className="text-xl sm:text-2xl font-black uppercase italic text-white">Árvore de Decisão</h3>
-            </div>
-            <DecisionTree onDiagnosed={(type) => setDiagnosedType(type)} />
-          </div>
-
-          <div className="pt-4 border-t border-white/5 space-y-4">
-            <h4 className="text-[10px] font-black text-muted-foreground uppercase tracking-wider">Histórico de Consultas</h4>
-            <AttemptLog />
-          </div>
-        </div>
-      </section>
 
       {/* OPERATIONS AND DECODER SECTION */}
       <section className="w-full max-w-6xl px-4 sm:px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-6 relative">
