@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -16,9 +15,7 @@ import {
   Globe, 
   Zap, 
   Star,
-  BookOpen,
   ArrowRight,
-  Info,
   Sparkles,
   Command,
   Activity
@@ -235,7 +232,6 @@ export default function Home() {
   if (!language || !t) {
     return (
       <div className="fixed inset-0 z-[200] bg-background flex flex-col items-center justify-center p-6 overflow-hidden">
-        {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 blur-[150px] rounded-full animate-pulse" />
           <div className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-primary/10 blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
@@ -294,7 +290,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background text-foreground flex flex-col items-center">
-      {/* Premium Support - Elegant Floating Nav */}
       <div className="w-full bg-amber-500/5 border-b border-white/5 backdrop-blur-2xl sticky top-0 z-50">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="premium-support" className="border-none">
@@ -339,9 +334,7 @@ export default function Home() {
         </Accordion>
       </div>
 
-      {/* Hero Section - Immersive Wide Banner */}
       <header className="w-full flex flex-col items-center text-center relative overflow-hidden">
-        {/* Dynamic Glow background for Header */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-primary/10 blur-[120px] rounded-full mask-radial pointer-events-none opacity-50" />
         
         <div className="w-full relative aspect-[21/9] md:aspect-[4/1] overflow-hidden group border-b border-white/5 shadow-2xl">
@@ -360,13 +353,6 @@ export default function Home() {
 
         <div className="max-w-6xl px-6 md:px-8 pt-20 pb-24 flex flex-col items-center space-y-10 relative z-10 animate-in fade-in slide-in-from-bottom-12 duration-1000">
           <div className="flex flex-col items-center space-y-8">
-            <div className="flex items-center gap-4 p-2.5 px-6 bg-white/[0.03] border border-white/10 rounded-full backdrop-blur-xl animate-pulse-glow">
-              <div className="w-5 h-5 relative">
-                <Image src="/logo.png" alt="Logo" fill className="object-contain" />
-              </div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-primary italic">Unban Strategy V2.0 // Secured</span>
-            </div>
-            
             <h1 className="text-6xl md:text-9xl font-black tracking-tighter text-white leading-[0.85] text-gradient">
               {t.hero.title}<br />
               <span className="text-primary italic">{t.hero.titleAccent}</span>
@@ -397,7 +383,6 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Dashboard Section */}
       <section className="w-full max-w-6xl px-6 md:px-8 py-24 relative">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 animate-in fade-in slide-in-from-left-8 duration-700">
           <div className="space-y-3">
@@ -426,10 +411,8 @@ export default function Home() {
                     ? "bg-white/[0.01] border-white/[0.05] opacity-40 grayscale" 
                     : "bg-white/[0.03] border-white/[0.08] hover:border-primary/40 hover:bg-white/[0.06] hover:-translate-y-4 shadow-[0_20px_50px_rgba(0,0,0,0.5)] group-hover/card:shadow-primary/10"
                 )}>
-                  {/* Subtle Shimmer Overlay */}
                   {!isLocked && <div className="absolute inset-0 animate-shimmer pointer-events-none opacity-20" />}
                   
-                  {/* Vertical Image Wrapper 4:5 */}
                   <div className="relative aspect-[4/5] w-full overflow-hidden">
                     {moduleImage && (
                       <Image 
@@ -527,7 +510,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Security Info Card - Masterclass Style */}
       <div className="w-full max-w-4xl px-6 md:px-8 pb-40">
         <div className="relative group p-10 md:p-16 rounded-[3rem] bg-white/[0.02] border border-white/10 overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.6)] animate-in zoom-in-95 duration-1000">
           <div className="absolute -top-32 -right-32 w-80 h-80 bg-primary/10 blur-[120px] rounded-full group-hover:bg-primary/20 transition-all duration-1000" />
@@ -560,7 +542,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Modern High-End Footer */}
       <footer className="w-full bg-white/[0.01] border-t border-white/5 py-24 flex flex-col items-center relative overflow-hidden">
         <div className="absolute bottom-0 left-0 w-full h-[300px] bg-primary/5 blur-[100px] rounded-full mask-radial pointer-events-none" />
         
