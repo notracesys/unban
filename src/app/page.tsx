@@ -19,10 +19,8 @@ import {
   Sparkles,
   Command,
   Activity,
-  Clock,
   ArrowLeft,
-  X,
-  BrainCircuit
+  X
 } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
@@ -39,8 +37,6 @@ import {
 import { useToast } from '@/hooks/use-toast';
 import { translations, type Language } from '@/lib/translations';
 import { SupportWidget } from '@/components/cyber/SupportWidget';
-import { DelayTimer } from '@/components/cyber/DelayTimer';
-import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
 
 const onboardingSteps = {
   pt: [
@@ -79,8 +75,8 @@ const onboardingSteps = {
       tag: "PASO OBRIGATORIO"
     },
     {
-      title: "3. Soporte Premium y Silencio",
-      description: "Por último, la guía presenta los canales de ayuda: el Centro de Soporte Premium en la parte superior para planes VIP/Bypass y el Widget de Telegram en la esquina inferior. Recuerde, este paso a paso es solo para mapear su viaje. ¡El éxito real está en la ejecución correcta!",
+      title: "2. Soporte Premium y Silencio",
+      description: "Por último, la guía presents los canales de ayuda: el Centro de Soporte Premium en la parte superior para planes VIP/Bypass y el Widget de Telegram en la esquina inferior. Recuerde, este paso a paso es solo para mapear su viaje. ¡El éxito real está en la ejecución correcta!",
       icon: Zap,
       tag: "ALTA CONVERSIÓN"
     }
@@ -91,7 +87,7 @@ const FormattedLessonContent = ({ content }: { content: string }) => {
   const lines = content.split('\n');
   
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 text-left">
       {lines.map((line, index) => {
         const trimmedLine = line.trim();
         if (!trimmedLine) return <div key={index} className="h-2" />;
@@ -159,7 +155,7 @@ const LessonItem = ({ lesson, viewedLessons, markLessonAsViewed, copyToClipboard
             )}>
               <PlayCircle className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col text-left">
               <span className={cn(
                 "text-xs sm:text-sm font-bold transition-colors line-clamp-1",
                 isViewed ? "text-green-500" : "text-white group-hover:text-primary"
@@ -174,15 +170,15 @@ const LessonItem = ({ lesson, viewedLessons, markLessonAsViewed, copyToClipboard
       </DialogTrigger>
       <DialogContent className="bg-card/95 backdrop-blur-3xl border-none w-full h-[100dvh] overflow-y-auto custom-scrollbar p-0 sm:rounded-[2.5rem] shadow-none focus:outline-none max-w-none sm:max-w-4xl sm:h-auto sm:max-h-[90vh]">
         <div className="p-6 sm:p-12 pb-24 sm:pb-12">
-          <DialogHeader className="pb-6 sm:pb-8 mb-6 sm:mb-8 border-b border-white/5">
+          <DialogHeader className="pb-6 sm:pb-8 mb-6 sm:mb-8 border-b border-white/5 text-left">
             <div className="flex items-center gap-2 text-primary text-[9px] sm:text-[10px] font-black uppercase tracking-[0.4em] mb-3 sm:mb-4">
               <Command className="w-3.5 h-3.5 animate-pulse" />
               {t.ui.dataStream}
             </div>
-            <DialogTitle className="text-2xl sm:text-5xl font-black text-white tracking-tighter leading-tight max-w-2xl">
+            <DialogTitle className="text-2xl sm:text-5xl font-black text-white tracking-tighter leading-tight max-w-2xl text-left">
               {lesson.title}
             </DialogTitle>
-            <DialogDescription className="sr-only">
+            <DialogDescription className="text-left text-xs text-muted-foreground">
               Conteúdo detalhado da aula técnica sobre recuperação estratégica.
             </DialogDescription>
           </DialogHeader>
@@ -197,7 +193,7 @@ const LessonItem = ({ lesson, viewedLessons, markLessonAsViewed, copyToClipboard
             {lesson.template && (
               <div className="relative group/template">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-primary/50 rounded-2xl blur opacity-10 group-hover/template:opacity-20 transition duration-1000"></div>
-                <div className="relative space-y-4 p-5 sm:p-8 bg-black/40 border border-white/10 rounded-2xl overflow-hidden">
+                <div className="relative space-y-4 p-5 sm:p-8 bg-black/40 border border-white/10 rounded-2xl overflow-hidden text-left">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-3 text-primary font-black text-[9px] sm:text-[10px] uppercase tracking-[0.3em]">
                       <Terminal className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -459,7 +455,7 @@ export default function Home() {
             </AccordionTrigger>
             <AccordionContent className="pb-6 sm:pb-8 animate-in fade-in zoom-in-95 duration-500">
               <div className="max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <div className="relative group overflow-hidden p-6 sm:p-8 rounded-2xl bg-amber-500/5 border border-amber-500/20 flex flex-col gap-5 sm:gap-6 hover:bg-amber-500/10 transition-all">
+                <div className="relative group overflow-hidden p-6 sm:p-8 rounded-2xl bg-amber-500/5 border border-amber-500/20 flex flex-col gap-5 sm:gap-6 hover:bg-amber-500/10 transition-all text-left">
                   <div className="absolute -top-12 -right-12 w-32 h-32 bg-amber-500/10 blur-3xl rounded-full" />
                   <div>
                     <h4 className="text-amber-500 font-black text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-2 sm:mb-3">{t.orderBump.title}</h4>
@@ -471,7 +467,7 @@ export default function Home() {
                     </a>
                   </Button>
                 </div>
-                <div className="relative group overflow-hidden p-6 sm:p-8 rounded-2xl bg-amber-500/5 border border-amber-500/20 flex flex-col gap-5 sm:gap-6 hover:bg-amber-500/10 transition-all">
+                <div className="relative group overflow-hidden p-6 sm:p-8 rounded-2xl bg-amber-500/5 border border-amber-500/20 flex flex-col gap-5 sm:gap-6 hover:bg-amber-500/10 transition-all text-left">
                   <div className="absolute -top-12 -right-12 w-32 h-32 bg-amber-500/10 blur-3xl rounded-full" />
                   <div>
                     <h4 className="text-amber-500 font-black text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-2 sm:mb-3">{t.bypass.title}</h4>
@@ -532,35 +528,10 @@ export default function Home() {
         </div>
       </header>
 
-      {/* OPERATIONS AND DECODER SECTION */}
-      <section className="w-full max-w-6xl px-4 sm:px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-6 relative">
-        <div className="p-6 sm:p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 space-y-4">
-          <div className="space-y-1">
-            <div className="text-[10px] text-primary font-black uppercase tracking-widest flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5" />
-              Protocolo Pós-Ticket
-            </div>
-            <h3 className="text-xl sm:text-2xl font-black uppercase italic text-white">Gerenciador de Silêncio</h3>
-          </div>
-          <DelayTimer />
-        </div>
-
-        <div className="p-6 sm:p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 space-y-4">
-          <div className="space-y-1">
-            <div className="text-[10px] text-primary font-black uppercase tracking-widest flex items-center gap-1.5">
-              <Terminal className="w-3.5 h-3.5" />
-              Decoder de Feedback
-            </div>
-            <h3 className="text-xl sm:text-2xl font-black uppercase italic text-white">Decodificador de Respostas</h3>
-          </div>
-          <ResponseDecoder />
-        </div>
-      </section>
-
       {/* SEÇÃO DOS MÓDULOS - FOCO PRINCIPAL DO PASSO A PASSO */}
       <section id="modulos-estrategicos" className="w-full max-w-6xl px-4 sm:px-8 py-12 sm:py-24 relative">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16 animate-in fade-in slide-in-from-left-8 duration-700">
-          <div className="space-y-2 sm:space-y-3 px-2">
+          <div className="space-y-2 sm:space-y-3 px-2 text-left">
             <div className="flex items-center gap-3 text-primary text-[8px] sm:text-[10px] font-black uppercase tracking-[0.5em]">
               <Command className="w-3.5 h-3.5" />
               Passo 1 Obrigatório // Conteúdo Prático
@@ -615,7 +586,7 @@ export default function Home() {
                     )}
                   </div>
                   
-                  <div className="p-8 sm:p-10 flex flex-col flex-1 gap-5 sm:gap-6 relative z-10">
+                  <div className="p-8 sm:p-10 flex flex-col flex-1 gap-5 sm:gap-6 relative z-10 text-left">
                     <div className="space-y-3 sm:space-y-4">
                       <h3 className="text-xl sm:text-2xl font-black text-white tracking-tighter group-hover/card:text-primary transition-colors uppercase italic leading-none">{module.title}</h3>
                       <p className="text-[10px] sm:text-xs text-muted-foreground leading-relaxed font-medium line-clamp-3 opacity-80">{module.description}</p>
@@ -636,14 +607,14 @@ export default function Home() {
                             </Button>
                           </DialogTrigger>
                           <DialogContent className="bg-card/98 backdrop-blur-3xl border-none w-full h-[100dvh] overflow-y-auto custom-scrollbar p-0 overflow-hidden shadow-none focus:outline-none max-w-none sm:max-w-4xl sm:h-auto sm:max-h-[90vh]">
-                            <DialogHeader className="sr-only">
+                            <DialogHeader className="sr-only text-left">
                               <DialogTitle>{module.title}</DialogTitle>
                               <DialogDescription>{module.description}</DialogDescription>
                             </DialogHeader>
                             <div className="h-48 sm:h-64 relative w-full overflow-hidden shrink-0">
                               {moduleImage && <Image src={moduleImage} alt={module.title} fill className="object-cover brightness-[0.4] scale-105" />}
                               <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
-                              <div className="absolute bottom-6 left-6 sm:bottom-10 sm:left-12 pr-6 max-w-2xl animate-in slide-in-from-left-8 duration-700">
+                              <div className="absolute bottom-6 left-6 sm:bottom-10 sm:left-12 pr-6 max-w-2xl animate-in slide-in-from-left-8 duration-700 text-left">
                                 <span className="text-primary text-[8px] sm:text-[10px] font-black tracking-[0.4em] sm:tracking-[0.6em] uppercase mb-2 sm:mb-4 block">{module.tag}</span>
                                 <h3 className="text-2xl sm:text-4xl md:text-6xl font-black text-white tracking-tighter uppercase italic leading-tight sm:leading-none">{module.title}</h3>
                               </div>
@@ -694,7 +665,7 @@ export default function Home() {
           <div className="absolute -top-32 -right-32 w-80 h-80 bg-primary/10 blur-[120px] rounded-full group-hover:bg-primary/20 transition-all duration-1000" />
           <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-primary/5 blur-[120px] rounded-full" />
           
-          <div className="relative z-10 space-y-8 sm:space-y-10">
+          <div className="relative z-10 space-y-8 sm:space-y-10 text-left">
             <div className="flex items-center gap-4 sm:gap-5 text-primary">
               <div className="p-3 sm:p-4 bg-primary/10 rounded-xl shadow-lg shadow-primary/10">
                 <ShieldAlert className="w-6 h-6 sm:w-8 sm:h-8" />
