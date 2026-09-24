@@ -19,7 +19,6 @@ import {
   Sparkles,
   Command,
   Activity,
-  ArrowLeft,
   X,
   ArrowDown
 } from 'lucide-react';
@@ -82,7 +81,7 @@ const onboardingSteps = {
     },
     {
       title: "2. Soporte Premium VIP y Bypass",
-      description: "Después de comprender la lógica y estructurar su estrategia a través de los módulos, podrá utilizar los canales de apoyo especializados en la parte superior para planes VIP/Bypass.",
+      description: "Después de comprender la lógica y estructurar su estrategia a través de los módulos, podrá utilizar los canales de apoyo especializados en la parte superior para planos VIP/Bypass.",
       icon: Zap,
       tag: "PASO 2 SOPORTE EXTRA",
       targetId: "premium-support-nav"
@@ -502,19 +501,6 @@ export default function Home() {
             <p className="text-sm sm:text-lg text-muted-foreground max-w-xl leading-relaxed font-medium tracking-tight px-4">
               {t.hero.description}
             </p>
-
-            <Button
-              onClick={() => {
-                setOnboardingIndex(0);
-                setShowOnboarding(true);
-                scrollToSection("modulos-estrategicos");
-              }}
-              variant="outline"
-              className="border-primary/40 text-primary hover:bg-primary/10 font-black uppercase text-xs tracking-wider rounded-xl h-12 px-6 active:scale-95 transition-all shadow-[0_0_20px_rgba(236,72,153,0.15)]"
-            >
-              <Sparkles className="w-4 h-4 mr-2 animate-spin" style={{ animationDuration: '3s' }} />
-              {language === 'pt' ? 'Iniciar Passo a Passo Visual' : language === 'es' ? 'Iniciar Guía Paso a Paso' : 'Start Step-by-Step Guide'}
-            </Button>
           </div>
         </div>
       </header>
