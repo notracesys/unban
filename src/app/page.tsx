@@ -29,6 +29,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useToast } from '@/hooks/use-toast';
@@ -130,6 +131,9 @@ const LessonItem = ({ lesson, viewedLessons, markLessonAsViewed, copyToClipboard
             <DialogTitle className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-tight max-w-2xl">
               {lesson.title}
             </DialogTitle>
+            <DialogDescription className="sr-only">
+              Conteúdo detalhado da aula técnica sobre recuperação estratégica.
+            </DialogDescription>
           </DialogHeader>
           
           <div className="space-y-12">
@@ -443,6 +447,10 @@ export default function Home() {
                             </Button>
                           </DialogTrigger>
                           <DialogContent className="bg-card/98 backdrop-blur-3xl border-white/10 w-[95vw] md:max-w-4xl max-h-[90vh] overflow-y-auto custom-scrollbar p-0 rounded-[3rem] overflow-hidden shadow-[0_0_150px_rgba(225,29,72,0.15)]">
+                            <DialogHeader className="sr-only">
+                              <DialogTitle>{module.title}</DialogTitle>
+                              <DialogDescription>{module.description}</DialogDescription>
+                            </DialogHeader>
                             <div className="h-64 relative w-full overflow-hidden">
                               {moduleImage && <Image src={moduleImage} alt={module.title} fill className="object-cover brightness-[0.4] scale-105" />}
                               <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
