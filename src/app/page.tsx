@@ -18,7 +18,11 @@ import {
   ArrowRight,
   Sparkles,
   Command,
-  Activity
+  Activity,
+  BrainCircuit,
+  Clock,
+  ArrowLeft,
+  X
 } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
@@ -35,6 +39,74 @@ import {
 import { useToast } from '@/hooks/use-toast';
 import { translations, type Language } from '@/lib/translations';
 import { SupportWidget } from '@/components/cyber/SupportWidget';
+import { TicketAdvisor } from '@/components/cyber/TicketAdvisor';
+import { DecisionTree } from '@/components/cyber/DecisionTree';
+import { DelayTimer } from '@/components/cyber/DelayTimer';
+import { ResponseDecoder } from '@/components/cyber/ResponseDecoder';
+import { AttemptLog } from '@/components/cyber/AttemptLog';
+
+const onboardingSteps = {
+  pt: [
+    {
+      title: "1. Diagnóstico de IA",
+      description: "Insira a notificação de restrição que você recebeu do jogo no nosso motor de IA. O sistema identificará se o seu banimento foi Automático, Manual ou Reincidente para aplicar o protocolo correto.",
+      icon: BrainCircuit,
+      tag: "PASSO DE ENTRADA"
+    },
+    {
+      title: "2. Cópia do Protocolo",
+      description: "Acesse o módulo estratégico correspondente que foi liberado e copie o modelo de ticket ideal. Esses textos foram calibrados com termos formais para burlar filtros automáticos de suporte.",
+      icon: Terminal,
+      tag: "ESTRATÉGIA ATIVA"
+    },
+    {
+      title: "3. Silêncio Operacional",
+      description: "Após enviar o ticket no canal oficial, ative obrigatoriamente o cronômetro de 7 dias de silêncio absoluto. Enviar mensagens duplicadas ou demonstrar nervosismo encerra o caso para sempre.",
+      icon: Clock,
+      tag: "REGRA DE OURO"
+    }
+  ],
+  en: [
+    {
+      title: "1. AI Diagnosis",
+      description: "Enter the restriction notification you received from the game into our AI engine. The system will identify if your ban was Automatic, Manual, or Recidivist to apply the correct protocol.",
+      icon: BrainCircuit,
+      tag: "ENTRY PROTOCOL"
+    },
+    {
+      title: "2. Copy the Protocol",
+      description: "Access the corresponding strategic module that was unlocked and copy the ideal ticket template. These texts were calibrated with formal terms to bypass automated support filters.",
+      icon: Terminal,
+      tag: "ACTIVE STRATEGY"
+    },
+    {
+      title: "3. Operational Silence",
+      description: "After sending the ticket through the official channel, you must activate the 7-day absolute silence timer. Sending duplicate messages or showing anxiety closes the case forever.",
+      icon: Clock,
+      tag: "GOLDEN RULE"
+    }
+  ],
+  es: [
+    {
+      title: "1. Diagnóstico de IA",
+      description: "Introduzca la notificación de restricción que recibió del juego en nuestro motor de IA. El sistema identificará si su baneo fue Automático, Manual o Reincidente para aplicar el protocolo correcto.",
+      icon: BrainCircuit,
+      tag: "PASO DE ENTRADA"
+    },
+    {
+      title: "2. Copia del Protocolo",
+      description: "Acceda al módulo estratégico correspondiente que fue desbloqueado y copie la plantilla de ticket ideal. Estos textos fueron calibrados con términos formales para eludir los filtros automáticos de soporte.",
+      icon: Terminal,
+      tag: "ESTRATEGIA ACTIVA"
+    },
+    {
+      title: "3. Silencio Operativo",
+      description: "Después de enviar el ticket por el canal oficial, active obligatoriamente el temporizador de 7 días de silencio absoluto. Enviar mensajes duplicados o mostrar nerviosismo cierra el caso para siempre.",
+      icon: Clock,
+      tag: "REGLA DE ORO"
+    }
+  ]
+};
 
 const FormattedLessonContent = ({ content }: { content: string }) => {
   const lines = content.split('\n');
@@ -121,7 +193,7 @@ const LessonItem = ({ lesson, viewedLessons, markLessonAsViewed, copyToClipboard
           <ChevronRight className={cn("w-4 h-4 transition-all opacity-50 group-hover:opacity-100 group-hover:translate-x-1", isViewed ? "text-green-500 opacity-100" : "text-primary")} />
         </div>
       </DialogTrigger>
-      <DialogContent className="bg-card/95 backdrop-blur-3xl border-none sm:border-white/10 w-full h-[100dvh] sm:w-[95vw] sm:max-w-4xl sm:h-auto sm:max-h-[90vh] overflow-y-auto custom-scrollbar p-0 rounded-none sm:rounded-[2.5rem] shadow-none sm:shadow-[0_0_100px_rgba(0,0,0,0.8)] focus:outline-none">
+      <DialogContent className="bg-card/95 backdrop-blur-3xl border-none w-full h-[100dvh] overflow-y-auto custom-scrollbar p-0 sm:rounded-[2.5rem] shadow-none focus:outline-none max-w-none sm:max-w-4xl sm:h-auto sm:max-h-[90vh]">
         <div className="p-6 sm:p-12 pb-24 sm:pb-12">
           <DialogHeader className="pb-6 sm:pb-8 mb-6 sm:mb-8 border-b border-white/5">
             <div className="flex items-center gap-2 text-primary text-[9px] sm:text-[10px] font-black uppercase tracking-[0.4em] mb-3 sm:mb-4">
@@ -138,28 +210,28 @@ const LessonItem = ({ lesson, viewedLessons, markLessonAsViewed, copyToClipboard
           
           <div className="space-y-8 sm:space-y-12">
             {lesson.content && (
-              <div className="max-w-none prose prose-invert prose-p:text-muted-foreground prose-h4:text-white">
+              <div className="max-w-none prose prose-invert">
                 <FormattedLessonContent content={lesson.content} />
               </div>
             )}
             
             {lesson.template && (
               <div className="relative group/template">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-2xl sm:rounded-[2rem] blur opacity-10 group-hover/template:opacity-20 transition duration-1000"></div>
-                <div className="relative space-y-4 p-5 sm:p-8 bg-black/40 border border-white/10 rounded-2xl sm:rounded-[2rem] overflow-hidden">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-primary/50 rounded-2xl blur opacity-10 group-hover/template:opacity-20 transition duration-1000"></div>
+                <div className="relative space-y-4 p-5 sm:p-8 bg-black/40 border border-white/10 rounded-2xl overflow-hidden">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-3 text-primary font-black text-[9px] sm:text-[10px] uppercase tracking-[0.3em]">
                       <Terminal className="w-4 h-4 sm:w-5 sm:h-5" />
                       {t.ui.copyTemplate}
                     </div>
                   </div>
-                  <div className="p-4 sm:p-6 bg-white/[0.02] border border-white/5 rounded-xl sm:rounded-2xl font-mono text-[11px] sm:text-sm leading-relaxed text-muted-foreground/80 italic select-all break-words">
+                  <div className="p-4 sm:p-6 bg-white/[0.02] border border-white/5 rounded-xl font-mono text-[11px] sm:text-sm leading-relaxed text-muted-foreground/80 italic select-all break-words">
                     "{lesson.template}"
                   </div>
                   <Button 
                     size="sm" 
                     onClick={() => copyToClipboard(lesson.template)}
-                    className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-black text-xs uppercase tracking-widest rounded-xl sm:rounded-full shadow-lg shadow-primary/20 transition-all active:scale-95"
+                    className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-black text-xs uppercase tracking-widest rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-95"
                   >
                     <Copy className="w-3.5 h-3.5 mr-2" /> {t.ui.copyTemplate}
                   </Button>
@@ -171,7 +243,7 @@ const LessonItem = ({ lesson, viewedLessons, markLessonAsViewed, copyToClipboard
               <div className="pt-2">
                 <Button 
                   asChild 
-                  className="w-full h-16 sm:h-20 bg-primary hover:bg-primary/90 text-white font-black text-base sm:text-lg uppercase tracking-[0.2em] rounded-xl sm:rounded-[1.5rem] shadow-2xl shadow-primary/30 group/official transition-all"
+                  className="w-full h-16 sm:h-20 bg-primary hover:bg-primary/90 text-white font-black text-base sm:text-lg uppercase tracking-[0.2em] rounded-xl shadow-2xl shadow-primary/30 group/official transition-all"
                 >
                   <a href="https://ffsuporte.garena.com/support/tickets/new" target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6 mr-3 group-hover/official:rotate-12 transition-transform" /> {t.ui.officialChannel}
@@ -191,9 +263,13 @@ export default function Home() {
   const [hasChecked, setHasChecked] = useState(false);
   const [completedModules, setCompletedModules] = useState<string[]>([]);
   const [viewedLessons, setViewedLessons] = useState<string[]>([]);
+  const [showOnboarding, setShowOnboarding] = useState(false);
+  const [onboardingIndex, setOnboardingIndex] = useState(0);
+  const [diagnosedType, setDiagnosedType] = useState<string | null>(null);
   const { toast } = useToast();
 
   const t = language ? translations[language] : null;
+  const steps = language ? onboardingSteps[language] : [];
 
   useEffect(() => {
     const savedLang = localStorage.getItem('unban_strategy_lang') as Language;
@@ -206,6 +282,21 @@ export default function Home() {
   const selectLanguage = (lang: Language) => {
     setLanguage(lang);
     localStorage.setItem('unban_strategy_lang', lang);
+    
+    const onboardingSeen = localStorage.getItem('unban_onboarding_completed');
+    if (!onboardingSeen) {
+      setShowOnboarding(true);
+      setOnboardingIndex(0);
+    }
+  };
+
+  const finishOnboarding = () => {
+    setShowOnboarding(false);
+    localStorage.setItem('unban_onboarding_completed', 'true');
+    toast({
+      title: language === 'pt' ? 'Guia Concluído' : language === 'es' ? 'Guía Completada' : 'Guide Completed',
+      description: language === 'pt' ? 'Você está pronto para iniciar o protocolo.' : 'You are ready to begin the protocol.',
+    });
   };
 
   const markAsCompleted = (id: string) => {
@@ -293,7 +384,86 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-background text-foreground flex flex-col items-center selection:bg-primary/30">
+    <main className="min-h-screen bg-background text-foreground flex flex-col items-center selection:bg-primary/30 overflow-x-hidden">
+      
+      {/* ONBOARDING DIALOG - COMPLETELY OPTIMIZED FOR MOBILE SCREEN */}
+      {showOnboarding && steps && steps[onboardingIndex] && (
+        <div className="fixed inset-0 z-[300] bg-background/95 backdrop-blur-3xl flex flex-col justify-between p-6 animate-in fade-in duration-500 h-[100dvh]">
+          <div className="w-full flex items-center justify-between pt-2">
+            <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+              <Sparkles className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: '4s' }} />
+              {steps[onboardingIndex].tag}
+            </div>
+            <button 
+              onClick={finishOnboarding}
+              className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-muted-foreground hover:text-white"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+
+          <div className="my-auto space-y-6 sm:space-y-8 max-w-lg mx-auto w-full text-center">
+            <div className="flex justify-center">
+              <div className="w-20 h-20 rounded-[2rem] bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shadow-[0_0_50px_rgba(236,72,153,0.1)]">
+                {(() => {
+                  const CurrentIcon = steps[onboardingIndex].icon;
+                  return <CurrentIcon className="w-10 h-10" />;
+                })()}
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight uppercase italic">
+                {steps[onboardingIndex].title}
+              </h2>
+              <p className="text-sm text-muted-foreground/90 leading-relaxed font-medium">
+                {steps[onboardingIndex].description}
+              </p>
+            </div>
+
+            {/* STEP PROGRESS INDICATORS */}
+            <div className="flex justify-center gap-2 pt-2">
+              {steps.map((_, idx) => (
+                <div 
+                  key={idx}
+                  className={cn(
+                    "h-1.5 rounded-full transition-all duration-300",
+                    idx === onboardingIndex ? "w-8 bg-primary" : "w-2 bg-white/10"
+                  )}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="w-full space-y-3 pb-4 max-w-lg mx-auto">
+            <Button
+              onClick={() => {
+                if (onboardingIndex < steps.length - 1) {
+                  setOnboardingIndex(prev => prev + 1);
+                } else {
+                  finishOnboarding();
+                }
+              }}
+              className="w-full h-14 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs rounded-xl shadow-xl shadow-primary/20"
+            >
+              {onboardingIndex === steps.length - 1 
+                ? (language === 'pt' ? 'INICIAR RECONEXÃO' : language === 'es' ? 'INICIAR RECONEXIÓN' : 'START RECOVERY')
+                : (language === 'pt' ? 'PROXIMO PASSO' : language === 'es' ? 'SIGUIENTE PASO' : 'NEXT STEP')}
+              <ChevronRight className="w-4 h-4 ml-1" />
+            </Button>
+
+            {onboardingIndex > 0 && (
+              <button
+                onClick={() => setOnboardingIndex(prev => prev - 1)}
+                className="w-full py-2 text-center text-muted-foreground hover:text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" /> {language === 'pt' ? 'Voltar' : language === 'es' ? 'Volver' : 'Back'}
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
       <div className="w-full bg-amber-500/5 border-b border-white/5 backdrop-blur-2xl sticky top-0 z-50">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="premium-support" className="border-none">
@@ -308,25 +478,25 @@ export default function Home() {
             </AccordionTrigger>
             <AccordionContent className="pb-6 sm:pb-8 animate-in fade-in zoom-in-95 duration-500">
               <div className="max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <div className="relative group overflow-hidden p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] bg-amber-500/5 border border-amber-500/20 flex flex-col gap-5 sm:gap-6 hover:bg-amber-500/10 transition-all">
+                <div className="relative group overflow-hidden p-6 sm:p-8 rounded-2xl bg-amber-500/5 border border-amber-500/20 flex flex-col gap-5 sm:gap-6 hover:bg-amber-500/10 transition-all">
                   <div className="absolute -top-12 -right-12 w-32 h-32 bg-amber-500/10 blur-3xl rounded-full" />
                   <div>
                     <h4 className="text-amber-500 font-black text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-2 sm:mb-3">{t.orderBump.title}</h4>
                     <p className="text-[10px] sm:text-xs text-amber-500/70 leading-relaxed font-medium">{t.orderBump.description}</p>
                   </div>
-                  <Button asChild className="bg-amber-500 hover:bg-amber-600 text-black font-black uppercase tracking-widest rounded-xl sm:rounded-2xl h-12 sm:h-14 text-[10px] sm:text-xs shadow-xl shadow-amber-500/20 active:scale-95 transition-all">
+                  <Button asChild className="bg-amber-500 hover:bg-amber-600 text-black font-black uppercase tracking-widest rounded-xl h-12 sm:h-14 text-[10px] sm:text-xs shadow-xl shadow-amber-500/20 active:scale-95 transition-all">
                     <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">
                       <Zap className="w-3.5 h-3.5 sm:w-4 h-4 mr-2" /> {t.orderBump.button}
                     </a>
                   </Button>
                 </div>
-                <div className="relative group overflow-hidden p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] bg-amber-500/5 border border-amber-500/20 flex flex-col gap-5 sm:gap-6 hover:bg-amber-500/10 transition-all">
+                <div className="relative group overflow-hidden p-6 sm:p-8 rounded-2xl bg-amber-500/5 border border-amber-500/20 flex flex-col gap-5 sm:gap-6 hover:bg-amber-500/10 transition-all">
                   <div className="absolute -top-12 -right-12 w-32 h-32 bg-amber-500/10 blur-3xl rounded-full" />
                   <div>
                     <h4 className="text-amber-500 font-black text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-2 sm:mb-3">{t.bypass.title}</h4>
                     <p className="text-[10px] sm:text-xs text-amber-500/70 leading-relaxed font-medium">{t.bypass.description}</p>
                   </div>
-                  <Button asChild className="bg-amber-500 hover:bg-amber-600 text-black font-black uppercase tracking-widest rounded-xl sm:rounded-2xl h-12 sm:h-14 text-[10px] sm:text-xs shadow-xl shadow-amber-500/20 active:scale-95 transition-all">
+                  <Button asChild className="bg-amber-500 hover:bg-amber-600 text-black font-black uppercase tracking-widest rounded-xl h-12 sm:h-14 text-[10px] sm:text-xs shadow-xl shadow-amber-500/20 active:scale-95 transition-all">
                     <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">
                       <Sparkles className="w-3.5 h-3.5 sm:w-4 h-4 mr-2" /> {t.bypass.button}
                     </a>
@@ -365,9 +535,79 @@ export default function Home() {
             <p className="text-base sm:text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed font-medium tracking-tight px-4">
               {t.hero.description}
             </p>
+
+            <Button
+              onClick={() => {
+                setOnboardingIndex(0);
+                setShowOnboarding(true);
+              }}
+              variant="outline"
+              className="border-primary/30 text-primary hover:bg-primary/10 font-black uppercase text-xs tracking-wider rounded-xl h-11 px-6 active:scale-95 transition-all"
+            >
+              <Sparkles className="w-4 h-4 mr-2" />
+              {language === 'pt' ? 'Ver Passo a Passo' : language === 'es' ? 'Ver Guía Paso a Paso' : 'View Step-by-Step Guide'}
+            </Button>
           </div>
         </div>
       </header>
+
+      {/* INTERACTIVE PLAYGROUND AND WORKSPACE SECTION */}
+      <section className="w-full max-w-6xl px-4 sm:px-8 py-4 grid grid-cols-1 lg:grid-cols-3 gap-6 relative">
+        <div className="lg:col-span-2 p-6 sm:p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 space-y-6">
+          <div className="space-y-1">
+            <div className="text-[10px] text-primary font-black uppercase tracking-widest flex items-center gap-1.5">
+              <BrainCircuit className="w-3.5 h-3.5" />
+              IA Core Scanner
+            </div>
+            <h3 className="text-xl sm:text-2xl font-black uppercase italic text-white">Análise e Diagnóstico de Banimento</h3>
+            <p className="text-xs text-muted-foreground">Cole abaixo a resposta da desenvolvedora para determinar o protocolo ideal.</p>
+          </div>
+          <TicketAdvisor prefilledType={diagnosedType || 'Automático'} />
+        </div>
+
+        <div className="p-6 sm:p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 flex flex-col justify-between gap-6">
+          <div className="space-y-4">
+            <div className="space-y-1">
+              <div className="text-[10px] text-primary font-black uppercase tracking-widest flex items-center gap-1.5">
+                <Command className="w-3.5 h-3.5" />
+                Triagem Rápida
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black uppercase italic text-white">Árvore de Decisão</h3>
+            </div>
+            <DecisionTree onDiagnosed={(type) => setDiagnosedType(type)} />
+          </div>
+
+          <div className="pt-4 border-t border-white/5 space-y-4">
+            <h4 className="text-[10px] font-black text-muted-foreground uppercase tracking-wider">Histórico de Consultas</h4>
+            <AttemptLog />
+          </div>
+        </div>
+      </section>
+
+      {/* OPERATIONS AND DECODER SECTION */}
+      <section className="w-full max-w-6xl px-4 sm:px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+        <div className="p-6 sm:p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 space-y-4">
+          <div className="space-y-1">
+            <div className="text-[10px] text-primary font-black uppercase tracking-widest flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5" />
+              Protocolo Pós-Ticket
+            </div>
+            <h3 className="text-xl sm:text-2xl font-black uppercase italic text-white">Gerenciador de Silêncio</h3>
+          </div>
+          <DelayTimer />
+        </div>
+
+        <div className="p-6 sm:p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 space-y-4">
+          <div className="space-y-1">
+            <div className="text-[10px] text-primary font-black uppercase tracking-widest flex items-center gap-1.5">
+              <Terminal className="w-3.5 h-3.5" />
+              Decoder de Feedback
+            </div>
+            <h3 className="text-xl sm:text-2xl font-black uppercase italic text-white">Decodificador de Respostas</h3>
+          </div>
+          <ResponseDecoder />
+        </div>
+      </section>
 
       <section className="w-full max-w-6xl px-4 sm:px-8 py-12 sm:py-24 relative">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16 animate-in fade-in slide-in-from-left-8 duration-700">
@@ -392,7 +632,7 @@ export default function Home() {
             return (
               <div key={module.id} className="group/card animate-in fade-in slide-in-from-bottom-12 duration-700" style={{ animationDelay: `${index * 150}ms` }}>
                 <div className={cn(
-                  "flex flex-col h-full rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden border transition-all duration-700 relative",
+                  "flex flex-col h-full rounded-[2rem] overflow-hidden border transition-all duration-700 relative",
                   isLocked 
                     ? "bg-white/[0.01] border-white/[0.05] opacity-40 grayscale" 
                     : "bg-white/[0.03] border-white/[0.08] hover:border-primary/40 hover:bg-white/[0.06] sm:hover:-translate-y-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover/card:shadow-primary/10"
@@ -434,19 +674,19 @@ export default function Home() {
 
                     <div className="mt-auto pt-4 sm:pt-6 flex flex-col gap-4">
                       {isLocked ? (
-                        <div className="flex items-center gap-3 p-4 sm:p-5 bg-white/[0.02] border border-white/5 rounded-xl sm:rounded-[1.5rem] opacity-60">
+                        <div className="flex items-center gap-3 p-4 sm:p-5 bg-white/[0.02] border border-white/5 rounded-xl opacity-60">
                           <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground" />
                           <span className="text-[9px] sm:text-[10px] font-black text-muted-foreground tracking-[0.2em] uppercase">{t.ui.locked}</span>
                         </div>
                       ) : (
                         <Dialog>
                           <DialogTrigger asChild>
-                            <Button className="w-full h-14 sm:h-16 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-[0.2em] rounded-xl sm:rounded-[1.5rem] shadow-xl shadow-primary/20 group/btn transition-all active:scale-95">
+                            <Button className="w-full h-14 sm:h-16 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-[0.2em] rounded-xl shadow-xl shadow-primary/20 group/btn transition-all active:scale-95">
                               {t.ui.accessModule} 
                               <ChevronRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-2 transition-all" />
                             </Button>
                           </DialogTrigger>
-                          <DialogContent className="bg-card/98 backdrop-blur-3xl border-none sm:border-white/10 w-full h-[100dvh] sm:w-[95vw] sm:max-w-4xl sm:h-auto sm:max-h-[90vh] overflow-y-auto custom-scrollbar p-0 rounded-none sm:rounded-[3rem] overflow-hidden shadow-none sm:shadow-[0_0_150px_rgba(225,29,72,0.15)] focus:outline-none">
+                          <DialogContent className="bg-card/98 backdrop-blur-3xl border-none w-full h-[100dvh] overflow-y-auto custom-scrollbar p-0 overflow-hidden shadow-none focus:outline-none max-w-none sm:max-w-4xl sm:h-auto sm:max-h-[90vh]">
                             <DialogHeader className="sr-only">
                               <DialogTitle>{module.title}</DialogTitle>
                               <DialogDescription>{module.description}</DialogDescription>
@@ -476,12 +716,12 @@ export default function Home() {
                                 {!completedModules.includes(module.id) ? (
                                   <Button 
                                     onClick={() => markAsCompleted(module.id)}
-                                    className="w-full bg-white/[0.03] hover:bg-primary text-white border border-white/10 hover:border-primary h-16 sm:h-20 rounded-xl sm:rounded-[2rem] font-black text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all active:scale-[0.98] shadow-2xl"
+                                    className="w-full bg-white/[0.03] hover:bg-primary text-white border border-white/10 hover:border-primary h-16 sm:h-20 rounded-xl font-black text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all active:scale-[0.98] shadow-2xl"
                                   >
                                     {t.ui.completeModule}
                                   </Button>
                                 ) : (
-                                  <div className="flex items-center justify-center gap-3 sm:gap-4 text-green-500 font-black text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] p-6 sm:p-8 bg-green-500/5 rounded-xl sm:rounded-[2rem] border border-green-500/20 shadow-inner">
+                                  <div className="flex items-center justify-center gap-3 sm:gap-4 text-green-500 font-black text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] p-6 sm:p-8 bg-green-500/5 rounded-xl border border-green-500/20 shadow-inner">
                                     <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce" />
                                     {t.ui.moduleCompleted}
                                   </div>
@@ -501,13 +741,13 @@ export default function Home() {
       </section>
 
       <div className="w-full max-w-4xl px-4 sm:px-8 pb-24 sm:pb-40">
-        <div className="relative group p-8 sm:p-16 rounded-[2rem] sm:rounded-[3rem] bg-white/[0.02] border border-white/10 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.4)] animate-in zoom-in-95 duration-1000">
+        <div className="relative group p-8 sm:p-16 rounded-[2rem] bg-white/[0.02] border border-white/10 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.4)] animate-in zoom-in-95 duration-1000">
           <div className="absolute -top-32 -right-32 w-80 h-80 bg-primary/10 blur-[120px] rounded-full group-hover:bg-primary/20 transition-all duration-1000" />
           <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-primary/5 blur-[120px] rounded-full" />
           
           <div className="relative z-10 space-y-8 sm:space-y-10">
             <div className="flex items-center gap-4 sm:gap-5 text-primary">
-              <div className="p-3 sm:p-4 bg-primary/10 rounded-xl sm:rounded-2xl shadow-lg shadow-primary/10">
+              <div className="p-3 sm:p-4 bg-primary/10 rounded-xl shadow-lg shadow-primary/10">
                 <ShieldAlert className="w-6 h-6 sm:w-8 sm:h-8" />
               </div>
               <h3 className="text-xl sm:text-2xl font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] italic leading-tight">{t.ui.securityGuidelines}</h3>
@@ -522,7 +762,7 @@ export default function Home() {
                 <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-medium tracking-tight px-2">
                   {t.ui.safetyText}
                 </p>
-                <div className="relative overflow-hidden p-6 sm:p-8 bg-primary/10 border border-primary/20 rounded-xl sm:rounded-[2rem] text-primary font-black text-[10px] sm:text-sm leading-relaxed text-center uppercase tracking-[0.15em] sm:tracking-[0.2em] shadow-inner">
+                <div className="relative overflow-hidden p-6 sm:p-8 bg-primary/10 border border-primary/20 rounded-xl text-primary font-black text-[10px] sm:text-sm tenderness-relaxed text-center uppercase tracking-[0.15em] sm:tracking-[0.2em] shadow-inner">
                   <div className="absolute inset-0 animate-shimmer pointer-events-none opacity-20" />
                   {t.ui.waitDays}
                 </div>
