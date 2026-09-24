@@ -48,62 +48,62 @@ import { AttemptLog } from '@/components/cyber/AttemptLog';
 const onboardingSteps = {
   pt: [
     {
-      title: "1. Diagnóstico de IA",
-      description: "Insira a notificação de restrição que você recebeu do jogo no nosso motor de IA. O sistema identificará se o seu banimento foi Automático, Manual ou Reincidente para aplicar o protocolo correto.",
+      title: "1. Conhecimento Base (Módulos)",
+      description: "O primeiro passo do seu guia é rolar a página até a seção de Recuperação Estratégica. Você é obrigado a ler e entender como funciona um ticket de respeito antes de enviar qualquer mensagem. Sem essa base, sua conta não sairá do bloqueio.",
+      icon: LayoutGrid,
+      tag: "PASSO OBRIGATÓRIO"
+    },
+    {
+      title: "2. Triagem e Diagnóstico de IA",
+      description: "Após entender a teoria, o passo a passo te leva para o centro da interface. Aqui você colará a notificação do jogo no nosso Scanner de IA e usará a Árvore de Decisão para descobrir o tipo exato do seu banimento e obter o template cirúrgico.",
       icon: BrainCircuit,
-      tag: "PASSO DE ENTRADA"
+      tag: "ANÁLISE DO CASO"
     },
     {
-      title: "2. Cópia do Protocolo",
-      description: "Acesse o módulo estratégico correspondente que foi liberado e copie o modelo de ticket ideal. Esses textos foram calibrados com termos formais para burlar filtros automáticos de suporte.",
-      icon: Terminal,
-      tag: "ESTRATÉGIA ATIVA"
-    },
-    {
-      title: "3. Silêncio Operacional",
-      description: "Após enviar o ticket no canal oficial, ative obrigatoriamente o cronômetro de 7 dias de silêncio absoluto. Enviar mensagens duplicadas ou demonstrar nervosismo encerra o caso para sempre.",
-      icon: Clock,
-      tag: "REGRA DE OURO"
+      title: "3. Suporte Premium e Silêncio",
+      description: "Por fim, o guia apresenta os canais de apoio: a Central de Suporte Premium no topo para planos VIP/Bypass e o Widget do Telegram no canto inferior. Lembre-se, este passo a passo serve apenas para mapear sua jornada. O sucesso real está na execução correta!",
+      icon: Zap,
+      tag: "ALTA CONVERSÃO"
     }
   ],
   en: [
     {
-      title: "1. AI Diagnosis",
-      description: "Enter the restriction notification you received from the game into our AI engine. The system will identify if your ban was Automatic, Manual, or Recidivist to apply the correct protocol.",
+      title: "1. Core Knowledge (Modules)",
+      description: "The first step of your guide is to scroll down to the Strategic Recovery section. You must read and understand how a respectful, professional ticket works before sending any message. Without this foundation, your account stays locked.",
+      icon: LayoutGrid,
+      tag: "MANDATORY STEP"
+    },
+    {
+      title: "2. AI Screening and Diagnosis",
+      description: "After understanding the theory, the step-by-step takes you to the center of the interface. Here you will paste the game notification into our AI Scanner and use the Decision Tree to discover your exact ban type and get the surgical template.",
       icon: BrainCircuit,
-      tag: "ENTRY PROTOCOL"
+      tag: "CASE ANALYSIS"
     },
     {
-      title: "2. Copy the Protocol",
-      description: "Access the corresponding strategic module that was unlocked and copy the ideal ticket template. These texts were calibrated with formal terms to bypass automated support filters.",
-      icon: Terminal,
-      tag: "ACTIVE STRATEGY"
-    },
-    {
-      title: "3. Operational Silence",
-      description: "After sending the ticket through the official channel, you must activate the 7-day absolute silence timer. Sending duplicate messages or showing anxiety closes the case forever.",
-      icon: Clock,
-      tag: "GOLDEN RULE"
+      title: "3. Premium Support & Silence",
+      description: "Finally, the guide presents the active help channels: the Premium Support Center at the top for VIP/Bypass plans and the Telegram Widget in the bottom corner. Remember, this step-by-step is just to map your journey. Real success lies in proper execution!",
+      icon: Zap,
+      tag: "HIGH CONVERSION"
     }
   ],
   es: [
     {
-      title: "1. Diagnóstico de IA",
-      description: "Introduzca la notificación de restricción que recibió del juego en nuestro motor de IA. El sistema identificará si su baneo fue Automático, Manual o Reincidente para aplicar el protocolo correcto.",
+      title: "1. Conocimiento Base (Módulos)",
+      description: "El primer paso de su guía es desplazarse hasta la sección de Recuperación Estratégica. Está obligado a leer y comprender cómo funciona un ticket de respeto antes de enviar cualquier mensaje. Sin esta base, su cuenta seguirá bloqueada.",
+      icon: LayoutGrid,
+      tag: "PASO OBRIGATORIO"
+    },
+    {
+      title: "2. Triaje y Diagnóstico de IA",
+      description: "Después de entender la teoría, el paso a paso lo lleva al centro de la interfaz. Aquí pegará la notificación del juego en nuestro Escáner de IA y usará el Árbol de Decisión para descubrir el tipo exacto de su baneo y obtener la plantilla quirúrgica.",
       icon: BrainCircuit,
-      tag: "PASO DE ENTRADA"
+      tag: "ANÁLISIS DEL CASO"
     },
     {
-      title: "2. Copia del Protocolo",
-      description: "Acceda al módulo estratégico correspondiente que fue desbloqueado y copie la plantilla de ticket ideal. Estos textos fueron calibrados con términos formales para eludir los filtros automáticos de soporte.",
-      icon: Terminal,
-      tag: "ESTRATEGIA ACTIVA"
-    },
-    {
-      title: "3. Silencio Operativo",
-      description: "Después de enviar el ticket por el canal oficial, active obligatoriamente el temporizador de 7 días de silencio absoluto. Enviar mensajes duplicados o mostrar nerviosismo cierra el caso para siempre.",
-      icon: Clock,
-      tag: "REGLA DE ORO"
+      title: "3. Soporte Premium y Silencio",
+      description: "Por último, la guía presenta los canales de ayuda: el Centro de Soporte Premium en la parte superior para planes VIP/Bypass y el Widget de Telegram en la esquina inferior. Recuerde, este paso a paso es solo para mapear su viaje. ¡El éxito real está en la ejecución correcta!",
+      icon: Zap,
+      tag: "ALTA CONVERSIÓN"
     }
   ]
 };
@@ -295,7 +295,7 @@ export default function Home() {
     localStorage.setItem('unban_onboarding_completed', 'true');
     toast({
       title: language === 'pt' ? 'Guia Concluído' : language === 'es' ? 'Guía Completada' : 'Guide Completed',
-      description: language === 'pt' ? 'Você está pronto para iniciar o protocolo.' : 'You are ready to begin the protocol.',
+      description: language === 'pt' ? 'Você entendeu o caminho. Agora execute o passo a passo na ordem sugerida.' : 'You understand the path. Now execute the steps in order.',
     });
   };
 
@@ -386,7 +386,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground flex flex-col items-center selection:bg-primary/30 overflow-x-hidden">
       
-      {/* ONBOARDING DIALOG - COMPLETELY OPTIMIZED FOR MOBILE SCREEN */}
+      {/* ONBOARDING DIALOG - REDIRECIONAMENTO E MAPEAMENTO DE LEADS */}
       {showOnboarding && steps && steps[onboardingIndex] && (
         <div className="fixed inset-0 z-[300] bg-background/95 backdrop-blur-3xl flex flex-col justify-between p-6 animate-in fade-in duration-500 h-[100dvh]">
           <div className="w-full flex items-center justify-between pt-2">
@@ -419,9 +419,12 @@ export default function Home() {
               <p className="text-sm text-muted-foreground/90 leading-relaxed font-medium">
                 {steps[onboardingIndex].description}
               </p>
+              <p className="text-[10px] text-primary/60 uppercase font-black tracking-widest pt-2">
+                * Este é apenas o guia de orientação geral do sistema *
+              </p>
             </div>
 
-            {/* STEP PROGRESS INDICATORS */}
+            {/* PROGRESSO DO PASSO A PASSO */}
             <div className="flex justify-center gap-2 pt-2">
               {steps.map((_, idx) => (
                 <div 
@@ -447,8 +450,8 @@ export default function Home() {
               className="w-full h-14 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs rounded-xl shadow-xl shadow-primary/20"
             >
               {onboardingIndex === steps.length - 1 
-                ? (language === 'pt' ? 'INICIAR RECONEXÃO' : language === 'es' ? 'INICIAR RECONEXIÓN' : 'START RECOVERY')
-                : (language === 'pt' ? 'PROXIMO PASSO' : language === 'es' ? 'SIGUIENTE PASO' : 'NEXT STEP')}
+                ? (language === 'pt' ? 'PROSSEGUIR PARA O SITE' : language === 'es' ? 'CONTINUAR AL SITIO' : 'PROCEED TO SITE')
+                : (language === 'pt' ? 'PRÓXIMO PASSO DO GUIA' : language === 'es' ? 'SIGUIENTE PASO GUÍA' : 'NEXT GUIDE STEP')}
               <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
 
@@ -542,16 +545,16 @@ export default function Home() {
                 setShowOnboarding(true);
               }}
               variant="outline"
-              className="border-primary/30 text-primary hover:bg-primary/10 font-black uppercase text-xs tracking-wider rounded-xl h-11 px-6 active:scale-95 transition-all"
+              className="border-primary/30 text-primary hover:bg-primary/10 font-black uppercase text-xs tracking-wider rounded-xl h-11 px-6 active:scale-95 transition-all animate-pulse-glow"
             >
               <Sparkles className="w-4 h-4 mr-2" />
-              {language === 'pt' ? 'Ver Passo a Passo' : language === 'es' ? 'Ver Guía Paso a Paso' : 'View Step-by-Step Guide'}
+              {language === 'pt' ? 'Ver Passo a Passo do Guia' : language === 'es' ? 'Ver Guía Paso a Paso' : 'View Step-by-Step Guide'}
             </Button>
           </div>
         </div>
       </header>
 
-      {/* INTERACTIVE PLAYGROUND AND WORKSPACE SECTION */}
+      {/* FERRAMENTAS INTEGRADAS */}
       <section className="w-full max-w-6xl px-4 sm:px-8 py-4 grid grid-cols-1 lg:grid-cols-3 gap-6 relative">
         <div className="lg:col-span-2 p-6 sm:p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 space-y-6">
           <div className="space-y-1">
@@ -609,15 +612,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full max-w-6xl px-4 sm:px-8 py-12 sm:py-24 relative">
+      {/* SEÇÃO DOS MÓDULOS - FOCO PRINCIPAL DO PASSO A PASSO */}
+      <section id="modulos-estrategicos" className="w-full max-w-6xl px-4 sm:px-8 py-12 sm:py-24 relative">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16 animate-in fade-in slide-in-from-left-8 duration-700">
           <div className="space-y-2 sm:space-y-3 px-2">
             <div className="flex items-center gap-3 text-primary text-[8px] sm:text-[10px] font-black uppercase tracking-[0.5em]">
               <Command className="w-3.5 h-3.5" />
-              Operational Trilha
+              Passo 1 Obrigatório // Conteúdo Prático
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white tracking-tighter uppercase italic">Recuperação Estratégica</h2>
-            <p className="text-[10px] sm:text-sm text-muted-foreground font-medium uppercase tracking-widest opacity-60">Descriptografe os módulos abaixo.</p>
+            <p className="text-[10px] sm:text-sm text-muted-foreground font-medium uppercase tracking-widest opacity-60">Leia para entender como criar um ticket de respeito.</p>
           </div>
           <div className="hidden sm:block p-4 bg-white/[0.02] border border-white/5 rounded-2xl backdrop-blur-md group hover:border-primary/30 transition-all cursor-crosshair">
             <LayoutGrid className="w-6 h-6 text-primary opacity-50 group-hover:opacity-100 group-hover:rotate-90 transition-all duration-500" />
@@ -653,7 +657,7 @@ export default function Home() {
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-80" />
                     <div className="absolute top-5 left-5 sm:top-6 sm:left-6">
-                      <div className="px-3 py-1 sm:px-4 sm:py-1.5 bg-primary/20 backdrop-blur-2xl border border-primary/30 rounded-full text-[8px] sm:text-[10px] font-black text-primary tracking-[0.2em] sm:tracking-[0.3em] uppercase animate-pulse">
+                      <div className="px-3 py-1 sm:px-4 sm:py-1.5 bg-primary/20 backdrop-blur-2xl border border-primary/30 rounded-full text-[8px] sm:text-[10px] font-black text-primary tracking-[0.2em] sm:tracking-[0.3em] uppercase">
                         {module.tag}
                       </div>
                     </div>
