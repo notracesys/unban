@@ -361,24 +361,6 @@ export default function Home() {
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed font-medium tracking-tight">
               {t.hero.description}
             </p>
-            
-            <div className="pt-8 flex flex-wrap justify-center items-center gap-6">
-              <Button 
-                variant="outline" 
-                onClick={() => {
-                  localStorage.removeItem('unban_strategy_lang');
-                  window.location.reload();
-                }}
-                className="h-14 px-10 rounded-2xl border-white/10 bg-white/[0.02] hover:bg-white/[0.08] hover:border-primary/50 font-black text-xs uppercase tracking-[0.2em] transition-all shadow-xl active:scale-95"
-              >
-                <Globe className="w-4 h-4 mr-3" /> {t.selectLanguage}
-              </Button>
-              
-              <div className="flex items-center gap-4 px-8 h-14 rounded-2xl bg-white/[0.03] border border-white/10 text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em] backdrop-blur-md">
-                <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-ping" />
-                System Encryption Active
-              </div>
-            </div>
           </div>
         </div>
       </header>
