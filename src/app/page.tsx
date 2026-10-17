@@ -136,7 +136,9 @@ export default function Home() {
       <section className="w-full max-w-2xl px-6 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
         <div className="glass-card rounded-3xl p-8 space-y-6 border-white/5">
           <div className="flex items-center gap-3 text-primary">
-            <Info className="w-6 h-6" />
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+              <Info className="w-5 h-5" />
+            </div>
             <h3 className="text-base font-black uppercase tracking-wider italic">Protocolo de Preenchimento</h3>
           </div>
           <div className="grid gap-4">
@@ -180,7 +182,7 @@ export default function Home() {
       </div>
 
       <footer className="w-full border-t border-white/5 py-16 flex flex-col items-center opacity-30">
-        <span className="text-[10px] text-muted-foreground tracking-[0.5em] font-black uppercase">
+        <span className="text-[10px] text-muted-foreground tracking-[0.5em] font-black uppercase px-6 text-center">
           © 2024 ZEPHYRUS GLOBAL SYSTEMS // SECURED PROTOCOL
         </span>
       </footer>

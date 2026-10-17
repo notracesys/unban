@@ -14,7 +14,8 @@ import {
   AlertCircle,
   Loader2,
   Sparkles,
-  Lock
+  Lock,
+  Terminal
 } from 'lucide-react';
 import { translations, type Language } from '@/lib/translations';
 
@@ -36,7 +37,7 @@ export function RecoveryForm({ lang }: RecoveryFormProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulação de processamento
+    // Simulação de processamento para efeito visual
     await new Promise(resolve => setTimeout(resolve, 3000));
     setLoading(false);
     setSuccess(true);
@@ -44,21 +45,21 @@ export function RecoveryForm({ lang }: RecoveryFormProps) {
 
   if (success) {
     return (
-      <div className="w-full py-24 px-8 text-center animate-in zoom-in-95 duration-500 glass-card rounded-[3rem] shadow-[0_0_100px_rgba(59,130,246,0.1)] border-primary/20">
-        <div className="flex justify-center mb-8">
-          <div className="w-24 h-24 rounded-full bg-primary/20 border-2 border-primary/50 flex items-center justify-center text-primary blue-glow">
-            <CheckCircle2 className="w-12 h-12" />
+      <div className="w-full py-16 px-6 text-center animate-in zoom-in-95 duration-500 glass-card rounded-[2.5rem] shadow-[0_0_100px_rgba(59,130,246,0.1)] border-primary/20">
+        <div className="flex justify-center mb-6">
+          <div className="w-20 h-20 rounded-full bg-primary/20 border-2 border-primary/50 flex items-center justify-center text-primary blue-glow">
+            <CheckCircle2 className="w-10 h-10" />
           </div>
         </div>
-        <h2 className="text-4xl font-black text-white uppercase italic tracking-tighter mb-6 text-glow">
+        <h2 className="text-3xl font-black text-white uppercase italic tracking-tighter mb-4 text-glow">
           {t.successTitle}
         </h2>
-        <p className="text-muted-foreground text-base mb-12 max-w-sm mx-auto leading-relaxed font-medium">
+        <p className="text-muted-foreground text-sm mb-10 max-w-sm mx-auto leading-relaxed font-medium">
           Seu relatório já foi enviado para a equipe do Gaspar. Aguarde o retorno via e-mail.
         </p>
         <Button 
           onClick={() => window.location.reload()}
-          className="h-16 px-12 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest rounded-2xl transition-all shadow-xl shadow-primary/25 active:scale-95"
+          className="h-14 px-10 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest rounded-xl transition-all shadow-xl shadow-primary/25 active:scale-95 w-full sm:w-auto"
         >
           {t.successAction}
         </Button>
@@ -67,129 +68,144 @@ export function RecoveryForm({ lang }: RecoveryFormProps) {
   }
 
   return (
-    <div className="relative glass-card rounded-[3rem] overflow-hidden border-white/10 p-8 sm:p-16 shadow-[0_30px_100px_rgba(0,0,0,0.6)]">
-      <div className="absolute top-0 right-0 p-8 opacity-20">
-        <Lock className="w-12 h-12 text-primary" />
+    <div className="relative glass-card rounded-[2.5rem] overflow-hidden border-white/10 p-6 sm:p-12 shadow-[0_30px_100px_rgba(0,0,0,0.6)]">
+      <div className="absolute top-0 right-0 p-6 opacity-10">
+        <Terminal className="w-12 h-12 text-primary" />
       </div>
 
-      <div className="mb-16 space-y-2">
-        <span className="text-[10px] font-black text-primary uppercase tracking-[0.5em] block text-glow">
-          TERMINAL DE AUDITORIA
-        </span>
-        <h2 className="text-2xl font-black text-white uppercase italic tracking-tight">Inserção de Dados Técnicos</h2>
+      <div className="mb-12 space-y-2">
+        <div className="flex items-center gap-2 mb-1">
+          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <span className="text-[9px] font-black text-primary uppercase tracking-[0.4em] block text-glow">
+            AUDIT TERMINAL V.2.0
+          </span>
+        </div>
+        <h2 className="text-xl font-black text-white uppercase italic tracking-tight">Inserção de Dados Técnicos</h2>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-16">
+      <form onSubmit={handleSubmit} className="space-y-10">
         
         {/* Campo 1: Email */}
-        <div className="space-y-6 group animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
-          <div className="flex items-center gap-4 text-left">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-focus-within:bg-primary group-focus-within:text-white transition-all">
-              <Mail className="w-5 h-5" />
+        <div className="space-y-4 group">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-focus-within:bg-primary group-focus-within:text-white transition-all">
+              <Mail className="w-4 h-4" />
             </div>
-            <div>
-              <h3 className="text-base font-black text-white uppercase italic tracking-tight">{t.step1}</h3>
-              <p className="text-[11px] text-muted-foreground font-medium opacity-60">{t.step1Desc}</p>
+            <div className="flex flex-col">
+              <h3 className="text-xs font-black text-white uppercase italic tracking-tight">{t.step1}</h3>
+              <p className="text-[9px] text-muted-foreground font-medium opacity-60 uppercase tracking-tighter">{t.step1Desc}</p>
             </div>
           </div>
-          <Input 
-            required
-            type="email"
-            placeholder="Seu melhor e-mail para resposta..."
-            className="h-16 bg-white/[0.02] border-white/10 focus:border-primary/50 text-white rounded-2xl px-8 text-sm transition-all shadow-inner font-medium placeholder:text-muted-foreground/30"
-            value={formData.email}
-            onChange={e => setFormData({...formData, email: e.target.value})}
-          />
+          <div className="relative">
+            <Input 
+              required
+              type="email"
+              placeholder="E-mail para resposta..."
+              className="h-14 bg-white/[0.03] border-white/10 focus:border-primary/50 text-white rounded-xl px-6 text-xs transition-all shadow-inner font-medium placeholder:text-muted-foreground/30 ring-0 focus:ring-1 focus:ring-primary/20"
+              value={formData.email}
+              onChange={e => setFormData({...formData, email: e.target.value})}
+            />
+          </div>
         </div>
 
         {/* Campo 2: Nickname */}
-        <div className="space-y-6 group animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-          <div className="flex items-center gap-4 text-left">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-focus-within:bg-primary group-focus-within:text-white transition-all">
-              <User className="w-5 h-5" />
+        <div className="space-y-4 group">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-focus-within:bg-primary group-focus-within:text-white transition-all">
+              <User className="w-4 h-4" />
             </div>
-            <div>
-              <h3 className="text-base font-black text-white uppercase italic tracking-tight">{t.step2}</h3>
-              <p className="text-[11px] text-muted-foreground font-medium opacity-60">{t.step2Desc}</p>
+            <div className="flex flex-col">
+              <h3 className="text-xs font-black text-white uppercase italic tracking-tight">{t.step2}</h3>
+              <p className="text-[9px] text-muted-foreground font-medium opacity-60 uppercase tracking-tighter">{t.step2Desc}</p>
             </div>
           </div>
           <Input 
             required
             placeholder="Nickname EXATO da conta..."
-            className="h-16 bg-white/[0.02] border-white/10 focus:border-primary/50 text-white rounded-2xl px-8 text-sm transition-all font-mono shadow-inner placeholder:text-muted-foreground/30"
+            className="h-14 bg-white/[0.03] border-white/10 focus:border-primary/50 text-white rounded-xl px-6 text-xs transition-all font-mono shadow-inner placeholder:text-muted-foreground/30 ring-0 focus:ring-1 focus:ring-primary/20"
             value={formData.nickname}
             onChange={e => setFormData({...formData, nickname: e.target.value})}
           />
-          <div className="flex items-start gap-3 p-4 bg-primary/5 border border-primary/10 rounded-2xl">
-            <AlertCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-            <p className="text-[10px] text-primary uppercase font-black tracking-widest leading-tight text-left">
-              Importante: Caracteres especiais e espaços devem ser idênticos.
+          <div className="flex items-start gap-3 p-3 bg-primary/5 border border-primary/10 rounded-xl">
+            <AlertCircle className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+            <p className="text-[9px] text-primary uppercase font-black tracking-widest leading-tight">
+              Aviso: Símbolos e espaços devem ser idênticos ao jogo.
             </p>
           </div>
         </div>
 
         {/* Campo 3: ID */}
-        <div className="space-y-6 group animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-          <div className="flex items-center gap-4 text-left">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-focus-within:bg-primary group-focus-within:text-white transition-all">
-              <Hash className="w-5 h-5" />
+        <div className="space-y-4 group">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-focus-within:bg-primary group-focus-within:text-white transition-all">
+              <Hash className="w-4 h-4" />
             </div>
-            <div>
-              <h3 className="text-base font-black text-white uppercase italic tracking-tight">{t.step3}</h3>
-              <p className="text-[11px] text-muted-foreground font-medium opacity-60">{t.step3Desc}</p>
+            <div className="flex flex-col">
+              <h3 className="text-xs font-black text-white uppercase italic tracking-tight">{t.step3}</h3>
+              <p className="text-[9px] text-muted-foreground font-medium opacity-60 uppercase tracking-tighter">{t.step3Desc}</p>
             </div>
           </div>
           <Input 
             required
             placeholder="ID Numérico da Conta..."
-            className="h-16 bg-white/[0.02] border-white/10 focus:border-primary/50 text-white rounded-2xl px-8 text-sm transition-all font-mono shadow-inner placeholder:text-muted-foreground/30"
+            className="h-14 bg-white/[0.03] border-white/10 focus:border-primary/50 text-white rounded-xl px-6 text-xs transition-all font-mono shadow-inner placeholder:text-muted-foreground/30 ring-0 focus:ring-1 focus:ring-primary/20"
             value={formData.id}
             onChange={e => setFormData({...formData, id: e.target.value})}
           />
         </div>
 
         {/* Campo 4: Relato Real */}
-        <div className="space-y-6 group animate-in fade-in slide-in-from-bottom-4 duration-700 delay-400">
-          <div className="flex items-center gap-4 text-left">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-focus-within:bg-primary group-focus-within:text-white transition-all">
-              <FileText className="w-5 h-5" />
+        <div className="space-y-4 group">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-focus-within:bg-primary group-focus-within:text-white transition-all">
+              <FileText className="w-4 h-4" />
             </div>
-            <div>
-              <h3 className="text-base font-black text-white uppercase italic tracking-tight">{t.step4}</h3>
-              <p className="text-[11px] text-muted-foreground font-medium opacity-60">{t.step4Desc}</p>
+            <div className="flex flex-col">
+              <h3 className="text-xs font-black text-white uppercase italic tracking-tight">{t.step4}</h3>
+              <p className="text-[9px] text-muted-foreground font-medium opacity-60 uppercase tracking-tighter">{t.step4Desc}</p>
             </div>
           </div>
-          <Textarea 
-            required
-            placeholder="Descreva exatamente o que aconteceu no momento do banimento. 100% real. Não omita detalhes técnicos ou ações realizadas..."
-            className="min-h-[200px] bg-white/[0.02] border-white/10 focus:border-primary/50 text-white rounded-2xl p-8 text-sm leading-relaxed transition-all shadow-inner placeholder:text-muted-foreground/30 resize-none"
-            value={formData.reason}
-            onChange={e => setFormData({...formData, reason: e.target.value})}
-          />
-          <div className="flex items-center gap-4 p-5 bg-primary/5 border border-primary/20 rounded-2xl text-left">
-            <Sparkles className="w-6 h-6 text-primary shrink-0" />
-            <p className="text-[11px] text-primary uppercase font-black tracking-[0.1em] leading-tight">
-              Análise de Veracidade: Este relato será auditado manualmente pela nossa equipe técnica para validação do protocolo.
+          <div className="relative">
+            <Textarea 
+              required
+              placeholder="Descreva o ocorrido sem omitir detalhes..."
+              className="min-h-[160px] bg-white/[0.03] border-white/10 focus:border-primary/50 text-white rounded-xl p-6 text-xs leading-relaxed transition-all shadow-inner placeholder:text-muted-foreground/30 resize-none ring-0 focus:ring-1 focus:ring-primary/20"
+              value={formData.reason}
+              onChange={e => setFormData({...formData, reason: e.target.value})}
+            />
+            <div className="absolute bottom-4 right-4 opacity-30">
+              <Lock className="w-4 h-4 text-primary" />
+            </div>
+          </div>
+          <div className="flex items-center gap-3 p-4 bg-primary/5 border border-primary/20 rounded-xl">
+            <Sparkles className="w-5 h-5 text-primary shrink-0" />
+            <p className="text-[9px] text-primary uppercase font-black tracking-widest leading-tight">
+              Audit System: O relato será processado manualmente.
             </p>
           </div>
         </div>
 
-        {/* Botão de Envio (Azul) */}
-        <div className="pt-12 border-t border-white/5">
+        {/* Botão de Envio */}
+        <div className="pt-8 border-t border-white/5">
           <Button 
             type="submit"
             disabled={loading || !formData.email || !formData.nickname || !formData.id || !formData.reason}
-            className="w-full h-20 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-[0.3em] rounded-[1.5rem] shadow-[0_20px_40px_rgba(59,130,246,0.3)] transition-all active:scale-[0.97] disabled:opacity-30 flex items-center justify-center gap-4 text-sm"
+            className="w-full h-16 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-[0.2em] rounded-xl shadow-[0_15px_30px_rgba(59,130,246,0.3)] transition-all active:scale-[0.98] disabled:opacity-30 flex items-center justify-center gap-3 text-xs"
           >
             {loading ? (
-              <> <Loader2 className="w-6 h-6 animate-spin" /> {t.submitting} </>
+              <> <Loader2 className="w-5 h-5 animate-spin" /> {t.submitting} </>
             ) : (
-              <> <Send className="w-5 h-5" /> {t.submitButton} </>
+              <> <Send className="w-4 h-4" /> {t.submitButton} </>
             )}
           </Button>
-          <p className="mt-6 text-[9px] text-muted-foreground/40 font-bold uppercase tracking-widest text-center">
-            Encrypted Data Transmission Protected by Zephyrus Guard
-          </p>
+          <div className="mt-4 flex flex-col items-center gap-1">
+             <div className="flex items-center gap-2 opacity-30">
+              <Activity className="w-3 h-3 text-primary" />
+              <span className="text-[8px] text-muted-foreground font-bold uppercase tracking-widest">
+                Data Transmission Secured // 256-bit AES
+              </span>
+            </div>
+          </div>
         </div>
       </form>
     </div>
