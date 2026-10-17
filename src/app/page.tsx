@@ -48,14 +48,26 @@ export default function Home() {
         
         <div className="max-w-md w-full space-y-12 text-center relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
           <div className="flex justify-center">
-            <div className="w-24 h-24 bg-white/5 border border-white/10 rounded-[2rem] flex items-center justify-center relative blue-glow overflow-hidden backdrop-blur-xl animate-float">
-              <Image 
-                src="/gaspar.png" 
-                alt="Gaspar Logo" 
-                fill
-                className="object-cover p-4"
-                priority
-              />
+            <div className="relative group">
+              {/* Anéis de Energia */}
+              <div className="absolute -inset-4 border border-primary/20 rounded-full animate-[spin_10s_linear_infinite] opacity-50" />
+              <div className="absolute -inset-2 border-t-2 border-l-2 border-primary/40 rounded-full animate-[spin_4s_linear_infinite]" />
+              
+              {/* Brilho Externo */}
+              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full animate-pulse" />
+              
+              {/* Container do Logo */}
+              <div className="w-28 h-28 bg-black/40 border border-white/10 rounded-[2.5rem] flex items-center justify-center relative z-10 blue-glow backdrop-blur-2xl animate-float overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.3)]">
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-primary/5" />
+                <Image 
+                  src="/gaspar.png" 
+                  alt="Gaspar Logo" 
+                  width={80}
+                  height={80}
+                  className="relative z-20 drop-shadow-[0_0_15px_rgba(59,130,246,0.8)]"
+                  priority
+                />
+              </div>
             </div>
           </div>
 
@@ -103,13 +115,26 @@ export default function Home() {
         
         <div className="relative z-10 px-6 space-y-8">
           <div className="flex justify-center mb-8">
-             <div className="w-24 h-24 bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center relative blue-glow overflow-hidden backdrop-blur-xl animate-float">
-              <Image 
-                src="/gaspar.png" 
-                alt="Gaspar Logo" 
-                fill
-                className="object-cover p-4"
-              />
+            <div className="relative group">
+              {/* Anéis de Energia Superiores */}
+              <div className="absolute -inset-6 border border-primary/10 rounded-full animate-[spin_15s_linear_infinite] opacity-30" />
+              <div className="absolute -inset-4 border-t-2 border-r-2 border-primary/30 rounded-full animate-[spin_6s_linear_infinite]" />
+              
+              {/* Brilho de Fundo */}
+              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full animate-pulse" />
+              
+              {/* Container Principal do Logo */}
+              <div className="w-32 h-32 bg-black/40 border border-white/10 rounded-[3rem] flex items-center justify-center relative z-10 blue-glow backdrop-blur-2xl animate-float overflow-hidden shadow-[0_0_60px_rgba(59,130,246,0.4)]">
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/15 via-transparent to-primary/10" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1)_0%,transparent_70%)]" />
+                <Image 
+                  src="/gaspar.png" 
+                  alt="Gaspar Logo" 
+                  width={100}
+                  height={100}
+                  className="relative z-20 drop-shadow-[0_0_20px_rgba(59,130,246,0.8)] transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
             </div>
           </div>
           <div className="space-y-4">
