@@ -16,7 +16,11 @@ import {
   Sparkles,
   Lock,
   Terminal,
-  Activity
+  Activity,
+  MessageCircle,
+  Clock,
+  ShieldCheck,
+  ChevronRight
 } from 'lucide-react';
 import { translations, type Language } from '@/lib/translations';
 
@@ -38,7 +42,7 @@ export function RecoveryForm({ lang }: RecoveryFormProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulação de processamento para efeito visual
+    // Simulação de processamento para efeito visual de auditoria
     await new Promise(resolve => setTimeout(resolve, 3000));
     setLoading(false);
     setSuccess(true);
@@ -46,24 +50,108 @@ export function RecoveryForm({ lang }: RecoveryFormProps) {
 
   if (success) {
     return (
-      <div className="w-full py-16 px-6 text-center animate-in zoom-in-95 duration-500 glass-card rounded-[2.5rem] shadow-[0_0_100px_rgba(59,130,246,0.1)] border-primary/20">
-        <div className="flex justify-center mb-6">
-          <div className="w-20 h-20 rounded-full bg-primary/20 border-2 border-primary/50 flex items-center justify-center text-primary blue-glow">
-            <CheckCircle2 className="w-10 h-10" />
+      <div className="w-full space-y-6 animate-in zoom-in-95 duration-500">
+        <div className="glass-card rounded-[2.5rem] p-8 sm:p-12 border-primary/30 shadow-[0_0_80px_rgba(59,130,246,0.15)] text-center relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
+          
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              <div className="absolute -inset-4 bg-primary/20 blur-2xl rounded-full animate-pulse" />
+              <div className="w-20 h-20 rounded-[2rem] bg-primary/10 border-2 border-primary/50 flex items-center justify-center text-primary blue-glow relative z-10">
+                <CheckCircle2 className="w-10 h-10" />
+              </div>
+            </div>
+          </div>
+
+          <h2 className="text-3xl font-black text-white uppercase italic tracking-tighter mb-4 text-glow">
+            RELATÓRIO PROCESSADO
+          </h2>
+          
+          <div className="space-y-6 text-left mb-10">
+            <div className="p-6 bg-white/[0.02] border border-white/10 rounded-3xl space-y-4">
+              <h3 className="text-[10px] font-black text-primary uppercase tracking-[0.3em] flex items-center gap-2">
+                <Terminal className="w-3 h-3" /> RESUMO TÉCNICO ENVIADO
+              </h3>
+              <div className="grid gap-3">
+                <div className="flex justify-between items-center border-b border-white/5 pb-2">
+                  <span className="text-[9px] text-muted-foreground uppercase font-bold">E-mail de Retorno</span>
+                  <span className="text-[10px] text-white font-mono">{formData.email}</span>
+                </div>
+                <div className="flex justify-between items-center border-b border-white/5 pb-2">
+                  <span className="text-[9px] text-muted-foreground uppercase font-bold">Alvo (Nickname)</span>
+                  <span className="text-[10px] text-white font-mono">{formData.nickname}</span>
+                </div>
+                <div className="flex justify-between items-center border-b border-white/5 pb-2">
+                  <span className="text-[9px] text-muted-foreground uppercase font-bold">Identificador ID</span>
+                  <span className="text-[10px] text-white font-mono">{formData.id}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4 px-2">
+              <div className="flex gap-4">
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                  <Sparkles className="w-4 h-4 text-primary" />
+                </div>
+                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                  A <span className="text-white font-bold">Equipe do Gaspar</span> irá gerar agora um modelo de ticket <span className="text-primary font-bold">100% estruturado e estratégico</span> para ser enviado ao suporte oficial.
+                </p>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                  <Mail className="w-4 h-4 text-primary" />
+                </div>
+                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                  Assim que o suporte responder, você receberá a notificação diretamente no e-mail informado.
+                </p>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                  <Clock className="w-4 h-4 text-primary" />
+                </div>
+                <div className="space-y-1">
+                  <p className="text-[11px] text-muted-foreground leading-relaxed">
+                    O tempo mínimo de resposta é de <span className="text-white font-bold">7 dias</span>.
+                  </p>
+                  <p className="text-[9px] text-primary/60 italic">
+                    Nota: Tivemos casos de sucesso em 14 dias. A paciência é parte da estratégia.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-4 bg-primary/5 border border-primary/20 rounded-2xl flex items-start gap-3">
+                <ShieldCheck className="w-5 h-5 text-primary shrink-0" />
+                <div>
+                  <h4 className="text-[10px] font-black text-primary uppercase tracking-widest mb-1">Compromisso & Garantia</h4>
+                  <p className="text-[10px] text-primary/80 leading-tight">
+                    Se em 7 a 8 dias sua conta não for desbanida, garantimos o <span className="underline font-bold">reembolso total</span> do seu investimento.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+            <Button 
+              asChild
+              className="h-16 w-full bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-[0.2em] rounded-2xl shadow-xl shadow-primary/20 active:scale-95 transition-all text-xs flex items-center justify-center gap-3"
+            >
+              <a href="https://t.me/unbanstrategy" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="w-5 h-5" /> Falar com Suporte VIP
+              </a>
+            </Button>
+            
+            <Button 
+              variant="ghost"
+              onClick={() => window.location.reload()}
+              className="h-12 text-[9px] text-muted-foreground hover:text-white uppercase font-black tracking-widest opacity-50 hover:opacity-100"
+            >
+              Realizar novo envio técnico
+            </Button>
           </div>
         </div>
-        <h2 className="text-3xl font-black text-white uppercase italic tracking-tighter mb-4 text-glow">
-          {t.successTitle}
-        </h2>
-        <p className="text-muted-foreground text-sm mb-10 max-w-sm mx-auto leading-relaxed font-medium">
-          Seu relatório já foi enviado para a equipe do Gaspar. Aguarde o retorno via e-mail.
-        </p>
-        <Button 
-          onClick={() => window.location.reload()}
-          className="h-14 px-10 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest rounded-xl transition-all shadow-xl shadow-primary/25 active:scale-95 w-full sm:w-auto"
-        >
-          {t.successAction}
-        </Button>
       </div>
     );
   }
