@@ -82,7 +82,7 @@ const onboardingSteps = {
     },
     {
       title: "2. Relato 100% Verdadero",
-      description: "Diga exactamente cómo sucedió el baneo. El equipo de Gaspar analiza la veracidad de su relato para construir la estrategia de defensa.",
+      description: "Diga exatamente como sucedió el baneo. El equipo de Gaspar analiza la veracidad de su relato para construir la estrategia de defensa.",
       icon: Sparkles,
       tag: "EL RELATO",
       targetId: "recovery-tool"

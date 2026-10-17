@@ -43,6 +43,16 @@ export const translations = {
       waitDays: 'APÓS O ENVIO, AGUARDE OBRIGATORIAMENTE O PRAZO DE 7 A 10 DIAS PARA RESPOSTA.',
       officialChannel: 'Acessar Canal Oficial',
       premiumSupportTrigger: 'CENTRAL DE SUPORTE PREMIUM (VIP & BYPASS)'
+    },
+    orderBump: {
+      title: 'ACELERAÇÃO DE TICKET',
+      description: 'Coloque seu ticket no topo da fila de análise humana prioritária.',
+      button: 'ATIVAR PRIORIDADE'
+    },
+    bypass: {
+      title: 'BYPASS DE BANIMENTO',
+      description: 'Solução técnica avançada para restrições complexas e HWID.',
+      button: 'CONSULTAR ANALISTA'
     }
   },
   en: {
@@ -86,6 +96,16 @@ export const translations = {
       waitDays: 'AFTER SENDING, MANDATORY WAIT 7 TO 10 DAYS FOR RESPONSE.',
       officialChannel: 'Access Official Channel',
       premiumSupportTrigger: 'PREMIUM SUPPORT CENTER (VIP & BYPASS)'
+    },
+    orderBump: {
+      title: 'TICKET ACCELERATION',
+      description: 'Put your ticket at the top of the priority human analysis queue.',
+      button: 'ACTIVATE PRIORITY'
+    },
+    bypass: {
+      title: 'BAN BYPASS',
+      description: 'Advanced technical solution for complex restrictions and HWID.',
+      button: 'CONSULT ANALYST'
     }
   },
   es: {
@@ -97,7 +117,7 @@ export const translations = {
       description: 'Herramienta estratégica para generar su informe oficial de recuperación. Siga los pasos y proporcione datos exactos para el análisis.',
     },
     form: {
-      step1: '1. Identificación de Contacto',
+      step1: '1. Identificación de Contato',
       step1Desc: 'Ingrese un correo electrónico válido al que tenga acceso inmediato.',
       step2: '2. Datos de la Cuenta',
       step2Desc: 'El Nickname debe ser EXACTAMENTE igual al de la cuenta (letras, símbolos, espacios).',
@@ -128,7 +148,17 @@ export const translations = {
       systemActive: 'SISTEMA DE ENVÍO ACTIVO',
       waitDays: 'TRAS EL ENVÍO, ESPERE OBLIGATORIAMENTE DE 7 A 10 DÍAS PARA RESPUESTA.',
       officialChannel: 'Acceder al Canal Oficial',
-      premiumSupportTrigger: 'CENTRO DE SOPORTE PREMIUM (VIP & BYPASS)'
+      premiumSupportTrigger: 'CENTRO DE SUPORTE PREMIUM (VIP & BYPASS)'
+    },
+    orderBump: {
+      title: 'ACELERACIÓN DE TICKET',
+      description: 'Coloque su ticket al principio de la cola de análisis humano prioritario.',
+      button: 'ACTIVAR PRIORIDAD'
+    },
+    bypass: {
+      title: 'BYPASS DE BANEO',
+      description: 'Solución técnica avanzada para restricciones complejas y HWID.',
+      button: 'CONSULTAR ANALISTA'
     }
   }
 };
