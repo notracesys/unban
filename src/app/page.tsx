@@ -62,9 +62,8 @@ export default function Home() {
                 <Image 
                   src="/gaspar.png" 
                   alt="Gaspar Logo" 
-                  width={80}
-                  height={80}
-                  className="relative z-20 drop-shadow-[0_0_15px_rgba(59,130,246,0.8)]"
+                  fill
+                  className="relative z-20 object-cover drop-shadow-[0_0_15px_rgba(59,130,246,0.8)]"
                   priority
                 />
               </div>
@@ -130,9 +129,8 @@ export default function Home() {
                 <Image 
                   src="/gaspar.png" 
                   alt="Gaspar Logo" 
-                  width={100}
-                  height={100}
-                  className="relative z-20 drop-shadow-[0_0_20px_rgba(59,130,246,0.8)] transition-transform duration-500 group-hover:scale-110"
+                  fill
+                  className="relative z-20 object-cover drop-shadow-[0_0_20px_rgba(59,130,246,0.8)] transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
             </div>
