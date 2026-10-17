@@ -6,100 +6,21 @@ import Image from 'next/image';
 import { 
   ShieldAlert, 
   ChevronRight, 
-  LayoutGrid, 
-  Zap, 
   Sparkles,
-  Command,
   Activity,
-  X,
-  ArrowDown
+  ArrowDown,
+  Info
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
 import { translations, type Language } from '@/lib/translations';
 import { SupportWidget } from '@/components/cyber/SupportWidget';
 import { RecoveryForm } from '@/components/cyber/RecoveryForm';
 
-const onboardingSteps = {
-  pt: [
-    {
-      title: "1. Identificação Técnica",
-      description: "Forneça seu e-mail e o Nickname EXATO da conta. Espaços e símbolos importam.",
-      icon: LayoutGrid,
-      tag: "DADOS DA CONTA",
-      targetId: "recovery-form-section"
-    },
-    {
-      title: "2. O Identificador Único",
-      description: "O ID da conta é essencial para localizarmos seu registro nos servidores.",
-      icon: Sparkles,
-      tag: "O ID",
-      targetId: "recovery-form-section"
-    },
-    {
-      title: "3. O Relato Real",
-      description: "Diga exatamente como o banimento aconteceu. A verdade é a base da sua defesa.",
-      icon: Zap,
-      tag: "RELATO FINAL",
-      targetId: "recovery-form-section"
-    }
-  ],
-  en: [
-    {
-      title: "1. Technical Identification",
-      description: "Provide your email and the EXACT Nickname of the account. Spaces and symbols matter.",
-      icon: LayoutGrid,
-      tag: "ACCOUNT DATA",
-      targetId: "recovery-form-section"
-    },
-    {
-      title: "2. The Unique Identifier",
-      description: "The account ID is essential to locate your record on the servers.",
-      icon: Sparkles,
-      tag: "THE ID",
-      targetId: "recovery-form-section"
-    },
-    {
-      title: "3. The Real Story",
-      description: "Tell exactly how the ban happened. The truth is the basis of your defense.",
-      icon: Zap,
-      tag: "FINAL STORY",
-      targetId: "recovery-form-section"
-    }
-  ],
-  es: [
-    {
-      title: "1. Identificación Técnica",
-      description: "Proporcione su correo electrónico y el Nickname EXACTO de la cuenta. Los espacios y símbolos importan.",
-      icon: LayoutGrid,
-      tag: "DATOS DE LA CUENTA",
-      targetId: "recovery-form-section"
-    },
-    {
-      title: "2. El Identificador Único",
-      description: "El ID de la cuenta es esencial para localizar su registro en los servidores.",
-      icon: Sparkles,
-      tag: "EL ID",
-      targetId: "recovery-form-section"
-    },
-    {
-      title: "3. El Relato Real",
-      description: "Diga exactamente cómo sucedió el baneo. La verdad es la base de su defensa.",
-      icon: Zap,
-      tag: "RELATO FINAL",
-      targetId: "recovery-form-section"
-    }
-  ]
-};
-
 export default function Home() {
   const [language, setLanguage] = useState<Language | null>(null);
   const [hasChecked, setHasChecked] = useState(false);
-  const [showOnboarding, setShowOnboarding] = useState(false);
-  const [onboardingIndex, setOnboardingIndex] = useState(0);
 
   const t = language ? translations[language] : null;
-  const steps = language ? onboardingSteps[language] : [];
 
   useEffect(() => {
     const savedLang = localStorage.getItem('unban_strategy_lang') as Language;
@@ -112,20 +33,6 @@ export default function Home() {
   const selectLanguage = (lang: Language) => {
     setLanguage(lang);
     localStorage.setItem('unban_strategy_lang', lang);
-    setShowOnboarding(true);
-    setOnboardingIndex(0);
-  };
-
-  const nextStep = () => {
-    if (onboardingIndex < steps.length - 1) {
-      setOnboardingIndex(onboardingIndex + 1);
-    } else {
-      setShowOnboarding(false);
-    }
-  };
-
-  const finishOnboarding = () => {
-    setShowOnboarding(false);
   };
 
   if (!hasChecked) {
@@ -190,39 +97,8 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground flex flex-col items-center selection:bg-primary/30 overflow-x-hidden">
       
-      {showOnboarding && steps && steps[onboardingIndex] && (
-        <div className="fixed bottom-4 left-4 right-4 z-[150] bg-card/95 backdrop-blur-2xl border-2 border-primary/40 rounded-3xl p-5 shadow-[0_20px_50px_rgba(236,72,153,0.3)] animate-in slide-in-from-bottom-8 duration-500">
-          <div className="flex items-center justify-between mb-2">
-            <span className="px-2.5 py-0.5 bg-primary/20 border border-primary/30 text-primary text-[9px] font-black uppercase tracking-widest rounded-full">
-              {steps[onboardingIndex].tag}
-            </span>
-            <button onClick={finishOnboarding} className="text-muted-foreground hover:text-white p-1">
-              <X className="w-4 h-4" />
-            </button>
-          </div>
-          <div className="space-y-2 text-left">
-            <h4 className="text-sm font-black text-white uppercase italic flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-primary animate-pulse" />
-              {steps[onboardingIndex].title}
-            </h4>
-            <p className="text-xs text-muted-foreground/90 leading-relaxed font-medium">
-              {steps[onboardingIndex].description}
-            </p>
-          </div>
-          <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between gap-3">
-            <div className="flex gap-1">
-              {steps.map((_, idx) => (
-                <div key={idx} className={cn("h-1 rounded-full transition-all", idx === onboardingIndex ? "w-4 bg-primary" : "w-1.5 bg-white/10")} />
-              ))}
-            </div>
-            <Button size="sm" onClick={nextStep} className="bg-primary hover:bg-primary/90 text-white font-black text-[10px] uppercase tracking-wider rounded-xl h-9 px-4 shrink-0">
-              {onboardingIndex === steps.length - 1 ? "Entendido, Começar" : "Próximo Passo"}
-            </Button>
-          </div>
-        </div>
-      )}
-
-      <header className="w-full flex flex-col items-center text-center relative pt-16 pb-10">
+      {/* Header Imersivo */}
+      <header className="w-full flex flex-col items-center text-center relative pt-16 pb-12">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-primary/10 blur-[100px] rounded-full pointer-events-none opacity-50" />
         
         <div className="relative z-10 px-6 space-y-6">
@@ -243,14 +119,42 @@ export default function Home() {
           <p className="text-sm text-muted-foreground max-w-sm mx-auto font-medium">
             {t.hero.description}
           </p>
-          {showOnboarding && <div className="animate-bounce pt-4 flex justify-center"><ArrowDown className="w-6 h-6 text-primary" /></div>}
+          <div className="animate-bounce pt-8 flex flex-col items-center gap-2">
+            <span className="text-[10px] font-black text-primary uppercase tracking-widest">Preencha Abaixo</span>
+            <ArrowDown className="w-6 h-6 text-primary" />
+          </div>
         </div>
       </header>
 
-      <section id="recovery-form-section" className="w-full max-w-3xl px-4 pb-20 relative z-10">
+      {/* Guia de Preenchimento Rápido */}
+      <section className="w-full max-w-2xl px-6 mb-8">
+        <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-6 space-y-4">
+          <div className="flex items-center gap-3 text-primary">
+            <Info className="w-5 h-5" />
+            <h3 className="text-sm font-black uppercase tracking-wider italic">Guia de Preenchimento</h3>
+          </div>
+          <ul className="space-y-3">
+            {[
+              "1. Insira um e-mail válido para receber a resposta.",
+              "2. Nickname EXATO (maiúsculas, símbolos e espaços contam).",
+              "3. ID Numérico da conta conforme consta no perfil.",
+              "4. Relato REAL: Diga exatamente o que aconteceu, 100% verídico."
+            ].map((step, idx) => (
+              <li key={idx} className="text-[11px] text-muted-foreground font-medium flex gap-3">
+                <span className="text-primary font-black">{idx + 1}.</span>
+                {step}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Formulário Único Vertical */}
+      <section className="w-full max-w-3xl px-4 pb-20 relative z-10">
         <RecoveryForm lang={language} />
       </section>
 
+      {/* Footer / Security */}
       <div className="w-full max-w-xl px-6 pb-20 text-center">
         <div className="relative group p-8 rounded-[2rem] bg-white/[0.02] border border-white/10 overflow-hidden shadow-2xl">
           <div className="relative z-10 space-y-4">
