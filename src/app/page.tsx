@@ -50,8 +50,8 @@ export default function Home() {
           <div className="flex justify-center">
             <div className="w-24 h-24 bg-white/5 border border-white/10 rounded-[2rem] flex items-center justify-center relative blue-glow overflow-hidden backdrop-blur-xl animate-float">
               <Image 
-                src="/logo.png" 
-                alt="Logo" 
+                src="/gaspar.png" 
+                alt="Gaspar Logo" 
                 fill
                 className="object-cover p-4"
                 priority
@@ -105,8 +105,8 @@ export default function Home() {
           <div className="flex justify-center mb-8">
              <div className="w-24 h-24 bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center relative blue-glow overflow-hidden backdrop-blur-xl animate-float">
               <Image 
-                src="/logo.png" 
-                alt="Logo" 
+                src="/gaspar.png" 
+                alt="Gaspar Logo" 
                 fill
                 className="object-cover p-4"
               />
