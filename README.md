@@ -9,13 +9,15 @@ Sistema de recuperação estratégica de contas desenvolvido pela Equipe do Gasp
 - Genkit (IA)
 
 ## 🚀 Como fazer Push para o GitHub
-O GitHub não aceita mais a senha da conta para o terminal. Siga estes passos:
+Se o Git falhar sem pedir sua senha ou token, é porque há uma credencial antiga salva. Para corrigir, siga estes passos:
 
-1.  **Gere um Token:** Vá em [GitHub Token Settings](https://github.com/settings/tokens).
-2.  **Permissões:** Selecione `repo` (Full control of private repositories).
-3.  **Use como Senha:** Ao executar `git push`, quando solicitado o password, utilize o token gerado.
-
-Se preferir não digitar sempre, você pode configurar a URL do remote com o token:
+1.  **Gere um Token no GitHub:** Vá em [Settings > Developer Settings > Personal Access Tokens > Tokens (classic)](https://github.com/settings/tokens).
+2.  **Permissões:** Selecione a caixa `repo` (Full control of private repositories).
+3.  **Configure no Terminal:** Copie o token gerado e rode o comando abaixo no terminal do projeto:
 ```bash
-git remote set-url origin https://SEU_TOKEN@github.com/notracesys/unban.git
+git remote set-url origin https://COLE_SEU_TOKEN_AQUI@github.com/notracesys/unban.git
+```
+4.  **Faça o Push:** Agora você pode enviar suas alterações normalmente:
+```bash
+git push
 ```
