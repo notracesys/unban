@@ -15,7 +15,8 @@ import {
   Loader2,
   Sparkles,
   Lock,
-  Terminal
+  Terminal,
+  Activity
 } from 'lucide-react';
 import { translations, type Language } from '@/lib/translations';
 
